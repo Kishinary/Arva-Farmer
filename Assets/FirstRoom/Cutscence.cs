@@ -68,9 +68,8 @@ public class Cutscence : MonoBehaviour
         }
         door.GetComponent<SpriteRenderer>().sprite = OpennedDoor;
         AS.PlayOneShot(OpenSound);
-        GameObject NewPlayer = Instantiate(Player, door.transform.position - new Vector3(0, 0.1f, 0f), Quaternion.identity);
-        NewPlayer.transform.localScale = new Vector3(1.5f, 1.5f);
-        NewPlayer.GetComponent<PlayerMovement>().LockPlayerMovement();
+        GameObject NewPlayer = Instantiate(Player, door.transform.position - new Vector3(-0.05f, 0.1f, 0f), Quaternion.identity);
+        NewPlayer.transform.localScale = new Vector3(-1.5f, 1.5f);
     }
 
 }

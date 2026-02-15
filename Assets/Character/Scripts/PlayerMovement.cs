@@ -1,15 +1,26 @@
+using System.Threading;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Rendering;
 
 public class PlayerMovement : MonoBehaviour
 {
+    [Header("Movement")]
     public float movespeed = 1f;
-    Vector2 moveInput;
+    public float norMovespeed = 7f;
+    private float AttackingMovespeed = 3f;
+    public Vector2 moveInput;
 
+
+    [Header("Animation")]
     Rigidbody2D rb;
     Animator animator;
-    public float Enegrgy = 10;
+    public float LastX;
+    public float LastY;
+
+
+    [Header("Combat")]
+    private float attacktimer = 0f;    
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -19,10 +30,14 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         rb.linearVelocity = moveInput * movespeed;
+        attacktimer += Time.deltaTime;
     }
     public void Move(InputAction.CallbackContext context)
     {
         moveInput = context.ReadValue<Vector2>();
+        animator.SetFloat("InputX", moveInput.x);
+        animator.SetFloat("InputY", moveInput.y);
+
         if (moveInput.x != 0 || moveInput.y != 0)
         {
             animator.SetBool("IsMoving", true);
@@ -30,30 +45,28 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             animator.SetBool("IsMoving", false);
+            animator.SetFloat("InputX", LastX);
+            animator.SetFloat("InputY", LastY);
         }
-        if (context.performed)
+
+        if (context.canceled)
         {
-            Vector3 scale = transform.localScale;
-            if (moveInput.x > 0)
-            {
-                // Facing right
-                scale.x = Mathf.Abs(scale.x);
-            }
-            else if (moveInput.x < 0)
-            {
-                // Facing left
-                scale.x = -Mathf.Abs(scale.x);
-            }
-            transform.localScale = scale;
+            LastX = moveInput.x;
+            LastY = moveInput.y;
+            animator.SetFloat("LastX",LastX);
+            animator.SetFloat("LastY", LastY);
         }
     }
 
-    public void LockPlayerMovement()
+    public void OnAttack(InputAction.CallbackContext context)
     {
-        movespeed = 0f;
+        if (context.performed)
+        {
+            attacktimer = 0f;
+            animator.SetTrigger("Attack");
+            movespeed = AttackingMovespeed;
+        }
+        
     }
-    public void OpenPlayerMovement()
-    {
-        movespeed = 1f;
-    }
+
 }

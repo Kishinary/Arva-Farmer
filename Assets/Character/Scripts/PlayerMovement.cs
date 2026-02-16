@@ -24,6 +24,8 @@ public class PlayerMovement : MonoBehaviour
     private float nextAttackTime = 0f;
     public Vector2 attackDirection;
     public float attackType = 1f;
+
+    public bool attacked = false;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -56,17 +58,39 @@ public class PlayerMovement : MonoBehaviour
         if (context.performed && Time.time >= nextAttackTime)
         {
             animator.SetFloat("AttackX", moveInput.x);
-            animator.SetFloat("AttackY", moveInput .y);
+            animator.SetFloat("AttackY", moveInput.y);
             attackDirection = moveInput;
             nextAttackTime = Time.time + 1f / attackRate;
-            animator.SetTrigger("Attack");
             movespeed = AttackingMovespeed;
-            if (attackType == 1f)
-            {
-                rb.AddForce(transform.right * moveInput * 0.5f, ForceMode2D.Impulse);
-            }
+            WhichAttack();
         }
-        
+
     }
 
+    private void WhichAttack()
+    {
+        if (attackType == 1f)
+        {
+            rb.AddForce(moveInput.normalized * 100f, ForceMode2D.Impulse);
+            if (attacked)
+            {
+                animator.SetTrigger("Attack2");
+                attacked = false;
+            }
+            else
+            {
+                animator.SetTrigger("Attack");
+                attacked = true;
+            }
+        }
+        else if (attackType == 2)
+        {
+            animator.SetTrigger("AttackSpear");
+            if (attacked == true)
+            {
+                animator.SetTrigger("AttackSpear2");
+                attacked = false;
+            }
+        }
+    }
 }

@@ -8,7 +8,7 @@ public class PlayerMovement : MonoBehaviour
     [Header("Movement")]
     public float movespeed = 1f;
     public float norMovespeed = 7f;
-    private float AttackingMovespeed = 3f;
+    private float AttackingMovespeed = 0f;
     public Vector2 moveInput;
 
 
@@ -20,7 +20,10 @@ public class PlayerMovement : MonoBehaviour
 
 
     [Header("Combat")]
-    private float attacktimer = 0f;    
+    public float attackRate = 1f;
+    private float nextAttackTime = 0f;
+    public Vector2 attackDirection;
+    public float attackType = 1f;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -30,41 +33,38 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         rb.linearVelocity = moveInput * movespeed;
-        attacktimer += Time.deltaTime;
     }
     public void Move(InputAction.CallbackContext context)
     {
-        moveInput = context.ReadValue<Vector2>();
-        animator.SetFloat("InputX", moveInput.x);
-        animator.SetFloat("InputY", moveInput.y);
-
-        if (moveInput.x != 0 || moveInput.y != 0)
-        {
-            animator.SetBool("IsMoving", true);
-        }
-        else
-        {
-            animator.SetBool("IsMoving", false);
-            animator.SetFloat("InputX", LastX);
-            animator.SetFloat("InputY", LastY);
-        }
-
+        animator.SetBool("IsMoving", true);
         if (context.canceled)
         {
             LastX = moveInput.x;
             LastY = moveInput.y;
-            animator.SetFloat("LastX",LastX);
+            animator.SetFloat("LastX", LastX);
             animator.SetFloat("LastY", LastY);
+            animator.SetBool("IsMoving", false);
         }
+
+        moveInput = context.ReadValue<Vector2>();
+        animator.SetFloat("InputX", moveInput.x);
+        animator.SetFloat("InputY", moveInput.y);
     }
 
     public void OnAttack(InputAction.CallbackContext context)
     {
-        if (context.performed)
+        if (context.performed && Time.time >= nextAttackTime)
         {
-            attacktimer = 0f;
+            animator.SetFloat("AttackX", moveInput.x);
+            animator.SetFloat("AttackY", moveInput .y);
+            attackDirection = moveInput;
+            nextAttackTime = Time.time + 1f / attackRate;
             animator.SetTrigger("Attack");
             movespeed = AttackingMovespeed;
+            if (attackType == 1f)
+            {
+                rb.AddForce(transform.right * moveInput * 0.5f, ForceMode2D.Impulse);
+            }
         }
         
     }

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    
+    <Style src="MainMenuStyle.uss" />
+    
+    <ui:VisualElement name="Background" class="background">
+        <ui:VisualElement name="MenuContainer" class="menu-container">
+            <ui:Label text="PLAY" class="menu-item" />
+            <ui:Label text="MULTIPLAYER" class="menu-item" />
+            <ui:Label text="SAVE SLOT #1" class="menu-item" />
+            <ui:Label text="OPTIONS" class="menu-item" />
+            <ui:Label text="CINEMATICS" class="menu-item" />
+            <ui:Label text="CREDITS" class="menu-item" />
+            <ui:Label text="QUIT" class="menu-item" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+    
+</ui:UXML>

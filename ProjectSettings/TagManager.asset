@@ -53,6 +53,9 @@ TagManager:
   - name: Elevated_1
     uniqueID: 648175891
     locked: 0
+  - name: BeforePlayer
+    uniqueID: 3740829335
+    locked: 0
   - name: Player
     uniqueID: 4224362915
     locked: 0
@@ -61,6 +64,9 @@ TagManager:
     locked: 0
   - name: AfterPlayer2
     uniqueID: 2754061961
+    locked: 0
+  - name: New Layer 8
+    uniqueID: 681410321
     locked: 0
   m_RenderingLayers:
   - Default

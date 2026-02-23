@@ -13,7 +13,8 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler
     public Sprite itemSprite;
     public bool isFull;
     public string itemDescription;
-
+    [SerializeField]
+    private int maxNumberOfItems;
 
 
    
@@ -47,23 +48,55 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler
 
 
 
-    public void AddItem(string itemName, int quantity, Sprite itemSprite, string itemDescription)
+    public int AddItem(string itemName, int quantity, Sprite itemSprite, string itemDescription)
     {
+        //check if the itemslot is full 
+        if (isFull)
+        {
+            
+            return quantity;
+        }
+        //Update Name
         this.itemName = itemName;
-        this.quantity = quantity;
+        
+
+
+        //Update Sprite
         this.itemSprite = itemSprite;
+        itemImage.sprite = this.itemSprite;
+
+
+
+        //Update description
         this.itemDescription = itemDescription;
+        
 
 
-        isFull = true;
+        //Update quantity
+        this.quantity += quantity;
+        if (this.quantity >= maxNumberOfItems)
+        {
+            quantityText.text = maxNumberOfItems.ToString();
+            quantityText.enabled = true;
+            isFull = true;
 
 
-       
 
-        quantityText.text = quantity.ToString();
+
+            //Return the LEFTOVER
+            int extraItems = this.quantity - maxNumberOfItems;
+            this.quantity = maxNumberOfItems;
+            return extraItems;
+        }
+        //Update Quantity Text
+        quantityText.text = this.quantity.ToString();
         quantityText.enabled = true;
-        itemImage.sprite = itemSprite;
-       
+        
+
+
+
+        return 0;
+
     }
 
     public void OnPointerClick(PointerEventData eventData)
@@ -91,6 +124,6 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler
     }
     public void OnRightClick()
     {
-               Console.WriteLine("Right Clicked");
+        Debug.Log("Right Clicked");
     }
 }

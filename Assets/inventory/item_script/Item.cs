@@ -28,8 +28,17 @@ public class Item : MonoBehaviour
         if(collision.gameObject.tag == "Player")
         {
             //Debug.Log("Collided with player, adding item to inventory");
-            inventoryManager.AddItem(itemName, quantity, sprite, itemDescription);
-            Destroy(gameObject);
+            int leftOverItems = inventoryManager.AddItem(itemName, quantity, sprite, itemDescription);
+            
+            if (leftOverItems <= 0)
+            {
+                GetComponent<Collider2D>().enabled = false;
+                Destroy(gameObject);
+            }
+            else
+            {
+                quantity = leftOverItems;
+            }
         }
     }
 

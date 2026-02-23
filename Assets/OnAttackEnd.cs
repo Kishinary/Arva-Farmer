@@ -4,19 +4,20 @@ public class OnAttackEnd : StateMachineBehaviour
 {
     public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        var pm = animator.gameObject.GetComponent<PlayerMovement>();
+        var pm = animator.gameObject.GetComponent<PlayerWeapon>();
+        var movement = animator.gameObject.GetComponent<PlayerMovement>();
         if (pm != null)
         {
             pm.isattacking = true;
             // force attack speed immediately when animation starts
-            pm.movespeed = 0f;
+            movement.movespeed = 3f;
         }
     }
     public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         GameObject Player = GameObject.FindWithTag("Player");
         Player.GetComponent<PlayerMovement>().movespeed = Player.GetComponent<PlayerMovement>().norMovespeed;
-        Player.GetComponent<PlayerMovement>().isattacking = false;
+        Player.GetComponent<PlayerWeapon>().isattacking = false;
     }
 }
 // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state

@@ -40,7 +40,7 @@ Texture2D:
   m_ColorSpace: 1
   m_PlatformBlob: 
   image data: 1
-  _typelessdata: cd
+  _typelessdata: 00
   m_StreamData:
     serializedVersion: 2
     offset: 0
@@ -63,24 +63,24 @@ MonoBehaviour:
     m_FaceIndex: 0
     m_FamilyName: ThaleahFat
     m_StyleName: Medium
-    m_PointSize: 90
+    m_PointSize: 32
     m_Scale: 1
     m_UnitsPerEM: 1024
-    m_LineHeight: 90.52734
-    m_AscentLine: 59.941406
-    m_CapLine: 40
-    m_MeanLine: 40
+    m_LineHeight: 32.1875
+    m_AscentLine: 21.3125
+    m_CapLine: 14
+    m_MeanLine: 14
     m_Baseline: 0
-    m_DescentLine: -22.5
-    m_SuperscriptOffset: 59.941406
+    m_DescentLine: -8
+    m_SuperscriptOffset: 21.3125
     m_SuperscriptSize: 0.5
-    m_SubscriptOffset: -22.5
+    m_SubscriptOffset: -8
     m_SubscriptSize: 0.5
-    m_UnderlineOffset: -13.447266
-    m_UnderlineThickness: 4.482422
-    m_StrikethroughOffset: 16
-    m_StrikethroughThickness: 4.482422
-    m_TabWidth: 28
+    m_UnderlineOffset: -4.78125
+    m_UnderlineThickness: 1.59375
+    m_StrikethroughOffset: 5.6
+    m_StrikethroughThickness: 1.59375
+    m_TabWidth: 10
   m_Material: {fileID: 4147110097323617078}
   m_SourceFontFileGUID: ac750909d96903d4381e41b27407aca1
   m_CreationSettings:
@@ -88,7 +88,7 @@ MonoBehaviour:
     sourceFontFileGUID: ac750909d96903d4381e41b27407aca1
     faceIndex: 0
     pointSizeSamplingMode: 0
-    pointSize: 90
+    pointSize: 32
     padding: 9
     paddingMode: 2
     packingMode: 0

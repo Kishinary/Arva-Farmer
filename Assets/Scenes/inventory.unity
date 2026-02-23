@@ -5810,6 +5810,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 4512795879701468363}
     m_Modifications:
     - target: {fileID: 1201461095947097508, guid: 7b24f7fec7cb52448ae124b562c24b96, type: 3}
+      propertyPath: maxNumberOfItems
+      value: 36
+      objectReference: {fileID: 0}
+    - target: {fileID: 1201461095947097508, guid: 7b24f7fec7cb52448ae124b562c24b96, type: 3}
       propertyPath: itemDescriptionText
       value: 
       objectReference: {fileID: 511089790}

@@ -163,8 +163,8 @@ MonoBehaviour:
     m_ActionName: 'Player/Look[/Mouse/delta,/Touchscreen/delta,/Pen/delta]'
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3851159872688865254}
-        m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
+      - m_Target: {fileID: 4225564468891074213}
+        m_TargetAssemblyTypeName: PlayerWeapon, Assembly-CSharp
         m_MethodName: OnAttack
         m_Mode: 0
         m_Arguments:
@@ -283,7 +283,6 @@ MonoBehaviour:
   LastX: 0
   LastY: 0
   attacked: 0
-  WeaponManager: {fileID: 0}
 --- !u!114 &7693785135991531426
 MonoBehaviour:
   m_ObjectHideFlags: 0

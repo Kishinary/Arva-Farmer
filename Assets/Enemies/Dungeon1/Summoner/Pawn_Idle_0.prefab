@@ -104,7 +104,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 2
   keepDistance: 5
-  minionPrefab: {fileID: 4716533032613820299, guid: 9ec2bf018e9e57a428e91491d8da62cc, type: 3}
+  minionPrefab: {fileID: 0}
   summonCount: 2
   summonCooldown: 4
   castTime: 1.5
@@ -148,5 +148,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 822c41bea48c4bb4da046b40b617a755, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemyHealth: 20
-  hpMultiplier: 1
+  health: 20
+  knockbackForce: 8
+  invincible: 0

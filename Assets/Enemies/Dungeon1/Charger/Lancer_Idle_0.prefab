@@ -147,8 +147,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 822c41bea48c4bb4da046b40b617a755, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemyHealth: 20
-  hpMultiplier: 1
+  health: 20
+  knockbackForce: 8
+  invincible: 0
 --- !u!70 &8140377474725241663
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

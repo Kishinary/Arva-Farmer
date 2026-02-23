@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4636064570818637928}
   - component: {fileID: 6234173631846043674}
   - component: {fileID: 2219136545002770207}
+  - component: {fileID: 8517840438445070861}
   m_Layer: 0
   m_Name: Warrior_Idle_0
   m_TagString: Enemy
@@ -114,8 +115,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 822c41bea48c4bb4da046b40b617a755, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemyHealth: 20
-  hpMultiplier: 1
+  health: 20
+  knockbackForce: 8
+  invincible: 0
 --- !u!70 &2219136545002770207
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -153,3 +155,30 @@ CapsuleCollider2D:
   m_Offset: {x: -0.100259945, y: -0.5213478}
   m_Size: {x: 0.67449254, y: 0.37918285}
   m_Direction: 1
+--- !u!50 &8517840438445070861
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4716533032613820299}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0

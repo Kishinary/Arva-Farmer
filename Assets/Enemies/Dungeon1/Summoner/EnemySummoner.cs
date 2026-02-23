@@ -52,6 +52,8 @@ public class EnemySummoner : MonoBehaviour
         {
             yield return new WaitForSeconds(summonCooldown);
 
+            if (this == null) yield break;
+
             if (!isCasting)
                 StartCoroutine(Summon());
         }
@@ -74,5 +76,9 @@ public class EnemySummoner : MonoBehaviour
         }
 
         isCasting = false;
+    }
+    void OnDestroy()
+    {
+        StopAllCoroutines();
     }
 }

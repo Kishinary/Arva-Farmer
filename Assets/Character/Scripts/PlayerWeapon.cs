@@ -60,10 +60,12 @@ public class PlayerWeapon : MonoBehaviour
             {
                 animator.SetTrigger("Attack2");
                 attacked = false;
+                DoDamage();
             }
             else
             {
                 animator.SetTrigger("Attack");
+                DoDamage();
                 StartCoroutine(SwordCooldown());
             }
         }
@@ -101,6 +103,24 @@ public class PlayerWeapon : MonoBehaviour
         else
         {
             snappedDir = new Vector2(0, Mathf.Sign(dir.y));
+        }
+    }
+
+    void DoDamage()
+    {
+        Vector2 hitPos = (Vector2)transform.position + snappedDir * attackDistance;
+
+        Collider2D[] hits = Physics2D.OverlapCircleAll(hitPos, attackRadius);
+
+        foreach (Collider2D hit in hits)
+        {
+            if (hit.CompareTag("Enemy"))
+            {
+                EnemyStats enemy = hit.GetComponent<EnemyStats>();
+
+                if (enemy != null)
+                    enemy.TakeDamage(transform.position, damage);
+            }
         }
     }
 }

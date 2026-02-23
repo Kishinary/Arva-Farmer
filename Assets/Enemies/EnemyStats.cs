@@ -1,6 +1,6 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.UI; // Bắt buộc phải có để điều khiển Slider
+using UnityEngine.UI;
 
 public class EnemyStats : MonoBehaviour
 {
@@ -8,21 +8,31 @@ public class EnemyStats : MonoBehaviour
     public float health = 20;
     private float maxHealth;
     public bool invincible = false;
+    [SerializeField] private float invincibilityDuration = 0.5f;
+
+    [Header("Flash Settings")]
+    [SerializeField] private Material flashMaterial; 
+    [SerializeField] private float flashDuration = 0.15f;
 
     [Header("Knockback Settings")]
     public float knockbackForce = 8f;
 
     [Header("UI References")]
-    public Slider healthSlider; // Kéo Slider từ Hierarchy vào đây
+    public Slider healthSlider;
 
-    Rigidbody2D rb;
+    private Rigidbody2D rb;
+    private SpriteRenderer sr;
+    private Material originalMaterial;
+    private Coroutine flashRoutine;
 
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        sr = GetComponent<SpriteRenderer>();
+        
         maxHealth = health;
+        originalMaterial = sr.material; // Lưu Material gốc chuẩn
 
-        // Khởi tạo thanh máu
         if (healthSlider != null)
         {
             healthSlider.maxValue = maxHealth;
@@ -32,13 +42,13 @@ public class EnemyStats : MonoBehaviour
 
     void Update()
     {
-        // Giữ thanh máu luôn nằm ngang ngay cả khi Enemy quay mặt (Flip)
-        if (healthSlider != null)
+        // Giữ thanh máu không bị xoay theo Enemy
+        if (healthSlider != null && healthSlider.transform.parent != null)
         {
             healthSlider.transform.parent.rotation = Quaternion.identity;
         }
 
-        // PHÍM TEST: Bấm Space để tự trừ 2 máu
+        // Test phím Space
         if (Input.GetKeyDown(KeyCode.Space))
         {
             TakeDamage(Vector2.zero, 2);
@@ -50,8 +60,10 @@ public class EnemyStats : MonoBehaviour
         if (invincible || health <= 0) return;
 
         health -= damage;
+        
+        // Luôn ưu tiên hiệu ứng Flash White khi trúng đòn
+        TriggerFlash();
 
-        // Cập nhật giá trị Slider
         if (healthSlider != null)
         {
             healthSlider.value = health;
@@ -61,7 +73,7 @@ public class EnemyStats : MonoBehaviour
         if (hitSource != Vector2.zero)
         {
             Vector2 knockbackDir = (transform.position - (Vector3)hitSource).normalized;
-            rb.linearVelocity = Vector2.zero; // Reset vận tốc cũ
+            rb.linearVelocity = Vector2.zero; 
             rb.AddForce(knockbackDir * knockbackForce, ForceMode2D.Impulse);
         }
 
@@ -71,28 +83,51 @@ public class EnemyStats : MonoBehaviour
         }
         else
         {
-            StartCoroutine(Invincibility());
+            StartCoroutine(InvincibilityRoutine());
         }
     }
 
-    IEnumerator Invincibility()
+    private void TriggerFlash()
+    {
+        if (flashRoutine != null) StopCoroutine(flashRoutine);
+        flashRoutine = StartCoroutine(FlashRoutine());
+    }
+
+    private IEnumerator FlashRoutine()
+    {
+        // Bước 1: Hiện màu trắng tinh
+        sr.material = flashMaterial; 
+        sr.color = Color.white; // Đảm bảo Alpha luôn là 1 khi Flash
+
+        yield return new WaitForSeconds(flashDuration);
+
+        // Bước 2: Trả về Material gốc ngay lập tức
+        sr.material = originalMaterial; 
+        flashRoutine = null;
+    }
+
+    private IEnumerator InvincibilityRoutine()
     {
         invincible = true;
-        
-        // Hiệu ứng nhấp nháy đơn giản (tùy chọn)
-        SpriteRenderer sr = GetComponent<SpriteRenderer>();
-        if (sr != null) sr.color = new Color(1, 1, 1, 0.5f);
-        
-        yield return new WaitForSeconds(0.5f);
-        
-        if (sr != null) sr.color = Color.white;
+
+        // Hiệu ứng hình ảnh khi bất tử: Nhấp nháy nhẹ (tùy chọn)
+        // Thay vì chỉnh Alpha 0.5 cố định, ta có thể cho quái nhấp nháy 
+        float timer = 0;
+        while (timer < invincibilityDuration)
+        {
+            // Nếu không muốn nhấp nháy, bạn có thể xóa đoạn switch color này
+            // sr.enabled = !sr.enabled; // Cách nhấp nháy cổ điển (ẩn/hiện)
+            yield return new WaitForSeconds(0.05f);
+            timer += 0.05f;
+        }
+
+        sr.enabled = true; // Đảm bảo cuối cùng Sprite luôn hiện
         invincible = false;
     }
 
     void Die()
     {
-        Debug.Log("Enemy Died!");
-        // Có thể thêm hiệu ứng nổ ở đây
+        // Có thể thêm hiệu ứng nổ tại đây
         Destroy(gameObject);
     }
 }

@@ -7,9 +7,7 @@ using UnityEngine.Rendering;
 public class PlayerMovement : MonoBehaviour
 {
     [Header("Movement")]
-    public float movespeed = 1f;
-    public float norMovespeed = 7f;
-    //private float AttackingMovespeed = 0f;
+    public float movespeed = 10f;
     public Vector2 moveInput;
     private Camera mainCamera;
 
@@ -24,8 +22,6 @@ public class PlayerMovement : MonoBehaviour
     [Header("Combat")]
     public WeaponParent weaponParent;
     public InputActionReference pointerPosition;
-    private TestScript testscript;
-
     Vector2 pointerInput;
     void Start()
     {
@@ -34,8 +30,6 @@ public class PlayerMovement : MonoBehaviour
         weaponParent = GetComponentInChildren<WeaponParent>();
         mainCamera = Camera.main;
 
-
-        testscript = GetComponentInChildren<TestScript>();
     }
 
     private void FixedUpdate()
@@ -96,12 +90,6 @@ public class PlayerMovement : MonoBehaviour
         }
         
     }
-
-
-
-
-
-
     public Vector2 GetPointerInput()
     {
         Vector3 mousePos = pointerPosition.action.ReadValue<Vector2>();

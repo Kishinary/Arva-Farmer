@@ -16,7 +16,7 @@ public class OnAttackEnd : StateMachineBehaviour
     public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         GameObject Player = GameObject.FindWithTag("Player");
-        Player.GetComponent<PlayerMovement>().movespeed = Player.GetComponent<PlayerMovement>().norMovespeed;
+        //Player.GetComponent<PlayerMovement>().movespeed = Player.GetComponent<PlayerMovement>().norMovespeed;
         Player.GetComponent<PlayerWeapon>().isattacking = false;
     }
 }

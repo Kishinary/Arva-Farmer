@@ -11,49 +11,63 @@ public class PlayerMovement : MonoBehaviour
     public float norMovespeed = 7f;
     //private float AttackingMovespeed = 0f;
     public Vector2 moveInput;
-
+    private Camera mainCamera;
 
     [Header("Animation")]
     Rigidbody2D rb;
     Animator animator;
     public float LastX;
     public float LastY;
+    public Vector2 snappedDir = Vector2.down;
 
 
     [Header("Combat")]
-    public bool attacked = false;
-    private Camera mainCamera;
-    private PlayerWeapon WeaponManager;
+    public WeaponParent weaponParent;
+    public InputActionReference pointerPosition;
+    private TestScript testscript;
+
+    Vector2 pointerInput;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        weaponParent = GetComponentInChildren<WeaponParent>();
         mainCamera = Camera.main;
-        WeaponManager = GetComponent<PlayerWeapon>();
+
+
+        testscript = GetComponentInChildren<TestScript>();
     }
 
-    void Update()
+    private void FixedUpdate()
     {
         //if (!WeaponManager.isattacking)
         //{
-         rb.linearVelocity = moveInput * movespeed;
+        rb.linearVelocity = moveInput * movespeed;
         //}
+    }
+
+
+
+
+    void Update()
+    {
+        pointerInput = GetPointerInput();
+        weaponParent.PointerPosition = pointerInput;
+        UpdateMouseDirection();
+        animator.SetFloat("InputX", snappedDir.x);
+        animator.SetFloat("InputY", snappedDir.y);
+        animator.SetFloat("LastX", snappedDir.x);
+        animator.SetFloat("LastY", snappedDir.y);
     }
     public void Move(InputAction.CallbackContext context)
     {
         animator.SetBool("IsMoving", true);
         if (context.canceled)
         {
-            LastX = moveInput.x;
-            LastY = moveInput.y;
-            animator.SetFloat("LastX", LastX);
-            animator.SetFloat("LastY", LastY);
             animator.SetBool("IsMoving", false);
         }
 
         moveInput = context.ReadValue<Vector2>();
-        animator.SetFloat("InputX", moveInput.x);
-        animator.SetFloat("InputY", moveInput.y);
     }
     public void OnInteract(InputAction.CallbackContext context)
     {
@@ -71,6 +85,47 @@ public class PlayerMovement : MonoBehaviour
                     return;
                 }
             }
+        }
+    }
+
+
+    public void OnAttackNewWeapon(InputAction.CallbackContext context)
+    {
+        if (context.performed) {
+            weaponParent.Attack();
+        }
+        
+    }
+
+
+
+
+
+
+    public Vector2 GetPointerInput()
+    {
+        Vector3 mousePos = pointerPosition.action.ReadValue<Vector2>();
+        mousePos.z = Camera.main.nearClipPlane;
+
+        return Camera.main.ScreenToWorldPoint(mousePos);
+    }
+
+    void UpdateMouseDirection()
+    {
+        if (Mouse.current == null) return;
+        Vector3 mouseWorld = mainCamera.ScreenToWorldPoint(Mouse.current.position.ReadValue());
+        mouseWorld.z = 0f;
+
+        Vector2 dir = mouseWorld - transform.position;
+        dir.Normalize();
+
+        if (Mathf.Abs(dir.x) > Mathf.Abs(dir.y))
+        {
+            snappedDir = new Vector2(Mathf.Sign(dir.x), 0);
+        }
+        else
+        {
+            snappedDir = new Vector2(0, Mathf.Sign(dir.y));
         }
     }
 }

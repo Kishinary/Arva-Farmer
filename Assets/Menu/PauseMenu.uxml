@@ -1,0 +1,16 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/Menu/PauseMenuSettings.uss?fileID=7433441132597879392&amp;guid=3f8c3756ec9207646933c8e555edee4b&amp;type=3#PauseMenuSettings" />
+    <ui:VisualElement name="PauseMenuContainer" class="pause-container" style="-unity-font-definition: url(&quot;project://database/Assets/TextMesh%20Pro/Fonts/ThaleahFat.ttf?fileID=12800000&amp;guid=ac750909d96903d4381e41b27407aca1&amp;type=3#ThaleahFat&quot;);">
+        <ui:VisualElement class="menu-box">
+            <ui:Label text="PAUSE" class="pause-header" />
+            <ui:VisualElement name="ResumeRow" class="menu-row">
+                <ui:VisualElement class="selection-dot" />
+                <ui:Label text="RESUME" class="menu-item" />
+            </ui:VisualElement>
+            <ui:VisualElement name="QuitRow" class="menu-row">
+                <ui:VisualElement class="selection-dot" />
+                <ui:Label text="MAIN MENU" class="menu-item" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

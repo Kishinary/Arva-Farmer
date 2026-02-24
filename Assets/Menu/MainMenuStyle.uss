@@ -1,0 +1,37 @@
+.background {
+    flex-grow: 1;
+    align-items: center;
+    justify-content: flex-end;
+    padding-bottom: 60px;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.menu-container {
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+}
+
+.menu-item {
+    -unity-font-definition: url("project://database/Assets/TextMesh%20Pro/Fonts/ThaleahFat.ttf?fileID=12800000&guid=ac750909d96903d4381e41b27407aca1&type=3#ThaleahFat");
+    font-size: 32px;
+    -unity-font-style: bold;
+    color: rgb(165, 135, 220);
+    margin-top: 2px;
+    margin-bottom: 2px;
+    padding: 0;
+    text-shadow: 2px 2px 0 rgb(0, 0, 0);
+    transition-property: scale, color;
+    transition-duration: 0.1s;
+    transform-origin: center;
+    -unity-text-align: lower-center;
+    white-space: normal;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu-item:hover {
+    color: rgb(0, 255, 255);
+    scale: 1.1 1.1;
+}

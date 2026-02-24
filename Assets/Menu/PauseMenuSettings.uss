@@ -1,0 +1,49 @@
+.pause-container {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: rgba(0, 0, 0, 0.6); 
+    justify-content: center;
+    align-items: center;
+    display: none;
+}
+
+.menu-box {
+    background-color: rgba(0, 150, 150, 0.9);
+    padding: 30px 50px;
+    border-radius: 10px;
+    border-width: 2px;
+    border-color: white;
+    align-items: center;
+    min-width: 320px;
+}
+
+.pause-header {
+    font-size: 32px; /* Chữ nhỏ gọn */
+    color: white;
+    -unity-font-style: bold;
+    margin-bottom: 20px;
+}
+
+.menu-row {
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+.menu-item {
+    font-size: 20px; /* Chữ nhỏ lại */
+    color: white;
+    -unity-font-style: bold;
+}
+
+.selection-dot {
+    width: 8px; height: 8px;
+    background-color: yellow;
+    border-radius: 4px;
+    margin-right: 12px;
+    opacity: 0;
+}
+
+.menu-row:hover .selection-dot { opacity: 1; }
+.menu-row:hover .menu-item { color: yellow; }

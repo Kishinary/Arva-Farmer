@@ -1,5 +1,8 @@
 using JetBrains.Annotations;
+using Unity.VisualScripting.FullSerializer;
 using UnityEngine;
+using System.Collections.Generic;
+using System.Collections;
 
 
 
@@ -11,11 +14,20 @@ public class DashAbility : Ability
 
     public override void Activate(GameObject parent)
     {
-        Debug.Log("Ability Activated: " + name);
         PlayerMovement movement = parent.GetComponent<PlayerMovement>();
-        Rigidbody2D rigidbody = parent.GetComponent<Rigidbody2D>();
+        /*
+        Debug.Log("Dashing is not added in movement script ----- KBUG -----");
+        */
+        Debug.Log(movement.norMovespeed);
 
-        rigidbody.velocity = movement.moveInput.normalized * dashVelocity; 
+
+
+
     }
-    
+    public override void BeginCoolDown(GameObject parent)
+    {
+        
+        
+       
+    }
 }

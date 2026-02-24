@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 
 public class AbilityHolder : MonoBehaviour
 {
@@ -27,37 +28,43 @@ public class AbilityHolder : MonoBehaviour
             case AbilityState.ready:
                 if (Input.GetKeyDown(key))
                 {
+                    
                     ability.Activate(gameObject);
                     state = AbilityState.active;
                     activeTime = ability.activeTime;
+                    
                 }
                 break;
             case AbilityState.active:
-                if (activeTime > 0)
-                {
+                
+                
                     if(activeTime > 0)
                     {
+                        
                         activeTime -= Time.deltaTime;
                     }
                     else
-                    {
+                    {   
+                        
+                        ability.BeginCoolDown(gameObject);
                         state = AbilityState.cooldown;
                         cooldownTime = ability.cooldownTime;
                     }
-                }
+                
                 break;
             case AbilityState.cooldown:
-                if (activeTime > 0)
-                {
+               
                     if (cooldownTime > 0)
                     {
+                        
                         cooldownTime -= Time.deltaTime;
                     }
                     else
-                    {
-                        state = AbilityState.ready;
+                    {   
+                        
+                    state = AbilityState.ready;
                     }
-                }
+                
                 break;
         }
     }

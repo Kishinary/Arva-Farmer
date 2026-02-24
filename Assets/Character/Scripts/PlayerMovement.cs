@@ -24,6 +24,11 @@ public class PlayerMovement : MonoBehaviour
     public bool attacked = false;
     private Camera mainCamera;
     private PlayerWeapon WeaponManager;
+
+
+
+    //dashing, dong vao dashing lam cho
+    [HideInInspector] public bool isDashing = false;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();

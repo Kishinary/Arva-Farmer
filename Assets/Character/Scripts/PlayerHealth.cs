@@ -1,20 +1,38 @@
-using System; // Cần thiết để dùng Action
+using System;
 using System.Collections;
 using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
 {
+    // Biến static giúp lưu giá trị máu trong bộ nhớ ngay cả khi chuyển Scene
+    public static float SavedHealth = 100f; 
+    public static bool IsFirstLoad = true; // Để biết có nên reset máu về Max hay không
+
     public float Health;
     public float MaxHealth = 100f;
     public bool invincible = false;
 
-    // Sự kiện này sẽ báo cho UI biết: "Này, máu vừa đổi đấy, vẽ lại đi!"
     public static event Action<float, float> OnHealthChanged;
+
+    void Awake()
+    {
+        // 1. Nếu là lần đầu tiên chạy game, đặt máu bằng MaxHealth
+        if (IsFirstLoad)
+        {
+            Health = MaxHealth;
+            SavedHealth = MaxHealth;
+            IsFirstLoad = false;
+        }
+        else
+        {
+            // 2. Nếu chuyển từ Scene khác sang, lấy lại lượng máu đã lưu
+            Health = SavedHealth;
+        }
+    }
 
     void Start()
     {
-        Health = MaxHealth;
-        // Gửi thông báo ban đầu để UI hiển thị 100%
+        // Gửi thông báo để UI cập nhật ngay khi vào Scene mới
         OnHealthChanged?.Invoke(Health, MaxHealth);
     }
 
@@ -23,9 +41,11 @@ public class PlayerHealth : MonoBehaviour
         if (invincible) return;
 
         Health -= Damage;
-        Health = Mathf.Max(Health, 0); // Đảm bảo máu không âm
+        Health = Mathf.Max(Health, 0);
 
-        // Phát tín hiệu thay đổi máu
+        // Cập nhật vào biến tĩnh để lưu trữ cho Scene sau
+        SavedHealth = Health;
+
         OnHealthChanged?.Invoke(Health, MaxHealth);
 
         if (Health <= 0)
@@ -40,7 +60,8 @@ public class PlayerHealth : MonoBehaviour
 
     private void Die()
     {
-        // Xử lý chết ở đây (Play hiệu ứng, chuyển scene...)
+        // Reset lại dữ liệu khi chết để lần sau chơi lại có đủ máu
+        IsFirstLoad = true;
         Destroy(this.gameObject);
     }
 

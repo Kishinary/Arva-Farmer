@@ -21,7 +21,7 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Combat")]
     public WeaponParent weaponParent;
-    public InputActionReference pointerPosition;
+    public InputAction pointerPosition;
     Vector2 pointerInput;
     void Start()
     {
@@ -29,7 +29,7 @@ public class PlayerMovement : MonoBehaviour
         animator = GetComponent<Animator>();
         weaponParent = GetComponentInChildren<WeaponParent>();
         mainCamera = Camera.main;
-
+        pointerPosition = GetComponent<PlayerInput>().actions.FindActionMap("Player").FindAction("pointerPosition");
     }
 
     private void FixedUpdate()
@@ -92,7 +92,7 @@ public class PlayerMovement : MonoBehaviour
     }
     public Vector2 GetPointerInput()
     {
-        Vector3 mousePos = pointerPosition.action.ReadValue<Vector2>();
+        Vector3 mousePos = pointerPosition.ReadValue<Vector2>();
         mousePos.z = Camera.main.nearClipPlane;
 
         return Camera.main.ScreenToWorldPoint(mousePos);

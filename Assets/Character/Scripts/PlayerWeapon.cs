@@ -69,15 +69,6 @@ public class PlayerWeapon : MonoBehaviour
                 StartCoroutine(SwordCooldown());
             }
         }
-        else if (attackType == 2)
-        {
-            animator.SetTrigger("AttackSpear");
-            if (attacked == true)
-            {
-                animator.SetTrigger("AttackSpear2");
-                attacked = false;
-            }
-        }
     }
 
     IEnumerator SwordCooldown()

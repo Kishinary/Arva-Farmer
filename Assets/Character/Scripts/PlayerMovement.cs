@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Threading;
 using UnityEngine;
@@ -17,26 +18,48 @@ public class PlayerMovement : MonoBehaviour
     public float LastX;
     public float LastY;
     public Vector2 snappedDir = Vector2.down;
+    public PlayerInput playerInput;
 
 
     [Header("Combat")]
-    public WeaponParent weaponParent;
     public InputAction pointerPosition;
     Vector2 pointerInput;
+
+
+    [Header("Combat-related Components")]
+    public Shovel shovel;
+    public WeaponParent weaponParent;
+
+    public int PlayerWeapon;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         weaponParent = GetComponentInChildren<WeaponParent>();
-        mainCamera = Camera.main;
         pointerPosition = GetComponent<PlayerInput>().actions.FindActionMap("Player").FindAction("pointerPosition");
+
+
+        mainCamera = Camera.main;
+
+
+
+        if (PlayerWeapon == 1)
+        {
+            shovel = GetComponentInChildren<Shovel>();
+        }
+    }
+    private void Awake()
+    {
+        playerInput = GetComponent<PlayerInput>();
+
     }
 
     private void FixedUpdate()
     {
+            rb.linearVelocity = moveInput * movespeed;
         //if (!WeaponManager.isattacking)
         //{
-        rb.linearVelocity = moveInput * movespeed;
         //}
     }
 
@@ -46,7 +69,7 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         pointerInput = GetPointerInput();
-        weaponParent.PointerPosition = pointerInput;
+        //weaponParent.PointerPosition = pointerInput;
         UpdateMouseDirection();
         animator.SetFloat("InputX", snappedDir.x);
         animator.SetFloat("InputY", snappedDir.y);
@@ -86,7 +109,17 @@ public class PlayerMovement : MonoBehaviour
     public void OnAttackNewWeapon(InputAction.CallbackContext context)
     {
         if (context.performed) {
-            weaponParent.Attack();
+            if (PlayerWeapon == 1)
+            {
+                shovel.attack();
+            }
+            else if (PlayerWeapon == 2) {
+                return;
+            }
+            else
+            {
+                return;
+            }
         }
         
     }
@@ -115,5 +148,23 @@ public class PlayerMovement : MonoBehaviour
         {
             snappedDir = new Vector2(0, Mathf.Sign(dir.y));
         }
+    }
+
+    public void DisablePlayerInput()
+    {
+        if (playerInput != null)
+        {
+            playerInput.DeactivateInput();
+        }
+        else
+        {
+            Debug.LogWarning("PlayerInput is missing from the script!");
+        }
+        pointerInput = Vector3.zero;
+    }
+    public void EnablePlayerInput()
+    {
+        playerInput.ActivateInput();
+        pointerInput = GetPointerInput();
     }
 }

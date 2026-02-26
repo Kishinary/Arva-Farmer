@@ -1,0 +1,806 @@
+fileFormatVersion: 2
+guid: 3efab488fc2fc3848ac079f400fb964e
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -5253021402717179167
+    second: waterpot_0
+  - first:
+      213: 3869929673741399944
+    second: waterpot_1
+  - first:
+      213: 7755916925697119895
+    second: waterpot_2
+  - first:
+      213: 5520598280292335250
+    second: waterpot_3
+  - first:
+      213: 6523630805140079469
+    second: waterpot_4
+  - first:
+      213: -3583769715354859258
+    second: waterpot_5
+  - first:
+      213: -1342780778191957624
+    second: waterpot_6
+  - first:
+      213: -245121924942162246
+    second: waterpot_7
+  - first:
+      213: -5102578299540542245
+    second: waterpot_8
+  - first:
+      213: 6369336227080191851
+    second: waterpot_9
+  - first:
+      213: -8857179638609654708
+    second: waterpot_10
+  - first:
+      213: 8237117791967119170
+    second: waterpot_11
+  - first:
+      213: 5645010402765422037
+    second: waterpot_12
+  - first:
+      213: 1704492169062095388
+    second: waterpot_13
+  - first:
+      213: 720162681327493197
+    second: waterpot_14
+  - first:
+      213: 7130731689351099131
+    second: waterpot_15
+  - first:
+      213: -1631605297077610519
+    second: waterpot_16
+  - first:
+      213: 8008665747739987676
+    second: waterpot_17
+  - first:
+      213: -5861623058405117217
+    second: waterpot_18
+  - first:
+      213: -1012206079394712186
+    second: waterpot_19
+  - first:
+      213: -6450120045681584210
+    second: waterpot_20
+  - first:
+      213: -4111848272262404417
+    second: waterpot_21
+  - first:
+      213: 2382720592140105740
+    second: waterpot_22
+  - first:
+      213: 5991678152953630553
+    second: waterpot_23
+  - first:
+      213: 7057906133307967890
+    second: waterpot_24
+  - first:
+      213: 7322587991078293185
+    second: waterpot_25
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 64
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: waterpot_0
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 352
+        width: 19
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1e2b48dadd48917b0800000000000000
+      internalID: -5253021402717179167
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: waterpot_1
+      rect:
+        serializedVersion: 2
+        x: 116
+        y: 353
+        width: 20
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8877915d880c4b530800000000000000
+      internalID: 3869929673741399944
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: waterpot_2
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 351
+        width: 21
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 796dd9fe95d82ab60800000000000000
+      internalID: 7755916925697119895
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: waterpot_3
+      rect:
+        serializedVersion: 2
+        x: 276
+        y: 351
+        width: 19
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 29ef474f2ea1d9c40800000000000000
+      internalID: 5520598280292335250
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: waterpot_4
+      rect:
+        serializedVersion: 2
+        x: 356
+        y: 351
+        width: 19
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d638b2257a7988a50800000000000000
+      internalID: 6523630805140079469
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: waterpot_5
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 272
+        width: 19
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 60988777e64e34ec0800000000000000
+      internalID: -3583769715354859258
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: waterpot_6
+      rect:
+        serializedVersion: 2
+        x: 116
+        y: 272
+        width: 19
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 88155a02ffb7d5de0800000000000000
+      internalID: -1342780778191957624
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: waterpot_7
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 272
+        width: 19
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ab6992178e6299cf0800000000000000
+      internalID: -245121924942162246
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: waterpot_8
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 262
+        width: 8
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bdce44932100039b0800000000000000
+      internalID: -5102578299540542245
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: waterpot_9
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 266
+        width: 8
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b6f34266d8d646850800000000000000
+      internalID: 6369336227080191851
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: waterpot_10
+      rect:
+        serializedVersion: 2
+        x: 350
+        y: 258
+        width: 14
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c4c49d8cb0af41580800000000000000
+      internalID: -8857179638609654708
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: waterpot_11
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 180
+        width: 21
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 247004b5dfe105270800000000000000
+      internalID: 8237117791967119170
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: waterpot_12
+      rect:
+        serializedVersion: 2
+        x: 109
+        y: 182
+        width: 15
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5ddb7328d0b175e40800000000000000
+      internalID: 5645010402765422037
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: waterpot_13
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 182
+        width: 8
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c1a9163d89297a710800000000000000
+      internalID: 1704492169062095388
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: waterpot_14
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 182
+        width: 8
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d40a401a4288ef900800000000000000
+      internalID: 720162681327493197
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: waterpot_15
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 182
+        width: 8
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bf2b464f0b275f260800000000000000
+      internalID: 7130731689351099131
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: waterpot_16
+      rect:
+        serializedVersion: 2
+        x: 121
+        y: 112
+        width: 8
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9e71b0e70af5b59e0800000000000000
+      internalID: -1631605297077610519
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: waterpot_17
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 125
+        width: 14
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cde41ead01f742f60800000000000000
+      internalID: 8008665747739987676
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: waterpot_18
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 112
+        width: 8
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fd2368472e457aea0800000000000000
+      internalID: -5861623058405117217
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: waterpot_19
+      rect:
+        serializedVersion: 2
+        x: 274
+        y: 112
+        width: 21
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 685ff260febe3f1f0800000000000000
+      internalID: -1012206079394712186
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: waterpot_20
+      rect:
+        serializedVersion: 2
+        x: 358
+        y: 112
+        width: 15
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ea7d58e1ef19c76a0800000000000000
+      internalID: -6450120045681584210
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: waterpot_21
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 102
+        width: 8
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fb6ee7928c7cfe6c0800000000000000
+      internalID: -4111848272262404417
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: waterpot_22
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 32
+        width: 8
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c08f48d11cf111120800000000000000
+      internalID: 2382720592140105740
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: waterpot_23
+      rect:
+        serializedVersion: 2
+        x: 121
+        y: 32
+        width: 8
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 95f054be887b62350800000000000000
+      internalID: 5991678152953630553
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: waterpot_24
+      rect:
+        serializedVersion: 2
+        x: 201
+        y: 32
+        width: 8
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2994fdddb38b2f160800000000000000
+      internalID: 7057906133307967890
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: waterpot_25
+      rect:
+        serializedVersion: 2
+        x: 281
+        y: 32
+        width: 8
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1ce43cc2bfe0f9560800000000000000
+      internalID: 7322587991078293185
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      waterpot_0: -5253021402717179167
+      waterpot_1: 3869929673741399944
+      waterpot_10: -8857179638609654708
+      waterpot_11: 8237117791967119170
+      waterpot_12: 5645010402765422037
+      waterpot_13: 1704492169062095388
+      waterpot_14: 720162681327493197
+      waterpot_15: 7130731689351099131
+      waterpot_16: -1631605297077610519
+      waterpot_17: 8008665747739987676
+      waterpot_18: -5861623058405117217
+      waterpot_19: -1012206079394712186
+      waterpot_2: 7755916925697119895
+      waterpot_20: -6450120045681584210
+      waterpot_21: -4111848272262404417
+      waterpot_22: 2382720592140105740
+      waterpot_23: 5991678152953630553
+      waterpot_24: 7057906133307967890
+      waterpot_25: 7322587991078293185
+      waterpot_3: 5520598280292335250
+      waterpot_4: 6523630805140079469
+      waterpot_5: -3583769715354859258
+      waterpot_6: -1342780778191957624
+      waterpot_7: -245121924942162246
+      waterpot_8: -5102578299540542245
+      waterpot_9: 6369336227080191851
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -307,3 +307,4 @@ MonoBehaviour:
   musicSource: {fileID: 2184012544043505061}
   SFXSource: {fileID: 2184012544043505061}
   SwingSound: {fileID: 8300000, guid: e0bbcc06c6c641447978dec8d90c6ab3, type: 3}
+  ShovelSound: {fileID: 8300000, guid: 2f3b22a5b51f3f74ca023ffc5326571b, type: 3}

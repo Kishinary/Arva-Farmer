@@ -8,7 +8,7 @@ public class EnemyStats : MonoBehaviour
     public float health = 20;
     private float maxHealth;
     public bool invincible = false;
-    [SerializeField] private float invincibilityDuration = 0.5f;
+    [SerializeField] private float invincibilityDuration = 0.2f;
 
     [Header("Flash Settings")]
     [SerializeField] private Material flashMaterial; 

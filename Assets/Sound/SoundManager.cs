@@ -6,6 +6,7 @@ public class SoundManager : MonoBehaviour
     [SerializeField] AudioSource SFXSource;
 
     public AudioClip SwingSound;
+    public AudioClip ShovelSound;
 
     public void PlaySFX(AudioClip clip)
     {

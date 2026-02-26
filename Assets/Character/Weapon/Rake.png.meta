@@ -1,0 +1,936 @@
+fileFormatVersion: 2
+guid: f643d299f47bea142a19ec879f31f0d0
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -2658678680662877083
+    second: Rake_0
+  - first:
+      213: -4419635868493962186
+    second: Rake_1
+  - first:
+      213: -1739683036236301777
+    second: Rake_2
+  - first:
+      213: 4363770262220855063
+    second: Rake_3
+  - first:
+      213: -2391990131106579214
+    second: Rake_4
+  - first:
+      213: -3352946082815709584
+    second: Rake_5
+  - first:
+      213: 8382091424490380248
+    second: Rake_6
+  - first:
+      213: 6920581203420058895
+    second: Rake_7
+  - first:
+      213: -8612773018847061782
+    second: Rake_8
+  - first:
+      213: -1436991106519244111
+    second: Rake_9
+  - first:
+      213: -3582304453814083230
+    second: Rake_10
+  - first:
+      213: 4456388454560281212
+    second: Rake_11
+  - first:
+      213: 5365323318016256290
+    second: Rake_12
+  - first:
+      213: 3806748900591190622
+    second: Rake_13
+  - first:
+      213: 5827505849678958847
+    second: Rake_14
+  - first:
+      213: -1992681451104824594
+    second: Rake_15
+  - first:
+      213: 7784799036662828715
+    second: Rake_16
+  - first:
+      213: -4939614544839936761
+    second: Rake_17
+  - first:
+      213: -7310507189656092254
+    second: Rake_18
+  - first:
+      213: 3835505975060019071
+    second: Rake_19
+  - first:
+      213: 4017198716729600697
+    second: Rake_20
+  - first:
+      213: 6789785056979199612
+    second: Rake_21
+  - first:
+      213: -7427305477035041717
+    second: Rake_22
+  - first:
+      213: 3454553282307550988
+    second: Rake_23
+  - first:
+      213: -7516886383327313541
+    second: Rake_24
+  - first:
+      213: 7455841066123689741
+    second: Rake_25
+  - first:
+      213: 2090660103490560594
+    second: Rake_26
+  - first:
+      213: 5996078662434528534
+    second: Rake_27
+  - first:
+      213: 6895532375767156973
+    second: Rake_28
+  - first:
+      213: -6433432577314961332
+    second: Rake_29
+  - first:
+      213: 6556659918270842328
+    second: Rake_30
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Rake_0
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 352
+        width: 30
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 56c5f2383d97a1bd0800000000000000
+      internalID: -2658678680662877083
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rake_1
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 352
+        width: 29
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 634a7d5089c4aa2c0800000000000000
+      internalID: -4419635868493962186
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rake_2
+      rect:
+        serializedVersion: 2
+        x: 193
+        y: 353
+        width: 28
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f2abc5bee776bd7e0800000000000000
+      internalID: -1739683036236301777
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rake_3
+      rect:
+        serializedVersion: 2
+        x: 274
+        y: 349
+        width: 38
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7175619eee93f8c30800000000000000
+      internalID: 4363770262220855063
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rake_4
+      rect:
+        serializedVersion: 2
+        x: 351
+        y: 353
+        width: 12
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2fcf62926a1fdced0800000000000000
+      internalID: -2391990131106579214
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rake_5
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 352
+        width: 8
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 07e6bb66d41f771d0800000000000000
+      internalID: -3352946082815709584
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rake_6
+      rect:
+        serializedVersion: 2
+        x: 376
+        y: 350
+        width: 8
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8dbd8978dbb235470800000000000000
+      internalID: 8382091424490380248
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rake_7
+      rect:
+        serializedVersion: 2
+        x: 382
+        y: 351
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f05191d00f7da0060800000000000000
+      internalID: 6920581203420058895
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rake_8
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 273
+        width: 37
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ae85d806298497880800000000000000
+      internalID: -8612773018847061782
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rake_9
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 270
+        width: 13
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1b2668eb338ce0ce0800000000000000
+      internalID: -1436991106519244111
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rake_10
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 272
+        width: 30
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 261ac114419194ec0800000000000000
+      internalID: -3582304453814083230
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rake_11
+      rect:
+        serializedVersion: 2
+        x: 177
+        y: 272
+        width: 30
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c72b73f30b548dd30800000000000000
+      internalID: 4456388454560281212
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rake_12
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 273
+        width: 12
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 229aa7b8125757a40800000000000000
+      internalID: 5365323318016256290
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rake_13
+      rect:
+        serializedVersion: 2
+        x: 349
+        y: 275
+        width: 20
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e52c8d0c4f944d430800000000000000
+      internalID: 3806748900591190622
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rake_14
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 193
+        width: 16
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ff010a0e1b57fd050800000000000000
+      internalID: 5827505849678958847
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rake_15
+      rect:
+        serializedVersion: 2
+        x: 101
+        y: 182
+        width: 39
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ee2136427c29854e0800000000000000
+      internalID: -1992681451104824594
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rake_16
+      rect:
+        serializedVersion: 2
+        x: 187
+        y: 180
+        width: 23
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bae471c6a79290c60800000000000000
+      internalID: 7784799036662828715
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rake_17
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 193
+        width: 20
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 705767f1eb6f27bb0800000000000000
+      internalID: -4939614544839936761
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rake_18
+      rect:
+        serializedVersion: 2
+        x: 271
+        y: 182
+        width: 15
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2a10c98917cdb8a90800000000000000
+      internalID: -7310507189656092254
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rake_19
+      rect:
+        serializedVersion: 2
+        x: 273
+        y: 189
+        width: 15
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f773759ec547a3530800000000000000
+      internalID: 3835505975060019071
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rake_20
+      rect:
+        serializedVersion: 2
+        x: 346
+        y: 193
+        width: 12
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9baa2d6e2f4ffb730800000000000000
+      internalID: 4017198716729600697
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rake_21
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 113
+        width: 12
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c76208619892a3e50800000000000000
+      internalID: 6789785056979199612
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rake_22
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 91
+        width: 12
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b4c530b2509ece890800000000000000
+      internalID: -7427305477035041717
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rake_23
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 86
+        width: 20
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c0fe99148e901ff20800000000000000
+      internalID: 3454553282307550988
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rake_24
+      rect:
+        serializedVersion: 2
+        x: 277
+        y: 83
+        width: 16
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b710ec819a7aea790800000000000000
+      internalID: -7516886383327313541
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rake_25
+      rect:
+        serializedVersion: 2
+        x: 349
+        y: 116
+        width: 39
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d0f721862f7787760800000000000000
+      internalID: 7455841066123689741
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rake_26
+      rect:
+        serializedVersion: 2
+        x: 29
+        y: 33
+        width: 31
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 252e2ae8944830d10800000000000000
+      internalID: 2090660103490560594
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rake_27
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 44
+        width: 11
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 61d95bf56c9563350800000000000000
+      internalID: 5996078662434528534
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rake_28
+      rect:
+        serializedVersion: 2
+        x: 121
+        y: 33
+        width: 15
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: de88ec2692ad1bf50800000000000000
+      internalID: 6895532375767156973
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rake_29
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 11
+        width: 12
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c4847be182bd7b6a0800000000000000
+      internalID: -6433432577314961332
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rake_30
+      rect:
+        serializedVersion: 2
+        x: 274
+        y: 11
+        width: 12
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8d5439df47fedfa50800000000000000
+      internalID: 6556659918270842328
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Rake_0: -2658678680662877083
+      Rake_1: -4419635868493962186
+      Rake_10: -3582304453814083230
+      Rake_11: 4456388454560281212
+      Rake_12: 5365323318016256290
+      Rake_13: 3806748900591190622
+      Rake_14: 5827505849678958847
+      Rake_15: -1992681451104824594
+      Rake_16: 7784799036662828715
+      Rake_17: -4939614544839936761
+      Rake_18: -7310507189656092254
+      Rake_19: 3835505975060019071
+      Rake_2: -1739683036236301777
+      Rake_20: 4017198716729600697
+      Rake_21: 6789785056979199612
+      Rake_22: -7427305477035041717
+      Rake_23: 3454553282307550988
+      Rake_24: -7516886383327313541
+      Rake_25: 7455841066123689741
+      Rake_26: 2090660103490560594
+      Rake_27: 5996078662434528534
+      Rake_28: 6895532375767156973
+      Rake_29: -6433432577314961332
+      Rake_3: 4363770262220855063
+      Rake_30: 6556659918270842328
+      Rake_4: -2391990131106579214
+      Rake_5: -3352946082815709584
+      Rake_6: 8382091424490380248
+      Rake_7: 6920581203420058895
+      Rake_8: -8612773018847061782
+      Rake_9: -1436991106519244111
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

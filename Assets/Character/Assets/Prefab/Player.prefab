@@ -237,6 +237,10 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: d80299a9-6d13-434a-a032-8940017054cf
     m_ActionName: 'Player/Interact[/Keyboard/e]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: c7936c4e-b4d6-4db5-93c9-ee4813e36171
+    m_ActionName: 'Player/pointerPosition[/Mouse/position]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Keyboard&Mouse
   m_DefaultActionMap: Player
@@ -282,11 +286,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movespeed: 10
-  norMovespeed: 10
   moveInput: {x: 0, y: 0}
   LastX: 0
   LastY: 0
-  attacked: 0
+  snappedDir: {x: 0, y: -1}
+  weaponParent: {fileID: 0}
+  pointerPosition:
+    m_Name: Pointer Position
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 54b8265e-5974-4a44-a49a-b2b26e8f1d03
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
 --- !u!114 &7693785135991531426
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -335,13 +335,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movespeed: 10
-  norMovespeed: 10
   moveInput: {x: 0, y: 0}
   LastX: 0
   LastY: 0
   snappedDir: {x: 0, y: -1}
   weaponParent: {fileID: 4587282200397394695}
-  pointerPosition: {fileID: 0}
+  pointerPosition:
+    m_Name: Pointer Position
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 48c3ee47-07cc-43b4-8329-d954176e0d9a
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
 --- !u!114 &2801642307190303101
 MonoBehaviour:
   m_ObjectHideFlags: 0

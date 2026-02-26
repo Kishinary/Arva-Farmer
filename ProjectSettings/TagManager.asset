@@ -6,11 +6,12 @@ TagManager:
   tags:
   - Interactable
   - Enemy
+  - indicatorTarget
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - obstacle
   - Water
   - UI
   - 

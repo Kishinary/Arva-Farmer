@@ -6,7 +6,8 @@ public class Ability : ScriptableObject
     public new string name;
     public float cooldownTime;
     public float activeTime;
+    public Transform transform;
 
-    public virtual void Activate(GameObject parent){  }
+    public virtual void Activate(GameObject parent, Transform transform, Rigidbody2D rb){  }
     public virtual void BeginCoolDown(GameObject parent) { }
 }

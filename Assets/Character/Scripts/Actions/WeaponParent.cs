@@ -38,7 +38,7 @@ public class WeaponParent : MonoBehaviour
     {
         if (Time.time < lastAttackTime + attackDelay) return;
         if (isSwinging) return;
-        attackDirection = gameObject.GetComponentInParent<PlayerMovement>().GetPointerInput().normalized;
+        
         float angle = Mathf.Atan2(attackDirection.y, attackDirection.x) * Mathf.Rad2Deg;
 
         Collider2D[] hits = Physics2D.OverlapBoxAll((Vector2)weaponPosition.position + attackDirection * 0.8f, new Vector2(0.8f, 4), angle);

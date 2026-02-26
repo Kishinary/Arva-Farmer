@@ -13,6 +13,11 @@ MonoBehaviour:
   m_Name: Dash
   m_EditorClassIdentifier: 
   name: Dash
-  cooldownTime: 0.00005
+  cooldownTime: 0.5
   activeTime: 0.5
-  dashVelocity: 10000
+  targetIndicator: {fileID: 0}
+  maxDistance: 20
+  radius: 2
+  obstacleLayer:
+    serializedVersion: 2
+    m_Bits: 8

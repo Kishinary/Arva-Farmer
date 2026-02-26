@@ -10,6 +10,12 @@ public class AbilityHolder : MonoBehaviour
     float cooldownTime;
     float activeTime;
 
+
+    [SerializeField] private GameObject player; // nhet player vao day
+
+    private Transform playerTransform;
+
+    private Rigidbody2D rb;
     enum AbilityState
     {
         ready,
@@ -28,8 +34,9 @@ public class AbilityHolder : MonoBehaviour
             case AbilityState.ready:
                 if (Input.GetKeyDown(key))
                 {
-                    
-                    ability.Activate(gameObject);
+                    playerTransform = player.transform;
+                    rb = player.GetComponent<Rigidbody2D>();
+                    ability.Activate(gameObject, playerTransform,rb);
                     state = AbilityState.active;
                     activeTime = ability.activeTime;
                     

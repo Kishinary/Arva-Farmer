@@ -111,7 +111,8 @@ public class PlayerMovement : MonoBehaviour
         if (context.performed) {
             if (PlayerWeapon == 1)
             {
-                shovel.attack();
+                //shovel.attack();
+                return;
             }
             else if (PlayerWeapon == 2) {
                 return;

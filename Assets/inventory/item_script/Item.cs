@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Item : MonoBehaviour
 {
@@ -15,23 +15,45 @@ public class Item : MonoBehaviour
     [SerializeField] 
     private string itemDescription;
 
+    [SerializeField]
+    private Ability abilityScriptableObject;
+
+
+
     private inventoryManager inventoryManager;
 
-    void Start()
-    {       
+    
 
-        inventoryManager = GameObject.Find("inventory_canvas").GetComponent<inventoryManager>();
+    void Start()
+    {
+
+        GameObject canvasObj = GameObject.Find("inventory_canvas");
+        if (canvasObj != null)
+        {
+            inventoryManager = canvasObj.GetComponent<inventoryManager>();
+        }else
+        {
+                       Debug.LogError("inventoryManager not found on inventory_canvas!");
+        }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.tag == "Player")
+        if(collision.CompareTag("Player") && inventoryManager != null)
         {
-            //Debug.Log("Collided with player, adding item to inventory");
+            
             int leftOverItems = inventoryManager.AddItem(itemName, quantity, sprite, itemDescription);
             
             if (leftOverItems <= 0)
             {
+                AbilityHolder abilityHolder = collision.GetComponent<AbilityHolder>();
+                if (abilityHolder != null && abilityScriptableObject != null)
+                {
+                    
+                    EquipAbilityToPlayer(abilityHolder);
+                }
+
+
                 GetComponent<Collider2D>().enabled = false;
                 Destroy(gameObject);
             }
@@ -41,6 +63,27 @@ public class Item : MonoBehaviour
             }
         }
     }
+    private void EquipAbilityToPlayer(AbilityHolder holder)
+    {
+        bool isEquipped = false;
+        
+        for (int i = 0; i < holder.abilities.Length; i++)
+        {
+            
+            if (holder.abilities[i].ability == null)
+            {
+                holder.abilities[i].ability = abilityScriptableObject;
 
+                isEquipped = true;
+                
+                break;
+            }
+        }
+        if (!isEquipped)
+        {
+            Debug.LogWarning("Cant equip more!");
+            
+        }
+    }
 
 }

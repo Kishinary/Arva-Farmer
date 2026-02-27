@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8528603512547104236}
   - component: {fileID: 2831358562962890716}
   - component: {fileID: 730966651266295126}
+  - component: {fileID: 4456683189480927849}
   m_Layer: 0
   m_Name: Axe
   m_TagString: Untagged
@@ -110,3 +111,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &4456683189480927849
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7552693246964565655}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 190c30b7aa493b8499e5e16f1b2d4d92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemName: Boomerang
+  quantity: 1
+  sprite: {fileID: 0}
+  itemDescription: 

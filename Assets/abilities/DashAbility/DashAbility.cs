@@ -19,7 +19,7 @@ public class DashAbility : Ability
     [SerializeField] private float checkRadius = 0.5f;
     [SerializeField] private LayerMask obstacleLayer;
     private Vector2 currentPosition;
-
+    
 
 
     public override void Activate(GameObject parent, Transform playerTransform, Rigidbody2D rb)
@@ -30,7 +30,7 @@ public class DashAbility : Ability
 
         GameObject indicatorTarget = GameObject.FindWithTag("indicatorTarget");
 
-        Debug.Log(indicatorTarget);
+        
 
 
       

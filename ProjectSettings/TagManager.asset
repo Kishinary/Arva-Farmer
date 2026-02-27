@@ -7,6 +7,8 @@ TagManager:
   - Interactable
   - Enemy
   - indicatorTarget
+  - Audio
+  - Decorations
   layers:
   - Default
   - TransparentFX
@@ -14,7 +16,7 @@ TagManager:
   - obstacle
   - Water
   - UI
-  - 
+  - Enemy
   - 
   - 
   - 

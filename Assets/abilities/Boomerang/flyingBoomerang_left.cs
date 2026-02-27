@@ -12,7 +12,7 @@ public class flyingBoomerang_left : MonoBehaviour
     [SerializeField] private float rotationSpeed = 700f;
 
 
-    [SerializeField] private float spreadAngleLeft = 90f;
+    [SerializeField] private float spreadAngleLeft = 15f;
     private Vector3 angleDirection;
     
 

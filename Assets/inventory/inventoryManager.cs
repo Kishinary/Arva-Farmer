@@ -55,8 +55,12 @@ public class inventoryManager : MonoBehaviour
                 
                 if (leftOverItems > 0)
                 {
+
+
                     leftOverItems = AddItem(itemName, leftOverItems, itemSprite, itemDescription);
                    
+
+
                 }
                 
                 return leftOverItems;

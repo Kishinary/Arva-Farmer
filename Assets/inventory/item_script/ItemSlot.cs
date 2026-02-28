@@ -122,8 +122,13 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler
         thisItemSelected = true;
         itemDescriptionNameText.text = itemName;
         itemDescriptionText.text = itemDescription;
+
         itemDescriptionImage.sprite = itemSprite;
-    }
+            
+        
+        
+        }
+
     public void OnRightClick()
     {
         Debug.Log("Right Clicked");

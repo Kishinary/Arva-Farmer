@@ -41,7 +41,8 @@ public class Item : MonoBehaviour
     {
         if(collision.CompareTag("Player") && inventoryManager != null)
         {
-            
+           
+
             int leftOverItems = inventoryManager.AddItem(itemName, quantity, sprite, itemDescription);
             
             if (leftOverItems <= 0)

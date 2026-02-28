@@ -8,11 +8,14 @@ public class Shovel : MonoBehaviour
     private Animator animator;
 
     [Header("Attack Details")]
-    public float attackDamage = 10f;
     public float attackRange = 2f;
-    public float attackCooldown = 0.5f;
+    public float attackCooldown = 1f;
+    public float NormalAttackCooldown = 0.5f;
     private float nextAttackTime = 0f;
 
+
+    public float NormalAttackDamage;
+    public float SpecialAttackDamage;
     [Header("Particle")]
     public ParticleSystem dirtParticle;
     private GameObject DamageCollider;
@@ -43,7 +46,8 @@ public class Shovel : MonoBehaviour
     {
         if (Time.time >= nextAttackTime) {
             animator.SetTrigger("Dig");
-            PlayerMove.movespeed = 2f;
+            PlayerMove.movespeed = 5f;
+            PlayerMove.gameObject.GetComponent<Animator>().speed = 0.5f;
             nextAttackTime = Time.time + attackCooldown;
         }
     }
@@ -52,11 +56,11 @@ public class Shovel : MonoBehaviour
     {
         if (weaponParent.transform.localScale.y == -1)
         {
-            Instantiate(dirtParticle, transform.position, weaponParent.transform.rotation * Quaternion.Euler(dirtParticle.transform.eulerAngles.x * -1, dirtParticle.transform.eulerAngles.y, dirtParticle.transform.eulerAngles.z));
+            Instantiate(dirtParticle, transform.position, weaponParent.transform.rotation * Quaternion.Euler(dirtParticle.transform.eulerAngles.x * -1 -10f, dirtParticle.transform.eulerAngles.y, dirtParticle.transform.eulerAngles.z));
         }
         else
         {
-            Instantiate(dirtParticle, transform.position, weaponParent.transform.rotation * dirtParticle.transform.localRotation);
+            Instantiate(dirtParticle, transform.position, weaponParent.transform.rotation * Quaternion.Euler(dirtParticle.transform.eulerAngles.x, dirtParticle.transform.eulerAngles.y, dirtParticle.transform.eulerAngles.z));
         }
         StartCoroutine(CheckDamage());
     }
@@ -78,6 +82,7 @@ public class Shovel : MonoBehaviour
         DamageCollider.SetActive(true);
         yield return new WaitForSeconds(0.1f);
         PlayerMove.EnablePlayerInput();
+        PlayerMove.gameObject.GetComponent<Animator>().speed = 1f;
         yield return new WaitForSeconds(0.2f);
         DamageCollider.SetActive(false);
     }
@@ -111,7 +116,7 @@ public class Shovel : MonoBehaviour
         {
             if (collision.CompareTag("Enemy"))
             {
-                collision.GetComponent<EnemyStats>().TakeDamage(PlayerMove.transform.position, 10f);
+                collision.GetComponent<EnemyStats>().TakeDamage(PlayerMove.transform.position, NormalAttackCooldown);
             }
         }
     }

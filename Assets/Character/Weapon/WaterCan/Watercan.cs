@@ -4,7 +4,7 @@ using System.Collections;
 public class Watercan : MonoBehaviour
 {
     [Header("Laser Settings")]
-    public float damage = 50f;
+    public float damage = 8f;
     public float maxLaserDistance = 10f;
     public float fadeDuration = 0.5f; // How long it takes to disappear
     public float initialWidth = 0.2f;

@@ -4,7 +4,7 @@ using System.Collections;
 public class Scissors : MonoBehaviour
 {
     public float nextAttackTime;
-    public float attackCooldown = 1f;
+    public float attackCooldown = 4f;
     private Animator animator;
 
     public bool isNormaling;
@@ -19,7 +19,7 @@ public class Scissors : MonoBehaviour
     public AnimationCurve thrustCurve;     // Use this for "snappy" movement
 
     [Header("Combat")]
-    public float damage = 25f;
+    public float damage = 5f;
     public LayerMask enemyLayer;
     public Transform hitPoint;
     public float hitRadius = 0.5f;

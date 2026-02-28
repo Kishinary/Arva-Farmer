@@ -114,20 +114,20 @@ public class PlayerMovement : MonoBehaviour
     public void OnAttackNewWeapon(InputAction.CallbackContext context)
     {
         if (context.performed) {
-            if (PlayerWeapon == 1)
+            if (shovel != null)
             {
-                shovel.Attack();
+                shovel.NormalAttack();
                 Debug.Log("Attacked");
             }
-            else if (PlayerWeapon == 2)
+            else if (Pickaxe != null)
             {
                 Pickaxe.Attack();
             }
-            else if (PlayerWeapon == 3)
+            else if (watercan != null)
             {
                 watercan.Attack();
             }
-            else if (PlayerWeapon == 4)
+            else if (scissors != null)
             {
                 scissors.Attack();
             }
@@ -139,7 +139,7 @@ public class PlayerMovement : MonoBehaviour
         { 
             if (PlayerWeapon == 1)
             {
-                shovel.NormalAttack();
+                shovel.Attack();
             }
         }
     }

@@ -4,96 +4,86 @@ using UnityEngine.SceneManagement;
 
 public class PauseMenuController : MonoBehaviour
 {
-    // Singleton để truy cập từ mọi nơi nếu cần
-    public static PauseMenuController Instance { get; private set; }
+    // Singleton giúp Menu sống sót qua các Scene mà không bị nhân bản
+    public static PauseMenuController Instance;
 
-    private VisualElement _pauseMenuContainer;
+    private UIDocument _uiDocument;
+    private VisualElement _background;
+    private Button _btnResume;
+    private Button _btnQuit;
+
     private bool _isPaused = false;
-    
-    [SerializeField] private string mainMenuSceneName = "MainMenu";
+
+    [Header("Ghi đúng tên Scene Main Menu vào đây")]
+    public string mainMenuSceneName = "MainMenu";
 
     void Awake()
     {
-        // Logic Singleton: Nếu đã có một bản GlobalUI rồi thì xóa bản mới đi
+        // Đảm bảo chỉ có 1 Pause Menu duy nhất tồn tại
         if (Instance != null && Instance != this)
         {
             Destroy(gameObject);
             return;
         }
-
         Instance = this;
-        // Giữ GameObject này không bị xóa khi đổi Scene
-        DontDestroyOnLoad(gameObject);
+        DontDestroyOnLoad(gameObject); // Lệnh giữ GameObject không bị hủy khi qua Scene khác
     }
 
     void OnEnable()
     {
-        SetupUI();
-        // Đăng ký sự kiện mỗi khi Scene thay đổi để cập nhật lại UI nếu cần
-        SceneManager.sceneLoaded += OnSceneLoaded;
-    }
+        _uiDocument = GetComponent<UIDocument>();
+        if (_uiDocument == null) return;
 
-    void OnDisable()
-    {
-        SceneManager.sceneLoaded -= OnSceneLoaded;
-    }
+        var root = _uiDocument.rootVisualElement;
+        if (root == null) return;
 
-    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-    {
-        SetupUI(); // Thiết lập lại tham chiếu UI khi sang Scene mới
-        ResumeGame(); // Đảm bảo không bị Pause khi vừa vào Scene mới
-    }
+        // Tìm các phần tử UI dựa theo Tên (name) và Lớp (class) bạn đã đặt trong UXML
+        _background = root.Q<VisualElement>(className: "background");
+        _btnResume = root.Q<Button>("btn-resume");
+        _btnQuit = root.Q<Button>("btn-quit");
 
-    private void SetupUI()
-    {
-        var uiDoc = GetComponent<UIDocument>();
-        if (uiDoc == null) return;
+        // Gán chức năng cho các nút bấm
+        if (_btnResume != null) _btnResume.clicked += ResumeGame;
+        if (_btnQuit != null) _btnQuit.clicked += QuitToMenu;
 
-        var root = uiDoc.rootVisualElement;
-        _pauseMenuContainer = root.Q<VisualElement>("PauseMenuContainer");
-
-        root.Q<VisualElement>("ResumeRow")?.RegisterCallback<ClickEvent>(evt => ResumeGame());
-        root.Q<VisualElement>("QuitRow")?.RegisterCallback<ClickEvent>(evt => QuitToMainMenu());
-
-        if (_pauseMenuContainer != null)
-            _pauseMenuContainer.style.display = DisplayStyle.None;
+        // QUAN TRỌNG: Ẩn menu đi ngay khi game vừa bắt đầu
+        if (_background != null) _background.style.display = DisplayStyle.None;
     }
 
     void Update()
     {
-        // Kiểm tra xem Scene hiện tại có phải là MainMenu không
-        // Thường thì chúng ta không muốn hiện Pause Menu ở màn hình chính
-        if (SceneManager.GetActiveScene().name == mainMenuSceneName) return;
+        // 1. Nếu đang ở màn hình Main Menu thì vô hiệu hóa nút Esc (không cho bật Pause Menu)
+        if (SceneManager.GetActiveScene().name == mainMenuSceneName)
+        {
+            if (_isPaused) ResumeGame();
+            return;
+        }
 
+        // 2. Nhấn phím Esc để Bật/Tắt Pause Menu
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (_isPaused) ResumeGame(); else PauseGame();
+            if (_isPaused) ResumeGame();
+            else PauseGame();
         }
     }
 
-    public void PauseGame()
+    private void PauseGame()
     {
-        if (_pauseMenuContainer == null) return;
         _isPaused = true;
-        Time.timeScale = 0f;
-        _pauseMenuContainer.style.display = DisplayStyle.Flex;
-        UnityEngine.Cursor.visible = true;
-        UnityEngine.Cursor.lockState = CursorLockMode.None;
+        Time.timeScale = 0f; // Dừng toàn bộ thời gian và vật lý trong game
+        if (_background != null) _background.style.display = DisplayStyle.Flex; // Hiện giao diện lên
     }
 
-    public void ResumeGame()
+    private void ResumeGame()
     {
-        if (_pauseMenuContainer == null) return;
         _isPaused = false;
-        Time.timeScale = 1f;
-        _pauseMenuContainer.style.display = DisplayStyle.None;
-        // UnityEngine.Cursor.visible = false; 
+        Time.timeScale = 1f; // Đưa thời gian chạy bình thường trở lại
+        if (_background != null) _background.style.display = DisplayStyle.None; // Ẩn giao diện đi
     }
 
-    private void QuitToMainMenu()
+    private void QuitToMenu()
     {
-        Time.timeScale = 1f;
-        _isPaused = false;
-        SceneManager.LoadScene(mainMenuSceneName);
+        ResumeGame(); // QUAN TRỌNG: Phải mở khóa thời gian (Time.timeScale = 1) trước khi load scene mới
+        SceneManager.LoadScene(mainMenuSceneName); // Chuyển về Scene Main Menu
     }
 }

@@ -1,49 +1,40 @@
-.pause-container {
-    position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background-color: rgba(0, 0, 0, 0.6); 
+/* Nền tối bao phủ toàn màn hình */
+.background {
+    flex-grow: 1;
+    background-color: rgb(26, 22, 37);
     justify-content: center;
     align-items: center;
-    display: none;
-}
-
-.menu-box {
-    background-color: rgba(0, 150, 150, 0.9);
-    padding: 30px 50px;
-    border-radius: 10px;
-    border-width: 2px;
-    border-color: white;
-    align-items: center;
-    min-width: 320px;
-}
-
-.pause-header {
-    font-size: 32px; /* Chữ nhỏ gọn */
-    color: white;
-    -unity-font-style: bold;
-    margin-bottom: 20px;
-}
-
-.menu-row {
-    flex-direction: row;
-    align-items: center;
-    margin-bottom: 10px;
     width: 100%;
+    height: 100%;
+    position: absolute;
 }
 
-.menu-item {
-    font-size: 20px; /* Chữ nhỏ lại */
-    color: white;
-    -unity-font-style: bold;
+/* Khung chứa các nút */
+.menu-container {
+    align-items: center;
+    justify-content: center;
 }
 
-.selection-dot {
-    width: 8px; height: 8px;
-    background-color: yellow;
-    border-radius: 4px;
-    margin-right: 12px;
-    opacity: 0;
+/* Xóa phông nền xám mặc định của Button Unity, chỉnh lại chữ */
+.menu-button {
+    background-color: rgba(0, 0, 0, 0);
+    border-width: 0;
+    color: rgb(255, 255, 255);
+    font-size: 35px; /* Cỡ chữ */
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-shadow: 3px 3px 0 rgb(0, 0, 0); /* Đổ bóng đen giống ảnh gốc */
+    transition-duration: 0.1s;
 }
 
-.menu-row:hover .selection-dot { opacity: 1; }
-.menu-row:hover .menu-item { color: yellow; }
+/* Đổi sang màu vàng khi đưa chuột vào */
+.menu-button:hover, .menu-button:focus {
+    color: rgb(251, 217, 19);
+}
+
+/* Không bị hiện màu xám khi click chuột */
+.menu-button:active {
+    background-color: rgba(0, 0, 0, 0);
+}

@@ -1,74 +1,48 @@
 using System;
-using System.Collections;
 using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
 {
-    // Biến static giúp lưu giá trị máu trong bộ nhớ ngay cả khi chuyển Scene
-    public static float SavedHealth = 100f; 
-    public static bool IsFirstLoad = true; // Để biết có nên reset máu về Max hay không
-
-    public float Health;
     public float MaxHealth = 100f;
-    public bool invincible = false;
+    
+    // Lưu trữ máu xuyên Scene
+    public static float SavedHealth = 100f; 
+    public static bool IsFirstLoad = true;
 
+    private float _currentHealth;
+    public float Health {
+        get => _currentHealth;
+        private set {
+            _currentHealth = Mathf.Clamp(value, 0, MaxHealth);
+            SavedHealth = _currentHealth;
+            OnHealthChanged?.Invoke(_currentHealth, MaxHealth);
+        }
+    }
+
+    // Sự kiện để UI tự động cập nhật
     public static event Action<float, float> OnHealthChanged;
 
-    void Awake()
-    {
-        // 1. Nếu là lần đầu tiên chạy game, đặt máu bằng MaxHealth
-        if (IsFirstLoad)
-        {
-            Health = MaxHealth;
-            SavedHealth = MaxHealth;
-            IsFirstLoad = false;
-        }
-        else
-        {
-            // 2. Nếu chuyển từ Scene khác sang, lấy lại lượng máu đã lưu
-            Health = SavedHealth;
-        }
+    void Awake() {
+        // Tự động lấy lại máu đã lưu hoặc đặt bằng Max nếu là lần đầu
+        Health = IsFirstLoad ? MaxHealth : SavedHealth;
+        IsFirstLoad = false;
     }
 
-    void Start()
-    {
-        // Gửi thông báo để UI cập nhật ngay khi vào Scene mới
+    void Start() {
         OnHealthChanged?.Invoke(Health, MaxHealth);
     }
 
-    public void TakeDamage(float Damage)
-    {
-        if (invincible) return;
-
-        Health -= Damage;
-        Health = Mathf.Max(Health, 0);
-
-        // Cập nhật vào biến tĩnh để lưu trữ cho Scene sau
-        SavedHealth = Health;
-
-        OnHealthChanged?.Invoke(Health, MaxHealth);
-
-        if (Health <= 0)
-        {
-            Die();
-        }
-        else
-        {
-            StartCoroutine(Invincibility());
-        }
+    public void TakeDamage(float damage) {
+        Health -= damage;
+        if (Health <= 0) Die();
     }
 
-    private void Die()
-    {
-        // Reset lại dữ liệu khi chết để lần sau chơi lại có đủ máu
-        IsFirstLoad = true;
-        Destroy(this.gameObject);
+    public void Heal(float amount) {
+        Health += amount;
     }
 
-    IEnumerator Invincibility()
-    {
-        invincible = true;
-        yield return new WaitForSeconds(0.5f);
-        invincible = false;
+    private void Die() {
+        IsFirstLoad = true; // Chết thì reset về Max cho lần sau
+        Debug.Log("Player Died!");
     }
 }

@@ -31,7 +31,7 @@ public class PlayerMovement : MonoBehaviour
     public WeaponParent weaponParent;
     public PickaxeSlash Pickaxe;
     public Watercan watercan;
-
+    public Scissors scissors;
     public int PlayerWeapon = 1;
 
     void Start()
@@ -48,6 +48,7 @@ public class PlayerMovement : MonoBehaviour
         shovel = GetComponentInChildren<Shovel>();
         Pickaxe = GetComponentInChildren<PickaxeSlash>();
         watercan = GetComponentInChildren<Watercan>();
+        scissors = GetComponentInChildren<Scissors>();
     }
     private void Awake()
     {
@@ -118,12 +119,17 @@ public class PlayerMovement : MonoBehaviour
                 shovel.Attack();
                 Debug.Log("Attacked");
             }
-            else if (PlayerWeapon == 2) {
+            else if (PlayerWeapon == 2)
+            {
                 Pickaxe.Attack();
-            } 
+            }
             else if (PlayerWeapon == 3)
             {
                 watercan.Attack();
+            }
+            else if (PlayerWeapon == 4)
+            {
+                scissors.Attack();
             }
         }
     }

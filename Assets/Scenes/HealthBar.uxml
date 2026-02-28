@@ -1,6 +1,11 @@
-<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
-    <ui:VisualElement name="HealthBarContainer" style="flex-grow: 1; width: 100px; height: 40px;">
-        <ui:VisualElement name="BackGround" style="flex-grow: 1; position: absolute; top: 0; left: 0; bottom: 0; right: 0; color: rgb(255, 255, 255); background-color: rgb(75, 75, 75); width: 100px; height: 30px;" />
-        <ui:VisualElement name="HealthFill" style="flex-grow: 1; position: absolute; left: 0; bottom: 0; top: 0; width: 100px; height: 30px; background-color: rgb(255, 0, 0); transition-property: width; transition-duration: 0.3s; transition-timing-function: ease-out-cubic;" />
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/Scenes/HealthBar.uss?fileID=7433441132597879392&amp;guid=85e3f2b9a16c29e43968bdeefa2e4815&amp;type=3#HealthBar" />
+    <ui:VisualElement class="health-container">
+        <ui:Label text="HP" class="hp-text" />
+        <ui:VisualElement class="bar-background">
+            <ui:VisualElement name="GhostBar" class="bar-fill ghost-color" />
+            <ui:VisualElement name="MainBar" class="bar-fill main-color" />
+            <ui:Label name="HpLabel" text="100 / 100" class="hp-numbers" />
+        </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>

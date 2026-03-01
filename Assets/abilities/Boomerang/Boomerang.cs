@@ -44,7 +44,7 @@ public class Boomerang : Ability
         boomerang_left.SetActive(true);
         boomerang_right.SetActive(true);
 
-        Debug.Log("Boomerang activated at position: " + playerTransform.position);
+        Debug.Log("Boomerang activated at position: " + playerTransform.position );
 
 
 

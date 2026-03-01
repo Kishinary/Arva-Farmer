@@ -1,16 +1,15 @@
 ﻿using UnityEngine;
 
-public class audioVisualize : MonoBehaviour
+public class AudioVisualize : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-
-    
     [Header("References")]
     private AudioSource audioSource;
     public GameObject cubePrefab;
 
+    // ÉP KIỂU CHẶT CHẼ: Trỏ thẳng script EnemySpawner thay vì GameObject chung chung
+    [SerializeField] private EnemySpawner enemySpawner;
 
-    [Header("Settings")]
+    [Header("Visualizer Settings")]
     public float scaleMultiplier = 0.5f;
     public float smoothDampTime = 0.1f;
     public float minHeight = 0.5f;
@@ -20,54 +19,57 @@ public class audioVisualize : MonoBehaviour
     private float[] _freqBands = new float[64];
     private float[] _bandVelocities = new float[64];
 
-    [SerializeField] private EnemySpawner enemySpawner;
-
     [Header("Beat Detection Settings")]
+    [Tooltip("Dải tần muốn theo dõi để sinh quái (0-3 thường là Bass)")]
     public int targetBand = 0;
+    [Tooltip("Độ chênh lệch. 1.3 = Năng lượng phải cao hơn 30% so với trung bình")]
     public float varianceThreshold = 1.3f;
-    public float sampleRate = 60f;
     public float spawnCooldown = 0.2f;
+    public float sampleRate = 60f; // Tốc độ phân tích AI (60 lần/giây)
 
     // Ring Buffer lưu lịch sử 43 mẫu
     private float[] _energyHistory = new float[43];
     private int _historyIndex = 0;
 
-
-    //Bien tinh thoi gian giua cac mau am thanh trong spectrum data (512 mau cho 44100Hz)
+    // Biến quản lý thời gian (FPS Independent)
     private float _timePerSample;
     private float _timeAccumulator = 0f;
     private float _cooldownTimer = 0f;
 
-
-
-    public Vector3 currentScale;
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
 
+        // Tính toán khoảng thời gian giữa mỗi lần lấy mẫu AI
         _timePerSample = 1f / sampleRate;
 
         for (int i = 0; i < 64; i++)
         {
             GameObject instance = Instantiate(cubePrefab, transform);
-            // Xếp hàng ngang, khối đầu tiên ở gốc tọa độ, các khối sau cách nhau 0.2f
+            // Xếp hàng ngang, khối đầu tiên ở gốc tọa độ, các khối sau cách nhau 0.4f
             instance.transform.localPosition = new Vector3(i * 0.4f, 0, 0);
             _cubes[i] = instance.transform;
         }
     }
 
-    // Update is called once per frame
     void Update()
     {
-        //logic audio visualization
+        // ---------------------------------------------------------
+        // LUỒNG 1: ĐỒ HỌA (Chạy mỗi frame để hình ảnh mượt mà)
+        // ---------------------------------------------------------
         GetSpectrumAudioSource();
         MakeFrequencyBands();
         UpdateCubesVisuals();
 
-
-        //logic beat detection and enemy spawning
+        // ---------------------------------------------------------
+        // LUỒNG 2: LOGIC SINH QUÁI (Chạy độc lập với FPS)
+        // ---------------------------------------------------------
         if (_cooldownTimer > 0) _cooldownTimer -= Time.deltaTime;
+
         _timeAccumulator += Time.deltaTime;
+
+        // Vòng lặp này đảm bảo logic AI luôn chạy đúng 'sampleRate' lần mỗi giây
+        // Bất kể game đang chạy ở 30 FPS hay 400 FPS
         while (_timeAccumulator >= _timePerSample)
         {
             ProcessBeatDetection();
@@ -75,14 +77,12 @@ public class audioVisualize : MonoBehaviour
         }
     }
 
-
-
     private void GetSpectrumAudioSource()
     {
-        
         // Sử dụng BlackmanHarris window để giảm nhiễu (leakage) giữa các dải tần
         audioSource.GetSpectrumData(_spectrumData, 0, FFTWindow.BlackmanHarris);
     }
+
     private void MakeFrequencyBands()
     {
         int currentSampleIndex = 0;
@@ -107,7 +107,7 @@ public class audioVisualize : MonoBehaviour
                 }
             }
 
-            // FIX LỖI 2: Chỉ chia cho số mẫu của DẢI NÀY, không chia cho tổng currentSampleIndex
+            // Chỉ chia cho số mẫu của DẢI NÀY, không chia cho tổng currentSampleIndex
             if (samplesAddedThisBand > 0)
             {
                 average /= samplesAddedThisBand;
@@ -116,6 +116,7 @@ public class audioVisualize : MonoBehaviour
             _freqBands[i] = average * scaleMultiplier * (i + 1);
         }
     }
+
     private void UpdateCubesVisuals()
     {
         for (int i = 0; i < 64; i++)
@@ -127,41 +128,48 @@ public class audioVisualize : MonoBehaviour
             targetY = Mathf.Clamp(targetY, minHeight, 100f);
 
             float newY = Mathf.SmoothDamp(currentY, targetY, ref _bandVelocities[i], smoothDampTime);
-            
+
             _cubes[i].localScale = new Vector3(1, newY, 1);
         }
     }
 
-
+    /// <summary>
+    /// Thuật toán nhận diện nhịp đập độc lập với Frame-rate
+    /// </summary>
     private void ProcessBeatDetection()
     {
+        // 1. Lấy năng lượng hiện tại từ dải tần số mục tiêu (đã được tính toán ở MakeFrequencyBands)
         float currentEnergy = _freqBands[targetBand];
+
+        // 2. Tính trung bình năng lượng lịch sử
         float sumEnergy = 0;
         for (int i = 0; i < _energyHistory.Length; i++)
         {
             sumEnergy += _energyHistory[i];
         }
         float averageEnergy = sumEnergy / _energyHistory.Length;
+
         // 3. Kiểm tra điều kiện sinh quái bằng toán học Delta
         // Bỏ qua nếu trung bình quá nhỏ (tránh chia cho 0 hoặc nhận diện tiếng ồn nền)
         if (averageEnergy > 0.05f && currentEnergy > averageEnergy * varianceThreshold && _cooldownTimer <= 0f)
         {
-
+            // Lấy tọa độ đỉnh của khối Cube tương ứng để sinh quái vật
             Vector3 spawnPosition = _cubes[targetBand].position + new Vector3(0, _cubes[targetBand].localScale.y, 0);
 
             if (enemySpawner != null)
             {
                 enemySpawner.SpawnEnemyAtPosition(spawnPosition);
             }
-            _cooldownTimer = spawnCooldown;
+            else
+            {
+                Debug.LogWarning("EnemySpawner reference is missing! Please assign it in the inspector.");
+            }
 
+                _cooldownTimer = spawnCooldown;
         }
+
         // 4. Ghi đè dữ liệu mới vào Ring Buffer
         _energyHistory[_historyIndex] = currentEnergy;
         _historyIndex = (_historyIndex + 1) % _energyHistory.Length;
-
-
     }
-
-
 }

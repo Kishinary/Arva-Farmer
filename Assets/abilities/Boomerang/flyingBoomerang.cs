@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.Pool;
 
 public class Axe : MonoBehaviour
 {
@@ -16,13 +17,29 @@ public class Axe : MonoBehaviour
     [SerializeField] private float catchRange = 0.5f;
     [SerializeField] private LayerMask obstacleLayer;
 
+
+
+    [Header("Damage Settings")]
+    [SerializeField] private float damageAmount = 10f;
+    private GameObject enemy;
+
+
+   
+
+   
+
+
     private AxeState currentState;
     private float currentSpeed;
     private Vector3 startPosition;
     private Vector2 direction;
 
     [SerializeField] private GameObject player;
-    private Vector2 currentPosition;
+    private Vector2 currentPosition;//player position at the moment of throwing, used for return direction calculation
+
+
+
+
 
     void Awake()
     {
@@ -30,6 +47,8 @@ public class Axe : MonoBehaviour
         
         SetupThrow();
 
+
+        
 
 
     }
@@ -85,6 +104,26 @@ public class Axe : MonoBehaviour
     private void CatchAxe()
     {
         currentState = AxeState.Caught;
+        
         Destroy(gameObject);
     }
+
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+
+        enemy = collision.gameObject;
+
+        if (enemy.CompareTag("Enemy"))
+        {
+            enemy.GetComponent<EnemyStats>().TakeDamage(Vector2.zero, damageAmount);
+        }
+
+
+    }
+
+
+
+    //handle spawn effect
+    
 }

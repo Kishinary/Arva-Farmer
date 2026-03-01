@@ -20,6 +20,12 @@ public class flyingBoomerang_left : MonoBehaviour
     [SerializeField] private float catchRange = 0.5f;
     [SerializeField] private LayerMask obstacleLayer;
 
+    [Header("Damage Settings")]
+    [SerializeField] private float damageAmount = 10f;
+    private GameObject enemy;
+
+
+
     private AxeState currentState;
     private float currentSpeed;
     private Vector3 startPosition;
@@ -68,6 +74,8 @@ public class flyingBoomerang_left : MonoBehaviour
                 break;
         }
 
+        
+
         // Luôn xoay rìu khi đang bay
         transform.Rotate(0, 0, rotationSpeed * Time.deltaTime);
     }
@@ -98,5 +106,17 @@ public class flyingBoomerang_left : MonoBehaviour
     {
         currentState = AxeState.Caught;
         Destroy(gameObject);
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+
+        enemy = collision.gameObject;
+
+        if (enemy.CompareTag("Enemy"))
+        {
+            enemy.GetComponent<EnemyStats>().TakeDamage(Vector2.zero, damageAmount);
+        }
+
+
     }
 }

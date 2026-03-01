@@ -9,7 +9,7 @@ public class Item : MonoBehaviour
     private int quantity;
 
     [SerializeField]
-    private Sprite sprite;
+    private Sprite InInventorySprite;
 
     [TextArea]
     [SerializeField] 
@@ -36,14 +36,16 @@ public class Item : MonoBehaviour
                        Debug.LogError("inventoryManager not found on inventory_canvas!");
         }
     }
+    
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.CompareTag("Player") && inventoryManager != null)
         {
-           
+            Debug.Log("Player collided with item: " + itemName);
 
-            int leftOverItems = inventoryManager.AddItem(itemName, quantity, sprite, itemDescription);
+
+            int leftOverItems = inventoryManager.AddItem(itemName, quantity, InInventorySprite, itemDescription);
             
             if (leftOverItems <= 0)
             {

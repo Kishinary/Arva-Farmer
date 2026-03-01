@@ -103,13 +103,9 @@ public class Shovel : MonoBehaviour
 
     public void AttackFalse()
     {
-        StartCoroutine(RealAttackFalse());
-    }
-    IEnumerator RealAttackFalse()
-    {
-        yield return new WaitForSeconds(0.3f);
         isNormaling = false;
     }
+
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

@@ -15,7 +15,7 @@ public class EnemyStats : MonoBehaviour
     [SerializeField] private float flashDuration = 0.15f;
 
     [Header("Knockback Settings")]
-    public float knockbackForce = 8f;
+    public float knockbackForce = 0.5f;
 
     [Header("UI References")]
     public Slider healthSlider;
@@ -29,7 +29,7 @@ public class EnemyStats : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
-        
+
         maxHealth = health;
         originalMaterial = sr.material; // Lưu Material gốc chuẩn
 

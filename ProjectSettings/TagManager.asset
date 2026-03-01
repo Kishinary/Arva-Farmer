@@ -55,6 +55,9 @@ TagManager:
   - name: Ground
     uniqueID: 2094399725
     locked: 0
+  - name: Shadow
+    uniqueID: 1312130827
+    locked: 0
   - name: Elevated_1
     uniqueID: 648175891
     locked: 0

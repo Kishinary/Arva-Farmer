@@ -51,7 +51,7 @@ GameObject:
   - component: {fileID: 3919926359112257969}
   - component: {fileID: 9082599763298368626}
   - component: {fileID: 314396651360001404}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Pawn_Idle_0
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -116,7 +116,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -70604381
-  m_SortingLayer: 6
+  m_SortingLayer: 7
   m_SortingOrder: 0
   m_Sprite: {fileID: -5948806968594788206, guid: d1774ea2aad196e4d8b6436fb3e6a401, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -146,7 +146,7 @@ MonoBehaviour:
   minionPrefab: {fileID: 6457607979936087458, guid: 166894e41f9507842909bd3caf6eb434, type: 3}
   summonCount: 2
   summonCooldown: 4
-  castTime: 1.5
+  castTime: 10
   summonRadius: 2
 --- !u!50 &4110079722464383791
 Rigidbody2D:
@@ -161,7 +161,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDamping: 0
+  m_LinearDamping: 5
   m_AngularDamping: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
@@ -187,7 +187,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 822c41bea48c4bb4da046b40b617a755, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 20
+  health: 35
   invincible: 0
   invincibilityDuration: 0.5
   flashMaterial: {fileID: 2100000, guid: 38558de54466ec243bde7b2399495bfa, type: 2}

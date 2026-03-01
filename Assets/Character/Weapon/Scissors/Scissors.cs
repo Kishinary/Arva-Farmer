@@ -135,7 +135,7 @@ public class Scissors : MonoBehaviour
             timer += Time.deltaTime;
             float percent = timer / attackDuration;
 
-            transform.localPosition = originalLocalPos + Vector3.right * (thrustDistance * percent * 0.1f);
+            transform.localPosition = originalLocalPos + Vector3.right * (thrustDistance * percent * 0.15f);
 
             yield return null;
         }

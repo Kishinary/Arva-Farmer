@@ -34,6 +34,9 @@ public class PlayerMovement : MonoBehaviour
     public Scissors scissors;
     public int PlayerWeapon = 1;
 
+
+    [Header("Talking")]
+    public bool isTalking = false;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -113,7 +116,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void OnAttackNewWeapon(InputAction.CallbackContext context)
     {
-        if (context.performed) {
+        if (context.performed && !isTalking) {
             if (shovel != null)
             {
                 shovel.NormalAttack();
@@ -134,7 +137,7 @@ public class PlayerMovement : MonoBehaviour
     }
     public void OnSpecialMove(InputAction.CallbackContext context)
     {
-        if (context.performed)
+        if (context.performed && !isTalking)
         { 
             if (PlayerWeapon == 1)
             {

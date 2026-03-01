@@ -317,7 +317,7 @@ GameObject:
   - component: {fileID: 2219136545002770207}
   - component: {fileID: 8517840438445070861}
   - component: {fileID: 7739518881246647192}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Warrior_Idle_0
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -382,7 +382,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 2063039921
-  m_SortingLayer: 7
+  m_SortingLayer: 8
   m_SortingOrder: 0
   m_Sprite: {fileID: 7384290322352760091, guid: f984855442e47db459341fd6f47fc678, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -419,7 +419,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 822c41bea48c4bb4da046b40b617a755, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 60
+  health: 30
   invincible: 0
   invincibilityDuration: 0.5
   flashMaterial: {fileID: 2100000, guid: 38558de54466ec243bde7b2399495bfa, type: 2}
@@ -476,7 +476,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDamping: 0
+  m_LinearDamping: 5
   m_AngularDamping: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}

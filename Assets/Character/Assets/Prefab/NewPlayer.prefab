@@ -212,7 +212,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -70604381
-  m_SortingLayer: 6
+  m_SortingLayer: 7
   m_SortingOrder: 0
   m_Sprite: {fileID: -8452472099976872463, guid: 021cfe33b549b5a418be5b5b1e43e2c9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -449,6 +449,7 @@ MonoBehaviour:
   watercan: {fileID: 0}
   scissors: {fileID: 0}
   PlayerWeapon: 1
+  isTalking: 0
 --- !u!114 &2801642307190303101
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -462,6 +463,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MaxHealth: 100
+  multiplier: 1
 --- !u!70 &4264477161988288158
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -496,9 +498,9 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.016530463, y: -0.1527978}
-  m_Size: {x: 0.24778695, y: 0.13190588}
-  m_Direction: 1
+  m_Offset: {x: -0.008423853, y: -0.037504412}
+  m_Size: {x: 0.20936899, y: 0.36249343}
+  m_Direction: 0
 --- !u!1 &4111037150399367319
 GameObject:
   m_ObjectHideFlags: 0
@@ -577,7 +579,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 2063039921
-  m_SortingLayer: 7
+  m_SortingLayer: 8
   m_SortingOrder: 0
   m_Sprite: {fileID: 7766161694405865213, guid: 003b44c9d334ca249b24620d202a8395, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -631,6 +633,7 @@ MonoBehaviour:
   SpecialAttackDamage: 0
   dirtParticle: {fileID: 6045122112023706318, guid: 4f3130afd6647ef49a49ffa8f5e5cc34, type: 3}
   SmashParticle: {fileID: 3115481665933593663, guid: c9eb5a8d24633f04496228d7a971684e, type: 3}
+  isNormaling: 0
 --- !u!61 &5969873246331162346
 BoxCollider2D:
   m_ObjectHideFlags: 0

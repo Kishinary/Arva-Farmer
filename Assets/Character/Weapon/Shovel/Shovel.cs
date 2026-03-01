@@ -26,7 +26,7 @@ public class Shovel : MonoBehaviour
     private PlayerMovement PlayerMove;
 
     [Header("Checker")]
-    private bool isNormaling;
+    public bool isNormaling;
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -97,12 +97,17 @@ public class Shovel : MonoBehaviour
             animator.SetTrigger("Smash");
             PlayerMove.movespeed = 7f;
             nextNormalAttackTime = Time.time + NormalAttackCooldown;
-            isNormaling = true;
         }
     }
 
     public void AttackFalse()
     {
+        StartCoroutine(AttackYes());    }
+
+    IEnumerator AttackYes()
+    {
+        isNormaling = true;
+        yield return new WaitForSeconds(0.15f);
         isNormaling = false;
     }
 

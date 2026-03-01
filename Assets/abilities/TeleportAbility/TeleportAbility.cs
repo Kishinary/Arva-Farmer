@@ -11,7 +11,7 @@ using UnityEngine;
 
 
 [CreateAssetMenu(menuName = "Ability/DashAbility")]
-public class DashAbility : Ability
+public class TeleportAbility : Ability
 {
     
 

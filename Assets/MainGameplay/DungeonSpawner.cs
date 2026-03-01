@@ -13,7 +13,6 @@ public class DungeonSpawner : MonoBehaviour
         Instantiate(ChoosenDungeon);
     }
 
-    // Update is called once per frame
     void Update()
     {
         

@@ -1,13 +1,8 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/Menu/MainMenuStyle.uss?fileID=7433441132597879392&amp;guid=8dbc06fda70eb974ab346c5263ef1861&amp;type=3#MainMenuStyle" />
-    <ui:VisualElement name="Background" class="background">
+    <ui:VisualElement name="Background" class="background" style="background-image: url(&quot;project://database/Assets/Menu/Gemini_Generated_Image_fd7meffd7meffd7m.png?fileID=2800000&amp;guid=8e5000c28e47cd644ace3b9aa235f997&amp;type=3#Gemini_Generated_Image_fd7meffd7meffd7m&quot;);">
         <ui:VisualElement name="MenuContainer" class="menu-container">
             <ui:Label text="PLAY" name="play-label" class="menu-item" />
-            <ui:Label text="MULTIPLAYER" class="menu-item" />
-            <ui:Label text="SAVE SLOT #1" class="menu-item" />
-            <ui:Label text="OPTIONS" class="menu-item" />
-            <ui:Label text="CINEMATICS" class="menu-item" />
-            <ui:Label text="CREDITS" class="menu-item" />
             <ui:Label text="QUIT" name="quit-label" class="menu-item" />
         </ui:VisualElement>
     </ui:VisualElement>

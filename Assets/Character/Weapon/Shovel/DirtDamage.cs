@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class DirtDamage : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    public float SpecialAttackCooldown = 15f;
     void Start()
     {
         
@@ -18,7 +18,7 @@ public class DirtDamage : MonoBehaviour
     {
         if (collision.CompareTag("Enemy"))
         {
-            collision.GetComponent<EnemyStats>().TakeDamage(transform.position, 10f);
+            collision.GetComponent<EnemyStats>().TakeDamage(transform.position, SpecialAttackCooldown);
             Debug.Log("Hitted");
         }
     }

@@ -3,34 +3,33 @@ using UnityEngine.UIElements;
 
 public class HealthBarController : MonoBehaviour
 {
-    private VisualElement _healthFill;
+    private VisualElement _mainBar;
+    private VisualElement _ghostBar;
+    private Label _hpLabel;
 
-    void OnEnable()
-    {
-        // Lấy root của UXML
+    void OnEnable() {
         var root = GetComponent<UIDocument>().rootVisualElement;
         
-        // Tìm VisualElement có tên là "HealthFill" (phải khớp tên trong UI Builder)
-        _healthFill = root.Q<VisualElement>("HealthFill");
+        // Tìm các phần tử theo tên đã đặt trong UXML
+        _mainBar = root.Q<VisualElement>("MainBar");
+        _ghostBar = root.Q<VisualElement>("GhostBar");
+        _hpLabel = root.Q<Label>("HpLabel");
 
-        // Đăng ký lắng nghe sự kiện thay đổi máu
+        // Đăng ký nhận thông tin mỗi khi máu thay đổi
         PlayerHealth.OnHealthChanged += UpdateUI;
     }
 
-    void OnDisable()
-    {
-        // Hủy đăng ký khi không dùng nữa để tránh lỗi bộ nhớ
+    void OnDisable() {
         PlayerHealth.OnHealthChanged -= UpdateUI;
     }
 
-    private void UpdateUI(float currentHealth, float maxHealth)
-    {
-        if (_healthFill == null) return;
-
-        // Tính toán phần trăm
-        float pct = (currentHealth / maxHealth) * 100f;
-
-        // Cập nhật độ rộng (Width) của thanh máu
-        _healthFill.style.width = Length.Percent(pct);
+    private void UpdateUI(float current, float max) {
+        float pct = (current / max) * 100f;
+        
+        // Dùng Length.Percent để ép thanh máu luôn là hình chữ nhật
+        _mainBar.style.width = new Length(pct, LengthUnit.Percent);
+        _ghostBar.style.width = new Length(pct, LengthUnit.Percent);
+        
+        _hpLabel.text = $"{Mathf.CeilToInt(current)} / {max}";
     }
 }

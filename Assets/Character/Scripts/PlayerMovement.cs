@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections;
 using System.Threading;
 using UnityEngine;
@@ -29,9 +29,14 @@ public class PlayerMovement : MonoBehaviour
     [Header("Combat-related Components")]
     public Shovel shovel;
     public WeaponParent weaponParent;
+    public PickaxeSlash Pickaxe;
+    public Watercan watercan;
+    public Scissors scissors;
+    public int PlayerWeapon = 1;
 
-    public int PlayerWeapon;
 
+    [Header("Talking")]
+    public bool isTalking = false;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -42,12 +47,11 @@ public class PlayerMovement : MonoBehaviour
 
         mainCamera = Camera.main;
 
-
-
-        if (PlayerWeapon == 1)
-        {
-            shovel = GetComponentInChildren<Shovel>();
-        }
+        //Weapon Stuff
+        shovel = GetComponentInChildren<Shovel>();
+        Pickaxe = GetComponentInChildren<PickaxeSlash>();
+        watercan = GetComponentInChildren<Watercan>();
+        scissors = GetComponentInChildren<Scissors>();
     }
     private void Awake()
     {
@@ -68,9 +72,13 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+        if (Pickaxe != null) {
+            Pickaxe.PointerPosition = GetPointerInput();
+        }
         pointerInput = GetPointerInput();
-        //weaponParent.PointerPosition = pointerInput;
         UpdateMouseDirection();
+
+
         animator.SetFloat("InputX", snappedDir.x);
         animator.SetFloat("InputY", snappedDir.y);
         animator.SetFloat("LastX", snappedDir.x);
@@ -108,22 +116,40 @@ public class PlayerMovement : MonoBehaviour
 
     public void OnAttackNewWeapon(InputAction.CallbackContext context)
     {
-        if (context.performed) {
-            if (PlayerWeapon == 1)
+        if (context.performed && !isTalking) {
+            if (shovel != null)
             {
-                //shovel.attack();
-                return;
+                shovel.NormalAttack();
             }
-            else if (PlayerWeapon == 2) {
-                return;
-            }
-            else
+            else if (Pickaxe != null)
             {
-                return;
+                Pickaxe.Attack();
+            }
+            else if (watercan != null)
+            {
+                watercan.Attack();
+            }
+            else if (scissors != null)
+            {
+                scissors.NormalAttack();
             }
         }
-        
     }
+    public void OnSpecialMove(InputAction.CallbackContext context)
+    {
+        if (context.performed && !isTalking)
+        { 
+            if (PlayerWeapon == 1)
+            {
+                shovel.Attack();
+            }
+            if (scissors != null)
+            {
+                scissors.Attack();
+            }
+        }
+    }
+
     public Vector2 GetPointerInput()
     {
         Vector3 mousePos = pointerPosition.ReadValue<Vector2>();
@@ -153,19 +179,10 @@ public class PlayerMovement : MonoBehaviour
 
     public void DisablePlayerInput()
     {
-        if (playerInput != null)
-        {
-            playerInput.DeactivateInput();
-        }
-        else
-        {
-            Debug.LogWarning("PlayerInput is missing from the script!");
-        }
-        pointerInput = Vector3.zero;
+        movespeed = 0;
     }
     public void EnablePlayerInput()
     {
-        playerInput.ActivateInput();
-        pointerInput = GetPointerInput();
+        movespeed = 10f;
     }
 }

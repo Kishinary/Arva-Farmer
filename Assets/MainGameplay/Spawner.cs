@@ -1,3 +1,5 @@
+using NUnit.Framework;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Spawner : MonoBehaviour
@@ -9,6 +11,8 @@ public class Spawner : MonoBehaviour
     public GameObject Charger;
 
     public Vector2 randomP;
+
+    public List<GameObject> SpawnLoc = new List<GameObject>();
     void Start()
     {
         float rand = Random.Range(0, 9);
@@ -76,9 +80,15 @@ public class Spawner : MonoBehaviour
         randomP = new Vector2(Random.Range(0,10), Random.Range(0,10));
         for (int i = 0; i < amount; i++)
         {
-            Instantiate(summonedObject, new Vector3(randomP.x, randomP.y, 0), Quaternion.identity);
+            Vector2 spawner = RandomSpawn();
+            Instantiate(summonedObject, new Vector3(spawner.x, spawner.y, 0), Quaternion.identity);
         }
+    }
 
-
+    Vector2 RandomSpawn()
+    {
+        Vector2 Spawnlocation = new Vector2(0, 0);
+        Spawnlocation = SpawnLoc[Random.Range(0, SpawnLoc.Count)].transform.position;
+        return Spawnlocation;
     }
 }

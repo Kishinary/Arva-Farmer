@@ -8,14 +8,14 @@ public class EnemyStats : MonoBehaviour
     public float health = 20;
     private float maxHealth;
     public bool invincible = false;
-    [SerializeField] private float invincibilityDuration = 0.2f;
+    [SerializeField] private float invincibilityDuration = 0.02f;
 
     [Header("Flash Settings")]
     [SerializeField] private Material flashMaterial; 
     [SerializeField] private float flashDuration = 0.15f;
 
     [Header("Knockback Settings")]
-    public float knockbackForce = 8f;
+    public float knockbackForce = 0.5f;
 
     [Header("UI References")]
     public Slider healthSlider;
@@ -29,7 +29,7 @@ public class EnemyStats : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
-        
+
         maxHealth = health;
         originalMaterial = sr.material; // Lưu Material gốc chuẩn
 
@@ -49,10 +49,10 @@ public class EnemyStats : MonoBehaviour
         }
 
         // Test phím Space
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            TakeDamage(Vector2.zero, 2);
-        }
+        //if (Input.GetKeyDown(KeyCode.Space))
+        //{
+          //  TakeDamage(Vector2.zero, 2);
+        //}
     }
 
     public void TakeDamage(Vector2 hitSource, float damage)
@@ -117,12 +117,13 @@ public class EnemyStats : MonoBehaviour
         {
             // Nếu không muốn nhấp nháy, bạn có thể xóa đoạn switch color này
             // sr.enabled = !sr.enabled; // Cách nhấp nháy cổ điển (ẩn/hiện)
-            yield return new WaitForSeconds(0.05f);
-            timer += 0.05f;
+            yield return new WaitForSeconds(invincibilityDuration);
+            invincible = false;
+            yield return new WaitForSeconds(0.05f - invincibilityDuration);
+            timer += Time.deltaTime;
         }
 
         sr.enabled = true; // Đảm bảo cuối cùng Sprite luôn hiện
-        invincible = false;
     }
 
     void Die()

@@ -117,7 +117,6 @@ public class PlayerMovement : MonoBehaviour
             if (shovel != null)
             {
                 shovel.NormalAttack();
-                Debug.Log("Attacked");
             }
             else if (Pickaxe != null)
             {
@@ -129,7 +128,7 @@ public class PlayerMovement : MonoBehaviour
             }
             else if (scissors != null)
             {
-                scissors.Attack();
+                scissors.NormalAttack();
             }
         }
     }
@@ -140,6 +139,10 @@ public class PlayerMovement : MonoBehaviour
             if (PlayerWeapon == 1)
             {
                 shovel.Attack();
+            }
+            if (scissors != null)
+            {
+                scissors.Attack();
             }
         }
     }

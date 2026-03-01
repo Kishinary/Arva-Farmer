@@ -316,6 +316,7 @@ GameObject:
   - component: {fileID: 6234173631846043674}
   - component: {fileID: 2219136545002770207}
   - component: {fileID: 8517840438445070861}
+  - component: {fileID: 7739518881246647192}
   m_Layer: 0
   m_Name: Warrior_Idle_0
   m_TagString: Enemy
@@ -459,8 +460,8 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.100259945, y: -0.5213478}
-  m_Size: {x: 0.67449254, y: 0.37918285}
+  m_Offset: {x: -0.100259945, y: -0.540102}
+  m_Size: {x: 0.67449284, y: 0.30416596}
   m_Direction: 1
 --- !u!50 &8517840438445070861
 Rigidbody2D:
@@ -489,6 +490,43 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!70 &7739518881246647192
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4716533032613820299}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: -0.08439541, y: -0.023443358}
+  m_Size: {x: 0.6279707, y: 0.94363487}
+  m_Direction: 0
 --- !u!1 &6105216195328638996
 GameObject:
   m_ObjectHideFlags: 0

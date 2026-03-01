@@ -12,7 +12,7 @@ public class Shovel : MonoBehaviour
     public float attackCooldown = 1f;
     public float NormalAttackCooldown = 0.5f;
     private float nextAttackTime = 0f;
-
+    private float nextNormalAttackTime = 0f;
 
     public float NormalAttackDamage;
     public float SpecialAttackDamage;
@@ -91,11 +91,12 @@ public class Shovel : MonoBehaviour
 
     public void NormalAttack()
     {
-        if (Time.time >= nextAttackTime)
+        if (Time.time >= nextNormalAttackTime)
         {
+            Debug.Log("sdf");
             animator.SetTrigger("Smash");
             PlayerMove.movespeed = 7f;
-            nextAttackTime = Time.time + attackCooldown;
+            nextNormalAttackTime = Time.time + NormalAttackCooldown;
             isNormaling = true;
         }
     }

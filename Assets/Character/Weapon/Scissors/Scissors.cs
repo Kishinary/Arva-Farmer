@@ -14,9 +14,14 @@ public class Scissors : MonoBehaviour
 
     [Header("Thrust Settings")]
     public float thrustDistance = 2f;     
-    public float attackDuration = 0.1f;    
-    public float returnDuration = 0.2f;    
+    public float attackDuration = 0.15f;    
+    public float returnDuration = 0.1f;    
     public AnimationCurve thrustCurve;     // Use this for "snappy" movement
+
+
+    [Header("Normal Attack")]
+    private float nextNormalAttackTime;
+    private float NormalattackCooldown = 0.25f;
 
     [Header("Combat")]
     public float damage = 5f;
@@ -51,6 +56,17 @@ public class Scissors : MonoBehaviour
         }
     }
 
+
+    public void NormalAttack()
+    {
+        if (Time.time >= nextNormalAttackTime)
+        {
+            animator.SetTrigger("Thrust");
+            PlayerMove.movespeed = 7f;
+            nextAttackTime = Time.time + NormalattackCooldown;
+            StartCoroutine(Thrust());
+        }
+    }
 
 
 
@@ -97,12 +113,47 @@ public class Scissors : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (isAttacking) { 
-            if (collision.CompareTag("Enemy"))
-            {
-                collision.GetComponent<EnemyStats>().TakeDamage(transform.position, 5f);
+        if (collision.CompareTag("Enemy"))
+        {
+            if (isAttacking) { 
+                collision.GetComponent<EnemyStats>().TakeDamage(transform.position, 0.5f);
             }
+            if (isNormaling) {
+                collision.GetComponent<EnemyStats>().TakeDamage(transform.position, 4f);
+            }
+
         }
+    }
+
+    IEnumerator Thrust()
+    {
+        isNormaling = true;
+
+        float timer = 0f;
+        while (timer < attackDuration)
+        {
+            timer += Time.deltaTime;
+            float percent = timer / attackDuration;
+
+            transform.localPosition = originalLocalPos + Vector3.right * (thrustDistance * percent * 0.1f);
+
+            yield return null;
+        }
+        timer = 0f;
+        while (timer < returnDuration)
+        {
+            timer += Time.deltaTime;
+            float percent = timer / returnDuration;
+
+            // Return from the extended position back to original
+            transform.localPosition = Vector3.Lerp(originalLocalPos + Vector3.right * thrustDistance * 0.1f, originalLocalPos, percent);
+
+            yield return null;
+        }
+
+        transform.localPosition = originalLocalPos;
+        yield return new WaitForSeconds(0.3f);
+        isNormaling = false;
     }
 }
 

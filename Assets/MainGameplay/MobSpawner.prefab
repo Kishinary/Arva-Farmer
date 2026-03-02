@@ -44,8 +44,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10947f7c90fa65046b1ddb3428dc59c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Toucher: {fileID: 4716533032613820299, guid: 9ec2bf018e9e57a428e91491d8da62cc, type: 3}
-  Archer: {fileID: 6457607979936087458, guid: 166894e41f9507842909bd3caf6eb434, type: 3}
+  Toucher: {fileID: 5231209078013737565, guid: 7952d352bd3776e44b47fca4a392c4f9, type: 3}
+  Archer: {fileID: 2288077057705689352, guid: 876646521b30db442849e43c9e79e0e9, type: 3}
   Summoner: {fileID: 2339723384082328858, guid: cd6adc30a3b718d4ea77e03e2dfb44d2, type: 3}
   Mage: {fileID: 4377348928892383159, guid: 25b35c4fd1a100f41824cb8670b67e07, type: 3}
-  Charger: {fileID: 6504507702982755813, guid: e2b2e0d682e6574489ef7df23879562e, type: 3}
+  Charger: {fileID: 2679225800252764106, guid: 4bfe80eb659a78047a02dfc9d549f6e6, type: 3}
+  randomP: {x: 0, y: 0}
+  SpawnLoc: []

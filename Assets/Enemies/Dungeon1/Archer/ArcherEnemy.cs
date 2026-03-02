@@ -1,124 +1,95 @@
+using System.Collections;
 using UnityEngine;
 
-public class ArcherEnemy : MonoBehaviour
+public class BirdEnemy : MonoBehaviour
 {
-    private Transform player;
+    Transform player;
 
-    [Header("Combat")]
-    public float attackRange = 6f;
-    public float fireRate = 1.5f;
-    float fireCooldown;
+    [Header("References")]
+    public Transform shadow;
+    public Transform firePoint;
+    public GameObject projectilePrefab;
+    public Animator animator;
+    public GameObject orbiter;
 
     [Header("Movement")]
-    public float moveSpeed = 2f;
-    public float retreatSpeed = 3f;
-    public float retreatTime = 1.5f;
+    public float orbitSpeed = 20f;
 
-    float retreatTimer;
-    bool isRetreating = false;
+    [Header("Attack")]
+    public float attackInterval = 5f;
+    public float projectileSpeed = 8f;
 
-    [Header("Projectile")]
-    public GameObject arrowPrefab;
-    public Transform firePoint;
-    public float arrowSpeed = 10f;
+    float attackTimer;
+    bool isAttacking;
 
-    int shotsFired = 0;
-    int shotsBeforeRetreat;
+    Vector2 moveDir;
 
     void Start()
     {
-        ChooseShotsBeforeRetreat();
+        animator = GetComponent<Animator>();
         player = GameObject.FindWithTag("Player").transform;
+
+        attackTimer = attackInterval;
     }
 
     void Update()
     {
         if (player == null) return;
 
-        FacePlayer();
+        attackTimer -= Time.deltaTime;
 
-        float distance = Vector2.Distance(transform.position, player.position);
-
-        if (isRetreating)
+        if (!isAttacking)
         {
-            Retreat();
-            return;
+            Orbiter();
         }
 
-        if (distance > attackRange)
+        if (attackTimer <= 0 && !isAttacking)
         {
-            MoveTowardsPlayer();
+            StartCoroutine(AttackRoutine());
         }
-        else
-        {
-            Attack();
-        }
+
+        UpdateAnimator();
     }
 
-    void MoveTowardsPlayer()
+    IEnumerator AttackRoutine()
     {
-        Vector2 dir = (player.position - transform.position).normalized;
-        transform.position += (Vector3)dir * moveSpeed * Time.deltaTime;
+        isAttacking = true;
+
+        moveDir = Vector2.zero;
+
+        Vector2 attackDir = (player.position - transform.position).normalized;
+
+        animator.SetFloat("AttackX", attackDir.x);
+        animator.SetFloat("AttackY", attackDir.y);
+
+        yield return new WaitForSeconds(0.5f);
+
+        animator.SetTrigger("Attack");
+
+        ShootProjectile(attackDir);
+
+        attackTimer = attackInterval;
+
+        yield return new WaitForSeconds(0.2f);
+
+        isAttacking = false;
     }
 
-    void Attack()
+    void ShootProjectile(Vector2 dir)
     {
-        fireCooldown -= Time.deltaTime;
+        GameObject proj = Instantiate(projectilePrefab, firePoint.position, Quaternion.identity);
 
-        if (fireCooldown <= 0)
-        {
-            ShootArrow();
-            fireCooldown = fireRate;
-
-            shotsFired++;
-
-            if (shotsFired >= shotsBeforeRetreat)
-            {
-                StartRetreat();
-            }
-        }
+        proj.GetComponent<Rigidbody2D>().linearVelocity = dir * projectileSpeed;
     }
 
-    void ShootArrow()
+    void UpdateAnimator()
     {
-        GameObject arrow = Instantiate(arrowPrefab, firePoint.position, Quaternion.identity);
-
-        Vector2 dir = (player.position - firePoint.position).normalized;
-
-        arrow.GetComponent<Rigidbody2D>().linearVelocity = dir * arrowSpeed;
+        animator.SetFloat("MoveX", moveDir.x);
+        animator.SetFloat("MoveY", moveDir.y);
     }
 
-    void StartRetreat()
+    void Orbiter()
     {
-        isRetreating = true;
-        retreatTimer = retreatTime;
-        shotsFired = 0;
-        ChooseShotsBeforeRetreat();
-    }
-
-    void Retreat()
-    {
-        retreatTimer -= Time.deltaTime;
-
-        Vector2 dir = (transform.position - player.position).normalized;
-        transform.position += (Vector3)dir * retreatSpeed * Time.deltaTime;
-
-        if (retreatTimer <= 0)
-        {
-            isRetreating = false;
-        }
-    }
-
-    void ChooseShotsBeforeRetreat()
-    {
-        shotsBeforeRetreat = Random.Range(1, 3); // 1 or 2 shots
-    }
-
-    void FacePlayer()
-    {
-        if (player.position.x > transform.position.x)
-            transform.localScale = new Vector3(1, 1, 1);
-        else
-            transform.localScale = new Vector3(-1, 1, 1);
+        shadow.transform.position = Vector2.MoveTowards(shadow.transform.position, orbiter.transform.position, orbitSpeed * Time.deltaTime);
     }
 }

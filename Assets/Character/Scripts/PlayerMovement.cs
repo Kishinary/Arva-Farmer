@@ -180,9 +180,11 @@ public class PlayerMovement : MonoBehaviour
     public void DisablePlayerInput()
     {
         movespeed = 0;
+        playerInput.DeactivateInput();
     }
     public void EnablePlayerInput()
     {
         movespeed = 10f;
+        playerInput.ActivateInput();
     }
 }

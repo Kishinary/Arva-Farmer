@@ -1,6 +1,7 @@
 using NUnit.Framework;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Spawner : MonoBehaviour
 {
@@ -13,15 +14,33 @@ public class Spawner : MonoBehaviour
     public Vector2 randomP;
 
     public List<GameObject> SpawnLoc = new List<GameObject>();
+
+    public Transform PlayerSpawn;
+    public List<GameObject> Enemies = new List<GameObject>();
+
+    public bool enemies = false;
+    public bool goable = false;
+    private string NextScene;
     void Start()
     {
         float rand = Random.Range(0, 9);
         randomP = new Vector2(rand, rand);
         Instantiating(rand);
-        
     }
 
+    private void Update()
+    {
+        EnemyStats enemyManager = FindFirstObjectByType<EnemyStats>();
+        if (!enemyManager)
+        {
+            NextScene = FindFirstObjectByType<DungeonSpawner>().NextScene;
+            if (NextScene != null) {
+                goable = true;
+            }
+            return;
+        }
 
+    }
     void Instantiating(float rand)
     {
         switch (rand)
@@ -90,5 +109,12 @@ public class Spawner : MonoBehaviour
         Vector2 Spawnlocation = new Vector2(0, 0);
         Spawnlocation = SpawnLoc[Random.Range(0, SpawnLoc.Count)].transform.position;
         return Spawnlocation;
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (goable == true)
+        {
+            SceneManager.LoadScene(NextScene);
+        }
     }
 }

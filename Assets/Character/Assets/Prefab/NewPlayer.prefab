@@ -194,7 +194,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 6791292153480761138}
         m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
-        m_MethodName: Move
+        m_MethodName: OnMove
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -346,7 +346,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 208edaf61749f4545b241e2bb298a40f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movespeed: 10
+  movespeed: 7.5
   moveInput: {x: 0, y: 0}
   LastX: 0
   LastY: 0

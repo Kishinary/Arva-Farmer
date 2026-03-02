@@ -8,8 +8,6 @@ public class DialogueZoom : MonoBehaviour
     public float duration = 0.3f;
 
     public float targetZoom = 1f;
-    private float velocity = 0f;
-    private float smoothTime = 0.25f;
 
     private Camera m_Camera;
 

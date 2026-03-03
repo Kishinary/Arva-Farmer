@@ -24,5 +24,6 @@ public class Slash : MonoBehaviour
             if (enemy != null)
                 enemy.TakeDamage(10);
         }
+
     }
 }

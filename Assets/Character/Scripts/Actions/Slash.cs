@@ -17,12 +17,12 @@ public class Slash : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D hit)
     {
-        if (hit.CompareTag("Enemy"))
+        if (hit.CompareTag("Player"))
         {
-            EnemyStats enemy = hit.GetComponent<EnemyStats>();
+            PlayerHealth enemy = hit.GetComponent<PlayerHealth>();
 
             if (enemy != null)
-                enemy.TakeDamage(transform.position, 10);
+                enemy.TakeDamage(10);
         }
     }
 }

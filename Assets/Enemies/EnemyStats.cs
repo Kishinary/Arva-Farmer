@@ -25,6 +25,9 @@ public class EnemyStats : MonoBehaviour
     private Material originalMaterial;
     private Coroutine flashRoutine;
 
+    [Header("Particle")]
+    public ParticleSystem DeathPar;
+
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -128,7 +131,7 @@ public class EnemyStats : MonoBehaviour
 
     void Die()
     {
-        // Có thể thêm hiệu ứng nổ tại đây
+        Instantiate(DeathPar, transform.position, Quaternion.identity);
         Destroy(gameObject);
     }
 }

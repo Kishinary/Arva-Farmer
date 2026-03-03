@@ -3,7 +3,7 @@ using UnityEngine;
 public class Orbiter : MonoBehaviour
 {
     public Transform player;
-    public float radius = 5f;
+    public float radius = 10f;
     public float rotationSpeed = 120f;
 
     float angle;

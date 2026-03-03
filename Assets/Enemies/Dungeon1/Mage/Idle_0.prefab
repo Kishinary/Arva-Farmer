@@ -207,6 +207,7 @@ MonoBehaviour:
   flashDuration: 0.15
   knockbackForce: 8
   healthSlider: {fileID: 2793188071617953061}
+  DeathPar: {fileID: 8813979716979246122, guid: a0d8df6e7bc8cb64a896255174e2a806, type: 3}
 --- !u!70 &8677628219131890544
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

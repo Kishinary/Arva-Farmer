@@ -78,7 +78,8 @@ public class BirdEnemy : MonoBehaviour
     void ShootProjectile(Vector2 dir)
     {
         GameObject proj = Instantiate(projectilePrefab, firePoint.position, Quaternion.identity);
-
+        float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+        proj.transform.rotation = Quaternion.Euler(0f, 0f, angle);
         proj.GetComponent<Rigidbody2D>().linearVelocity = dir * projectileSpeed;
     }
 
@@ -91,5 +92,6 @@ public class BirdEnemy : MonoBehaviour
     void Orbiter()
     {
         shadow.transform.position = Vector2.MoveTowards(shadow.transform.position, orbiter.transform.position, orbitSpeed * Time.deltaTime);
+        transform.position = Vector2.MoveTowards(transform.position, shadow.transform.position + new Vector3(0, 1.1f, 0), orbitSpeed * Time.deltaTime); 
     }
 }

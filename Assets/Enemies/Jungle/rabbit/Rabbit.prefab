@@ -335,7 +335,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -6.69, y: 0.74, z: 0}
-  m_LocalScale: {x: 1.25, y: 1.25, z: 1.25}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 5942245343759582892}
@@ -450,6 +450,7 @@ MonoBehaviour:
   flashDuration: 0.15
   knockbackForce: 8
   healthSlider: {fileID: 8065091021991279841}
+  DeathPar: {fileID: 8813979716979246122, guid: a0d8df6e7bc8cb64a896255174e2a806, type: 3}
 --- !u!70 &5829165595666979193
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

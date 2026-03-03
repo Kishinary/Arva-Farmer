@@ -143,7 +143,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 2
   keepDistance: 5
-  minionPrefab: {fileID: 6457607979936087458, guid: 166894e41f9507842909bd3caf6eb434, type: 3}
+  minionPrefab: {fileID: 5231209078013737565, guid: 7952d352bd3776e44b47fca4a392c4f9, type: 3}
   summonCount: 2
   summonCooldown: 4
   castTime: 10

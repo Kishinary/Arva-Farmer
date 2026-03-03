@@ -44,9 +44,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8207265a67cef2d4fa5caf1f12dc1fbe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SoundManager: {fileID: 6558455594643323442, guid: 5e928e3121f8ad944851dbeb12dbac6a, type: 3}
   DungeonMap:
   - {fileID: 5347552635253606089, guid: 924de05b12f6839458e40f9bb8e7438e, type: 3}
   - {fileID: 5895345326026232250, guid: 08ff9ca736e7d4a4597dcdcfdc551540, type: 3}
   - {fileID: 1440071900972577316, guid: 290efcf57d41a9942b8dea7ff5fb6a5b, type: 3}
   - {fileID: 7128615090473266282, guid: 629a5fe4eec5cb748846696305662671, type: 3}
   - {fileID: 4365989541155534586, guid: e439510cb8de5ac4e99a0378621faab4, type: 3}
+  player: {fileID: 770272872962949749, guid: fea627461bdbda441aca5ee78addc822, type: 3}

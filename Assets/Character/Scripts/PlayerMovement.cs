@@ -10,7 +10,7 @@ public class PlayerMovement : MonoBehaviour
     [Header("Movement")]
     public float movespeed = 10f;
     public Vector2 moveInput;
-    private Camera mainCamera;
+    public Camera mainCamera;
 
     [Header("Animation")]
     Rigidbody2D rb;
@@ -39,24 +39,27 @@ public class PlayerMovement : MonoBehaviour
     public bool isTalking = false;
     void Start()
     {
+        mainCamera = Camera.main;
+    }
+    private void Awake()
+    {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         weaponParent = GetComponentInChildren<WeaponParent>();
         pointerPosition = GetComponent<PlayerInput>().actions.FindActionMap("Player").FindAction("pointerPosition");
 
 
-        mainCamera = Camera.main;
 
-        //Weapon Stuff
+        
+        
+        playerInput = GetComponent<PlayerInput>();
+        DontDestroyOnLoad(this.gameObject);
+        
+        
         shovel = GetComponentInChildren<Shovel>();
         Pickaxe = GetComponentInChildren<PickaxeSlash>();
         watercan = GetComponentInChildren<Watercan>();
         scissors = GetComponentInChildren<Scissors>();
-    }
-    private void Awake()
-    {
-        playerInput = GetComponent<PlayerInput>();
-
     }
 
     private void FixedUpdate()
@@ -72,6 +75,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+        if (mainCamera == null) mainCamera = Camera.main;
         if (Pickaxe != null) {
             Pickaxe.PointerPosition = GetPointerInput();
         }
@@ -84,7 +88,7 @@ public class PlayerMovement : MonoBehaviour
         animator.SetFloat("LastX", snappedDir.x);
         animator.SetFloat("LastY", snappedDir.y);
     }
-    public void Move(InputAction.CallbackContext context)
+    public void OnMove(InputAction.CallbackContext context)
     {
         animator.SetBool("IsMoving", true);
         if (context.canceled)
@@ -94,25 +98,6 @@ public class PlayerMovement : MonoBehaviour
 
         moveInput = context.ReadValue<Vector2>();
     }
-    public void OnInteract(InputAction.CallbackContext context)
-    {
-        Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, 0.35f);
-
-        foreach (Collider2D hit in hits)
-        {
-            if (hit.CompareTag("Interactable"))
-            {
-                IInteractable interactable = hit.GetComponent<IInteractable>();
-
-                if (interactable != null)
-                {
-                    interactable.Interact();
-                    return;
-                }
-            }
-        }
-    }
-
 
     public void OnAttackNewWeapon(InputAction.CallbackContext context)
     {
@@ -139,7 +124,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (context.performed && !isTalking)
         { 
-            if (PlayerWeapon == 1)
+            if (shovel != null)
             {
                 shovel.Attack();
             }
@@ -152,6 +137,12 @@ public class PlayerMovement : MonoBehaviour
 
     public Vector2 GetPointerInput()
     {
+        // If the camera was destroyed by a scene change, find the new one
+        if (mainCamera == null)
+        {
+            mainCamera = Camera.main;
+            if (mainCamera == null) return Vector2.zero; // Still no camera found
+        }
         Vector3 mousePos = pointerPosition.ReadValue<Vector2>();
         mousePos.z = Camera.main.nearClipPlane;
 
@@ -160,6 +151,12 @@ public class PlayerMovement : MonoBehaviour
 
     void UpdateMouseDirection()
     {
+        // If the camera was destroyed by a scene change, find the new one
+        if (mainCamera == null)
+        {
+            mainCamera = Camera.main;
+            if (mainCamera == null) return; // Still no camera found
+        }
         if (Mouse.current == null) return;
         Vector3 mouseWorld = mainCamera.ScreenToWorldPoint(Mouse.current.position.ReadValue());
         mouseWorld.z = 0f;
@@ -180,9 +177,34 @@ public class PlayerMovement : MonoBehaviour
     public void DisablePlayerInput()
     {
         movespeed = 0;
+        playerInput.DeactivateInput();
     }
     public void EnablePlayerInput()
     {
         movespeed = 10f;
+        playerInput.ActivateInput();
     }
+
+
+
+
+
+    //public void OnInteract(InputAction.CallbackContext context)
+    //{
+      //  Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, 0.35f);
+
+        //foreach (Collider2D hit in hits)
+        //{
+          //  if (hit.CompareTag("Interactable"))
+            //{
+              //  IInteractable interactable = hit.GetComponent<IInteractable>();
+
+                //if (interactable != null)
+                //{
+                  //  interactable.Interact();
+                    //return;
+                //}
+            //}
+        //}
+    //}
 }

@@ -2,31 +2,56 @@ using UnityEngine;
 
 public class CameraZoom : MonoBehaviour
 {
-    private float zoom;
-    private float zoomMultiplier = 4f;
-    private float minZoom = 2f;
-    private float maxZoom = 8f;
+    public static CameraZoom Instance;
+
     private float velocity = 0f;
     private float smoothTime = 0.25f;
+
+    private float targetZoom;
 
     [SerializeField] private Camera cam;
     private Canvas canvas;
 
-    private void Start()
+    void Awake()
     {
-        cam = GameObject.FindWithTag("MainCamera").GetComponent<Camera>();
+        Instance = this;
+    }
+
+    void Start()
+    {
+        if (cam == null)
+            cam = Camera.main;
+
         canvas = GetComponent<Canvas>();
 
-        zoom = cam.orthographicSize;
-        canvas.worldCamera = cam;
-    }
-    public void ZoomIn(Camera cam)
-    {
-        cam.orthographicSize = Mathf.SmoothDamp(cam.orthographicSize, maxZoom, ref velocity, smoothTime);
-    }
-    public void ZoomOut(Camera cam)
-    {
-        cam.orthographicSize = Mathf.SmoothDamp(cam.orthographicSize, minZoom, ref velocity, smoothTime);
+        targetZoom = cam.orthographicSize;
 
+        if (canvas != null)
+            canvas.worldCamera = cam;
+    }
+
+    void Update()
+    {
+        cam.orthographicSize = Mathf.SmoothDamp(
+            cam.orthographicSize,
+            targetZoom,
+            ref velocity,
+            smoothTime
+        );
+    }
+
+    public void ZoomIn(float minZoom)
+    {
+        targetZoom = minZoom;
+    }
+
+    public void ZoomOut(float maxZoom)
+    {
+        targetZoom = maxZoom;
+    }
+
+    public void SetZoom(float zoom)
+    {
+        targetZoom = zoom;
     }
 }

@@ -20,6 +20,18 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Dungeons/Dungeon1/Dungeon1-2.unity
     guid: c544e2804cf86664193c6d30cc9f1def
+  - enabled: 1
+    path: Assets/Scenes/Dungeons/MainDungeon2.unity
+    guid: 9d5d3557143ea8840b4f48f4a3bf1d68
+  - enabled: 1
+    path: Assets/Scenes/Dungeons/Dungeon1/Dungeon1-3.unity
+    guid: 5c9315cd4b7a7ca4fac1232bc7a6762a
+  - enabled: 1
+    path: Assets/Scenes/Dungeons/Dungeon1/Dungeon1-4.unity
+    guid: 4e63862625c60d34a91e49e660e9067c
+  - enabled: 1
+    path: Assets/Scenes/Dungeons/Dungeon1/Dungeon2-1.unity
+    guid: 57ace93f0caa0754d9e807fad2df9c6d
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

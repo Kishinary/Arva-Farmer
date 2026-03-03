@@ -6,7 +6,8 @@ public class EnemyStats : MonoBehaviour
 {
     [Header("Health Settings")]
     public float health = 20;
-    private float maxHealth;
+    public float maxHealth; //KBUG DOI de truy cap mau toi da tu ngoai inspector
+
     public bool invincible = false;
     [SerializeField] private float invincibilityDuration = 0.02f;
 

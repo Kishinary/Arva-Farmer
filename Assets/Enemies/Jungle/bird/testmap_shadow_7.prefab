@@ -81,8 +81,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  radius: 1
-  rotationSpeed: 120
+  radius: 4
+  rotationSpeed: 180
 --- !u!1 &3859809041370569842
 GameObject:
   m_ObjectHideFlags: 0
@@ -361,12 +361,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 40
+  maxHealth: 0
   invincible: 0
   invincibilityDuration: 0.5
   flashMaterial: {fileID: 2100000, guid: 38558de54466ec243bde7b2399495bfa, type: 2}
   flashDuration: 0.15
   knockbackForce: 8
   healthSlider: {fileID: 6574707917650083647}
+  healthBarDocument: {fileID: 0}
   DeathPar: {fileID: 8813979716979246122, guid: a0d8df6e7bc8cb64a896255174e2a806, type: 3}
 --- !u!114 &7592413016887159144
 MonoBehaviour:
@@ -385,8 +387,8 @@ MonoBehaviour:
   projectilePrefab: {fileID: 6251903501987448305, guid: 28e40fe5e279714469b2ab3e67a79cac, type: 3}
   animator: {fileID: 0}
   orbiter: {fileID: 2789979172395157029}
-  orbitSpeed: 3
-  attackInterval: 5
+  orbitSpeed: 6
+  attackInterval: 3.5
   projectileSpeed: 10
 --- !u!50 &5635261805295460448
 Rigidbody2D:
@@ -718,8 +720,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1312130827
-  m_SortingLayer: 4
+  m_SortingLayerID: -70604381
+  m_SortingLayer: 7
   m_SortingOrder: 0
   m_Sprite: {fileID: 5630154862032940583, guid: 6d0ed9a1647a8d54eaea55b79a99b938, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

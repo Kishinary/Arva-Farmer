@@ -155,8 +155,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 2063039921
-  m_SortingLayer: 8
+  m_SortingLayerID: -70604381
+  m_SortingLayer: 7
   m_SortingOrder: 0
   m_Sprite: {fileID: 6358483832475264070, guid: 044f22b4a7924f5499bd81c793ec23ea, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -228,6 +228,7 @@ MonoBehaviour:
   flashDuration: 0.15
   knockbackForce: 8
   healthSlider: {fileID: 7187520571617961531}
+  healthBarDocument: {fileID: 0}
   DeathPar: {fileID: 8813979716979246122, guid: a0d8df6e7bc8cb64a896255174e2a806, type: 3}
 --- !u!50 &7062397663993249091
 Rigidbody2D:

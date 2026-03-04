@@ -1,13 +1,13 @@
 using System.Collections;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.UIElements; 
 
 public class EnemyStats : MonoBehaviour
 {
     [Header("Health Settings")]
     public float health = 20;
-    public float maxHealth; //KBUG DOI de truy cap mau toi da tu ngoai inspector
+    public float maxHealth;
 
     public bool invincible = false;
     [SerializeField] private float invincibilityDuration = 0.02f;
@@ -19,12 +19,21 @@ public class EnemyStats : MonoBehaviour
     [Header("Knockback Settings")]
     public float knockbackForce = 0.5f;
 
-    [Header("UI References")]
-    public Slider healthSlider;
+    [Header("UI - Quái Nhỏ")]
+    public UnityEngine.UI.Slider healthSlider;
+
+    [Header("UI - Boss (UXML)")]
+    public UIDocument healthBarDocument;
+    [SerializeField] private float ghostDelay = 0.3f; // Thời gian chờ trước khi thanh trắng tụt
+    
+    private VisualElement _healthFill;
+    private VisualElement _ghostFill;
+    private Coroutine _ghostCoroutine; // Lưu trữ coroutine của thanh trắng
 
     private Rigidbody2D rb;
-    [Header("SPRITES READY TO BE FLASHED")]
-    [SerializeField]private SpriteRenderer sr; //KBUG DOI de truy cap SpriteRenderer tu ngoai inspector
+    
+    [Header("Components")]
+    [SerializeField] private SpriteRenderer sr; 
     private Material originalMaterial;
     private Coroutine flashRoutine;
 
@@ -33,18 +42,40 @@ public class EnemyStats : MonoBehaviour
 
     void Awake()
     {
-        
         rb = GetComponent<Rigidbody2D>();
         if (sr == null) sr = GetComponent<SpriteRenderer>();
-        
-
-
-
 
         maxHealth = health;
-        originalMaterial = sr.material; // Lưu Material gốc chuẩn
+        originalMaterial = sr.material;
+    }
 
-        if (healthSlider != null)
+    void Start()
+    {
+        // 1. Nếu là Boss (Có UIDocument)
+        if (healthBarDocument != null)
+        {
+            // Tắt hoàn toàn Slider cũ (Bao gồm cả Canvas cha của nó nếu có)
+            if (healthSlider != null) 
+            {
+                if (healthSlider.transform.parent != null && healthSlider.transform.parent != transform)
+                    healthSlider.transform.parent.gameObject.SetActive(false);
+                else
+                    healthSlider.gameObject.SetActive(false);
+            }
+
+            // Khởi tạo các thanh UXML
+            if (healthBarDocument.rootVisualElement != null)
+            {
+                var root = healthBarDocument.rootVisualElement;
+                _healthFill = root.Q<VisualElement>("HealthFill");
+                _ghostFill = root.Q<VisualElement>("GhostFill");
+                
+                // Set máu ban đầu đầy 100%
+                UpdateBossUI(health, health);
+            }
+        }
+        // 2. Nếu là Quái Nhỏ (Chỉ có Slider)
+        else if (healthSlider != null)
         {
             healthSlider.maxValue = maxHealth;
             healthSlider.value = health;
@@ -53,17 +84,11 @@ public class EnemyStats : MonoBehaviour
 
     void Update()
     {
-        // Giữ thanh máu không bị xoay theo Enemy
-        if (healthSlider != null && healthSlider.transform.parent != null)
+        // Giữ Slider quái nhỏ không xoay
+        if (healthSlider != null && healthSlider.gameObject.activeInHierarchy && healthSlider.transform.parent != null)
         {
             healthSlider.transform.parent.rotation = Quaternion.identity;
         }
-
-        // Test phím Space
-        //if (Input.GetKeyDown(KeyCode.Space))
-        //{
-          //  TakeDamage(Vector2.zero, 2);
-        //}
     }
 
     public void TakeDamage(Vector2 hitSource, float damage)
@@ -71,11 +96,14 @@ public class EnemyStats : MonoBehaviour
         if (invincible || health <= 0) return;
 
         health -= damage;
-        
-        // Luôn ưu tiên hiệu ứng Flash White khi trúng đòn
         TriggerFlash();
 
-        if (healthSlider != null)
+        // Cập nhật UI
+        if (healthBarDocument != null)
+        {
+            UpdateBossUI(health, health + damage); // Truyền vào máu mới và máu cũ (để tính delay)
+        }
+        else if (healthSlider != null)
         {
             healthSlider.value = health;
         }
@@ -98,24 +126,45 @@ public class EnemyStats : MonoBehaviour
         }
     }
 
+    private void UpdateBossUI(float currentHealth, float previousHealth)
+    {
+        if (_healthFill == null || _ghostFill == null) return;
+
+        float targetPercentage = Mathf.Clamp((currentHealth / maxHealth) * 100f, 0, 100);
+
+        // 1. Thanh Đỏ: Giật xuống ngay lập tức
+        _healthFill.style.width = Length.Percent(targetPercentage);
+
+        // 2. Thanh Trắng: Chờ một chút rồi mới chạy theo
+        if (_ghostCoroutine != null) StopCoroutine(_ghostCoroutine);
+        _ghostCoroutine = StartCoroutine(GhostBarRoutine(targetPercentage));
+    }
+
+    private IEnumerator GhostBarRoutine(float targetPercentage)
+    {
+        // Chờ khoảng thời gian delay
+        yield return new WaitForSeconds(ghostDelay);
+        
+        // Cập nhật thanh trắng. Hiệu ứng trượt mượt mà đã được USS lo (transition: width)
+        if (_ghostFill != null)
+        {
+            _ghostFill.style.width = Length.Percent(targetPercentage);
+        }
+    }
+
     private void TriggerFlash()
     {
         if (flashRoutine != null) StopCoroutine(flashRoutine);
         flashRoutine = StartCoroutine(FlashRoutine());
-        
     }
 
     private IEnumerator FlashRoutine()
     {
-        // Bước 1: Hiện màu trắng tinh
         sr.material = flashMaterial; 
-        sr.color = Color.white; // Đảm bảo Alpha luôn là 1 khi Flash
+        sr.color = Color.white; 
         
-        
-
         yield return new WaitForSeconds(flashDuration);
 
-        // Bước 2: Trả về Material gốc ngay lập tức
         sr.material = originalMaterial; 
         flashRoutine = null;
     }
@@ -123,26 +172,31 @@ public class EnemyStats : MonoBehaviour
     private IEnumerator InvincibilityRoutine()
     {
         invincible = true;
-
-        // Hiệu ứng hình ảnh khi bất tử: Nhấp nháy nhẹ (tùy chọn)
-        // Thay vì chỉnh Alpha 0.5 cố định, ta có thể cho quái nhấp nháy 
         float timer = 0;
+        
         while (timer < invincibilityDuration)
         {
-            // Nếu không muốn nhấp nháy, bạn có thể xóa đoạn switch color này
-            // sr.enabled = !sr.enabled; // Cách nhấp nháy cổ điển (ẩn/hiện)
             yield return new WaitForSeconds(invincibilityDuration);
             invincible = false;
             yield return new WaitForSeconds(0.05f - invincibilityDuration);
             timer += Time.deltaTime;
         }
 
-        sr.enabled = true; // Đảm bảo cuối cùng Sprite luôn hiện
+        sr.enabled = true; 
     }
 
     void Die()
     {
-        Instantiate(DeathPar, transform.position, Quaternion.identity);
+        if (DeathPar != null)
+        {
+            Instantiate(DeathPar, transform.position, Quaternion.identity);
+        }
+
+        if (healthBarDocument != null)
+        {
+            healthBarDocument.gameObject.SetActive(false);
+        }
+
         Destroy(gameObject);
     }
 }

@@ -1,0 +1,71 @@
+/* CONTAINER CHÍNH CĂN GIỮA NÓC MÀN HÌNH */
+.boss-health-container {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    translate: -50% 0;
+    width:350px;
+    height: 30px;
+    align-items: center;
+    justify-content: center;
+}
+
+/* 1. LỚP ĐỔ BÓNG ĐEN (Ngoài cùng) */
+.bar-shadow-border {
+    width: 100%;
+    height: 30px;
+    background-color: black;
+    padding-bottom: 6px; /* Tạo hiệu ứng độ dày đổ bóng xuống dưới */
+    padding-left: 2px;
+    padding-right: 2px;
+    padding-top: 2px;
+    border-radius: 2px;
+}
+
+/* 2. LỚP VIỀN TRẮNG */
+.bar-white-border {
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    padding: 3px; /* Độ dày viền trắng */
+}
+
+/* 3. LỚP NỀN TỐI TRONG THANH MÁU */
+.bar-background {
+    width: 100%;
+    height: 100%;
+    background-color: rgb(35, 35, 50); /* Xanh đen tối */
+    overflow: hidden;
+}
+
+/* 4. THANH MÁU TRẮNG (GHOST) */
+.bar-fill-ghost {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: white;
+    /* Hiệu ứng tụt mượt mà */
+    transition: width 0.4s ease-out;
+}
+
+/* 5. THANH MÁU ĐỎ (CHÍNH) */
+.bar-fill-red {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: rgb(215, 55, 65); /* Màu đỏ Pixel chuẩn */
+    /* Không có transition để nó tụt ngay lập tức */
+}
+
+/* --- TÊN BOSS (CĂN GIỮA PHÍA TRÊN) --- */
+.boss-name {
+    position: absolute;
+    top: -20px;
+    color: white;
+    font-size: 20px;
+    -unity-font-style: bold;
+    -unity-text-outline-width: 2px;
+    -unity-text-outline-color: black;
+    letter-spacing: 4px;
+}
+

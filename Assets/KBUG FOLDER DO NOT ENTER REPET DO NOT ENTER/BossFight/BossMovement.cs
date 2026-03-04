@@ -328,8 +328,9 @@ public class BossMovement : MonoBehaviour
 
 
         }
-        
-        //animator event
+
+    //animator event
+    public event Action onIdle;
     public event Action<Vector2> OnMove;
     public event Action<Vector2,float> OnJumpAttackStart;
     public event Action OnJumpAttackEnd;

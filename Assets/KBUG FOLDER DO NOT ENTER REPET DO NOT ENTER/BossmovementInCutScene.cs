@@ -47,6 +47,10 @@ public class BossmovementInCutScene : MonoBehaviour
     public event Action OnJumpAttackEnd;
     public event Action<Vector2, float> OnJumpAttackStart;
 
+    public event Action onIdle;
+    public event Action<Vector2> OnMove;
+
+
 
     public GameObject dustSplashPrefab;
 
@@ -94,7 +98,8 @@ public class BossmovementInCutScene : MonoBehaviour
          );
 
     }
-    public float timer = 3f;
+  
+    public float timer = 0.5f;
     // Update is called once per frame
     public Transform point1;
     public Transform point2;
@@ -103,43 +108,21 @@ public class BossmovementInCutScene : MonoBehaviour
     void Update()
     {
         if (isActionLocked) return;
-        if (pointNumber == 1)
-        {
-            timer -= Time.deltaTime;
-            if (timer <= 0)
-            {
+    }
 
-                PerformJump(point1);
-                pointNumber = 2;
+    public void jumpToPoint1()
+    {
+       
 
-
-
-
-
-
-                return;
-            }
-        }
-        else if (pointNumber == 2)
-        {
-
-            timer -= Time.deltaTime;
-            if (timer <= 0)
-            {
-
-                PerformJump(point2);
-                pointNumber = 3;
-
-
-
-
-
-
-                return;
-            }
-
-        }
-
+        PerformJump(point1);
+    }
+    public void jumpToPoint2()
+    {
+        PerformJump(point2);
+    }
+    public void faceToCamera()
+    {
+        onIdle?.Invoke();
     }
 
 
@@ -151,7 +134,7 @@ public class BossmovementInCutScene : MonoBehaviour
     //jump attack
 
 
-    public event Action<Vector2> OnMove;
+
 
     public event Action OnBiteAttackStart;
     public event Action OnBiteAttackEnd;

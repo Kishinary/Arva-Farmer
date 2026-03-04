@@ -40,9 +40,13 @@ public class animation : MonoBehaviour
 
     private void OnDisable()
     {
+        
         bossMovement.OnMove -= UpdateMovementAnimation;
         bossMovement.OnJumpAttackStart -= HandleJumpAttackStart;
         bossMovement.OnJumpAttackEnd -= HandleJumpAttackEnd;
+
+        bossMovement.OnBiteAttackStart -= HandleBiteAttackStart;
+        bossMovement.OnBiteAttackEnd -= HandleBiteAttackEnd;
     }
 
     private void UpdateMovementAnimation(Vector2 direction)

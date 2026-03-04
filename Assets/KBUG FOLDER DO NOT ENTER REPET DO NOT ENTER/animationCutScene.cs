@@ -27,6 +27,7 @@ public class animationCutScene : MonoBehaviour
     }
     private void OnEnable()
     {
+        
         bossMovement.OnMove += UpdateMovementAnimation;
 
         bossMovement.OnJumpAttackStart += HandleJumpAttackStart;
@@ -35,16 +36,28 @@ public class animationCutScene : MonoBehaviour
         bossMovement.OnBiteAttackStart += HandleBiteAttackStart;
         bossMovement.OnBiteAttackEnd += HandleBiteAttackEnd;
 
+        bossMovement.onIdle += HandleIdleState;
 
     }
 
     private void OnDisable()
     {
+        
         bossMovement.OnMove -= UpdateMovementAnimation;
         bossMovement.OnJumpAttackStart -= HandleJumpAttackStart;
         bossMovement.OnJumpAttackEnd -= HandleJumpAttackEnd;
-    }
 
+        bossMovement.OnBiteAttackStart -= HandleBiteAttackStart;
+        bossMovement.OnBiteAttackEnd -= HandleBiteAttackEnd;
+
+        bossMovement.onIdle -= HandleIdleState;
+    }
+    private void HandleIdleState()
+    {
+       
+        animator.SetBool("isIdle", true);
+    }
+    
     private void UpdateMovementAnimation(Vector2 direction)
     {
         // Dùng Hash thay cho String

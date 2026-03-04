@@ -5,8 +5,8 @@
     /* Đẩy toàn bộ nội dung xuống dưới */
     justify-content: flex-end; 
     /* Chỉnh khoảng cách lề trái để căn thẳng hàng với Logo */
-    padding-left: 95px; 
-    padding-bottom: 80px;
+    padding-left: 290px; 
+    padding-bottom: 50px;
     background-color: rgba(0, 0, 0, 0);
 }
 

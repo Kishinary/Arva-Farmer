@@ -1,0 +1,13 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/BossHealthBar/BHBu.uss?fileID=7433441132597879392&amp;guid=450deffb9e5bd1d408a39ec718795ae1&amp;type=3#BHBu" />
+    <ui:VisualElement class="health-bar-container" style="-unity-font-definition: url(&quot;project://database/Assets/TextMesh%20Pro/Fonts/ThaleahFat.ttf?fileID=12800000&amp;guid=ac750909d96903d4381e41b27407aca1&amp;type=3#ThaleahFat&quot;);">
+        <ui:VisualElement class="bar-black-shadow">
+            <ui:VisualElement class="bar-white-border">
+                <ui:VisualElement class="bar-track">
+                    <ui:VisualElement name="HealthFill" class="bar-fill" style="width: 45%;" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+        </ui:VisualElement>
+        <ui:Label text="Rana Obesa" name="BossName" class="boss-name" />
+    </ui:VisualElement>
+</ui:UXML>

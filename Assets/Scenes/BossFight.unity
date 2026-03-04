@@ -560,7 +560,9 @@ MonoBehaviour:
   flashMaterial: {fileID: 2100000, guid: f5cb427ba98c86148a80e2d02340eb2e, type: 2}
   flashDuration: 0.15
   knockbackForce: 0.5
-  healthSlider: {fileID: 1170478291}
+  healthSlider: {fileID: 0}
+  healthBarDocument: {fileID: 1279445654}
+  DeathPar: {fileID: 0}
 --- !u!61 &808922227
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -949,6 +951,57 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!1 &1279445653
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1279445655}
+  - component: {fileID: 1279445654}
+  m_Layer: 5
+  m_Name: BOSSHEALTH
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1279445654
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1279445653}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 19102, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_PanelSettings: {fileID: 11400000, guid: e29a1b85424b03448b6b811f6346df11, type: 2}
+  m_ParentUI: {fileID: 0}
+  sourceAsset: {fileID: 9197481963319205126, guid: bdaf31cb1ddea3446ae3c34b43d87e8b, type: 3}
+  m_SortingOrder: 0
+  m_WorldSpaceSizeMode: 1
+  m_WorldSpaceWidth: 1920
+  m_WorldSpaceHeight: 1080
+--- !u!4 &1279445655
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1279445653}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1404032352
 GameObject:
   m_ObjectHideFlags: 0
@@ -1423,6 +1476,8 @@ MonoBehaviour:
   flashDuration: 0.15
   knockbackForce: 8
   healthSlider: {fileID: 297987289623024241}
+  healthBarDocument: {fileID: 0}
+  DeathPar: {fileID: 0}
 --- !u!4 &1529303363737290292
 Transform:
   m_ObjectHideFlags: 0
@@ -1821,14 +1876,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63fe85384a24285469192d272a882929, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackRange: 6
-  fireRate: 1.5
-  moveSpeed: 2
-  retreatSpeed: 3
-  retreatTime: 1.5
-  arrowPrefab: {fileID: 6401531035301430912, guid: b1dbab9bd64754c4e8ac9c8218d43f58, type: 3}
+  shadow: {fileID: 0}
   firePoint: {fileID: 1529303363737290292}
-  arrowSpeed: 10
+  projectilePrefab: {fileID: 0}
+  animator: {fileID: 0}
+  orbiter: {fileID: 0}
+  orbitSpeed: 20
+  attackInterval: 5
+  projectileSpeed: 8
 --- !u!114 &7289720802270336407
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1942,3 +1997,4 @@ SceneRoots:
   - {fileID: 739801807}
   - {fileID: 552966505}
   - {fileID: 1304236566886702311}
+  - {fileID: 1279445655}

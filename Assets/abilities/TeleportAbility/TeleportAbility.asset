@@ -16,7 +16,7 @@ MonoBehaviour:
   cooldownTime: 0.5
   activeTime: 0.5
   transform: {fileID: 0}
-  maxTeleportDistance: 10
+  maxTeleportDistance: 2
   checkRadius: 0.5
   obstacleLayer:
     serializedVersion: 2

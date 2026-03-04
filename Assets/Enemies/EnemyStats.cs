@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -22,7 +23,8 @@ public class EnemyStats : MonoBehaviour
     public Slider healthSlider;
 
     private Rigidbody2D rb;
-    private SpriteRenderer sr;
+    [Header("SPRITES READY TO BE FLASHED")]
+    [SerializeField]private SpriteRenderer sr; //KBUG DOI de truy cap SpriteRenderer tu ngoai inspector
     private Material originalMaterial;
     private Coroutine flashRoutine;
 
@@ -31,8 +33,13 @@ public class EnemyStats : MonoBehaviour
 
     void Awake()
     {
+        
         rb = GetComponent<Rigidbody2D>();
-        sr = GetComponent<SpriteRenderer>();
+        if (sr == null) sr = GetComponent<SpriteRenderer>();
+        
+
+
+
 
         maxHealth = health;
         originalMaterial = sr.material; // Lưu Material gốc chuẩn
@@ -95,6 +102,7 @@ public class EnemyStats : MonoBehaviour
     {
         if (flashRoutine != null) StopCoroutine(flashRoutine);
         flashRoutine = StartCoroutine(FlashRoutine());
+        
     }
 
     private IEnumerator FlashRoutine()
@@ -102,6 +110,8 @@ public class EnemyStats : MonoBehaviour
         // Bước 1: Hiện màu trắng tinh
         sr.material = flashMaterial; 
         sr.color = Color.white; // Đảm bảo Alpha luôn là 1 khi Flash
+        
+        
 
         yield return new WaitForSeconds(flashDuration);
 

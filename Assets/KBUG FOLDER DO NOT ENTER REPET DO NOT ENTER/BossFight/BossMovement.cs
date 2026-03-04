@@ -126,7 +126,11 @@ public class BossPhase2State : BossBaseState
     public override void EnterState()
     {
         boss.enemyStats.health = boss.enemyStats.maxHealth; // Reset health to threshold for phase 2
-        boss.moveSpeed = 3f; // Increase speed for phase 2
+        boss.moveSpeed = 5f; // Increase speed for phase 2
+        GameObject newAura = GameObject.Instantiate(boss.auraBoss, boss.spriteTransform.position, Quaternion.identity);
+        newAura.transform.SetParent(boss.spriteTransform); // Make the aura a child of the boss so it moves with it
+        newAura.transform.SetParent(boss.spriteTransform, false);
+        newAura.transform.localPosition = Vector3.zero;
 
     }
     public override void UpdateState()
@@ -243,30 +247,32 @@ public class BossMovement : MonoBehaviour
 
     public Transform Visual; // Visual representation of the boss for jump effect
 
-            [Header("Stats")]
-            public float moveSpeed;
+    [Header("Stats")]
+    public float moveSpeed;
 
-            [Header("Phase Thresholds")]
-            [Range(0f, 1f)]
-            public float phase2Threshold = 0.5f; // Boss enters phase 2 at 50% HP
+    [Header("Phase Thresholds")]
+    [Range(0f, 1f)]
+    public float phase2Threshold = 0.5f; // Boss enters phase 2 at 50% HP
 
-            //FSM manager
-            private BossBaseState currentState;
+    //FSM manager
+    private BossBaseState currentState;
 
-            // States
-            private BossPhase1State phase1State;
-            private BossPhase2State phase2State;
+    // States
+    private BossPhase1State phase1State;
+    private BossPhase2State phase2State;
 
-            private bool isPhase2 = false;
+    private bool isPhase2 = false;
             
-            //health
-            public EnemyStats enemyStats;
+    //health
+    public EnemyStats enemyStats;
 
 
-            public bool isActionLocked = false;
+    public bool isActionLocked = false;
 
-
-            public GameObject dustSplashPrefab;
+    // Effects
+    public GameObject dustSplashPrefab;
+    public GameObject auraBoss;
+    public Transform spriteTransform;
 
 
     void Start()

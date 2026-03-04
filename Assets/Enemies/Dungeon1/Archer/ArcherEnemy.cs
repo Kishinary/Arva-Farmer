@@ -23,6 +23,7 @@ public class BirdEnemy : MonoBehaviour
     bool isAttacking;
 
     Vector2 moveDir;
+    Vector2 snappedDir;
 
     void Start()
     {
@@ -85,8 +86,18 @@ public class BirdEnemy : MonoBehaviour
 
     void UpdateAnimator()
     {
-        animator.SetFloat("MoveX", moveDir.x);
-        animator.SetFloat("MoveY", moveDir.y);
+        moveDir = (player.position - transform.position).normalized;
+
+        Vector2 dir = moveDir;
+
+        float snapX = Mathf.Abs(dir.x) > 0.1f ? Mathf.Sign(dir.x) : 0;
+        float snapY = Mathf.Abs(dir.y) > 0.1f ? Mathf.Sign(dir.y) : 0;
+
+        snappedDir = new Vector2(snapX, snapY);
+
+        animator.SetFloat("MoveX", snappedDir.x);
+        animator.SetFloat("MoveY", snappedDir.y);
+
     }
 
     void Orbiter()

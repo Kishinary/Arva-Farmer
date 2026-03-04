@@ -46,9 +46,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Toucher: {fileID: 5231209078013737565, guid: 7952d352bd3776e44b47fca4a392c4f9, type: 3}
   Archer: {fileID: 7347843447860981962, guid: b811eccd007f36e449f17ab0b2578085, type: 3}
-  Summoner: {fileID: 2339723384082328858, guid: cd6adc30a3b718d4ea77e03e2dfb44d2, type: 3}
-  Mage: {fileID: 4377348928892383159, guid: 25b35c4fd1a100f41824cb8670b67e07, type: 3}
+  Summoner: {fileID: 3763713802245534256, guid: 1a2ee40c774807c44a8566daa01e9e90, type: 3}
+  Mage: {fileID: 4313094473236286479, guid: c54960daa66fe2a4d902ddbf840ee8d8, type: 3}
   Charger: {fileID: 2679225800252764106, guid: 4bfe80eb659a78047a02dfc9d549f6e6, type: 3}
   randomP: {x: 0, y: 0}
   SpawnLoc: []
   PlayerSpawn: {fileID: 0}
+  Enemies: []
+  enemies: 0
+  goable: 0
+  Notifi: {fileID: 5191902220139573463, guid: d7a0c8b01d429fa48b8b169d0a85e22c, type: 3}

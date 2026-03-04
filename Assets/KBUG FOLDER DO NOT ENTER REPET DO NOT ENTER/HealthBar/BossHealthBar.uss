@@ -4,7 +4,7 @@
     top: 20px;
     left: 50%;
     translate: -50% 0;
-    width:350px;
+    width: 400px;
     height: 30px;
     align-items: center;
     justify-content: center;
@@ -60,9 +60,9 @@
 /* --- TÊN BOSS (CĂN GIỮA PHÍA TRÊN) --- */
 .boss-name {
     position: absolute;
-    top: -20px;
+    top: -25px;
     color: white;
-    font-size: 20px;
+    font-size: 26px;
     -unity-font-style: bold;
     -unity-text-outline-width: 2px;
     -unity-text-outline-color: black;

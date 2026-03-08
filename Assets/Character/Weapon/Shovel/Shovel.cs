@@ -46,8 +46,6 @@ public class Shovel : MonoBehaviour
     {
         if (Time.time >= nextAttackTime) {
             animator.SetTrigger("Dig");
-            PlayerMove.movespeed = 5f;
-            PlayerMove.gameObject.GetComponent<Animator>().speed = 0.5f;
             nextAttackTime = Time.time + attackCooldown;
         }
     }
@@ -81,8 +79,6 @@ public class Shovel : MonoBehaviour
         yield return new WaitForSeconds(0.15f);
         DamageCollider.SetActive(true);
         yield return new WaitForSeconds(0.1f);
-        PlayerMove.EnablePlayerInput();
-        PlayerMove.gameObject.GetComponent<Animator>().speed = 1f;
         yield return new WaitForSeconds(0.2f);
         DamageCollider.SetActive(false);
     }
@@ -93,9 +89,7 @@ public class Shovel : MonoBehaviour
     {
         if (Time.time >= nextNormalAttackTime)
         {
-            Debug.Log("sdf");
             animator.SetTrigger("Smash");
-            PlayerMove.movespeed = 7f;
             nextNormalAttackTime = Time.time + NormalAttackCooldown;
         }
     }

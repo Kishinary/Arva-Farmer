@@ -1,0 +1,338 @@
+fileFormatVersion: 2
+guid: 63a5229039b881d4798b4eb7d68021d2
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 6875795220380176033
+    second: skull_bird_0
+  - first:
+      213: 9196043294153350332
+    second: skull_bird_1
+  - first:
+      213: -5734962982038200233
+    second: skull_bird_2
+  - first:
+      213: -1681785613630292005
+    second: skull_bird_3
+  - first:
+      213: 3012579370088069305
+    second: skull_bird_4
+  - first:
+      213: 3833983302400999678
+    second: skull_bird_5
+  - first:
+      213: -1554479064880836927
+    second: skull_bird_6
+  - first:
+      213: -6262492403448478900
+    second: skull_bird_7
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: skull_bird_0
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 204
+        width: 36
+        height: 34
+      alignment: 9
+      pivot: {x: 0.53382075, y: 0.378247}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1aec61bc25bbb6f50800000000000000
+      internalID: 6875795220380176033
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skull_bird_1
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 199
+        width: 35
+        height: 37
+      alignment: 9
+      pivot: {x: 0.5139147, y: 0.38153777}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cbc9f1f37a8ee9f70800000000000000
+      internalID: 9196043294153350332
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skull_bird_2
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 131
+        width: 36
+        height: 41
+      alignment: 9
+      pivot: {x: 0.5000003, y: 0.41091213}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 750299f8d815960b0800000000000000
+      internalID: -5734962982038200233
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skull_bird_3
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 130
+        width: 38
+        height: 41
+      alignment: 9
+      pivot: {x: 0.5064091, y: 0.40497348}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bdf343715e819a8e0800000000000000
+      internalID: -1681785613630292005
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skull_bird_4
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 77
+        width: 40
+        height: 29
+      alignment: 9
+      pivot: {x: 0.40259704, y: 0.27328676}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9b8f4cbc9f4dec920800000000000000
+      internalID: 3012579370088069305
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skull_bird_5
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 77
+        width: 38
+        height: 27
+      alignment: 9
+      pivot: {x: 0.40387967, y: 0.22943708}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ef0046e008b053530800000000000000
+      internalID: 3833983302400999678
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skull_bird_6
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 13
+        width: 40
+        height: 29
+      alignment: 9
+      pivot: {x: 0.5000003, y: 0.3404616}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1ce0ff6c6816d6ae0800000000000000
+      internalID: -1554479064880836927
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skull_bird_7
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 13
+        width: 38
+        height: 27
+      alignment: 9
+      pivot: {x: 0.5576726, y: 0.22943674}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c430fd3d6582719a0800000000000000
+      internalID: -6262492403448478900
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: a3140b94cec8084439792f7c7690275c
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      skull_bird_0: 6875795220380176033
+      skull_bird_1: 9196043294153350332
+      skull_bird_2: -5734962982038200233
+      skull_bird_3: -1681785613630292005
+      skull_bird_4: 3012579370088069305
+      skull_bird_5: 3833983302400999678
+      skull_bird_6: -1554479064880836927
+      skull_bird_7: -6262492403448478900
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

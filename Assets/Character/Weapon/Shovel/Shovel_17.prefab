@@ -174,7 +174,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 2063039921
+  m_SortingLayerID: -70604381
   m_SortingLayer: 7
   m_SortingOrder: 0
   m_Sprite: {fileID: 7766161694405865213, guid: 003b44c9d334ca249b24620d202a8395, type: 3}
@@ -229,6 +229,7 @@ MonoBehaviour:
   SpecialAttackDamage: 0
   dirtParticle: {fileID: 6045122112023706318, guid: 4f3130afd6647ef49a49ffa8f5e5cc34, type: 3}
   SmashParticle: {fileID: 3115481665933593663, guid: c9eb5a8d24633f04496228d7a971684e, type: 3}
+  isNormaling: 0
 --- !u!61 &3579902126863066116
 BoxCollider2D:
   m_ObjectHideFlags: 0

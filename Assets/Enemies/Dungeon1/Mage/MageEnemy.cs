@@ -1,106 +1,139 @@
+﻿using System.Collections;
 using UnityEngine;
-using System.Collections;
 
 public class MageEnemy : MonoBehaviour
 {
-    public GameObject windHolePrefab;
+    Transform player;
 
-    public float moveSpeed = 2f;
-    public float strafeSpeed = 2f;
+    [Header("References")]
+    public Transform firePoint;
+    public GameObject projectilePrefab;
+    public Animator animator;
 
-    public float approachDistance = 7f;
-    public float retreatDistance = 3f;
+    [Header("Movement")]
+    public float moveSpeed = 3f;
+    public float preferredDistance = 4f;
+    public float strafeChangeTime = 2f;
+    public float retreatDistance = 2.5f;
 
-    public float castDelay = 2f;
-    public float attackCooldown = 3f;
+    [Header("Attack")]
+    public float attackInterval = 4f;
+    public float projectileSpeed = 8f;
 
-    public float teleportDistance = 5f;
+    float attackTimer;
+    float strafeTimer;
 
-    private Transform player;
-    private Rigidbody2D rb;
+    bool isAttacking;
 
-    private bool isCasting = false;
-
-    private int hitCount = 0;
+    Vector2 moveDir;
+    Vector2 strafeDir;
 
     void Start()
     {
-        player = GameObject.FindWithTag("Player").transform;
-        rb = GetComponent<Rigidbody2D>();
-
-        StartCoroutine(AttackLoop());
+        player = GameObject.FindWithTag("Player")?.transform;
+        animator = GetComponent<Animator>();
+        attackTimer = attackInterval;
+        strafeTimer = strafeChangeTime;
+        PickNewStrafeDirection();
     }
 
     void Update()
     {
-        if (player == null || isCasting) return;
+        if (player == null) return;
 
-        float dist = Vector2.Distance(transform.position, player.position);
+        attackTimer -= Time.deltaTime;
 
-        Vector2 dirToPlayer = (player.position - transform.position).normalized;
-
-        if (dist > approachDistance)
+        if (!isAttacking)
         {
-            // Move closer
-            rb.linearVelocity = dirToPlayer * moveSpeed;
+            HandleMovement();
         }
-        else if (dist < retreatDistance)
+
+        if (attackTimer <= 0 && !isAttacking)
         {
-            // Run away
-            rb.linearVelocity = -dirToPlayer * moveSpeed;
+            StartCoroutine(AttackRoutine());
+        }
+
+        UpdateAnimator();
+    }
+
+    void HandleMovement()
+    {
+        float distance = Vector2.Distance(transform.position, player.position);
+        Vector2 toPlayer = (player.position - transform.position).normalized;
+
+        strafeTimer -= Time.deltaTime;
+
+        if (strafeTimer <= 0)
+        {
+            PickNewStrafeDirection();
+            strafeTimer = strafeChangeTime;
+        }
+
+        if (distance < retreatDistance)
+        {
+            // Too close → retreat
+            moveDir = -toPlayer;
+        }
+        else if (distance > preferredDistance)
+        {
+            // Too far → approach
+            moveDir = toPlayer;
         }
         else
         {
-            // Strafe around player
-            Vector2 strafeDir = Vector2.Perpendicular(dirToPlayer);
-            rb.linearVelocity = strafeDir * strafeSpeed;
+            // Good range → strafe
+            moveDir = strafeDir;
         }
+
+        transform.position += (Vector3)(moveDir * moveSpeed * Time.deltaTime);
     }
 
-    IEnumerator AttackLoop()
+    IEnumerator AttackRoutine()
     {
-        while (true)
-        {
-            yield return new WaitForSeconds(attackCooldown);
+        isAttacking = true;
 
-            if (!isCasting)
-            {
-                StartCoroutine(CastWindHole());
-            }
-        }
+        // Stop movement
+        moveDir = Vector2.zero;
+
+        // 0.3 second pause before attack
+        yield return new WaitForSeconds(0.3f);
+
+        Vector2 attackDir = (player.position - transform.position).normalized;
+
+        ShootProjectile(attackDir);
+
+        attackTimer = attackInterval;
+
+        yield return new WaitForSeconds(0.2f);
+
+        isAttacking = false;
     }
 
-    IEnumerator CastWindHole()
+    void ShootProjectile(Vector2 dir)
     {
-        isCasting = true;
+        GameObject proj = Instantiate(projectilePrefab, firePoint.position, Quaternion.identity);
 
-        rb.linearVelocity = Vector2.zero;
+        float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+        proj.transform.rotation = Quaternion.Euler(0f, 0f, angle);
 
-        Vector3 targetPos = player.position;
-
-        GameObject hole = Instantiate(windHolePrefab, targetPos, Quaternion.identity);
-
-        yield return new WaitForSeconds(castDelay);
-
-        hole.GetComponent<WindHole>().Activate();
-
-        isCasting = false;
+        proj.GetComponent<Rigidbody2D>().linearVelocity = dir * projectileSpeed;
     }
 
-    public void TakeDamage(int dmg)
+    void PickNewStrafeDirection()
     {
-        hitCount++;
+        // Perpendicular to player direction
+        Vector2 toPlayer = (player.position - transform.position).normalized;
 
-        if (hitCount >= 2)
-        {
-            Teleport();
-            hitCount = 0;
-        }
+        // Random left or right strafe
+        if (Random.value > 0.5f)
+            strafeDir = new Vector2(-toPlayer.y, toPlayer.x);
+        else
+            strafeDir = new Vector2(toPlayer.y, -toPlayer.x);
     }
 
-    void Teleport()
+    void UpdateAnimator()
     {
-        Vector2 dir = (transform.position - player.position).normalized;
-        transform.position += (Vector3)(dir * teleportDistance);
+        animator.SetFloat("MoveX", moveDir.x);
+        animator.SetFloat("MoveY", moveDir.y);
     }
 }

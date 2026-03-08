@@ -1,47 +1,60 @@
+/* Container tổng bao phủ toàn màn hình */
 .background {
     flex-grow: 1;
-    /* Đổi từ center sang flex-start để đẩy nội dung sang bên trái */
+    /* Đẩy toàn bộ nội dung lên sát mép trên */
+    justify-content: flex-start; 
+    /* Căn lề trái để thẳng hàng với Logo (giữ nguyên 290px theo yêu cầu cũ) */
     align-items: flex-start; 
-    /* Đẩy toàn bộ nội dung xuống dưới */
-    justify-content: flex-end; 
-    /* Chỉnh khoảng cách lề trái để căn thẳng hàng với Logo */
-    padding-left: 290px; 
-    padding-bottom: 50px;
+    
+    padding-left: 0px;
+    /* Khoảng cách từ mép trên màn hình xuống thanh menu */
+    padding-top:50px; 
+    padding-bottom: 0;
+    
     background-color: rgba(0, 0, 0, 0);
 }
 
+/* Container chứa các nút bấm */
 .menu-container {
-    /* Căn chữ lề trái bên trong container */
-    align-items: flex-start; 
-    justify-content: center;
+    /* QUAN TRỌNG: Chuyển các mục từ hàng dọc sang hàng ngang */
+    flex-direction: row; 
+    /* Căn giữa các chữ theo trục dọc của thanh menu */
+    align-items: center; 
+    justify-content: flex-start;
     padding: 0;
     margin: 0;
 }
 
+/* Định dạng từng mục chữ trong Menu */
 .menu-item {
     -unity-font-definition: url("project://database/Assets/TextMesh%20Pro/Fonts/ThaleahFat.ttf?fileID=12800000&guid=ac750909d96903d4381e41b27407aca1&type=3#ThaleahFat");
-    font-size: 30px; /* Tăng nhẹ kích thước để dễ đọc */
+    font-size: 50px;
     -unity-font-style: bold;
     
-    /* ĐỔI SANG MÀU VÀNG (giống màu lúa trên logo) */
+    /* Màu vàng lúa mỳ đặc trưng */
     color: rgb(255, 215, 130); 
     
-    margin-top: 5px;
-    margin-bottom: 5px;
+    /* Tạo khoảng cách giữa các chữ khi nằm ngang */
+    margin-left: 250px;
+    margin-right: 250px;
+    margin-top: 0;
+    margin-bottom: 0;
+    
     padding: 0;
-    /* Shadow đậm hơn một chút để nổi bật trên nền gỗ */
+    /* Đổ bóng chữ để nổi bật trên nền */
     text-shadow: 2px 2px 0 rgb(40, 20, 0); 
     
     transition-property: scale, color;
     transition-duration: 0.1s;
-    transform-origin: left center; /* Zoom từ bên trái sang */
+    /* Phóng to từ tâm chữ khi nằm ngang sẽ cân đối hơn */
+    transform-origin: center; 
     
-    /* Căn chữ text sang trái */
-    -unity-text-align: middle-left; 
+    -unity-text-align: middle-center;
 }
 
+/* Hiệu ứng khi di chuột vào (Hover) */
 .menu-item:hover {
-    /* Màu vàng sáng hơn khi hover */
+    /* Màu vàng sáng rực rỡ hơn */
     color: rgb(255, 255, 200); 
     scale: 1.1 1.1;
 }

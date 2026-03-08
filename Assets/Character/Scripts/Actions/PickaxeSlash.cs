@@ -55,7 +55,7 @@ public class PickaxeSlash : MonoBehaviour
                     enemy.TakeDamage(transform.position, 10);
             }
         }
-        soundManager.PlaySFX(soundManager.SwingSound);
+        //soundManager.PlaySFX(soundManager.SwingSound);
         StartCoroutine(Swing());
         lastAttackTime = Time.time;
     }

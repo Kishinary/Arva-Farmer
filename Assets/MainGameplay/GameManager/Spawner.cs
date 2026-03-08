@@ -1,5 +1,6 @@
 using NUnit.Framework;
 using System.Collections.Generic;
+using UnityEditor.Analytics;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -21,6 +22,7 @@ public class Spawner : MonoBehaviour
     public bool enemies = false;
     public bool goable = false;
     private string NextScene;
+    public GameObject Notifi;
     void Start()
     {
         float rand = Random.Range(0, 9);
@@ -34,8 +36,9 @@ public class Spawner : MonoBehaviour
         if (!enemyManager)
         {
             NextScene = FindFirstObjectByType<DungeonSpawner>().NextScene;
-            if (NextScene != null) {
+            if (NextScene != null && goable == false) {
                 goable = true;
+                Instantiate(Notifi);
             }
             return;
         }

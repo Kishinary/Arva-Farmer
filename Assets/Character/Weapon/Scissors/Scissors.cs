@@ -116,10 +116,10 @@ public class Scissors : MonoBehaviour
         if (collision.CompareTag("Enemy"))
         {
             if (isAttacking) { 
-                collision.GetComponent<EnemyStats>().TakeDamage(transform.position, 0.5f);
+                collision.GetComponent<EnemyStats>().TakeDamage(transform.position, 4f);
             }
             if (isNormaling) {
-                collision.GetComponent<EnemyStats>().TakeDamage(transform.position, 4f);
+                collision.GetComponent<EnemyStats>().TakeDamage(transform.position, 10f);
             }
 
         }

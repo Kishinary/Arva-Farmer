@@ -1,0 +1,563 @@
+fileFormatVersion: 2
+guid: 578141e05d65a354089dd97b1be048d1
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 1460502853074224888
+    second: emojiSpam1_0
+  - first:
+      213: -3130900732672141364
+    second: emojiSpam1_1
+  - first:
+      213: -4484357870646034259
+    second: emojiSpam1_2
+  - first:
+      213: -5938672570528167894
+    second: emojiSpam1_3
+  - first:
+      213: -7818774812567902007
+    second: emojiSpam1_4
+  - first:
+      213: 7572111043364978560
+    second: emojiSpam1_5
+  - first:
+      213: 4633355877290519428
+    second: emojiSpam1_6
+  - first:
+      213: -1629063801396051649
+    second: emojiSpam1_7
+  - first:
+      213: -3882279646876413718
+    second: emojiSpam1_8
+  - first:
+      213: -4759175447385054498
+    second: emojiSpam1_9
+  - first:
+      213: -5235574226866116038
+    second: emojiSpam1_10
+  - first:
+      213: -1801415570504552084
+    second: emojiSpam1_11
+  - first:
+      213: -5183100205398230252
+    second: emojiSpam1_12
+  - first:
+      213: -4242165224378564884
+    second: emojiSpam1_13
+  - first:
+      213: -6728461805871741959
+    second: emojiSpam1_14
+  - first:
+      213: -4101795966887478436
+    second: emojiSpam1_15
+  - first:
+      213: -4758259849264488135
+    second: emojiSpam1_16
+  - first:
+      213: 108348085617623680
+    second: emojiSpam1_17
+  - first:
+      213: -6736878698756536139
+    second: emojiSpam1_18
+  - first:
+      213: -8745451817429966805
+    second: emojiSpam1_19
+  - first:
+      213: -6078362934413164031
+    second: emojiSpam1_20
+  - first:
+      213: -184768257263982118
+    second: emojiSpam1_21
+  - first:
+      213: 860000125783926136
+    second: emojiSpam1_22
+  - first:
+      213: -7145847822465041312
+    second: emojiSpam1_23
+  - first:
+      213: -299160619312872850
+    second: emojiSpam1_24
+  - first:
+      213: -7589350730062963933
+    second: emojiSpam1_25
+  - first:
+      213: -101281905831364715
+    second: emojiSpam1_26
+  - first:
+      213: 1386718991546320321
+    second: emojiSpam1_27
+  - first:
+      213: -5365359570953987860
+    second: emojiSpam1_28
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: emojiSpam1_0
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 916
+        width: 104
+        height: 113
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8f60fe65b9fb44410800000000000000
+      internalID: 1460502853074224888
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: emojiSpam1_1
+      rect:
+        serializedVersion: 2
+        x: 301
+        y: 924
+        width: 103
+        height: 120
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cc711123f5ecc84d0800000000000000
+      internalID: -3130900732672141364
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: emojiSpam1_2
+      rect:
+        serializedVersion: 2
+        x: 520
+        y: 925
+        width: 117
+        height: 118
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: da08a6a964c54c1c0800000000000000
+      internalID: -4484357870646034259
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: emojiSpam1_3
+      rect:
+        serializedVersion: 2
+        x: 729
+        y: 949
+        width: 120
+        height: 84
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a280054f2c8959da0800000000000000
+      internalID: -5938672570528167894
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: emojiSpam1_4
+      rect:
+        serializedVersion: 2
+        x: 904
+        y: 944
+        width: 138
+        height: 117
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9c86e1ecbb12e7390800000000000000
+      internalID: -7818774812567902007
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: emojiSpam1_7
+      rect:
+        serializedVersion: 2
+        x: 1104
+        y: 957
+        width: 121
+        height: 76
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f3147519a176469e0800000000000000
+      internalID: -1629063801396051649
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: emojiSpam1_8
+      rect:
+        serializedVersion: 2
+        x: 1299
+        y: 950
+        width: 121
+        height: 102
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ae0d339fa3f5f1ac0800000000000000
+      internalID: -3882279646876413718
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: emojiSpam1_9
+      rect:
+        serializedVersion: 2
+        x: 89
+        y: 716
+        width: 120
+        height: 120
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ed26ad2552304fdb0800000000000000
+      internalID: -4759175447385054498
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: emojiSpam1_10
+      rect:
+        serializedVersion: 2
+        x: 303
+        y: 712
+        width: 121
+        height: 121
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a3a647cdaf08757b0800000000000000
+      internalID: -5235574226866116038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: emojiSpam1_11
+      rect:
+        serializedVersion: 2
+        x: 509
+        y: 721
+        width: 117
+        height: 112
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c61f73b35161007e0800000000000000
+      internalID: -1801415570504552084
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: emojiSpam1_12
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 548
+        width: 96
+        height: 121
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 41bfbfd03dde118b0800000000000000
+      internalID: -5183100205398230252
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: emojiSpam1_13
+      rect:
+        serializedVersion: 2
+        x: 306
+        y: 543
+        width: 123
+        height: 122
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cee7662543dc025c0800000000000000
+      internalID: -4242165224378564884
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: emojiSpam1_17
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 349
+        width: 118
+        height: 113
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0820553820ee08100800000000000000
+      internalID: 108348085617623680
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: emojiSpam1_22
+      rect:
+        serializedVersion: 2
+        x: 509
+        y: 361
+        width: 122
+        height: 110
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8756424de855feb00800000000000000
+      internalID: 860000125783926136
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: emojiSpam1_23
+      rect:
+        serializedVersion: 2
+        x: 325
+        y: 344
+        width: 118
+        height: 108
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 06cf8fa0449d4dc90800000000000000
+      internalID: -7145847822465041312
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 2137c26346f7777459d51232f6c01e77
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      emojiSpam1_0: 1460502853074224888
+      emojiSpam1_1: -3130900732672141364
+      emojiSpam1_10: -5235574226866116038
+      emojiSpam1_11: -1801415570504552084
+      emojiSpam1_12: -5183100205398230252
+      emojiSpam1_13: -4242165224378564884
+      emojiSpam1_14: -6728461805871741959
+      emojiSpam1_15: -4101795966887478436
+      emojiSpam1_16: -4758259849264488135
+      emojiSpam1_17: 108348085617623680
+      emojiSpam1_18: -6736878698756536139
+      emojiSpam1_19: -8745451817429966805
+      emojiSpam1_2: -4484357870646034259
+      emojiSpam1_20: -6078362934413164031
+      emojiSpam1_21: -184768257263982118
+      emojiSpam1_22: 860000125783926136
+      emojiSpam1_23: -7145847822465041312
+      emojiSpam1_24: -299160619312872850
+      emojiSpam1_25: -7589350730062963933
+      emojiSpam1_26: -101281905831364715
+      emojiSpam1_27: 1386718991546320321
+      emojiSpam1_28: -5365359570953987860
+      emojiSpam1_3: -5938672570528167894
+      emojiSpam1_4: -7818774812567902007
+      emojiSpam1_5: 7572111043364978560
+      emojiSpam1_6: 4633355877290519428
+      emojiSpam1_7: -1629063801396051649
+      emojiSpam1_8: -3882279646876413718
+      emojiSpam1_9: -4759175447385054498
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

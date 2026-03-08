@@ -122,6 +122,7 @@ public class BossmovementInCutScene : MonoBehaviour
     }
     public void faceToCamera()
     {
+        
         onIdle?.Invoke();
     }
 

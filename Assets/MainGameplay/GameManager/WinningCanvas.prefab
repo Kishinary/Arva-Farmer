@@ -600,7 +600,7 @@ GameObject:
   - component: {fileID: 6321100632550848007}
   - component: {fileID: 7600924527956080875}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: WinningCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -440,6 +440,7 @@ GameObject:
   - component: {fileID: 4256446306369007146}
   - component: {fileID: 2879053277387425711}
   - component: {fileID: 307790647669950442}
+  - component: {fileID: 8246377062651727464}
   - component: {fileID: 2297846003440868847}
   - component: {fileID: 5810106554295994761}
   m_Layer: 6
@@ -579,6 +580,7 @@ MonoBehaviour:
   player: {fileID: 0}
   jumpAbility: {fileID: 2879053277387425711}
   biteAbility: {fileID: 307790647669950442}
+  acidMovement: {fileID: 8246377062651727464}
   Visual: {fileID: 4353394548756249667}
   moveSpeed: 0.01
   phase2Threshold: 0.5
@@ -617,17 +619,17 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 0
       value: 0
-      inSlope: 0
-      outSlope: 1
+      inSlope: 1.0319573
+      outSlope: 1.0319573
       tangentMode: 0
       weightedMode: 0
       inWeight: 0
-      outWeight: 0
+      outWeight: 0.21252798
     - serializedVersion: 3
-      time: 1
-      value: 1
+      time: 1.0120269
+      value: 0.9881021
       inSlope: 1
-      outSlope: 0
+      outSlope: 1
       tangentMode: 0
       weightedMode: 0
       inWeight: 0
@@ -635,6 +637,21 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &8246377062651727464
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4331029560069223160}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8835e8329f6eca4d926b771aca93355, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: 2539110795649395323, guid: 251da7cc0d16f404db08b50b15583f84, type: 3}
+  bulletSpeed: 10
+  bulletCount: 8
 --- !u!212 &2297846003440868847
 SpriteRenderer:
   m_ObjectHideFlags: 0

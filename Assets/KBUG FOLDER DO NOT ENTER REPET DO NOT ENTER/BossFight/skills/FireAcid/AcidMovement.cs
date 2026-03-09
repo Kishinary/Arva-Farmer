@@ -9,7 +9,7 @@ public class AcidMovement : MonoBehaviour
     public IEnumerator ExecuteEightWayShoot(Vector2 firePosition, Action onComplete)
     {
         float angleStep = 360f / bulletCount;
-        float currentAngle = 0f;
+        float currentAngle = UnityEngine.Random.Range(0f, 45f);
         for (int i = 0; i < bulletCount; i++)
         {
             Quaternion rotation = Quaternion.Euler(0, 0, currentAngle);

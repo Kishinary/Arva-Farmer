@@ -18,6 +18,7 @@ public class GameController : MonoBehaviour
 
     [Header("Beat Tracking")]
     private List<SpectralEvent> spectralData;
+    private int lastProcessedIndex = -1;
     private int currentIndex = 0;
     private bool isPlaying = false;
 
@@ -26,6 +27,12 @@ public class GameController : MonoBehaviour
     public bool showVisualizer = true; // Bật/tắt thanh EQ trên màn hình
     public float visualizerMultiplier = 100f; // Khuếch đại cột sóng cho dễ nhìn
     private FrequencyBands displayBands; // Biến lưu trữ để tạo hiệu ứng thanh EQ nảy mượt mà
+
+
+    //Effect
+    public GameObject bassParticlePrefab;
+    public float particleScaleMultiplier = 2f;
+
 
     private async void Start()
     {
@@ -63,36 +70,56 @@ public class GameController : MonoBehaviour
         if (!isPlaying || spectralData == null || currentIndex >= spectralData.Count) return;
 
         float currentAudioTime = audioSource.time;
+        int sampleRate = audioSource.clip.frequency;
+        int windowSize = 1024; // Phải khớp với N bên SongAnalyzer
 
-        if (currentAudioTime >= spectralData[currentIndex].Time)
+        // 1. TÍNH TOÁN INDEX HIỆN TẠI (O(1) Lookup)
+        int currentFrameIndex = Mathf.FloorToInt((currentAudioTime * sampleRate) / windowSize);
+
+        // Đảm bảo không vượt quá mảng
+        if (currentFrameIndex >= spectralData.Count) return;
+
+        // 2. CẬP NHẬT VISUALIZER LIÊN TỤC (UI)
+        FrequencyBands currentBands = spectralData[currentFrameIndex].Bands;
+        float lerpSpeed = Time.deltaTime * 15f; // Tăng tốc độ mượt lên một chút
+
+        // Lerp TĂNG VÀ GIẢM mượt mà dựa trên dữ liệu thực tế từng frame
+        displayBands.Kick = Mathf.Lerp(displayBands.Kick, currentBands.Kick, lerpSpeed);
+        displayBands.Bass = Mathf.Lerp(displayBands.Bass, currentBands.Bass, lerpSpeed);
+        displayBands.LowMid = Mathf.Lerp(displayBands.LowMid, currentBands.LowMid, lerpSpeed);
+        displayBands.HighMid = Mathf.Lerp(displayBands.HighMid, currentBands.HighMid, lerpSpeed);
+        displayBands.Treble = Mathf.Lerp(displayBands.Treble, currentBands.Treble, lerpSpeed);
+        
+        
+        for (int i = lastProcessedIndex + 1; i <= currentFrameIndex; i++)
         {
-            // Kích hoạt logic Gameplay truyền vào toàn bộ thông số của 5 dải tần
-            OnBeatHit(spectralData[currentIndex]);
-
-            // Chuyển sang chờ Event tiếp theo
-            currentIndex++;
+            if (spectralData[i].IsBeat)
+            {
+                OnBeatHit(spectralData[i]);
+                
+            }
         }
 
-        float damping = Time.deltaTime * 8f;
-        displayBands.Kick = Mathf.Lerp(displayBands.Kick, 0f, damping);
-        displayBands.Bass = Mathf.Lerp(displayBands.Bass, 0f, damping);
-        displayBands.LowMid = Mathf.Lerp(displayBands.LowMid, 0f, damping);
-        displayBands.HighMid = Mathf.Lerp(displayBands.HighMid, 0f, damping);
-        displayBands.Treble = Mathf.Lerp(displayBands.Treble, 0f, damping);
+        lastProcessedIndex = currentFrameIndex;
+
+
 
 
     }
     private void OnBeatHit(SpectralEvent spectralInfo)
     {
+        if (spectralInfo.IsBeat == true && spectralInfo.Bands.Treble > 0.7f)
+        {
 
-        
+
+            GameObject particle = Instantiate(bassParticlePrefab, Vector3.zero, Quaternion.identity);
+            float dynamicScale = spectralInfo.Bands.Treble * particleScaleMultiplier;
+
+            particle.transform.localScale = new Vector3(dynamicScale, dynamicScale, dynamicScale);
 
 
-        displayBands.Kick = Mathf.Max(displayBands.Kick, spectralInfo.Bands.Kick);
-        displayBands.Bass = Mathf.Max(displayBands.Bass, spectralInfo.Bands.Bass);
-        displayBands.LowMid = Mathf.Max(displayBands.LowMid, spectralInfo.Bands.LowMid);
-        displayBands.HighMid = Mathf.Max(displayBands.HighMid, spectralInfo.Bands.HighMid);
-        displayBands.Treble = Mathf.Max(displayBands.Treble, spectralInfo.Bands.Treble);
+        }
+
     }
     private void OnGUI()
     {

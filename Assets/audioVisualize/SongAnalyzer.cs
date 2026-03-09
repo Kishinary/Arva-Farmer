@@ -20,6 +20,7 @@ public struct SpectralEvent
 {
     public float Time;
     public FrequencyBands Bands;
+    public bool IsBeat;
 }
 
 
@@ -37,13 +38,25 @@ public class SongAnalyzer : MonoBehaviour
             return;
         }
 
-        // 1. Lấy dữ liệu ở Main Thread
-        float[] samples = new float[clip.samples * clip.channels];
-        clip.GetData(samples, 0);
+        // 1. Lấy dữ liệu thô ở Main Thread
+        float[] rawSamples = new float[clip.samples * clip.channels];
+        clip.GetData(rawSamples, 0);
         int sampleRate = clip.frequency;
+        int channels = clip.channels;
 
-        // 2. Xử lý FFT nặng ở Background Thread
-        spectralTimeline = await Task.Run(() => ProcessSpectrum(samples, sampleRate));
+        // 2. TỐI ƯU: Gộp âm thanh Stereo thành Mono (Downmix)
+        float[] monoSamples = new float[clip.samples];
+        for (int i = 0; i < clip.samples; i++)
+        {
+            if (channels == 2)
+                // Cộng hai kênh Trái Phải chia đôi
+                monoSamples[i] = (rawSamples[i * 2] + rawSamples[i * 2 + 1]) / 2f;
+            else
+                monoSamples[i] = rawSamples[i];
+        }
+
+        // 3. Xử lý FFT trên mảng Mono
+        spectralTimeline = await Task.Run(() => ProcessSpectrum(monoSamples, sampleRate));
     }
 
     private List<SpectralEvent> ProcessSpectrum(float[] samples, int sampleRate)
@@ -83,13 +96,27 @@ public class SongAnalyzer : MonoBehaviour
             }
 
 
-            // Lưu lại điểm thời gian này nếu có bất kỳ âm tần nào vượt ngưỡng
-            if (bands.Kick > threshold || bands.Bass > threshold ||
+            // Lưu lại điểm thời gian này nếu có bất kỳ âm tần nào vượt ngưỡng
+            /*if (bands.Kick > threshold || bands.Bass > threshold ||
         bands.HighMid > threshold || bands.Treble > threshold)
             {
                 float currentTime = (float)i / sampleRate;
                 timeline.Add(new SpectralEvent { Time = currentTime, Bands = bands });
-            }
+            }*/
+            // KIỂM TRA XEM CÓ PHẢI LÀ BEAT KHÔNG (Thay vì lọc bỏ, ta chỉ đánh dấu)
+            bool isBeat = (bands.Kick > threshold || bands.Bass > threshold ||
+                           bands.LowMid > threshold || bands.HighMid > threshold ||
+                           bands.Treble > threshold);
+
+            float currentTime = (float)i / sampleRate;
+
+            // LƯU LẠI TOÀN BỘ DỮ LIỆU CỦA MỌI KHUNG HÌNH
+            timeline.Add(new SpectralEvent
+            {
+                Time = currentTime,
+                Bands = bands,
+                IsBeat = isBeat
+            });
         }
 
         return timeline;

@@ -4,6 +4,7 @@ using System.Threading;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Rendering;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {   
@@ -39,7 +40,6 @@ public class PlayerMovement : MonoBehaviour
     public bool isTalking = false;
     void Start()
     {
-        mainCamera = Camera.main;
     }
     private void Awake()
     {
@@ -47,7 +47,6 @@ public class PlayerMovement : MonoBehaviour
         animator = GetComponent<Animator>();
         weaponParent = GetComponentInChildren<WeaponParent>();
         pointerPosition = GetComponent<PlayerInput>().actions.FindActionMap("Player").FindAction("pointerPosition");
-
 
 
         
@@ -65,9 +64,19 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
             rb.linearVelocity = moveInput * movespeed;
-        //if (!WeaponManager.isattacking)
-        //{
-        //}
+    }
+    void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+    void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        mainCamera = Camera.main;
     }
 
 
@@ -105,18 +114,22 @@ public class PlayerMovement : MonoBehaviour
             if (shovel != null)
             {
                 shovel.NormalAttack();
+                CineCamera.instance.TriggerPreset("ShovelNormal");
             }
             else if (Pickaxe != null)
             {
                 Pickaxe.Attack();
+                CineCamera.instance.TriggerPreset("Slash");
             }
             else if (watercan != null)
             {
                 watercan.Attack();
+                CineCamera.instance.TriggerPreset("Watercan");
             }
             else if (scissors != null)
             {
                 scissors.NormalAttack();
+                CineCamera.instance.TriggerPreset("Scissors");
             }
         }
     }
@@ -127,10 +140,12 @@ public class PlayerMovement : MonoBehaviour
             if (shovel != null)
             {
                 shovel.Attack();
+                CineCamera.instance.TriggerPreset("ShovelSpecial");
             }
             if (scissors != null)
             {
                 scissors.Attack();
+                CineCamera.instance.TriggerPreset("Scissors");
             }
         }
     }

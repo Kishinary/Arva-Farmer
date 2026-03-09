@@ -21,7 +21,7 @@ public class AlphaChanger : MonoBehaviour
             float timer = 0;
             timer += Time.deltaTime;
             Color TempColor = collision.GetComponent<Renderer>().material.color;
-            TempColor.a = Mathf.Lerp(1, 0.5f, timer / 0.1f);
+            TempColor.a = Mathf.Lerp(1, 0.3f, timer / 0.1f);
             collision.GetComponent<Renderer>().material.color = TempColor;
         }
     }

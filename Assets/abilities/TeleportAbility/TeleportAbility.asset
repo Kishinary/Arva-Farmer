@@ -21,3 +21,4 @@ MonoBehaviour:
   obstacleLayer:
     serializedVersion: 2
     m_Bits: 8
+  burst: {fileID: 169487284820128416, guid: 865fa1d235ed62e46b80cc38281a0fd5, type: 3}

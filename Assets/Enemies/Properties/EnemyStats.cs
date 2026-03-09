@@ -40,10 +40,14 @@ public class EnemyStats : MonoBehaviour
     [Header("Particle")]
     public ParticleSystem DeathPar;
 
+    [Header("Hitbox")]
+    private Collider2D hitbox;
+
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         if (sr == null) sr = GetComponent<SpriteRenderer>();
+        hitbox = GetComponent<Collider2D>();
 
         maxHealth = health;
         originalMaterial = sr.material;
@@ -74,7 +78,6 @@ public class EnemyStats : MonoBehaviour
                 UpdateBossUI(health, health);
             }
         }
-        // 2. Nếu là Quái Nhỏ (Chỉ có Slider)
         else if (healthSlider != null)
         {
             healthSlider.maxValue = maxHealth;
@@ -97,6 +100,7 @@ public class EnemyStats : MonoBehaviour
 
         health -= damage;
         TriggerFlash();
+        StartCoroutine(ResetHitBox());
 
         // Cập nhật UI
         if (healthBarDocument != null)
@@ -197,6 +201,20 @@ public class EnemyStats : MonoBehaviour
             healthBarDocument.gameObject.SetActive(false);
         }
 
-        Destroy(gameObject);
+        if (transform.parent != null)
+        {
+            Destroy(transform.parent.gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
-}
+
+    IEnumerator ResetHitBox()
+    {
+        hitbox.enabled = false;
+        yield return new WaitForSeconds(0.02f);
+        hitbox.enabled = true;
+    }
+} 

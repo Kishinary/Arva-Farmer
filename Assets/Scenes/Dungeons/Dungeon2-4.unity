@@ -4110,9 +4110,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 421696531381914221, guid: fea627461bdbda441aca5ee78addc822, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 770272872962949749, guid: fea627461bdbda441aca5ee78addc822, type: 3}
       propertyPath: m_Name
       value: NewPlayer
+      objectReference: {fileID: 0}
+    - target: {fileID: 3371831987354269110, guid: fea627461bdbda441aca5ee78addc822, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7055012157935674578, guid: fea627461bdbda441aca5ee78addc822, type: 3}
       propertyPath: m_LocalPosition.x
@@ -17246,6 +17254,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 107446350824224902, guid: 236dbb89d0352754aa00627cdd5763a3, type: 3}
+      propertyPath: damageTextPrefab
+      value: 
+      objectReference: {fileID: 4533503312433578376, guid: 19e108fc8970a754aacc294cdacb7da7, type: 3}
     - target: {fileID: 107446350824224902, guid: 236dbb89d0352754aa00627cdd5763a3, type: 3}
       propertyPath: healthBarDocument
       value: 

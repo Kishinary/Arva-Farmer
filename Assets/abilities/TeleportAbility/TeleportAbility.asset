@@ -13,12 +13,11 @@ MonoBehaviour:
   m_Name: TeleportAbility
   m_EditorClassIdentifier: 
   name: TeleportAbility
-  cooldownTime: 0.5
+  cooldownTime: 2
   activeTime: 1
   transform: {fileID: 0}
-  maxTeleportDistance: 2
+  maxTeleportDistance: 5
   checkRadius: 0.5
   obstacleLayer:
     serializedVersion: 2
     m_Bits: 8
-  burst: {fileID: 169487284820128416, guid: 865fa1d235ed62e46b80cc38281a0fd5, type: 3}

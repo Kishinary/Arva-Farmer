@@ -50,7 +50,7 @@ public class AbilityHolder : MonoBehaviour
 
 
 
-    public PlayerMovement movementScript;
+    private PlayerMovement movementScript;
 
 
 

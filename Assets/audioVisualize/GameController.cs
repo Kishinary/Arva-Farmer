@@ -108,12 +108,12 @@ public class GameController : MonoBehaviour
     }
     private void OnBeatHit(SpectralEvent spectralInfo)
     {
-        if (spectralInfo.IsBeat == true && spectralInfo.Bands.Treble > 0.7f)
+        if (spectralInfo.Bands.Kick > 0.20f)
         {
 
 
             GameObject particle = Instantiate(bassParticlePrefab, Vector3.zero, Quaternion.identity);
-            float dynamicScale = spectralInfo.Bands.Treble * particleScaleMultiplier;
+            float dynamicScale = spectralInfo.Bands.Kick * particleScaleMultiplier;
 
             particle.transform.localScale = new Vector3(dynamicScale, dynamicScale, dynamicScale);
 

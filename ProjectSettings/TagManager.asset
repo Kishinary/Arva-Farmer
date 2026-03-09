@@ -9,6 +9,8 @@ TagManager:
   - indicatorTarget
   - Audio
   - Decorations
+  - Wall
+  - Obstacle
   layers:
   - Default
   - TransparentFX

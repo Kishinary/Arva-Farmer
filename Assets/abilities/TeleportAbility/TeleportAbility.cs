@@ -18,13 +18,14 @@ public class TeleportAbility : Ability
     [SerializeField] private float maxTeleportDistance = 5f;
     [SerializeField] private float checkRadius = 0.5f;
     [SerializeField] private LayerMask obstacleLayer;
+    public ParticleSystem burst;
     private Vector2 currentPosition;
     
 
 
     public override void Activate(GameObject parent, Transform playerTransform, Rigidbody2D rb)
     {
-
+        Instantiate(burst, playerTransform.position, Quaternion.identity);
         Vector3 mouseScreenPosition = Input.mousePosition;
         mouseScreenPosition.z = -Camera.main.transform.position.z;
 
@@ -69,8 +70,6 @@ public class TeleportAbility : Ability
     }
     public override void BeginCoolDown(GameObject parent)
     {
-        
-        
        
     }
 }

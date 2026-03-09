@@ -1,11 +1,9 @@
 using System.Collections;
-using UnityEditor.Analytics;
 using UnityEngine;
-using UnityEngine.UIElements;
+using UnityEngine.SceneManagement;
 
 public class FirstScene : MonoBehaviour
 {
-    public GameObject SceneTransformer;
     private Camera cam;
 
     public Transform villagerPosition;
@@ -13,6 +11,7 @@ public class FirstScene : MonoBehaviour
 
     private float duration = 0.5f;
 
+    public bool finallyy = false;
 
     [Header("Dialogue")]
     public GameObject DialogueBox1;
@@ -27,17 +26,21 @@ public class FirstScene : MonoBehaviour
         StartCoroutine(RealRoutine());
         Player = GameObject.FindWithTag("Player").GetComponent<TemporaryPlayer>();
     }
-
-    // Update is called once per frame
-    void Update()
+    public void Update()
     {
+        if (finallyy)
+        {
+            finallyy = false;
+            Debug.Log("Pls");
+            StartCoroutine(FinalWalk());
+        }
     }
 
     IEnumerator BlackIn()
     {
         float timer = 0f;
 
-        Renderer rend = SceneTransformer.GetComponent<Renderer>();
+        Renderer rend = gameObject.GetComponent<Renderer>();
         Color tempColor = rend.material.color;
 
         while (timer < 0.1f)
@@ -49,6 +52,7 @@ public class FirstScene : MonoBehaviour
             yield return null;
         }
     }
+    
 
     IEnumerator RealRoutine()
     {
@@ -79,5 +83,38 @@ public class FirstScene : MonoBehaviour
         }
 
         transform.position = endPos;
+    }
+
+    IEnumerator FinalWalk()
+    {
+        StartCoroutine(Player.MoveDown());
+        StartCoroutine(Blacker());
+        yield return new WaitForSeconds(1.1f);
+        SceneManager.LoadScene("Lobby");
+    }
+    IEnumerator Blacker()
+    {
+        Renderer rend = gameObject.GetComponent<Renderer>();
+
+        Material mat = rend.material;
+        Color tempColor = mat.color;
+        float startAlpha = tempColor.a;
+        float targetAlpha = 1f; // fade to fully opaque (black overlay) before scene change
+
+        float timer = 0f;
+
+        while (timer < 1)
+        {
+            timer += Time.deltaTime;
+            float t = Mathf.Clamp01(timer / 1f);
+            tempColor.a = Mathf.Lerp(startAlpha, targetAlpha, t);
+            mat.color = tempColor;
+
+            yield return null;
+        }
+
+        // Ensure final alpha
+        tempColor.a = targetAlpha;
+        mat.color = tempColor;
     }
 }

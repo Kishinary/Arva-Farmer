@@ -37,7 +37,7 @@ public class PlayerHealth : MonoBehaviour
 
     public void TakeDamage(float damage) {
         Health -= damage * multiplier;
-
+        CineCamera.instance.TriggerPreset("TakeDamage");
         if (Health <= 0) Die();
     }
 

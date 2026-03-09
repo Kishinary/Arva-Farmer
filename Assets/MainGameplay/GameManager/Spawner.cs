@@ -1,8 +1,8 @@
 using NUnit.Framework;
 using System.Collections.Generic;
-using UnityEditor.Analytics;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Collections;
 
 public class Spawner : MonoBehaviour
 {
@@ -23,11 +23,12 @@ public class Spawner : MonoBehaviour
     public bool goable = false;
     private string NextScene;
     public GameObject Notifi;
+
+    private bool startCounting = false;
     void Start()
     {
         float rand = Random.Range(0, 9);
-        randomP = new Vector2(rand, rand);
-        Instantiating(rand);
+        StartCoroutine(SpawnStarter(rand));
     }
 
     private void Update()
@@ -36,13 +37,19 @@ public class Spawner : MonoBehaviour
         if (!enemyManager)
         {
             NextScene = FindFirstObjectByType<DungeonSpawner>().NextScene;
-            if (NextScene != null && goable == false) {
+            if (NextScene != null && goable == false && startCounting) {
                 goable = true;
                 Instantiate(Notifi);
             }
             return;
         }
 
+    }
+    IEnumerator SpawnStarter(float rand)
+    {
+        yield return new WaitForSeconds(1.5f);
+        Instantiating(rand);
+        startCounting = true;   
     }
     void Instantiating(float rand)
     {

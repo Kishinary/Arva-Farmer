@@ -41,25 +41,36 @@ public class AbilityHolder : MonoBehaviour
     private Transform playerTransform;
     private Rigidbody2D rb;
 
-   
 
-    
 
-    
 
-  
+    //teleport
+    [Header("TeleportReferences")]
+    public TeleportAbility teleportAbility;
 
-    
-    
-   
 
-   
+
+    public PlayerMovement movementScript;
+
+
+
+
+
 
     private void Awake()
     {
         playerTransform = player.transform;
         rb = player.GetComponent<Rigidbody2D>();
+        movementScript = player.GetComponent<PlayerMovement>();
     }
+    //Teleport
+    
+    private float teleportCooldownTimer = 0f;
+    public GameObject indicatorTarget;
+    public GameObject circleIndicatorTarget;
+    public GameObject teleportEffect;
+
+    private float moveSpeedOrigin;
 
 
     void Update()
@@ -68,10 +79,104 @@ public class AbilityHolder : MonoBehaviour
         {
             ProcessAbilityLogic(abilities[i]);
         }
-     
+        //teleport
+
+
+        if (teleportCooldownTimer > 0)
+        {
+            teleportCooldownTimer -= Time.deltaTime;
+        }
+        else
+        {
+            // Khi Cooldown đã về 0 (Sẵn sàng)
+
+            // Khi ĐANG GIỮ phím
+            if (Input.GetKey(KeyCode.Space))
+            {
+                // Bật lại indicator (nếu bạn đã ẩn nó đi lúc trước)
+                
+
+                if (indicatorTarget != null && !indicatorTarget.activeSelf)
+                {
+                    circleIndicatorTarget.SetActive(true);
+                    indicatorTarget.SetActive(true);
+                }
+
+                teleportAbility.Aim(rb, indicatorTarget);
+            }
+
+            if (Input.GetKeyUp(KeyCode.Space))
+            {
+                TeleportHandler();
+            }
+        }
 
 
     }
+
+    
+    private void TeleportHandler()
+    {
+        GameObject teleportDust = Instantiate(teleportEffect, rb.position, Quaternion.identity);
+        teleportDust.transform.position = rb.position;
+
+        SpriteRenderer playerSprite = player.GetComponent<SpriteRenderer>();
+
+        teleportAbility.Activate(gameObject, transform, rb);
+        StartCoroutine(TeleportRecoveryRoutine(playerSprite, rb));
+
+        
+        
+
+
+        teleportAbility.BeginCoolDown(gameObject);
+
+        teleportCooldownTimer = teleportAbility.cooldownTime;
+
+
+        if (indicatorTarget != null)
+        {
+            circleIndicatorTarget.SetActive(false);
+            indicatorTarget.SetActive(false);
+        }
+    }
+    private IEnumerator TeleportRecoveryRoutine(SpriteRenderer sprite, Rigidbody2D rb)
+    {
+
+        float freezeDuration = 0.5f; // Thời gian bị khóa di chuyển (giây)
+        float blinkInterval = 0.1f;  // Tốc độ nhấp nháy (giây)
+        float timer = 0f;
+
+
+        Color originalColor = sprite.color;
+        Color flashColor = new Color(255f, 255f, 255f, 255f);
+
+        moveSpeedOrigin = movementScript.movespeed;
+        movementScript.movespeed = 0;
+
+        // 2. VÒNG LẶP NHẤP NHÁY
+        bool isFlashing = false;
+        while (timer < freezeDuration)
+        {
+            // Đảo qua lại giữa màu gốc và màu chớp trắng
+            sprite.color = isFlashing ? originalColor : flashColor;
+            isFlashing = !isFlashing;
+
+            // Đợi một khoảng thời gian ngắn rồi tiếp tục vòng lặp
+            yield return new WaitForSeconds(blinkInterval);
+            timer += blinkInterval;
+        }
+
+
+        movementScript.movespeed = moveSpeedOrigin;
+        //return color afterward
+        sprite.color = originalColor;
+
+
+    }
+
+
+
 
     private void ProcessAbilityLogic(AbilitySlot slot)
     {

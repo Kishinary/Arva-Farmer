@@ -169,9 +169,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cameraShaker: {fileID: 190379575}
   analyzer: {fileID: 190379573}
-  songToAnalyze: {fileID: 8300000, guid: 2e4f71e0b265b9f4a99784a6c609bc64, type: 3}
+  songToAnalyze: {fileID: 8300000, guid: 0ebf341ba9695fb4d8f51b178a68daf4, type: 3}
   showVisualizer: 1
   visualizerMultiplier: 100
+  bassParticlePrefab: {fileID: 1736259195382329863, guid: c1afb3142447a8f48b747b5ef08b8647, type: 3}
+  particleScaleMultiplier: 2
 --- !u!114 &190379573
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -197,7 +199,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 24300002, guid: 7043ba226ba7b7d40933765a41ea8590, type: 2}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 8300000, guid: 2e4f71e0b265b9f4a99784a6c609bc64, type: 3}
+  m_Resource: {fileID: 8300000, guid: 0ebf341ba9695fb4d8f51b178a68daf4, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -4551,6 +4553,71 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1001 &1352446811
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 220178301569885631, guid: 236dbb89d0352754aa00627cdd5763a3, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.6194141
+      objectReference: {fileID: 0}
+    - target: {fileID: 220178301569885631, guid: 236dbb89d0352754aa00627cdd5763a3, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.8117836
+      objectReference: {fileID: 0}
+    - target: {fileID: 220178301569885631, guid: 236dbb89d0352754aa00627cdd5763a3, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.29592636
+      objectReference: {fileID: 0}
+    - target: {fileID: 220178301569885631, guid: 236dbb89d0352754aa00627cdd5763a3, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 220178301569885631, guid: 236dbb89d0352754aa00627cdd5763a3, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 220178301569885631, guid: 236dbb89d0352754aa00627cdd5763a3, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 220178301569885631, guid: 236dbb89d0352754aa00627cdd5763a3, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 220178301569885631, guid: 236dbb89d0352754aa00627cdd5763a3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 220178301569885631, guid: 236dbb89d0352754aa00627cdd5763a3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 220178301569885631, guid: 236dbb89d0352754aa00627cdd5763a3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8582990650450948259, guid: 236dbb89d0352754aa00627cdd5763a3, type: 3}
+      propertyPath: m_Name
+      value: Boss
+      objectReference: {fileID: 0}
+    - target: {fileID: 8746830362868376904, guid: 236dbb89d0352754aa00627cdd5763a3, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8746830362868376904, guid: 236dbb89d0352754aa00627cdd5763a3, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 236dbb89d0352754aa00627cdd5763a3, type: 3}
 --- !u!1 &1421961562
 GameObject:
   m_ObjectHideFlags: 0
@@ -4720,7 +4787,7 @@ TilemapRenderer:
   m_SortingLayer: 5
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
-  m_ChunkCullingBounds: {x: 0.109375, y: 0.48287773, z: 0}
+  m_ChunkCullingBounds: {x: 0.13220406, y: 0.48287773, z: 0}
   m_MaxChunkCount: 16
   m_MaxFrameAge: 16
   m_SortOrder: 0
@@ -19591,7 +19658,7 @@ TilemapRenderer:
   m_SortingLayer: 6
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
-  m_ChunkCullingBounds: {x: 0.9793165, y: 2.3673973, z: 0}
+  m_ChunkCullingBounds: {x: 0.9869263, y: 2.3673966, z: 0}
   m_MaxChunkCount: 16
   m_MaxFrameAge: 16
   m_SortOrder: 0
@@ -19837,3 +19904,4 @@ SceneRoots:
   - {fileID: 190379571}
   - {fileID: 1799987753}
   - {fileID: 915149108}
+  - {fileID: 1352446811}

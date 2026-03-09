@@ -51,6 +51,10 @@ public class BossPhase1State : BossBaseState
 
         }
         ChasePlayer();
+
+
+
+
     }
 
     
@@ -277,7 +281,7 @@ public class BossMovement : MonoBehaviour
 
     void Start()
             {
-        
+        player = GameObject.FindWithTag("Player");
 
             // Initialize states
             phase1State = new BossPhase1State(this);

@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 using UnityEngine.Rendering;
 
 public class PlayerMovement : MonoBehaviour
-{
+{   
     [Header("Movement")]
     public float movespeed = 10f;
     public Vector2 moveInput;

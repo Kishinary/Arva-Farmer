@@ -19,28 +19,17 @@ public class TeleportAbility : Ability
     [SerializeField] private float checkRadius = 0.5f;
     [SerializeField] private LayerMask obstacleLayer;
     private Vector2 currentPosition;
+
     
 
-
-    public override void Activate(GameObject parent, Transform playerTransform, Rigidbody2D rb)
+    private Vector2 CalculateTargetPosition(Vector2 currentPosition)
     {
-
+       
         Vector3 mouseScreenPosition = Input.mousePosition;
         mouseScreenPosition.z = -Camera.main.transform.position.z;
 
-        GameObject indicatorTarget = GameObject.FindWithTag("indicatorTarget");
-
-        
-
-
-      
         Vector2 mouseWorldPosition = Camera.main.ScreenToWorldPoint(mouseScreenPosition);
-        Debug.Log("Vị trí thế giới của Chuột: " + mouseWorldPosition);
-
-        currentPosition = rb.position;
-
         Vector2 directionToMouse = mouseWorldPosition - currentPosition;
-
         Vector2 teleportVector = Vector2.ClampMagnitude(directionToMouse, maxTeleportDistance);
 
         float distance = teleportVector.magnitude;
@@ -48,22 +37,43 @@ public class TeleportAbility : Ability
 
         RaycastHit2D hit = Physics2D.CircleCast(currentPosition, checkRadius, direction, distance, obstacleLayer);
 
-
-
-        Vector2 targetPosition;
-
         if (hit.collider != null)
         {
-            // Obstacle detected, teleport to the point just before the obstacle
+            // Bị vướng vật cản, trả về vị trí ngay trước vật cản
             float safeDistance = distance * hit.fraction;
-            targetPosition = currentPosition + (direction * safeDistance);
-        } else
-        {
-            // Clear to teleport full distance
-            targetPosition = currentPosition + teleportVector;
+            return currentPosition + (direction * safeDistance);
         }
-        rb.position = targetPosition;
+        else
+        {
+            // Không vướng, trả về vị trí tối đa
+            return currentPosition + teleportVector;
+        }
 
+
+    }
+    public void Aim(Rigidbody2D rb, GameObject indicatorTarget)
+    {
+       
+        Vector2 targetPosition = CalculateTargetPosition(rb.position);
+        
+        if (indicatorTarget != null)
+        {
+            // Đặt Indicator tới vị trí dự kiến sẽ teleport tới
+            indicatorTarget.transform.position = targetPosition;
+        }else
+        {
+            Debug.Log("No indicatorTarget");
+        }
+    }
+
+
+    public override void Activate(GameObject parent, Transform playerTransform, Rigidbody2D rb)
+    {
+        Vector2 targetPosition = CalculateTargetPosition(rb.position);
+
+        
+
+        rb.position = targetPosition;
        
 
     }

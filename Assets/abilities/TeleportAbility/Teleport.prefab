@@ -75,7 +75,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -554137961
   m_SortingLayer: 6
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -1451718229257574098, guid: 6ade1487821f74c4cad79e75c8d052ab, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -209,10 +209,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 190c30b7aa493b8499e5e16f1b2d4d92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: Boomerang
+  itemName: teleport
   quantity: 1
-  InInventorySprite: {fileID: 0}
-  itemDescription: I will comeback
+  InInventorySprite: {fileID: -1451718229257574098, guid: 6ade1487821f74c4cad79e75c8d052ab, type: 3}
+  itemDescription: Teleportalll
   abilityScriptableObject: {fileID: 11400000, guid: 18e42fa015330ed499df36e93a2bcc5c, type: 2}
 --- !u!95 &2694321610743938377
 Animator:

@@ -1,0 +1,8 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements">
+    <ui:VisualElement class="heart-container">
+        <ui:VisualElement class="heart-background" />
+        <ui:VisualElement name="HeartMask" class="heart-mask">
+            <ui:VisualElement class="heart-fill" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

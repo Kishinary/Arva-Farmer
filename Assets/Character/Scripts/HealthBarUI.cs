@@ -4,68 +4,61 @@ using System.Collections.Generic;
 
 public class HealthBarUI : MonoBehaviour
 {
-    public VisualTreeAsset heartTemplate; // Kéo file HeartTemplate.uxml vào đây
-    public float lerpSpeed = 8f;
+    public VisualTreeAsset heartTemplate;
+    public float whiteDrainSpeed = 5f; 
 
     private VisualElement _container;
-    private List<VisualElement> _masks = new List<VisualElement>();
-    private List<VisualElement> _fills = new List<VisualElement>();
-    
-    private float _visualHealth;
+    private List<VisualElement> _redMasks = new List<VisualElement>();
+    private List<VisualElement> _whiteMasks = new List<VisualElement>();
+    private float _visualWhiteHealth;
 
     void OnEnable() {
         var root = GetComponent<UIDocument>().rootVisualElement;
-        _container = root.Q<VisualElement>("HealthBar"); // Đảm bảo UXML chính có cái này
+        _container = root.Q<VisualElement>("HealthBar");
 
-        PlayerHealth.OnHealthChanged += HandleUpdate;
-        
-        if (PlayerHealth.Instance != null) {
-            _visualHealth = PlayerHealth.Instance.Health;
-            SetupHearts(PlayerHealth.Instance.MaxHealth);
+        if (_container != null && PlayerHealth.Instance != null) {
+            _visualWhiteHealth = PlayerHealth.Instance.Health;
+            SetupHearts();
         }
     }
 
-    void OnDisable() {
-        PlayerHealth.OnHealthChanged -= HandleUpdate;
-    }
-
-    void SetupHearts(float maxHealth) {
+    void SetupHearts() {
         _container.Clear();
-        _masks.Clear();
-        _fills.Clear();
+        _redMasks.Clear();
+        _whiteMasks.Clear();
 
-        // 1 trái tim = 20 máu (Ví dụ)
-        int heartCount = Mathf.CeilToInt(maxHealth / 20f);
+        int heartCount = Mathf.CeilToInt(PlayerHealth.Instance.MaxHealth / 20f);
 
         for (int i = 0; i < heartCount; i++) {
             var heart = heartTemplate.Instantiate();
-            var mask = heart.Q<VisualElement>(className: "heart-mask");
-            var fill = heart.Q<VisualElement>(className: "heart-fill");
-            
-            _container.Add(heart);
-            _masks.Add(mask);
-            _fills.Add(fill);
+            var wMask = heart.Q<VisualElement>("WhiteMask");
+            var rMask = heart.Q<VisualElement>("RedMask");
+
+            if (wMask != null && rMask != null) {
+                _container.Add(heart);
+                _whiteMasks.Add(wMask);
+                _redMasks.Add(rMask);
+            }
         }
     }
-
-    private void HandleUpdate(float current, float max) {
-        // Có thể thêm hiệu ứng chớp trắng ở đây
-    }
-    void Awake() {
-    // Giữ object này không bị xóa khi load scene mới
-    DontDestroyOnLoad(gameObject);
+    void Awake(){
+        DontDestroyOnLoad(gameObject);
     }
     void Update() {
-        if (PlayerHealth.Instance == null) return;
+        if (PlayerHealth.Instance == null || _redMasks.Count == 0) return;
 
-        // Làm mượt máu
-        _visualHealth = Mathf.Lerp(_visualHealth, PlayerHealth.Instance.Health, Time.deltaTime * lerpSpeed);
+        float actualHP = PlayerHealth.Instance.Health;
+        // Hiệu ứng Lerp để lớp trắng tụt chậm sau lớp đỏ
+        _visualWhiteHealth = Mathf.Lerp(_visualWhiteHealth, actualHP, Time.deltaTime * whiteDrainSpeed);
 
-        float healthPerHeart = PlayerHealth.Instance.MaxHealth / _masks.Count;
+        float hpPerHeart = PlayerHealth.Instance.MaxHealth / _redMasks.Count;
 
-        for (int i = 0; i < _masks.Count; i++) {
-            float fillAmount = Mathf.Clamp01((_visualHealth / healthPerHeart) - i);
-            _masks[i].style.height = Length.Percent(fillAmount * 100f);
+        for (int i = 0; i < _redMasks.Count; i++) {
+            float redFill = Mathf.Clamp01((actualHP / hpPerHeart) - i);
+            float whiteFill = Mathf.Clamp01((_visualWhiteHealth / hpPerHeart) - i);
+
+            _redMasks[i].style.height = Length.Percent(redFill * 100f);
+            _whiteMasks[i].style.height = Length.Percent(whiteFill * 100f);
         }
     }
 }

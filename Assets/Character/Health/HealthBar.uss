@@ -1,36 +1,47 @@
 .health-bar-container {
     flex-direction: row;
     padding: 10px;
+    
 }
 
 .heart-container {
     width: 64px;
     height: 64px;
-    margin-right: 4px;
+    margin-right: 5px;
     position: relative;
+
 }
 
-.heart-background {
+.heart-bg {
     position: absolute;
     width: 100%;
     height: 100%;
-    background-image: url('project:Assets/Character/Health/Heart.png');
     -unity-background-scale-mode: scale-to-fit;
+    background-image: url("project://database/Assets/Character/Health/Heart.png?fileID=5904182026366340158&guid=bd6443b1e6e614148af56b81a14603a4&type=3#Heart-removebg-preview_1");
 }
 
 .heart-mask {
     position: absolute;
     bottom: 0;
     width: 100%;
-    height: 100%; /* Sẽ bị Script điều khiển từ 0-100% */
+    height: 100%;
     overflow: hidden;
 }
 
-.heart-fill {
+.heart-fill-white {
     position: absolute;
     bottom: 0;
     width: 100%;
-    height: 64px; /* Phải bằng chiều cao của container */
-    background-image: url('project:Assets/Character/Health/Heart.png');
+    height: 64px;
     -unity-background-scale-mode: scale-to-fit;
+    background-image: url("project://database/Assets/Character/Health/white%20heart.png?fileID=-6574522194347001292&guid=b3f659715d9f42f499509311a94eac8c&type=3#white heart_1");
+}
+
+.heart-fill-red {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 64px;
+    -unity-background-scale-mode: scale-to-fit;
+    background-image: url("project://database/Assets/Character/Health/white%20heart.png?fileID=7239520872322909919&guid=b3f659715d9f42f499509311a94eac8c&type=3#white heart_0");
 }

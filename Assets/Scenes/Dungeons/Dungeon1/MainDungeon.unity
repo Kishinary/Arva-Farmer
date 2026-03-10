@@ -171,6 +171,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Monk
       objectReference: {fileID: 0}
+    - target: {fileID: 9004085989681787154, guid: 25b35c4fd1a100f41824cb8670b67e07, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9004085989681787154, guid: 25b35c4fd1a100f41824cb8670b67e07, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -205,7 +213,7 @@ Transform:
   m_GameObject: {fileID: 63463875}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.8921744, y: 0.6514019, z: -2}
+  m_LocalPosition: {x: 1.7843488, y: 1.3028038, z: -4}
   m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -577,9 +585,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4079071695915839737, guid: e2b2e0d682e6574489ef7df23879562e, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4079071695915839737, guid: e2b2e0d682e6574489ef7df23879562e, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6504507702982755813, guid: e2b2e0d682e6574489ef7df23879562e, type: 3}
       propertyPath: m_Name
       value: Lancer (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7778492458179837946, guid: e2b2e0d682e6574489ef7df23879562e, type: 3}
+      propertyPath: damageTextPrefab
+      value: 
+      objectReference: {fileID: 3813446656523230478, guid: a9bd15e71f44b6f41914132ca95b3da0, type: 3}
+    - target: {fileID: 7944193267085849578, guid: e2b2e0d682e6574489ef7df23879562e, type: 3}
+      propertyPath: m_AdditionalShaderChannelsFlag
+      value: 25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5851,6 +5875,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4130807659070787774, guid: 9ec2bf018e9e57a428e91491d8da62cc, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4130807659070787774, guid: 9ec2bf018e9e57a428e91491d8da62cc, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4716533032613820299, guid: 9ec2bf018e9e57a428e91491d8da62cc, type: 3}
       propertyPath: m_Name
       value: Warrior

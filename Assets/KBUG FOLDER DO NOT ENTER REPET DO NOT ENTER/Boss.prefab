@@ -591,11 +591,15 @@ MonoBehaviour:
   maxHealth: 0
   invincible: 0
   invincibilityDuration: 0.02
+  damageTextPrefab: {fileID: 4533503312433578376, guid: 19e108fc8970a754aacc294cdacb7da7, type: 3}
+  damageTextOffset: {x: 0, y: 1, z: 0}
   flashMaterial: {fileID: 2100000, guid: f5cb427ba98c86148a80e2d02340eb2e, type: 2}
   flashDuration: 0.15
   knockbackForce: 0.5
   healthSlider: {fileID: 0}
   healthBarDocument: {fileID: 0}
+  ghostDelay: 0.3
+  sr: {fileID: 0}
   DeathPar: {fileID: 0}
 --- !u!50 &1816990056513348571
 Rigidbody2D:
@@ -691,6 +695,8 @@ MonoBehaviour:
   enemyStats: {fileID: 1181824145017953678}
   isActionLocked: 0
   dustSplashPrefab: {fileID: 1736259195382329863, guid: c1afb3142447a8f48b747b5ef08b8647, type: 3}
+  auraBoss: {fileID: 0}
+  spriteTransform: {fileID: 0}
 --- !u!114 &4388497727682996784
 MonoBehaviour:
   m_ObjectHideFlags: 0

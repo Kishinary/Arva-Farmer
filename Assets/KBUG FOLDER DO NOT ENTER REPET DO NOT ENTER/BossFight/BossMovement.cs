@@ -45,15 +45,32 @@ public class BossPhase1State : BossBaseState
         if (timer <= 0)
         {
             timer = 3f;
-            PerformJump();
+            PerformShoot();
 
             return;
 
         }
         ChasePlayer();
+
+
+
+
     }
 
-    
+    private void PerformShoot()
+    {
+        boss.isActionLocked = true;
+
+        //boss.NotifyEightWayShootStart();
+
+        boss.StartCoroutine(boss.acidMovement.ExecuteEightWayShoot(
+
+            boss.transform.position,() =>
+            {
+                boss.isActionLocked = false;
+            }
+            ));
+    }
 
 
         // Implement phase 1 behavior (e.g., basic attacks, movement patterns)
@@ -239,10 +256,11 @@ public class BossPhase2State : BossBaseState
 
 public class BossMovement : MonoBehaviour
         {
-            public GameObject player; // Reference to the player for targeting
-                                      //jump ability of boss
-            public JumpAbility jumpAbility;
-            public BiteAbility biteAbility;
+    public GameObject player; // Reference to the player for targeting
+                                //jump ability of boss
+    public JumpAbility jumpAbility;
+    public BiteAbility biteAbility;
+    public AcidMovement acidMovement;
 
 
     public Transform Visual; // Visual representation of the boss for jump effect
@@ -277,7 +295,7 @@ public class BossMovement : MonoBehaviour
 
     void Start()
             {
-        
+        player = GameObject.FindWithTag("Player");
 
             // Initialize states
             phase1State = new BossPhase1State(this);

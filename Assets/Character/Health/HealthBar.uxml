@@ -1,0 +1,14 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements">
+    <ui:Style src="project:Assets/Character/Health/HealthBar.uss" />
+
+    <ui:VisualElement name="HealthBar" class="health-bar-container">
+        
+        <ui:VisualElement class="heart-container">
+            <ui:VisualElement class="heart-background" />
+            <ui:VisualElement name="HeartMask_0" class="heart-mask">
+                <ui:VisualElement class="heart-fill" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+
+        </ui:VisualElement>
+</ui:UXML>

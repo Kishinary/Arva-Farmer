@@ -13,56 +13,57 @@ public class BasicDialogue : MonoBehaviour
     private int index;
 
     [Header("Camera")]
-    public CameraZoom m_camera;
-    public Camera cam;
 
     [Header("Checker")]
-    private bool isChatting;
+    public bool isChatting;
 
     private bool notSpawnyet = true;
 
     [Header("Changer")]
     public GameObject NextDialogue;
-
+    public GameObject Player;
     [Header("Sound Effect")]
     public AudioSource audioSource;
     public AudioClip typingSound;
+   
     // Start is called before the first frame update
     void Start()
     {
-        m_camera = GetComponentInParent<CameraZoom>();
-        cam = GameObject.FindWithTag("MainCamera").GetComponent<Camera>();
         textComponent = GetComponentInChildren<TextMeshProUGUI>();
-        textComponent.text = string.Empty; 
+        textComponent.text = string.Empty;
+        Player = GameObject.FindWithTag("Player");
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0) && !notSpawnyet) 
+        if (Input.GetMouseButtonDown(0) && !notSpawnyet)
         {
             isChatting = true;
-            if (textComponent.text == lines[index]) 
+            if (textComponent.text == lines[index])
             {
-                NextLine(); 
+                NextLine();
             }
             else
             {
                 StopAllCoroutines();
-                textComponent.text = lines[index]; 
+                textComponent.text = lines[index];
             }
         }
-        StartDialogue();
+        else
+        {
+            StartDialogue();
+            if (Player) Player.GetComponent<PlayerMovement>().DisablePlayerInput();
+        }
     }
 
     void StartDialogue()
     {
-        if (Input.GetMouseButtonDown(0) && notSpawnyet) {
+        if (notSpawnyet) {
             index = 0;
             StartCoroutine(TypeLine());
-            //Player.DisablePlayerInput();
-            //m_camera.ZoomIn();
             notSpawnyet = false;
+            CineZoom.instance.ZoomIn(transform.position, 0.5f);
         }
     }
 
@@ -99,14 +100,21 @@ public class BasicDialogue : MonoBehaviour
         }
         else
         {
-            gameObject.SetActive(false);
             isChatting = false;
-            //m_camera.ZoomOut();
-            //Player.EnablePlayerInput();
             if (NextDialogue)
             {
                 NextDialogue.SetActive(true);
             }
+
+            if (Player) Player.GetComponent<PlayerMovement>().EnablePlayerInput();
+            CineZoom.instance.ZoomOut();
+            index = 0;
+            notSpawnyet = true;
+            gameObject.SetActive(false);
         }
+    }
+    private void OnEnable()
+    {
+        if (Player) Player.GetComponent<PlayerMovement>().DisablePlayerInput();
     }
 }

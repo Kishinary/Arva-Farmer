@@ -3,7 +3,8 @@ using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
-{
+{   
+    public static PlayerHealth Instance;
     public float MaxHealth = 100f;
     
     // Lưu trữ máu xuyên Scene
@@ -29,6 +30,7 @@ public class PlayerHealth : MonoBehaviour
         Health = IsFirstLoad ? MaxHealth : SavedHealth;
         IsFirstLoad = false;
         string CurrentScene = SceneManager.GetActiveScene().name;
+        
     }
 
     void Start() {

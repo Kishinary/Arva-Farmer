@@ -22,12 +22,8 @@ public class CameraZoom : MonoBehaviour
         if (cam == null)
             cam = Camera.main;
 
-        canvas = GetComponent<Canvas>();
-
         targetZoom = cam.orthographicSize;
 
-        if (canvas != null)
-            canvas.worldCamera = cam;
     }
 
     void Update()

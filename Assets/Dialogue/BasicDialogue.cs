@@ -63,7 +63,7 @@ public class BasicDialogue : MonoBehaviour
             index = 0;
             StartCoroutine(TypeLine());
             notSpawnyet = false;
-            CineZoom.instance.ZoomIn(transform.position, 0.5f);
+            if (CineZoom.instance) CineZoom.instance.ZoomIn(transform.position, 0.5f);
         }
     }
 
@@ -105,16 +105,20 @@ public class BasicDialogue : MonoBehaviour
             {
                 NextDialogue.SetActive(true);
             }
-
-            if (Player) Player.GetComponent<PlayerMovement>().EnablePlayerInput();
-            CineZoom.instance.ZoomOut();
-            index = 0;
-            notSpawnyet = true;
-            gameObject.SetActive(false);
+            Reset();
         }
     }
     private void OnEnable()
     {
         if (Player) Player.GetComponent<PlayerMovement>().DisablePlayerInput();
+    }
+    private void Reset()
+    {
+        if (Player) Player.GetComponent<PlayerMovement>().EnablePlayerInput();
+        if (CineZoom.instance) CineZoom.instance.ZoomOut();
+        index = 0;
+        notSpawnyet = true;
+        gameObject.SetActive(false);
+        textComponent.text = string.Empty;
     }
 }

@@ -38,9 +38,26 @@ public class CineZoom : MonoBehaviour
     {
         vcam.Follow = null;
 
-        Vector3 pos = new Vector3(position.x, position.y + 0.4f, -10);
-        vcam.transform.position = pos;
+        Vector3 startPos = vcam.transform.position;
+        Vector3 targetPos = new Vector3(position.x, position.y + 0.25f, -10);
 
+        float moveTimer = 0f;
+        float moveDuration = 0.1f;
+
+        // Smooth move to position
+        while (moveTimer < moveDuration)
+        {
+            moveTimer += Time.deltaTime;
+            float t = Mathf.SmoothStep(0, 1, moveTimer / moveDuration);
+
+            vcam.transform.position = Vector3.Lerp(startPos, targetPos, t);
+
+            yield return null;
+        }
+
+        vcam.transform.position = targetPos;
+
+        // Then do the zoom
         float startSize = vcam.Lens.OrthographicSize;
         float timer = 0;
 

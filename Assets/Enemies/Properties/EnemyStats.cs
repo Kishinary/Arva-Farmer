@@ -47,6 +47,9 @@ public class EnemyStats : MonoBehaviour
     [Header("Hitbox")]
     private Collider2D hitbox;
 
+    [Header("Movement")]
+    public float speedMultiplier = 1;
+
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -86,6 +89,7 @@ public class EnemyStats : MonoBehaviour
 
     void Update()
     {
+        EnemyMoveSpeed();
         if (healthSlider != null && healthSlider.gameObject.activeInHierarchy && healthSlider.transform.parent != null)
         {
             healthSlider.transform.parent.rotation = Quaternion.identity;
@@ -194,5 +198,31 @@ public class EnemyStats : MonoBehaviour
         hitbox.enabled = false;
         yield return new WaitForSeconds(0.02f);
         hitbox.enabled = true;
+    }
+
+
+
+
+    void EnemyMoveSpeed() {
+        if (this.GetComponent<EnemySummoner>())
+        {
+            this.GetComponent<EnemySummoner>().moveSpeed *= speedMultiplier;
+        }
+        if (this.GetComponent<MageEnemy>())
+        {
+            this.GetComponent<MageEnemy>().moveSpeed *= speedMultiplier;
+        }
+        if (this.GetComponent<EnemyTouch>())
+        {
+            this.GetComponent<EnemyTouch>().speed *= speedMultiplier;
+        }
+        if (this.GetComponent<ArcherEnemy>())
+        {
+            this.GetComponent<ArcherEnemy>().orbitSpeed *= speedMultiplier;
+        }
+        if (this.GetComponent<ChargeEnemy>())
+        {
+            this.GetComponent<ChargeEnemy>().moveSpeed *= speedMultiplier;
+        }
     }
 }

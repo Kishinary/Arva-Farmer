@@ -4,7 +4,7 @@ public class Slash : MonoBehaviour
 {
     public float speed = 12f;
     public float lifeTime = 0.3f;
-    public float damage = 0f;
+    public float damage = 8f;
     void Start()
     {
         Destroy(gameObject, lifeTime);

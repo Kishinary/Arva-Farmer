@@ -3,10 +3,10 @@ using UnityEngine.SceneManagement;
 
 public class AnotherOne : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    public Vector2 playerspawn;
     void Start()
     {
-        
+        GameObject.FindWithTag("Player").transform.position = playerspawn;
     }
 
     // Update is called once per frame

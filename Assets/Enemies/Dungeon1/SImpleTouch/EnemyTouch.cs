@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class EnemyTouch : MonoBehaviour
 {
-    private float speed = 4f;
+    public float speed = 4f;
     private Transform playerTransform;
 
     Vector2 snappedDir = Vector2.down;

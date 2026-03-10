@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Threading;
 using UnityEngine;
 
 public class Shovel : MonoBehaviour
@@ -88,6 +89,17 @@ public class Shovel : MonoBehaviour
         foreach (Collider2D enemy in hitEnemies)
         {
             ApplyDamage(enemy, normalAttackDamage, "ShovelNormal");
+            float timer = 0;
+            while (timer <= 3)
+            {
+                timer += Time.deltaTime;
+                enemy.GetComponent<EnemyStats>().speedMultiplier = 0.2f;
+            }
+            if (timer >= 3)
+            {
+                enemy.GetComponent<EnemyStats>().speedMultiplier = 1f;
+
+            }
         }
     }
 

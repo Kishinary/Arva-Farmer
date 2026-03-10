@@ -5,6 +5,8 @@ public class DungeonEntrance : MonoBehaviour, IInteractable
 {
     public void Interact()
     {
+        SceneManager.LoadScene("Dungeon1-1");
+
     }
     private void Start()
     {
@@ -15,7 +17,6 @@ public class DungeonEntrance : MonoBehaviour, IInteractable
     {
         if (collision.gameObject.tag == "Player")
         {
-            SceneManager.LoadScene("MainDungeon2");
         }
     }
 

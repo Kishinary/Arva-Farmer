@@ -59,7 +59,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: a3a1b315f64d9ca46adc5bb70e4bee18, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -184,13 +184,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1006031918985255391}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: efb52e8201a97604cadc7b36eff63bcb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 12
-  lifeTime: 0.3
+  lifeTime: 3
   damage: 15
   bug: Firefly
   explosion: {fileID: 3151226660787749475, guid: ffe9b03234caf1c4592b62a6c66a49b7, type: 3}

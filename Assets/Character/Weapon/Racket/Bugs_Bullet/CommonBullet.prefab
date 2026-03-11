@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 4653422401534927855}
   - component: {fileID: 2982940034875603940}
   - component: {fileID: 3441868483788631530}
-  - component: {fileID: 8571633703367886929}
   - component: {fileID: 7077549745460873838}
   m_Layer: 0
   m_Name: CommonBullet
@@ -59,7 +58,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 55e12c327266df14ebb0064ee2495a18, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -150,33 +149,6 @@ CapsuleCollider2D:
   m_Offset: {x: -0.044512752, y: 0.00000024372494}
   m_Size: {x: 1.7857044, y: 0.80641603}
   m_Direction: 1
---- !u!50 &8571633703367886929
-Rigidbody2D:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4561330686045693173}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDamping: 0
-  m_AngularDamping: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!114 &7077549745460873838
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -184,13 +156,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4561330686045693173}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: efb52e8201a97604cadc7b36eff63bcb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 12
-  lifeTime: 0.3
+  lifeTime: 3
   damage: 15
   bug: Butterfly
   explosion: {fileID: 3151226660787749475, guid: ffe9b03234caf1c4592b62a6c66a49b7, type: 3}

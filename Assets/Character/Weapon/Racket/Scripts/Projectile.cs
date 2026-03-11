@@ -3,8 +3,8 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     [Header("Properties")]
-    public float speed = 100f;
-    public float lifeTime = 0.3f;
+    public float speed = 7f;
+    public float lifeTime = 3f;
     public float damage = 15f;
 
     [Header("Other Stuff")]

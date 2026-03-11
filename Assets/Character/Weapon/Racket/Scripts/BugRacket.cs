@@ -139,12 +139,22 @@ public class BugRacket : MonoBehaviour, IWeapon
             storedBugs.RemoveAt(0);
             foreach (GameObject obj in storedBugObject)
             {
+<<<<<<< Updated upstream
+=======
+                // The Destroy function removes the object from the scene
+                // This does not happen immediately, but at the end of the current frame
+>>>>>>> Stashed changes
                 if (obj != null) // Check if the object is still valid before destroying (optional, but good practice)
                 {
                     Destroy(obj);
                 }
             }
 
+<<<<<<< Updated upstream
+=======
+            // After the loop, clear the list itself. 
+            // The list only holds references, so clearing it is separate from destroying the actual GameObjects.
+>>>>>>> Stashed changes
             storedBugObject.Clear(); 
             ShootBug(bug, dir);
 

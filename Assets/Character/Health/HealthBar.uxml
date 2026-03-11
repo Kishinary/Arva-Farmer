@@ -3,7 +3,7 @@
     <ui:VisualElement name="HealthBar" class="health-bar-container">
         <ui:VisualElement class="heart-container">
             <ui:VisualElement class="heart-background" />
-            <ui:VisualElement name="HeartMask" class="heart-mask" style="opacity: 1; width: 100%;">
+            <ui:VisualElement name="HeartMask" class="heart-mask" style="opacity: 1; width: 80%; height: 80%;">
                 <ui:VisualElement name="VisualElement" class="heart-fill" />
             </ui:VisualElement>
         </ui:VisualElement>

@@ -22,6 +22,8 @@ public class CineCamera : MonoBehaviour
 
     public float globalFrequency = 15f;
 
+    public bool following = true;
+
     private void Awake()
     {
         instance = this;
@@ -30,14 +32,14 @@ public class CineCamera : MonoBehaviour
         perlin = m_Camera.GetComponent<CinemachineBasicMultiChannelPerlin>();
 
         // Ensure the frequency is high from the start for that jittery feel
-        perlin.FrequencyGain = globalFrequency;
+        if (perlin) perlin.FrequencyGain = globalFrequency;
     }
 
     private void Start()
     {
         endZoomSize = Camera.main.orthographicSize;
         GameObject player = GameObject.FindWithTag("Player");
-        if (player != null) m_Camera.Follow = player.transform;
+        if (player != null && following) m_Camera.Follow = player.transform;
         else Debug.LogWarning("CineCamera: No Player found with tag 'Player'.");
         StartCoroutine(StartSequence());
     }
@@ -85,11 +87,9 @@ public class CineCamera : MonoBehaviour
 
     IEnumerator StartSequence()
     {
-        // 1. Instant Teleport
         m_Camera.ForceCameraPosition(m_Camera.Follow.position, Quaternion.identity);
         m_Camera.Lens.OrthographicSize = 2f;
 
-        // 2. THE FIX: Tell the confiner to reset
         if (confiner != null)
         {
             confiner.InvalidateBoundingShapeCache();
@@ -106,8 +106,6 @@ public class CineCamera : MonoBehaviour
             float t = Mathf.SmoothStep(0, 1, timer / duration);
             m_Camera.Lens.OrthographicSize = Mathf.Lerp(2f, 7f, t);
 
-            // Optional: Keep invalidating if the zoom causes clipping issues
-            // confiner.InvalidateCache(); 
 
             yield return null;
         }

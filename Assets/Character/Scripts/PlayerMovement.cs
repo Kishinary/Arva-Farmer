@@ -9,7 +9,7 @@ using UnityEngine.SceneManagement;
 public class PlayerMovement : MonoBehaviour
 {   
     [Header("Movement")]
-    public float movespeed = 10f;
+    public float movespeed = 6f;
     public Vector2 moveInput;
     public Camera mainCamera;
 
@@ -195,33 +195,35 @@ public class PlayerMovement : MonoBehaviour
     {
         movespeed = 0;
         playerInput.DeactivateInput();
+        Debug.Log("Input Disabled");
     }
     public void EnablePlayerInput()
     {
-        movespeed = 10f;
+        movespeed = 6f;
         playerInput.ActivateInput();
+        Debug.Log("Input Enabled");
     }
 
 
 
 
 
-    //public void OnInteract(InputAction.CallbackContext context)
-    //{
-      //  Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, 0.35f);
+    public void OnInteract(InputAction.CallbackContext context)
+    {
+        Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, 0.5f);
 
-        //foreach (Collider2D hit in hits)
-        //{
-          //  if (hit.CompareTag("Interactable"))
-            //{
-              //  IInteractable interactable = hit.GetComponent<IInteractable>();
+        foreach (Collider2D hit in hits)
+        {
+            if (hit.CompareTag("Interactable"))
+            {
+                IInteractable interactable = hit.GetComponent<IInteractable>();
 
-                //if (interactable != null)
-                //{
-                  //  interactable.Interact();
-                    //return;
-                //}
-            //}
-        //}
-    //}
+                if (interactable != null)
+                {
+                    interactable.Interact();
+                    return;
+                }
+            }
+        }
+    }
 }

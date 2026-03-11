@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class BirdEnemy : MonoBehaviour
+public class ArcherEnemy : MonoBehaviour
 {
     Transform player;
 

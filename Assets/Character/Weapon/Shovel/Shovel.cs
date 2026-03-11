@@ -1,119 +1,144 @@
 using System.Collections;
-using UnityEditor.Analytics;
+using System.Threading;
 using UnityEngine;
 
 public class Shovel : MonoBehaviour
 {
-
     private Animator animator;
 
-    [Header("Attack Details")]
-    public float attackRange = 2f;
+    [Header("Attack Settings")]
+    public LayerMask enemyLayer;
+    public Transform attackPoint;
+    public float normalAttackRadius = 0.5f;
+    public float specialAttackRadius = 2.5f;
+    [Range(0, 360)] public float specialAttackAngle = 90f;
+
+    [Header("Cooldowns")]
     public float attackCooldown = 1f;
-    public float NormalAttackCooldown = 0.5f;
+    public float normalAttackCooldown = 0.5f;
     private float nextAttackTime = 0f;
     private float nextNormalAttackTime = 0f;
 
-    public float NormalAttackDamage;
-    public float SpecialAttackDamage;
-    [Header("Particle")]
+    [Header("Damage")]
+    public int normalAttackDamage = 10;
+    public int specialAttackDamage = 25;
+
+    [Header("Particles")]
     public ParticleSystem dirtParticle;
-    private GameObject DamageCollider;
     public ParticleSystem SmashParticle;
 
-    [Header("Parents")]
     private WeaponParent weaponParent;
-    private PlayerMovement PlayerMove;
+    private PlayerMovement playerMove;
 
-    [Header("Checker")]
-    public bool isNormaling;
     void Start()
     {
         animator = GetComponent<Animator>();
-        DamageCollider = FindFirstObjectByType<DirtDamage>().gameObject;
         weaponParent = GetComponentInParent<WeaponParent>();
-        PlayerMove = GetComponentInParent<PlayerMovement>();
-        DamageCollider.SetActive(false);
+        playerMove = GetComponentInParent<PlayerMovement>();
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    public void Attack()
-    {
-        if (Time.time >= nextAttackTime) {
-            animator.SetTrigger("Dig");
-            nextAttackTime = Time.time + attackCooldown;
-        }
-    }
-
-    public void ApplyParticle()
-    {
-        if (weaponParent.transform.localScale.y == -1)
-        {
-            Instantiate(dirtParticle, transform.position, weaponParent.transform.rotation * Quaternion.Euler(dirtParticle.transform.eulerAngles.x * -1 -10f, dirtParticle.transform.eulerAngles.y, dirtParticle.transform.eulerAngles.z));
-        }
-        else
-        {
-            Instantiate(dirtParticle, transform.position, weaponParent.transform.rotation * Quaternion.Euler(dirtParticle.transform.eulerAngles.x, dirtParticle.transform.eulerAngles.y, dirtParticle.transform.eulerAngles.z));
-        }
-        StartCoroutine(CheckDamage());
-    }
-    public void ApplyParticleForNormal()
-    {
-        if (weaponParent.transform.localScale.y == -1)
-        {
-            Instantiate(SmashParticle, transform.position, weaponParent.transform.rotation * Quaternion.Euler(SmashParticle.transform.eulerAngles.x * -1, SmashParticle.transform.eulerAngles.y, SmashParticle.transform.eulerAngles.z));
-        }
-        else
-        {
-            Instantiate(SmashParticle, transform.position, weaponParent.transform.rotation * SmashParticle.transform.localRotation);
-        }
-        StartCoroutine(CheckDamage());
-    }
-    IEnumerator CheckDamage()
-    {
-        yield return new WaitForSeconds(0.15f);
-        DamageCollider.SetActive(true);
-        yield return new WaitForSeconds(0.1f);
-        yield return new WaitForSeconds(0.2f);
-        DamageCollider.SetActive(false);
-    }
-
-
 
     public void NormalAttack()
     {
         if (Time.time >= nextNormalAttackTime)
         {
             animator.SetTrigger("Smash");
-            nextNormalAttackTime = Time.time + NormalAttackCooldown;
+            playerMove.movespeed = 3f;
+            nextNormalAttackTime = Time.time + normalAttackCooldown;
         }
     }
 
-    public void AttackFalse()
+    public void Attack() // Special Attack
     {
-        StartCoroutine(AttackYes());    }
-
-    IEnumerator AttackYes()
-    {
-        isNormaling = true;
-        yield return new WaitForSeconds(0.15f);
-        isNormaling = false;
+        if (Time.time >= nextAttackTime)
+        {
+            animator.SetTrigger("Dig");
+            nextAttackTime = Time.time + attackCooldown;
+        }
     }
 
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    public void ApplyParticleForNormal()
     {
-        if (isNormaling)
+        Quaternion particleRotation = weaponParent.transform.rotation;
+        if (weaponParent.transform.localScale.y == -1)
         {
-            if (collision.CompareTag("Enemy"))
+            particleRotation *= Quaternion.Euler(SmashParticle.transform.eulerAngles.x * -1, 0, 0);
+        }
+
+        Instantiate(SmashParticle, transform.position, particleRotation);
+        PerformNormalHitCheck();
+        playerMove.movespeed = 6f;
+
+    }
+
+    public void ApplyParticle() 
+    {
+        Quaternion particleRotation = weaponParent.transform.rotation;
+        if (weaponParent.transform.localScale.y == -1)
+        {
+            particleRotation *= Quaternion.Euler(dirtParticle.transform.eulerAngles.x * -1 - 10f, 0, 0);
+        }
+
+        Instantiate(dirtParticle, transform.position, weaponParent.transform.rotation);
+        PerformConeHitCheck(); 
+    }
+
+    private void PerformNormalHitCheck()
+    {
+        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, normalAttackRadius, enemyLayer);
+        foreach (Collider2D enemy in hitEnemies)
+        {
+            ApplyDamage(enemy, normalAttackDamage, "ShovelNormal");
+            float timer = 0;
+            while (timer <= 3)
             {
-                collision.GetComponent<EnemyStats>().TakeDamage(PlayerMove.transform.position, NormalAttackCooldown);
+                timer += Time.deltaTime;
+                enemy.GetComponent<EnemyStats>().speedMultiplier = 0.2f;
+            }
+            if (timer >= 3)
+            {
+                enemy.GetComponent<EnemyStats>().speedMultiplier = 1f;
+
             }
         }
+    }
+
+    private void PerformConeHitCheck()
+    {
+        Collider2D[] enemiesInRange = Physics2D.OverlapCircleAll(transform.position, specialAttackRadius, enemyLayer);
+        foreach (Collider2D enemy in enemiesInRange)
+        {
+            Vector2 dirToEnemy = (enemy.transform.position - transform.position).normalized;
+            float angleToEnemy = Vector2.Angle(transform.right, dirToEnemy);
+
+            if (angleToEnemy < specialAttackAngle / 2f)
+            {
+                ApplyDamage(enemy, specialAttackDamage, "ShovelSpecial");
+            }
+        }
+    }
+
+    private void ApplyDamage(Collider2D enemy, int damage, string shakePreset)
+    {
+        enemy.GetComponent<EnemyStats>().TakeDamage(playerMove.transform.position, damage);
+        CineCamera.instance.TriggerPreset(shakePreset);
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        if (attackPoint == null) return;
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(attackPoint.position, normalAttackRadius);
+
+        Gizmos.color = Color.blue;
+        DrawWireCone(transform.position, transform.right, specialAttackAngle, specialAttackRadius);
+    }
+
+    private void DrawWireCone(Vector3 origin, Vector3 direction, float angle, float range)
+    {
+        Vector3 leftRayRotation = Quaternion.AngleAxis(-angle / 2, Vector3.forward) * direction;
+        Vector3 rightRayRotation = Quaternion.AngleAxis(angle / 2, Vector3.forward) * direction;
+        Gizmos.DrawRay(origin, leftRayRotation * range);
+        Gizmos.DrawRay(origin, rightRayRotation * range);
     }
 }

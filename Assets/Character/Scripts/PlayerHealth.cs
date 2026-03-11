@@ -1,77 +1,66 @@
 using System;
-using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
 {
-    public float MaxHealth = 100f;
-    
-    // Lưu trữ máu xuyên Scene
-    public static float SavedHealth = 100f; 
-    public static bool IsFirstLoad = true;
-    private float _currentHealth;
+    public static PlayerHealth Instance { get; private set; }
 
-    public float multiplier = 1;
-    public float Health {
-        get => _currentHealth;
-        private set {
-            _currentHealth = Mathf.Clamp(value, 0, MaxHealth);
-            SavedHealth = _currentHealth;
-            OnHealthChanged?.Invoke(_currentHealth, MaxHealth);
-        }
-    }
+    [Header("Stats")]
+    [SerializeField] private float maxHealth = 100f;
 
-    // Sự kiện để UI tự động cập nhật
+    [Header("Debug")]
+    [SerializeField] private bool enableSpaceBarTest = false;
+
+    // --- THÊM DÒNG NÀY ĐỂ HẾT LỖI ---
+    public static bool IsFirstLoad = true; 
+    // --------------------------------
+
     public static event Action<float, float> OnHealthChanged;
+    public static event Action OnDied;
 
-    void Awake() {
-        // Tự động lấy lại máu đã lưu hoặc đặt bằng Max nếu là lần đầu
-        Health = IsFirstLoad ? MaxHealth : SavedHealth;
-        IsFirstLoad = false;
-        string CurrentScene = SceneManager.GetActiveScene().name;
+    private float _currentHealth;
+    public float MaxHealth => maxHealth;
+    public float CurrentHealth => _currentHealth;
+
+    void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        Instance = this;
+        DontDestroyOnLoad(gameObject);
+
+        _currentHealth = maxHealth;
     }
 
-    void Start() {
-        OnHealthChanged?.Invoke(Health, MaxHealth);
+    void Start()
+    {
+        OnHealthChanged?.Invoke(_currentHealth, maxHealth);
     }
 
-    public void TakeDamage(float damage) {
-        Health -= damage * multiplier;
-        CineCamera.instance.TriggerPreset("TakeDamage");
-        if (Health <= 0) Die();
+    void Update()
+    {
+        if (enableSpaceBarTest && Input.GetKeyDown(KeyCode.Space))
+            TakeDamage(10f);
     }
 
-    public void Heal(float amount) {
-        Health += amount;
+    public void TakeDamage(float damage)
+    {
+        if (_currentHealth <= 0 || damage <= 0) return;
+
+        _currentHealth = Mathf.Max(_currentHealth - damage, 0);
+        OnHealthChanged?.Invoke(_currentHealth, maxHealth);
+
+        if (_currentHealth <= 0) OnDied?.Invoke();
     }
 
-    private void Die() {
-        IsFirstLoad = true; // Chết thì reset về Max cho lần sau
-        Debug.Log("Player Died!");
-    }
+    public void Heal(float amount)
+    {
+        if (_currentHealth <= 0 || amount <= 0) return;
 
-
-    private void SceneMultiplier(string scene) {
-        if (scene == "Dungeon1-1")
-        {
-            multiplier = 1f;
-        }
-        if (scene == "Dungeon1-2")
-        {
-            multiplier = 1.25f;
-        }
-        if (scene == "Dungeon1-3")
-        {
-            multiplier = 1.5f;
-        }
-        if (scene == "Dungeon1-4")
-        {
-            multiplier = 1.75f;
-        }
-        if (scene == "Dungeon1-5")
-        {
-            multiplier = 2;
-        }
-
+        _currentHealth = Mathf.Min(_currentHealth + amount, maxHealth);
+        OnHealthChanged?.Invoke(_currentHealth, maxHealth);
     }
 }

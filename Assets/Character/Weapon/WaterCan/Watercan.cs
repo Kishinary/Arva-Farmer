@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class Watercan : MonoBehaviour
+public class Watercan : MonoBehaviour, IWeapon
 {
     [Header("Laser Settings")]
     public float damage = 8f;
@@ -19,6 +19,10 @@ public class Watercan : MonoBehaviour
 
     [Header("Components")]
     private Animator animator;
+    public string GetNormalShake() => "Watercan";
+    public string GetSpecialShake() => "Watercan";
+
+
 
     void Start()
     {
@@ -31,7 +35,16 @@ public class Watercan : MonoBehaviour
     {
     }
 
-    public void Attack()
+    public void NormalAttack()
+    {
+        if (!isShooting)
+        {
+            animator.SetTrigger("Shoot");
+            StartCoroutine(ShootLaserPulse());
+        }
+    }
+
+    public void SpecialAttack()
     {
         if (!isShooting)
         {
@@ -70,7 +83,6 @@ public class Watercan : MonoBehaviour
             lineRenderer.startWidth = initialWidth * pct;
             lineRenderer.endWidth = initialWidth * pct;
 
-            // Note: We are NOT calling SetPosition(0, firePoint.position) here anymore.
             // This keeps the laser "frozen" in the air where it was fired.
 
             yield return null;

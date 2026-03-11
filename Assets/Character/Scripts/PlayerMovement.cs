@@ -35,11 +35,18 @@ public class PlayerMovement : MonoBehaviour
     public Scissors scissors;
     public int PlayerWeapon = 1;
 
+    public IWeapon currentWeapon;
 
     [Header("Talking")]
     public bool isTalking = false;
     void Start()
     {
+    }
+
+    // Call this whenever you switch tools
+    public void SetWeapon(IWeapon newWeapon)
+    {
+        currentWeapon = newWeapon;
     }
     private void Awake()
     {
@@ -110,43 +117,18 @@ public class PlayerMovement : MonoBehaviour
 
     public void OnAttackNewWeapon(InputAction.CallbackContext context)
     {
-        if (context.performed && !isTalking) {
-            if (shovel != null)
-            {
-                shovel.NormalAttack();
-                CineCamera.instance.TriggerPreset("ShovelNormal");
-            }
-            else if (Pickaxe != null)
-            {
-                Pickaxe.Attack();
-                CineCamera.instance.TriggerPreset("Slash");
-            }
-            else if (watercan != null)
-            {
-                watercan.Attack();
-                CineCamera.instance.TriggerPreset("Watercan");
-            }
-            else if (scissors != null)
-            {
-                scissors.NormalAttack();
-                CineCamera.instance.TriggerPreset("Scissors");
-            }
+        if (context.performed && !isTalking && currentWeapon != null)
+        {
+            currentWeapon.NormalAttack();
+            CineCamera.instance.TriggerPreset(currentWeapon.GetNormalShake());
         }
     }
     public void OnSpecialMove(InputAction.CallbackContext context)
     {
-        if (context.performed && !isTalking)
-        { 
-            if (shovel != null)
-            {
-                shovel.Attack();
-                CineCamera.instance.TriggerPreset("ShovelSpecial");
-            }
-            if (scissors != null)
-            {
-                scissors.Attack();
-                CineCamera.instance.TriggerPreset("Scissors");
-            }
+        if (context.performed && !isTalking && currentWeapon != null)
+        {
+            currentWeapon.SpecialAttack();
+            CineCamera.instance.TriggerPreset(currentWeapon.GetSpecialShake());
         }
     }
 

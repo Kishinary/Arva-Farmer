@@ -8,9 +8,19 @@ public class WeaponParent : MonoBehaviour
     public Transform weaponPosition;
 
     public bool isSwinging = false;
+    public IWeapon currentWeapon;
     void Start()
     {
         weaponPosition = GetComponentInChildren<Transform>();
+        currentWeapon = GetComponentInChildren<IWeapon>(true);
+
+        if (currentWeapon == null)
+        {
+            Debug.LogError("No weapon implementing IWeapon found!");
+            return;
+        }
+
+        GetComponentInParent<PlayerMovement>().SetWeapon(currentWeapon);
     }
 
     // Update is called once per frame

@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class Scissors : MonoBehaviour
+public class Scissors : MonoBehaviour, IWeapon
 {
     public float nextAttackTime;
     public float attackCooldown = 4f;
@@ -16,7 +16,7 @@ public class Scissors : MonoBehaviour
     public float thrustDistance = 2f;     
     public float attackDuration = 0.15f;    
     public float returnDuration = 0.1f;    
-    public AnimationCurve thrustCurve;     // Use this for "snappy" movement
+    public AnimationCurve thrustCurve;    
 
 
     [Header("Normal Attack")]
@@ -32,6 +32,9 @@ public class Scissors : MonoBehaviour
     private Vector3 originalLocalPos;
     private bool isAttacking = false;
 
+    public string GetNormalShake() => "Scissors";
+    public string GetSpecialShake() => "Scissors";
+
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -45,7 +48,7 @@ public class Scissors : MonoBehaviour
     {
     }
 
-    public void Attack()
+    public void SpecialAttack()
     {
         if (Time.time >= nextAttackTime)
         {

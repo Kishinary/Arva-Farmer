@@ -1,0 +1,533 @@
+fileFormatVersion: 2
+guid: 5c66b58abd0185f4ba5a0c18477e44fd
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -2193992612756893993
+    second: concept-art-video-game-platform-game-art-game-stone-Photoroom_0
+  - first:
+      213: -8527645522948245536
+    second: concept-art-video-game-platform-game-art-game-stone-Photoroom_1
+  - first:
+      213: -3041109325617890984
+    second: concept-art-video-game-platform-game-art-game-stone-Photoroom_2
+  - first:
+      213: 328574903442504885
+    second: concept-art-video-game-platform-game-art-game-stone-Photoroom_3
+  - first:
+      213: 6357087423190028031
+    second: concept-art-video-game-platform-game-art-game-stone-Photoroom_4
+  - first:
+      213: 2214167624088668071
+    second: concept-art-video-game-platform-game-art-game-stone-Photoroom_5
+  - first:
+      213: -5031115130442398366
+    second: concept-art-video-game-platform-game-art-game-stone-Photoroom_6
+  - first:
+      213: -5266419037236607253
+    second: concept-art-video-game-platform-game-art-game-stone-Photoroom_7
+  - first:
+      213: -2140059286159078474
+    second: concept-art-video-game-platform-game-art-game-stone-Photoroom_8
+  - first:
+      213: 1345011441818806325
+    second: concept-art-video-game-platform-game-art-game-stone-Photoroom_9
+  - first:
+      213: 6205246750335289295
+    second: concept-art-video-game-platform-game-art-game-stone-Photoroom_10
+  - first:
+      213: -567179637983536331
+    second: concept-art-video-game-platform-game-art-game-stone-Photoroom_11
+  - first:
+      213: -9193781485286623244
+    second: concept-art-video-game-platform-game-art-game-stone-Photoroom_12
+  - first:
+      213: 4643440857515249023
+    second: concept-art-video-game-platform-game-art-game-stone-Photoroom_13
+  - first:
+      213: 1355486239531119558
+    second: concept-art-video-game-platform-game-art-game-stone-Photoroom_14
+  - first:
+      213: 7978818460590850326
+    second: concept-art-video-game-platform-game-art-game-stone-Photoroom_15
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 64
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: concept-art-video-game-platform-game-art-game-stone-Photoroom_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 851
+        width: 211
+        height: 429
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7de4bccc75f5d81e0800000000000000
+      internalID: -2193992612756893993
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: concept-art-video-game-platform-game-art-game-stone-Photoroom_1
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 852
+        width: 214
+        height: 214
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0e7383a0497b7a980800000000000000
+      internalID: -8527645522948245536
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: concept-art-video-game-platform-game-art-game-stone-Photoroom_2
+      rect:
+        serializedVersion: 2
+        x: 214
+        y: 1066
+        width: 211
+        height: 212
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 859fa6b4e2fcbc5d0800000000000000
+      internalID: -3041109325617890984
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: concept-art-video-game-platform-game-art-game-stone-Photoroom_3
+      rect:
+        serializedVersion: 2
+        x: 433
+        y: 1064
+        width: 207
+        height: 216
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5bc7cc142255f8400800000000000000
+      internalID: 328574903442504885
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: concept-art-video-game-platform-game-art-game-stone-Photoroom_4
+      rect:
+        serializedVersion: 2
+        x: 422
+        y: 852
+        width: 217
+        height: 186
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ffe48518459e83850800000000000000
+      internalID: 6357087423190028031
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: concept-art-video-game-platform-game-art-game-stone-Photoroom_5
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 638
+        width: 210
+        height: 163
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7a7c9f219bd4abe10800000000000000
+      internalID: 2214167624088668071
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: concept-art-video-game-platform-game-art-game-stone-Photoroom_6
+      rect:
+        serializedVersion: 2
+        x: 212
+        y: 639
+        width: 214
+        height: 201
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 26543e1e173ed2ab0800000000000000
+      internalID: -5031115130442398366
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: concept-art-video-game-platform-game-art-game-stone-Photoroom_7
+      rect:
+        serializedVersion: 2
+        x: 426
+        y: 638
+        width: 209
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: be6482fc9cbe9e6b0800000000000000
+      internalID: -5266419037236607253
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: concept-art-video-game-platform-game-art-game-stone-Photoroom_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 211
+        width: 211
+        height: 339
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6bb4632fa6bfc42e0800000000000000
+      internalID: -2140059286159078474
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: concept-art-video-game-platform-game-art-game-stone-Photoroom_9
+      rect:
+        serializedVersion: 2
+        x: 212
+        y: 212
+        width: 213
+        height: 214
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5382278b7c07aa210800000000000000
+      internalID: 1345011441818806325
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: concept-art-video-game-platform-game-art-game-stone-Photoroom_10
+      rect:
+        serializedVersion: 2
+        x: 214
+        y: 426
+        width: 211
+        height: 212
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fc7c169ea077d1650800000000000000
+      internalID: 6205246750335289295
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: concept-art-video-game-platform-game-art-game-stone-Photoroom_11
+      rect:
+        serializedVersion: 2
+        x: 434
+        y: 424
+        width: 206
+        height: 118
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 53b1822df19f028f0800000000000000
+      internalID: -567179637983536331
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: concept-art-video-game-platform-game-art-game-stone-Photoroom_12
+      rect:
+        serializedVersion: 2
+        x: 422
+        y: 212
+        width: 217
+        height: 181
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4f77dea2370296080800000000000000
+      internalID: -9193781485286623244
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: concept-art-video-game-platform-game-art-game-stone-Photoroom_13
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 211
+        height: 161
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f7d4bbf9bd0d07040800000000000000
+      internalID: 4643440857515249023
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: concept-art-video-game-platform-game-art-game-stone-Photoroom_14
+      rect:
+        serializedVersion: 2
+        x: 212
+        y: 1
+        width: 214
+        height: 198
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6c3be2d9d87afc210800000000000000
+      internalID: 1355486239531119558
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: concept-art-video-game-platform-game-art-game-stone-Photoroom_15
+      rect:
+        serializedVersion: 2
+        x: 426
+        y: 0
+        width: 209
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 611c8d6cd157abe60800000000000000
+      internalID: 7978818460590850326
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      concept-art-video-game-platform-game-art-game-stone-Photoroom_0: -2193992612756893993
+      concept-art-video-game-platform-game-art-game-stone-Photoroom_1: -8527645522948245536
+      concept-art-video-game-platform-game-art-game-stone-Photoroom_10: 6205246750335289295
+      concept-art-video-game-platform-game-art-game-stone-Photoroom_11: -567179637983536331
+      concept-art-video-game-platform-game-art-game-stone-Photoroom_12: -9193781485286623244
+      concept-art-video-game-platform-game-art-game-stone-Photoroom_13: 4643440857515249023
+      concept-art-video-game-platform-game-art-game-stone-Photoroom_14: 1355486239531119558
+      concept-art-video-game-platform-game-art-game-stone-Photoroom_15: 7978818460590850326
+      concept-art-video-game-platform-game-art-game-stone-Photoroom_2: -3041109325617890984
+      concept-art-video-game-platform-game-art-game-stone-Photoroom_3: 328574903442504885
+      concept-art-video-game-platform-game-art-game-stone-Photoroom_4: 6357087423190028031
+      concept-art-video-game-platform-game-art-game-stone-Photoroom_5: 2214167624088668071
+      concept-art-video-game-platform-game-art-game-stone-Photoroom_6: -5031115130442398366
+      concept-art-video-game-platform-game-art-game-stone-Photoroom_7: -5266419037236607253
+      concept-art-video-game-platform-game-art-game-stone-Photoroom_8: -2140059286159078474
+      concept-art-video-game-platform-game-art-game-stone-Photoroom_9: 1345011441818806325
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

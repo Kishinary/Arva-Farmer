@@ -441,6 +441,7 @@ GameObject:
   - component: {fileID: 2879053277387425711}
   - component: {fileID: 307790647669950442}
   - component: {fileID: 8246377062651727464}
+  - component: {fileID: 2918939621575019791}
   - component: {fileID: 2297846003440868847}
   - component: {fileID: 5810106554295994761}
   m_Layer: 6
@@ -480,7 +481,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 822c41bea48c4bb4da046b40b617a755, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 1000
+  health: 100
   maxHealth: 0
   invincible: 0
   invincibilityDuration: 0.02
@@ -488,7 +489,7 @@ MonoBehaviour:
   flashDuration: 0.15
   knockbackForce: 0.5
   healthSlider: {fileID: 2848499405466376750}
-  healthBarDocument: {fileID: 0}
+  healthBarDocument: {fileID: 969668924921965283, guid: db572d494ed070a4f9836a33ebe83d38, type: 3}
   ghostDelay: 0.3
   sr: {fileID: 714025129879453463}
   DeathPar: {fileID: 8813979716979246122, guid: a0d8df6e7bc8cb64a896255174e2a806, type: 3}
@@ -581,6 +582,7 @@ MonoBehaviour:
   jumpAbility: {fileID: 2879053277387425711}
   biteAbility: {fileID: 307790647669950442}
   acidMovement: {fileID: 8246377062651727464}
+  rockLaserBeam: {fileID: 2918939621575019791}
   Visual: {fileID: 4353394548756249667}
   moveSpeed: 0.01
   phase2Threshold: 0.5
@@ -652,6 +654,19 @@ MonoBehaviour:
   bulletPrefab: {fileID: 2539110795649395323, guid: 251da7cc0d16f404db08b50b15583f84, type: 3}
   bulletSpeed: 10
   bulletCount: 8
+--- !u!114 &2918939621575019791
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4331029560069223160}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9c899814b7262d4abdfb054900646b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rockPrefab: {fileID: 290559705047513781, guid: 18a99b42ac447bb478988d6eef0d1496, type: 3}
 --- !u!212 &2297846003440868847
 SpriteRenderer:
   m_ObjectHideFlags: 0

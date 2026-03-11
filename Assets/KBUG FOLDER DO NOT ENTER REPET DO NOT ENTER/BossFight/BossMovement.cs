@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Runtime.CompilerServices;
+using Unity.Burst.Intrinsics;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Analytics;
@@ -18,13 +19,17 @@ public abstract class BossBaseState
         public abstract void EnterState();
         public abstract void UpdateState();
         public abstract void ExitState();
+
+
+
+    public abstract void ExecuteComboAttack(BossCombo combo, int hitIndex);
 }
 
 public class BossPhase1State : BossBaseState
 {
     public BossPhase1State(BossMovement boss) : base(boss) { }
 
-    public float timer = 2f;
+    
 
 
 
@@ -36,30 +41,71 @@ public class BossPhase1State : BossBaseState
     }
     public override void UpdateState()
     {
-
-
-        //jump ability of boss
+        /*ChasePlayer();*/
+    }
+    public override void ExecuteComboAttack(BossCombo combo, int hitIndex)
+    {
         if (boss.isActionLocked) return;
 
-        timer -= Time.deltaTime;
-        if (timer <= 0)
+        BandType bandType = combo.bandType;
+
+        if (bandType == BandType.Kick)
         {
-            timer = 3f;
-            PerformShoot();
+            
+            if (hitIndex == 0 && combo.beatCount >= 2)
+            {
+                Debug.Log($"[TUNG CHIÊU] Nhịp {combo.bandType} thuộc Combo số {combo.comboID} ({combo.beatCount} nhịp).");
+            }
 
-            return;
-
+            PerformAcidShoot();
         }
-        ChasePlayer();
-
-
-
-
+        else if (bandType == BandType.Bass)
+        {
+            if (hitIndex == 0 && combo.beatCount >= 2)
+            {
+                Debug.Log($"[TUNG CHIÊU] Nhịp {combo.bandType} thuộc Combo số {combo.comboID} ({combo.beatCount} nhịp).");
+            }
+            PerformAcidShoot();
+        }
+        else if (bandType == BandType.LowMid)
+        {
+            if (hitIndex == 0 && combo.beatCount >= 2)
+            {
+                Debug.Log($"[TUNG CHIÊU] Nhịp {combo.bandType} thuộc Combo số {combo.comboID} ({combo.beatCount} nhịp).");
+            }
+        }
+        else if (bandType == BandType.HighMid)
+        {
+            if (hitIndex == 0 && combo.beatCount >= 2)
+            {
+                Debug.Log($"[TUNG CHIÊU] Nhịp {combo.bandType} thuộc Combo số {combo.comboID} ({combo.beatCount} nhịp).");
+            }
+            PerformAcidShoot();
+        }
+        else if (bandType == BandType.Treble)
+        {
+            if (hitIndex == 0 && combo.beatCount >= 2)
+            {
+                Debug.Log($"[TUNG CHIÊU] Nhịp {combo.bandType} thuộc Combo số {combo.comboID} ({combo.beatCount} nhịp).");
+            }
+            PerformRockLaserBeam();
+        }
     }
 
-    private void PerformShoot()
+    private void PerformRockLaserBeam()
     {
-        boss.isActionLocked = true;
+        
+        boss.StartCoroutine(boss.rockLaserBeam.RockSummon(
+
+            () =>
+            {
+                
+            }
+            ));
+    }
+    private void PerformAcidShoot()
+    {
+        
 
         //boss.NotifyEightWayShootStart();
 
@@ -67,7 +113,7 @@ public class BossPhase1State : BossBaseState
 
             boss.transform.position,() =>
             {
-                boss.isActionLocked = false;
+                
             }
             ));
     }
@@ -112,7 +158,7 @@ public class BossPhase1State : BossBaseState
     {
         Vector2 direction = ((Vector2)boss.player.transform.position - (Vector2)boss.transform.position).normalized;
         boss.transform.position += (Vector3)(direction * boss.moveSpeed * Time.deltaTime);
-        //Debug.Log("Chasing player. Current position: " + boss.transform.position);
+        //Debug.Log("Chasing player. Current position: " + boss.player.transform.position);
         boss.NotifyMovement(direction);// Notify animation system of movement direction
         
     }
@@ -155,31 +201,17 @@ public class BossPhase2State : BossBaseState
 
 
 
+    }
+    public override void ExecuteComboAttack(BossCombo combo, int hitIndex)
+    {
+        // Giữ nguyên các phần comment cũ của bạn, chỉ cần đổi tham số ở trên cùng
+        /*
         if (boss.isActionLocked) return;
-
-        timer -= Time.deltaTime;
-        if (timer <= 0)
+        switch (combo.bandType)
         {
-            timer = UnityEngine.Random.Range(2.5f, 4f);
-            int randomSkillID = UnityEngine.Random.Range(0,2);
-            //int randomSkillID = 1;
-
-
-            switch (randomSkillID)
-            {
-                case 0:
-                    Debug.Log("Boss decides to Jump!");
-                    PerformJump();
-                    break;
-                case 1:
-                    Debug.Log("Boss decides to Bite!");
-                    PerformBite();
-                    break;
-            }
-
-            return;
+            // ... code của bạn ...
         }
-        ChasePlayer();
+        */
     }
     public override void ExitState()
     {
@@ -256,11 +288,18 @@ public class BossPhase2State : BossBaseState
 
 public class BossMovement : MonoBehaviour
         {
+
+    [Header("Combo Controller")]
+    public BossCatching bossCatching;
+
+    [HideInInspector]
     public GameObject player; // Reference to the player for targeting
-                                //jump ability of boss
+                              //jump ability of boss
+    [Header("Abilities")]
     public JumpAbility jumpAbility;
     public BiteAbility biteAbility;
     public AcidMovement acidMovement;
+    public RockLaserConnectToBoss rockLaserBeam;
 
 
     public Transform Visual; // Visual representation of the boss for jump effect
@@ -297,16 +336,35 @@ public class BossMovement : MonoBehaviour
             {
         player = GameObject.FindWithTag("Player");
 
-            // Initialize states
-            phase1State = new BossPhase1State(this);
-            phase2State = new BossPhase2State(this);
 
-            ChangeState(phase1State);
-        
+        if(bossCatching != null)
+        {
+            bossCatching.OnBossAttackTriggered += HandleComboAttack;
         }
 
-        // Update is called once per frame
-        void Update()
+        // Initialize states
+        phase1State = new BossPhase1State(this);
+        phase2State = new BossPhase2State(this);
+
+        ChangeState(phase1State);
+        
+        }
+    private void HandleComboAttack(BossCombo combo, int hitIndex)
+    {
+        // Gọi hàm của state hiện tại
+        currentState?.ExecuteComboAttack(combo, hitIndex);
+    }
+    private void OnDestroy()
+    {
+        // Hủy đăng ký Event để tránh lỗi
+        if (bossCatching != null)
+        {
+            bossCatching.OnBossAttackTriggered -= HandleComboAttack;
+        }
+    }
+
+    // Update is called once per frame
+    void Update()
         {
         // Delegate logic cho state hiện tại xử lý
         currentState?.UpdateState();

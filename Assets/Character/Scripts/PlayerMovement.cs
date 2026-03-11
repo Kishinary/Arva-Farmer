@@ -79,7 +79,7 @@ public class PlayerMovement : MonoBehaviour
         mainCamera = Camera.main;
     }
 
-
+    public GameObject rockLaserBeam;
 
 
     void Update()
@@ -96,6 +96,8 @@ public class PlayerMovement : MonoBehaviour
         animator.SetFloat("InputY", snappedDir.y);
         animator.SetFloat("LastX", snappedDir.x);
         animator.SetFloat("LastY", snappedDir.y);
+
+       
     }
     public void OnMove(InputAction.CallbackContext context)
     {

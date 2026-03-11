@@ -132,14 +132,11 @@ public class EnemyStats : MonoBehaviour
     {
         if (damageTextPrefab == null) return;
 
-        // 1. Tính toán vị trí xuất hiện = Vị trí quái + Offset + Random xê dịch
         Vector3 randomOffset = new Vector3(Random.Range(-0.3f, 0.3f), Random.Range(-0.1f, 0.1f), 0);
         Vector3 spawnPosition = transform.position + damageTextOffset + randomOffset;
 
-        // 2. Khởi tạo Pop-up ĐỘC LẬP ngoài World Space (không có parent)
         GameObject popup = Instantiate(damageTextPrefab, spawnPosition, Quaternion.identity);
 
-        // 3. Gửi dữ liệu vào script DamagePopUp
         DamagePopUp popUpScript = popup.GetComponent<DamagePopUp>();
         if (popUpScript != null)
         {

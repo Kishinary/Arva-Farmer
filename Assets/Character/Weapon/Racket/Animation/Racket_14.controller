@@ -23,6 +23,7 @@ AnimatorStateTransition:
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 --- !u!1101 &-8147810989594510945
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -50,6 +51,8 @@ AnimatorStateTransition:
   m_CanTransitionToSelf: 1
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
 --- !u!1107 &-7755499646392258188
 AnimatorStateMachine:
   serializedVersion: 6
@@ -61,6 +64,7 @@ AnimatorStateMachine:
   m_ChildStates:
   - serializedVersion: 1
     m_State: {fileID: -5689690741871206276}
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
     m_Position: {x: 200, y: -50, z: 0}
   - serializedVersion: 1
@@ -107,6 +111,8 @@ AnimatorStateTransition:
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
 =======
+=======
+>>>>>>> Stashed changes
     m_Position: {x: 90, y: 120, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -3116053069073964080}
@@ -130,6 +136,9 @@ AnimatorStateTransition:
   m_ExitPosition: {x: 800, y: 120, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
   m_DefaultState: {fileID: -900256416401232070}
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 --- !u!1101 &-6043107474800678666
 AnimatorStateTransition:
@@ -168,7 +177,11 @@ AnimatorState:
   m_CycleOffset: 0
   m_Transitions:
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   - {fileID: 1326564841399160520}
+=======
+  - {fileID: -8960126924078735684}
+>>>>>>> Stashed changes
 =======
   - {fileID: -8960126924078735684}
 >>>>>>> Stashed changes
@@ -188,7 +201,10 @@ AnimatorState:
   m_CycleOffsetParameter: 
   m_TimeParameter: 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
+=======
+>>>>>>> Stashed changes
 --- !u!1102 &-3116053069073964080
 AnimatorState:
   serializedVersion: 6
@@ -215,6 +231,9 @@ AnimatorState:
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 --- !u!1102 &-900256416401232070
 AnimatorState:
@@ -277,6 +296,7 @@ AnimatorController:
     m_SyncedLayerAffectsTiming: 0
     m_Controller: {fileID: 9100000}
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 --- !u!1101 &628417036213981636
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -301,6 +321,8 @@ AnimatorStateTransition:
   m_CanTransitionToSelf: 1
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
 --- !u!1101 &847061796853675976
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -323,6 +345,7 @@ AnimatorStateTransition:
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 --- !u!1102 &988702774059530215
 AnimatorState:
@@ -374,6 +397,8 @@ AnimatorStateTransition:
   m_CanTransitionToSelf: 1
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
 --- !u!1101 &2021538352821590261
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -411,7 +436,11 @@ AnimatorState:
   m_CycleOffset: 0
   m_Transitions:
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   - {fileID: 628417036213981636}
+=======
+  - {fileID: 847061796853675976}
+>>>>>>> Stashed changes
 =======
   - {fileID: 847061796853675976}
 >>>>>>> Stashed changes

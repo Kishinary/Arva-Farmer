@@ -1,5 +1,5 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" editor-extension-mode="False">
-    <ui:VisualElement class="heart-container">
+    <ui:VisualElement class="heart-container" style="background-size: 10% 10%;">
         <ui:VisualElement class="heart-bg" />
         <ui:VisualElement name="WhiteMask" class="heart-mask" style="background-color: rgba(56, 56, 56, 0);">
             <ui:VisualElement class="heart-fill-white" />

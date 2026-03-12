@@ -828,6 +828,16 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
+  - first: {x: 11, y: -3, z: 0}
+    second:
+      serializedVersion: 2
+      m_TileIndex: 128
+      m_TileSpriteIndex: 43
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_TileObjectToInstantiateIndex: 65535
+      dummyAlignment: 0
+      m_AllTileFlags: 1073741825
   - first: {x: 15, y: -3, z: 0}
     second:
       serializedVersion: 2
@@ -1626,6 +1636,8 @@ Tilemap:
     m_Data: {fileID: 11400000, guid: 95ba5b174a6d8c94ea272bcecee6b8c1, type: 2}
   - m_RefCount: 1
     m_Data: {fileID: 11400000, guid: af6cd94c1f9e44c40aac2eeafad7e127, type: 2}
+  - m_RefCount: 1
+    m_Data: {fileID: 0}
   m_TileSpriteArray:
   - m_RefCount: 1
     m_Data: {fileID: 1493759673788413863, guid: 695935b9bbcc0b244b7ffefaf12e8a59, type: 3}
@@ -1713,7 +1725,7 @@ Tilemap:
     m_Data: {fileID: 7769453424612927293, guid: 2d5e3dc47494c6a4685366f4ec162caa, type: 3}
   - m_RefCount: 1
     m_Data: {fileID: -8025435653959805260, guid: 2d5e3dc47494c6a4685366f4ec162caa, type: 3}
-  - m_RefCount: 1
+  - m_RefCount: 2
     m_Data: {fileID: 4938342473259674171, guid: 2d5e3dc47494c6a4685366f4ec162caa, type: 3}
   - m_RefCount: 1
     m_Data: {fileID: -6315978382755026507, guid: 2d5e3dc47494c6a4685366f4ec162caa, type: 3}
@@ -1879,8 +1891,10 @@ Tilemap:
     m_Data: {fileID: 1560887206, guid: 43744ffaf97adae4482df5c311c89e53, type: 3}
   - m_RefCount: 1
     m_Data: {fileID: 308545573, guid: 43744ffaf97adae4482df5c311c89e53, type: 3}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   m_TileMatrixArray:
-  - m_RefCount: 128
+  - m_RefCount: 129
     m_Data:
       e00: 1
       e01: 0
@@ -1899,8 +1913,10 @@ Tilemap:
       e32: 0
       e33: 1
   m_TileColorArray:
-  - m_RefCount: 128
+  - m_RefCount: 129
     m_Data: {r: 1, g: 1, b: 1, a: 1}
+  - m_RefCount: 0
+    m_Data: {r: 1.65e-43, g: 1.65e-43, b: 1.65e-43, a: 1.65e-43}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -2008,7 +2024,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 8394315281517639108}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1854284781993914602
+--- !u!114 &6957398761947774230
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

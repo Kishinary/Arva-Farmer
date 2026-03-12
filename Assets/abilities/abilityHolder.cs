@@ -149,7 +149,7 @@ public class AbilityHolder : MonoBehaviour
 
 
         Color originalColor = sprite.color;
-        Color flashColor = new Color(255f, 255f, 255f, 255f);
+        Color flashColor = new Color(2f, 2f, 2f, 2f);
 
         moveSpeedOrigin = movementScript.movespeed;
         movementScript.movespeed = 0;

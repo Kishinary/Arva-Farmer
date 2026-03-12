@@ -178,6 +178,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lifetime: 10
   damage: 10
+  BlowEffect: {fileID: 3151226660787749475, guid: 64147f3e9e9ddf849a9f5f3e34f56853, type: 3}
 --- !u!96 &1530316973256304528
 TrailRenderer:
   serializedVersion: 3

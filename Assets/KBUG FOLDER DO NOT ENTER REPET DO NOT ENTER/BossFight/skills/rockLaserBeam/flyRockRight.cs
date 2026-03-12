@@ -7,6 +7,8 @@ public class flyRockRight : MonoBehaviour
     public float lifeTime = 1f;
     private Rigidbody2D rb;
 
+    public GameObject BlowEffect;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -22,13 +24,10 @@ public class flyRockRight : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        // Kiểm tra xem vật thể bị chạm có Tag là "Player" hay không
+       
         if (other.CompareTag("Player"))
         {
-            // (Tùy chọn) Gọi hàm trừ máu của Player tại đây
-            // other.GetComponent<PlayerHealth>().TakeDamage(10);
-
-            // Tiêu diệt viên đá ngay lập tức
+            Instantiate(BlowEffect,transform.position, Quaternion.identity);
             
             Destroy(gameObject);
         }

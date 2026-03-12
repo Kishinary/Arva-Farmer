@@ -6,32 +6,29 @@ public class Rake : MonoBehaviour, IWeapon
 {
     private Animator animator;
 
-    [Header("Catch Settings")]
+    [Header("Trap Settings")]
     public LayerMask bugLayer;
-    public Transform catchPoint;
+    public Transform TrapPoint;
     public float catchRadius = 1.2f;
 
     [Header("Release Settings")]
-    public LayerMask enemyLayer;
     public float releaseRadius = 3f;
+    public float pullSpeed = 4f;
 
     [Header("Storage")]
     public int maxtraps = 5;
-    public Transform shootPoint;
     public GameObject BearTrap;
     public GameObject RakeTrap;
     public GameObject Holetrap;
 
-    List<BugType> storedBugs = new List<BugType>();
-    List<GameObject> storedBugObject = new List<GameObject>();
-
 
     [Header("Cooldowns")]
-    public float catchCooldown = 0.5f;
-    public float releaseCooldown = 1f;
+    public float catchCooldown = 2f;
+    public float TrapCooldown = 2f;
 
     private float nextCatchTime;
     private float nextReleaseTime;
+
 
     [Header("Damage")]
 
@@ -41,7 +38,7 @@ public class Rake : MonoBehaviour, IWeapon
 
     private WeaponParent weaponParent;
     private PlayerMovement playerMove;
-
+    private bool isPulling = false;
     public string GetNormalShake() => "BugRacket";
     public string GetSpecialShake() => "BugRacket";
 
@@ -52,25 +49,25 @@ public class Rake : MonoBehaviour, IWeapon
         playerMove = GetComponentInParent<PlayerMovement>();
     }
 
-    public void NormalAttack() // Catch Bugs
+    public void NormalAttack() 
     {
         if (Time.time >= nextCatchTime)
         {
-            animator.SetTrigger("Swing");
+            StartCoroutine(ComicalRakeAttack());
             nextCatchTime = Time.time + catchCooldown;
         }
     }
 
     public void SpecialAttack()
     {
-        if (Time.time >= nextReleaseTime && storedBugs.Count > 0)
+        if (Time.time >= nextReleaseTime)
         {
             animator.SetTrigger("Release");
-            nextReleaseTime = Time.time + releaseCooldown;
+            nextReleaseTime = Time.time + TrapCooldown;
         }
     }
 
-    public void ApplyCatch()
+    public void ApplyTrap()
     {
         Quaternion particleRotation = weaponParent.transform.rotation;
 
@@ -81,7 +78,7 @@ public class Rake : MonoBehaviour, IWeapon
 
         Instantiate(TrapParticle, transform.position, particleRotation);
 
-        PerformCatchCheck();
+        ReleaseTrap();
     }
 
     public void ApplyRelease()
@@ -98,41 +95,86 @@ public class Rake : MonoBehaviour, IWeapon
         ReleaseTrap();
     }
 
-    private void PerformCatchCheck()
-    {
-        if (storedBugs.Count >= maxtraps) return;
-
-        Collider2D[] bugs = Physics2D.OverlapCircleAll(catchPoint.position, catchRadius, bugLayer);
-
-        foreach (Collider2D bug in bugs)
-        {
-            Bug bugScript = bug.GetComponent<Bug>();
-
-            if (bugScript != null)
-            {
-                storedBugs.Add(bugScript.type);
-                bug.gameObject.GetComponent<Orbiter>().enabled = true;
-                storedBugObject.Add(bugScript.gameObject);
-                break;
-            }
-        }
-    }
 
     public void ReleaseTrap()
     {
-        Instantiate(BearTrap);
+        float k = Random.Range(0, 8);
+        if (k <= 2)
+        {
+            Instantiate(BearTrap, TrapPoint.position, Quaternion.identity);
+        }
+        else if (k <= 5)
+        {
+            Instantiate(RakeTrap, TrapPoint.position, Quaternion.identity);
+        }
+        else
+        {
+            Instantiate(Holetrap, TrapPoint.position, Quaternion.identity);
+        }
+    }
+
+    public void Pull()
+    {
 
     }
 
-
-    private void OnDrawGizmosSelected()
+    IEnumerator ComicalRakeAttack()
     {
-        if (catchPoint == null) return;
+        // 1. Slam Down (Instant Massive Scale)
+        transform.localScale = new Vector3(4f, 4f, 1f);
 
-        Gizmos.color = Color.green;
-        Gizmos.DrawWireSphere(catchPoint.position, catchRadius);
+        yield return new WaitForSeconds(0.1f);
 
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.position, releaseRadius);
+        isPulling = true; 
+
+        float duration = 0.4f;
+        float elapsed = 0f;
+        Vector3 massiveScale = transform.localScale;
+        Vector3 tinyScale = new Vector3(0.5f, 0.5f, 1f);
+
+        while (elapsed < duration)
+        {
+            elapsed += Time.deltaTime;
+            transform.localScale = Vector3.Lerp(massiveScale, tinyScale, elapsed / duration);
+            yield return null;
+        }
+
+        isPulling = false;
+        transform.localScale = Vector3.one;
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        // Only pull if the rake is in its 'retracting' state
+        if (isPulling && collision.CompareTag("Enemy"))
+        {
+            // Move enemy toward the player
+            collision.transform.position = Vector2.MoveTowards(
+                collision.transform.position,
+                playerMove.transform.position,
+                pullSpeed * Time.deltaTime
+            );
+        }
+    }
+
+
+    IEnumerator PullEnemy(Transform enemyTransform)
+    {
+        float pullDuration = 0.3f;
+        float elapsed = 0f;
+
+        while (elapsed < pullDuration)
+        {
+            if (enemyTransform == null) yield break; // In case enemy dies mid-pull
+
+            elapsed += Time.deltaTime;
+            // Move the enemy toward the player
+            enemyTransform.position = Vector2.MoveTowards(
+                enemyTransform.position,
+                playerMove.gameObject.transform.position,
+                pullSpeed * Time.deltaTime
+            );
+            yield return null;
+        }
     }
 }

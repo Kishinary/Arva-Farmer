@@ -373,6 +373,7 @@ MonoBehaviour:
   scissors: {fileID: 0}
   PlayerWeapon: 1
   isTalking: 0
+  rockLaserBeam: {fileID: 0}
 --- !u!114 &2801642307190303101
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -385,8 +386,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa99e28a72a1530499b7229f136079da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxHealth: 100
-  multiplier: 1
+  maxHealth: 100
+  enableSpaceBarTest: 0
 --- !u!70 &4264477161988288158
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -815,7 +816,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8831136815272496137, guid: 921624faa0bb9da43b31ad8e6c26397b, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

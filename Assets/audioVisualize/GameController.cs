@@ -21,8 +21,10 @@ public struct BeatPayload
 [RequireComponent(typeof(AudioSource))]
 public class GameController : MonoBehaviour
 {
-   
-    
+    //looping
+    public event Action OnSongLooped;
+
+    private float lastAudioTime = 0f;
 
     [Header("References")]
     public SongAnalyzer analyzer;
@@ -89,11 +91,12 @@ public class GameController : MonoBehaviour
 
             // 3. Chuẩn bị phát nhạc
             audioSource.clip = songToAnalyze;
+            audioSource.loop = true;//loop
             audioSource.Play();
             isPlaying = true;
 
             
-            // Bắt đầu phát nhạc và sinh quái vật tại đây...
+            
         }
         else
         {
@@ -106,9 +109,19 @@ public class GameController : MonoBehaviour
         if (!isPlaying || spectralData == null || currentIndex >= spectralData.Count) return;
 
         float currentAudioTime = audioSource.time;
+        //Looping:
+        if (currentAudioTime < lastAudioTime)
+        {
+
+            lastProcessedIndex = -1;
+            OnSongLooped?.Invoke();
+        }
+        lastAudioTime = currentAudioTime;
+
         int sampleRate = audioSource.clip.frequency;
         int windowSize = 1024; // Phải khớp với N bên SongAnalyzer
 
+        
         // 1. TÍNH TOÁN INDEX HIỆN TẠI (O(1) Lookup)
         int currentFrameIndex = Mathf.FloorToInt((currentAudioTime * sampleRate) / windowSize);
 

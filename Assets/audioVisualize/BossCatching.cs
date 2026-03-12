@@ -49,19 +49,29 @@ public class BossCatching : MonoBehaviour
 
     private void OnEnable()
     {
-        if (gameController != null) gameController.OnDataReady += ScanForCombos;
+        if (gameController != null) { 
+            gameController.OnDataReady += ScanForCombos;
+            gameController.OnSongLooped += ScanForCombos;
+
+        }
     }
 
     private void OnDisable()
     {
-        if (gameController != null) gameController.OnDataReady -= ScanForCombos;
+        if (gameController != null) { 
+            gameController.OnDataReady -= ScanForCombos;
+            gameController.OnSongLooped -= ScanForCombos;
+        }
     }
     private void ScanForCombos()
     {
-        
 
 
-        for (int i = 0; i < 5; i++) comboQueues[i].Clear();
+
+        for (int i = 0; i < 5; i++) { 
+            comboQueues[i].Clear(); 
+            currentBeatIndices[i] = 0;//reset
+        }
 
         var spectralData = gameController.GetSpectralData();
         var averages = gameController.GetAverages();

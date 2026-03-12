@@ -375,8 +375,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 681410321
-  m_SortingLayer: 10
+  m_SortingLayerID: 2063039921
+  m_SortingLayer: 8
   m_SortingOrder: 0
   m_Sprite: {fileID: -6160767750220376532, guid: fe161a87ca4c56046a7e8f370384b50c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -444,6 +444,7 @@ GameObject:
   - component: {fileID: 2918939621575019791}
   - component: {fileID: 2297846003440868847}
   - component: {fileID: 5810106554295994761}
+  - component: {fileID: 9189340930581977033}
   m_Layer: 6
   m_Name: Phase1and2
   m_TagString: Enemy
@@ -486,13 +487,13 @@ MonoBehaviour:
   maxHealth: 0
   invincible: 0
   invincibilityDuration: 0.02
-  damageTextPrefab: {fileID: 0}
+  damageTextPrefab: {fileID: 4533503312433578376, guid: 19e108fc8970a754aacc294cdacb7da7, type: 3}
   damageTextOffset: {x: 0, y: 1, z: 0}
   flashMaterial: {fileID: 2100000, guid: 38558de54466ec243bde7b2399495bfa, type: 2}
   flashDuration: 0.15
   knockbackForce: 0.5
   healthSlider: {fileID: 2848499405466376750}
-  healthBarDocument: {fileID: 969668924921965283, guid: db572d494ed070a4f9836a33ebe83d38, type: 3}
+  healthBarDocument: {fileID: 0}
   ghostDelay: 0.3
   sr: {fileID: 714025129879453463}
   DeathPar: {fileID: 8813979716979246122, guid: a0d8df6e7bc8cb64a896255174e2a806, type: 3}
@@ -509,7 +510,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 1000
   m_LinearDamping: 5
   m_AngularDamping: 0.05
   m_GravityScale: 0
@@ -554,7 +555,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -596,6 +597,11 @@ MonoBehaviour:
   dustSplashPrefab: {fileID: 1736259195382329863, guid: c1afb3142447a8f48b747b5ef08b8647, type: 3}
   auraBoss: {fileID: 3294441803003622665, guid: 093213ed1fde55e4d9dce1250f1cc07a, type: 3}
   spriteTransform: {fileID: 4353394548756249667}
+  jumpWarning: {fileID: 757136720576489837, guid: 2299434325388a342a6c9244c3ed9ac6, type: 3}
+  jumpCooldown: 10
+  biteCooldown: 4
+  lastJumpTime: -999
+  lastBiteTime: -999
 --- !u!114 &2879053277387425711
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -657,8 +663,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 2539110795649395323, guid: 251da7cc0d16f404db08b50b15583f84, type: 3}
-  bulletSpeed: 10
-  bulletCount: 8
+  bulletSpeed: 6
+  bulletCount: 5
 --- !u!114 &2918939621575019791
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -671,7 +677,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9c899814b7262d4abdfb054900646b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rockPrefab: {fileID: 290559705047513781, guid: 18a99b42ac447bb478988d6eef0d1496, type: 3}
+  rockPrefab: {fileID: 8920359801869233593, guid: 18a99b42ac447bb478988d6eef0d1496, type: 3}
 --- !u!212 &2297846003440868847
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -749,6 +755,42 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!58 &9189340930581977033
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4331029560069223160}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: -1.3438445}
+  m_Radius: 0.16048753
 --- !u!1 &6199567429108555808
 GameObject:
   m_ObjectHideFlags: 0
@@ -962,6 +1004,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2173737645238115526, guid: 9536ad46f520d844694047c18890e436, type: 3}
+      propertyPath: particle
+      value: 
+      objectReference: {fileID: 1736259195382329863, guid: e354249120b06c34aa94f3c698f68dd1, type: 3}
+    - target: {fileID: 2173737645238115526, guid: 9536ad46f520d844694047c18890e436, type: 3}
       propertyPath: beatCooldown
       value: 0.1
       objectReference: {fileID: 0}
@@ -1008,6 +1054,10 @@ PrefabInstance:
     - target: {fileID: 2176509861269630527, guid: 9536ad46f520d844694047c18890e436, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6571809235210285382, guid: 9536ad46f520d844694047c18890e436, type: 3}
+      propertyPath: Loop
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6571809235210285382, guid: 9536ad46f520d844694047c18890e436, type: 3}
       propertyPath: m_Enabled

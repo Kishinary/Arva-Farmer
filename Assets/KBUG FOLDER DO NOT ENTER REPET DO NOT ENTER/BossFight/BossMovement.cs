@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Runtime.CompilerServices;
 using Unity.Burst.Intrinsics;
 using Unity.VisualScripting;
@@ -41,7 +42,10 @@ public class BossPhase1State : BossBaseState
     }
     public override void UpdateState()
     {
-        /*ChasePlayer();*/
+        if (boss.isActionLocked == false)
+        {
+            ChasePlayer();
+        }
     }
     public override void ExecuteComboAttack(BossCombo combo, int hitIndex)
     {
@@ -49,45 +53,143 @@ public class BossPhase1State : BossBaseState
 
         BandType bandType = combo.bandType;
 
+        float duration = 0f;
+        if (combo.beatCount == 1 && hitIndex == 0)
+        {
+            duration = 1f + combo.beatTimes[hitIndex] - combo.beatTimes[hitIndex];
+        }
+
         if (bandType == BandType.Kick)
         {
-            
-            if (hitIndex == 0 && combo.beatCount >= 2)
+
+            /*if (hitIndex == 0 && combo.beatCount >= 2)
             {
                 Debug.Log($"[TUNG CHIÊU] Nhịp {combo.bandType} thuộc Combo số {combo.comboID} ({combo.beatCount} nhịp).");
+            }*/
+            PerformAcidShoot();
+
+            if (combo.beatCount == 1)
+            {
+                randomPerformRythym();
+            }
+            else if (combo.beatCount == 2)
+            {
+                PerformAcidShoot();
             }
 
-            PerformAcidShoot();
+
+
         }
         else if (bandType == BandType.Bass)
         {
-            if (hitIndex == 0 && combo.beatCount >= 2)
+            /*if (hitIndex == 0 && combo.beatCount >= 2)
             {
                 Debug.Log($"[TUNG CHIÊU] Nhịp {combo.bandType} thuộc Combo số {combo.comboID} ({combo.beatCount} nhịp).");
-            }
+            }*/
             PerformAcidShoot();
+            if (combo.beatCount == 1)
+            {
+                randomPerformRythym();
+            }
+            else if (combo.beatCount == 2)
+            {
+                PerformAcidShoot();
+            }
+
+
+
         }
         else if (bandType == BandType.LowMid)
         {
-            if (hitIndex == 0 && combo.beatCount >= 2)
+            /*if (hitIndex == 0 && combo.beatCount >= 2)
             {
                 Debug.Log($"[TUNG CHIÊU] Nhịp {combo.bandType} thuộc Combo số {combo.comboID} ({combo.beatCount} nhịp).");
+            }*/
+            PerformAcidShoot();
+            if (combo.beatCount == 1)
+            {
+                randomPerformRythym();
             }
+            else if (combo.beatCount == 2)
+            {
+                PerformAcidShoot();
+            }
+
         }
         else if (bandType == BandType.HighMid)
         {
-            if (hitIndex == 0 && combo.beatCount >= 2)
+            /*if (hitIndex == 0 && combo.beatCount >= 2)
             {
                 Debug.Log($"[TUNG CHIÊU] Nhịp {combo.bandType} thuộc Combo số {combo.comboID} ({combo.beatCount} nhịp).");
-            }
+            }*/
             PerformAcidShoot();
+            if (combo.beatCount == 1)
+            {
+                randomPerformRythym();
+            }
+            else if (combo.beatCount == 2)
+            {
+                PerformAcidShoot();
+            }
+
+
         }
         else if (bandType == BandType.Treble)
         {
-            if (hitIndex == 0 && combo.beatCount >= 2)
+            /*if (hitIndex == 0 && combo.beatCount >= 2)
             {
                 Debug.Log($"[TUNG CHIÊU] Nhịp {combo.bandType} thuộc Combo số {combo.comboID} ({combo.beatCount} nhịp).");
+            }*/
+            if (combo.beatCount == 1)
+            {
+                randomPerformRythym();
             }
+            else if (combo.beatCount == 2)
+            {
+                PerformAcidShoot();
+            }
+            PerformAcidShoot();
+
+
+        }
+        if (combo.beatCount == 1 && hitIndex == 0)
+        {
+            int randomSkill = UnityEngine.Random.Range(1, 5);
+
+            bool canJump = Time.time >= boss.lastJumpTime + boss.jumpCooldown;
+
+            if (randomSkill == 1 && boss.isActionLocked == false && canJump)
+            {
+                boss.lastJumpTime = Time.time;
+                PerformJump(duration);
+            }else if(randomSkill == 1 && boss.isActionLocked == true)
+            {
+                randomSkill = UnityEngine.Random.Range(2, 5);
+            }
+            if (randomSkill == 2)
+            {
+                
+            }
+            if (randomSkill == 3)
+            {
+                
+            }
+            if (randomSkill == 4)
+            {
+                
+            }
+
+        }
+    }
+    private void randomPerformRythym()
+    {
+        int randomRanged = UnityEngine.Random.Range(1, 100);
+        if (randomRanged <= 60)
+        {
+            PerformAcidShoot();
+        }
+        else
+        {
             PerformRockLaserBeam();
         }
     }
@@ -119,19 +221,22 @@ public class BossPhase1State : BossBaseState
     }
 
 
-        // Implement phase 1 behavior (e.g., basic attacks, movement patterns)
-   private void PerformJump()
-        {
+    // Implement phase 1 behavior (e.g., basic attacks, movement patterns)
+    private void PerformJump(float jumpDuration)
+    {
         boss.isActionLocked = true; // Lock actions during jump
-        float jumpDuration = 1f;
 
-        //hàm ChasePlayer failed, boss sẽ thực hiện jump attack để tiếp cận player
-        //lấy direction từ boss đến player thay thế
+
+
         Vector2 targetPos = (Vector2)boss.player.transform.position;
         Vector2 currentPos = (Vector2)boss.transform.position;
         Vector2 jumpDirection = (targetPos - currentPos).normalized;
 
+        GameObject.Instantiate(boss.jumpWarning, targetPos, Quaternion.identity);
+
         boss.NotifyJumpAttackStart(jumpDirection, jumpDuration);
+
+
 
 
         //NOTICE: JUMP HEIGHT =  JUMP DURATION IN ANIMATION, IF YOU WANT TO CHANGE JUMP HEIGHT, CHANGE JUMP DURATION IN ANIMATION TOO
@@ -139,28 +244,33 @@ public class BossPhase1State : BossBaseState
             boss.Visual,
             (Vector2)boss.player.transform.position,
             jumpDuration,
-            5f, () => {// Callback sau khi nhảy xong, có thể thêm hiệu ứng hoặc logic khác ở đây
+            5f, () => {
                 //Debug.Log("Jump completed!");
                 //Debug.Log((Vector2)boss.player.transform.position);
                 boss.NotifyJumpAttackEnd();
                 boss.isActionLocked = false;
-                
+
                 GameObject.Instantiate(boss.dustSplashPrefab, boss.transform.position, Quaternion.identity);
-                
+
+
+
 
             }
 
             )
          );
-        
     }
+
+
+
+
     private void ChasePlayer()
     {
         Vector2 direction = ((Vector2)boss.player.transform.position - (Vector2)boss.transform.position).normalized;
         boss.transform.position += (Vector3)(direction * boss.moveSpeed * Time.deltaTime);
         //Debug.Log("Chasing player. Current position: " + boss.player.transform.position);
         boss.NotifyMovement(direction);// Notify animation system of movement direction
-        
+
     }
 
 
@@ -168,10 +278,10 @@ public class BossPhase1State : BossBaseState
 
     public override void ExitState()
         {
-            //Debug.Log("Exiting Phase 1");
-            boss.isActionLocked = false;
-            boss.NotifyJumpAttackEnd(); // Ensure any jump attack state is reset
-            
+        boss.isActionLocked = false;
+        boss.NotifyJumpAttackEnd();
+        boss.NotifyBiteAttackEnd();
+
 
         // Clean up phase 1 state if necessary
 
@@ -183,13 +293,13 @@ public class BossPhase2State : BossBaseState
 
     public float timer = 2f;
 
-
+    
 
     public BossPhase2State(BossMovement boss) : base(boss) { }
     public override void EnterState()
     {
         boss.enemyStats.health = boss.enemyStats.maxHealth; // Reset health to threshold for phase 2
-        boss.moveSpeed = 5f; // Increase speed for phase 2
+        boss.moveSpeed = 2f; // Increase speed for phase 2
         GameObject newAura = GameObject.Instantiate(boss.auraBoss, boss.spriteTransform.position, Quaternion.identity);
         newAura.transform.SetParent(boss.spriteTransform); // Make the aura a child of the boss so it moves with it
         newAura.transform.SetParent(boss.spriteTransform, false);
@@ -199,39 +309,111 @@ public class BossPhase2State : BossBaseState
     public override void UpdateState()
     {
 
-
+        if (!boss.isActionLocked)
+        {
+            ChasePlayer();
+        }
 
     }
     public override void ExecuteComboAttack(BossCombo combo, int hitIndex)
     {
-        // Giữ nguyên các phần comment cũ của bạn, chỉ cần đổi tham số ở trên cùng
-        /*
         if (boss.isActionLocked) return;
-        switch (combo.bandType)
+
+        float duration = 0f;
+        if (combo.beatCount == 1 && hitIndex == 0)
         {
-            // ... code của bạn ...
+            duration = 1f + combo.beatTimes[hitIndex] - combo.beatTimes[hitIndex];
         }
-        */
+
+        if (hitIndex < combo.beatCount - 1)
+        {
+            duration = combo.beatTimes[hitIndex + 1] - combo.beatTimes[hitIndex];
+        }
+
+
+        if (combo.bandType == BandType.Kick)
+        {
+            
+            if (Time.time >= boss.lastJumpTime + boss.jumpCooldown)
+            {
+                boss.lastJumpTime = Time.time;
+                PerformJump(duration);
+            }
+            else 
+            {
+                PerformAcidShoot();
+            }
+        }
+        
+        else if (combo.bandType == BandType.Bass)
+        {
+            if (Time.time >= boss.lastBiteTime + boss.biteCooldown)
+            {
+                boss.lastBiteTime = Time.time;
+                PerformBite();
+            }
+        }
+       
+        else
+        {
+            int randomRanged = UnityEngine.Random.Range(1, 100);
+            if (randomRanged <= 60)
+            {
+                PerformAcidShoot();
+            }
+            else
+            {
+                PerformRockLaserBeam();
+            }
+        }
     }
     public override void ExitState()
     {
-        //Debug.Log("Exiting Phase 2");
-        // Clean up phase 2 state if necessary
+        boss.isActionLocked = false;
+        boss.NotifyJumpAttackEnd();
+        boss.NotifyBiteAttackEnd();
     }
 
+    private void PerformRockLaserBeam()
+    {
 
-    private void PerformJump()
+        boss.StartCoroutine(boss.rockLaserBeam.RockSummon(
+
+            () =>
+            {
+
+            }
+            ));
+    }
+    private void PerformAcidShoot()
+    {
+
+
+        //boss.NotifyEightWayShootStart();
+
+        boss.StartCoroutine(boss.acidMovement.ExecuteEightWayShoot(
+
+            boss.transform.position, () =>
+            {
+
+            }
+            ));
+    }
+    private void PerformJump(float jumpDuration)
     {
         boss.isActionLocked = true; // Lock actions during jump
-        float jumpDuration = 1f;
 
-        //hàm ChasePlayer failed, boss sẽ thực hiện jump attack để tiếp cận player
-        //lấy direction từ boss đến player thay thế
+
+
         Vector2 targetPos = (Vector2)boss.player.transform.position;
         Vector2 currentPos = (Vector2)boss.transform.position;
         Vector2 jumpDirection = (targetPos - currentPos).normalized;
 
+        GameObject.Instantiate(boss.jumpWarning, targetPos, Quaternion.identity);
+
         boss.NotifyJumpAttackStart(jumpDirection, jumpDuration);
+
+
 
 
         //NOTICE: JUMP HEIGHT =  JUMP DURATION IN ANIMATION, IF YOU WANT TO CHANGE JUMP HEIGHT, CHANGE JUMP DURATION IN ANIMATION TOO
@@ -239,7 +421,7 @@ public class BossPhase2State : BossBaseState
             boss.Visual,
             (Vector2)boss.player.transform.position,
             jumpDuration,
-            5f, () => {// Callback sau khi nhảy xong, có thể thêm hiệu ứng hoặc logic khác ở đây
+            5f, () => {
                 //Debug.Log("Jump completed!");
                 //Debug.Log((Vector2)boss.player.transform.position);
                 boss.NotifyJumpAttackEnd();
@@ -248,31 +430,31 @@ public class BossPhase2State : BossBaseState
                 GameObject.Instantiate(boss.dustSplashPrefab, boss.transform.position, Quaternion.identity);
 
 
+
+
             }
 
             )
          );
-
     }
     private void PerformBite()
     {
         boss.isActionLocked = true;
+        
         Vector2 targetPos = (Vector2)boss.player.transform.position;
 
         boss.NotifyBiteAttackStart();
 
         boss.StartCoroutine(boss.biteAbility.ExecuteBite(
             targetPos,
-            0.5f, // Thời gian lao tới (0.5s sẽ rất nhanh và nguy hiểm)
+            0.5f, 
             () => {
-                // Callback khi lao đến nơi
                 boss.isActionLocked = false;
-                // Thực hiện logic trừ máu hoặc trigger Animation "Bite_Impact" ở đây
-                Debug.Log("Boss chomped the player!");
                 boss.NotifyBiteAttackEnd();
             }
         ));
     }
+   
 
 
     private void ChasePlayer()
@@ -327,9 +509,22 @@ public class BossMovement : MonoBehaviour
     public bool isActionLocked = false;
 
     // Effects
+    [Header("Effect")]
     public GameObject dustSplashPrefab;
     public GameObject auraBoss;
     public Transform spriteTransform;
+    public GameObject jumpWarning;
+
+    [Header("Cooldowns")]
+    public float jumpCooldown = 4f;
+    public float biteCooldown = 4f;
+
+    [HideInInspector]
+    public float lastJumpTime = -999f;
+    [HideInInspector]
+    public float lastBiteTime = -999f;
+
+
 
 
     void Start()

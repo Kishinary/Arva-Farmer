@@ -4,8 +4,8 @@ using System.Collections;
 public class AcidMovement : MonoBehaviour
 {
     public GameObject bulletPrefab;
-    public float bulletSpeed = 8f;
-    public float bulletCount = 8;
+    public float bulletSpeed = 6f;
+    public float bulletCount = 4;
     public IEnumerator ExecuteEightWayShoot(Vector2 firePosition, Action onComplete)
     {
         yield return new WaitForSeconds(1f);

@@ -16,11 +16,11 @@ public class Rake : MonoBehaviour, IWeapon
     public float releaseRadius = 3f;
 
     [Header("Storage")]
-    public int maxBugs = 5;
+    public int maxtraps = 5;
     public Transform shootPoint;
-    public GameObject butterflyProjectile;
-    public GameObject fireflyProjectile;
-    public GameObject beetleProjectile;
+    public GameObject BearTrap;
+    public GameObject RakeTrap;
+    public GameObject Holetrap;
 
     List<BugType> storedBugs = new List<BugType>();
     List<GameObject> storedBugObject = new List<GameObject>();
@@ -34,12 +34,9 @@ public class Rake : MonoBehaviour, IWeapon
     private float nextReleaseTime;
 
     [Header("Damage")]
-    public int butterflyDamage = 12;
-    public int fireflyDamage = 18;
-    public int beetleDamage = 25;
 
     [Header("Particles")]
-    public ParticleSystem catchParticle;
+    public ParticleSystem TrapParticle;
     public ParticleSystem releaseParticle;
 
     private WeaponParent weaponParent;
@@ -79,10 +76,10 @@ public class Rake : MonoBehaviour, IWeapon
 
         if (weaponParent.transform.localScale.y == -1)
         {
-            particleRotation *= Quaternion.Euler(catchParticle.transform.eulerAngles.x * -1, 0, 0);
+            particleRotation *= Quaternion.Euler(TrapParticle.transform.eulerAngles.x * -1, 0, 0);
         }
 
-        Instantiate(catchParticle, transform.position, particleRotation);
+        Instantiate(TrapParticle, transform.position, particleRotation);
 
         PerformCatchCheck();
     }
@@ -98,12 +95,12 @@ public class Rake : MonoBehaviour, IWeapon
 
         Instantiate(releaseParticle, transform.position, particleRotation);
 
-        ReleaseBugs();
+        ReleaseTrap();
     }
 
     private void PerformCatchCheck()
     {
-        if (storedBugs.Count >= maxBugs) return;
+        if (storedBugs.Count >= maxtraps) return;
 
         Collider2D[] bugs = Physics2D.OverlapCircleAll(catchPoint.position, catchRadius, bugLayer);
 
@@ -121,64 +118,12 @@ public class Rake : MonoBehaviour, IWeapon
         }
     }
 
-    public void ReleaseBugs()
+    public void ReleaseTrap()
     {
-        if (storedBugs.Count == 0) return;
+        Instantiate(BearTrap);
 
-        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        Vector2 dir = (mousePos - shootPoint.position).normalized;
-
-        StartCoroutine(ShootRoutine(dir));
     }
 
-    IEnumerator ShootRoutine(Vector2 dir)
-    {
-        while (storedBugs.Count > 0)
-        {
-            BugType bug = storedBugs[0];
-            storedBugs.RemoveAt(0);
-            foreach (GameObject obj in storedBugObject)
-            {
-                // The Destroy function removes the object from the scene
-                // This does not happen immediately, but at the end of the current frame
-                if (obj != null) // Check if the object is still valid before destroying (optional, but good practice)
-                {
-                    Destroy(obj);
-                }
-            }
-
-            // After the loop, clear the list itself. 
-            // The list only holds references, so clearing it is separate from destroying the actual GameObjects.
-            storedBugObject.Clear();
-            ShootBug(bug, dir);
-
-            yield return new WaitForSeconds(0.15f);
-        }
-    }
-    void ShootBug(BugType bug, Vector2 dir)
-    {
-        GameObject proj = null;
-
-        switch (bug)
-        {
-            case BugType.Butterfly:
-                proj = Instantiate(butterflyProjectile, shootPoint.position, weaponParent.transform.rotation);
-                break;
-
-            case BugType.Firefly:
-                proj = Instantiate(fireflyProjectile, shootPoint.position, weaponParent.transform.rotation);
-                break;
-
-            case BugType.Beetle:
-                proj = Instantiate(beetleProjectile, shootPoint.position, weaponParent.transform.rotation);
-                break;
-        }
-
-        if (proj != null)
-        {
-            return;
-        }
-    }
 
     private void OnDrawGizmosSelected()
     {

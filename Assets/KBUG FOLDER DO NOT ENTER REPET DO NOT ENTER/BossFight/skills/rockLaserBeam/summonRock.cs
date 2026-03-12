@@ -7,10 +7,13 @@ public class flyRock : MonoBehaviour
     public GameObject rockToRight;
     public float lifeTime;
 
+    public GameObject warning;
+
+
 
     private void Start()
     {
-        lifeTime = 5f;
+        lifeTime = 2f;
         StartCoroutine(SummonAndSplit());
         Destroy(gameObject, lifeTime);
     }
@@ -21,9 +24,13 @@ public class flyRock : MonoBehaviour
 
         Vector3 spawnPosition = new Vector3( randomX, randomY, 0f);
 
+        GameObject spawnedWarning = Instantiate(warning,spawnPosition, Quaternion.identity);
 
         //effect here
-        yield return new WaitForSeconds(0.3f);
+        yield return new WaitForSeconds(1f);
+        
+        Destroy(spawnedWarning);
+
         GameObject leftRock = Instantiate(rockToLeft, spawnPosition, Quaternion.identity);
         leftRock.SetActive(true);
 

@@ -1,0 +1,8 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/MainGameplay/GameManager/Winning/RoomComplete.uss?fileID=7433441132597879392&amp;guid=96c00445a9e945c4db955f3e94a7abba&amp;type=3#RoomComplete" />
+    <ui:VisualElement name="container" class="full-screen-container">
+        <ui:VisualElement name="banner" class="banner-background">
+            <ui:Label text="Room Complete!" name="title-text" class="pixel-text" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

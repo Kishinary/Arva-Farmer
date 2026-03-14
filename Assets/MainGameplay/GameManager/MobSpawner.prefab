@@ -49,10 +49,7 @@ MonoBehaviour:
   Summoner: {fileID: 3763713802245534256, guid: 1a2ee40c774807c44a8566daa01e9e90, type: 3}
   Mage: {fileID: 4313094473236286479, guid: c54960daa66fe2a4d902ddbf840ee8d8, type: 3}
   Charger: {fileID: 2679225800252764106, guid: 4bfe80eb659a78047a02dfc9d549f6e6, type: 3}
-  randomP: {x: 0, y: 0}
   SpawnLoc: []
   PlayerSpawn: {fileID: 0}
-  Enemies: []
-  enemies: 0
+  winningCanvasPrefab: {fileID: 5191902220139573463, guid: d7a0c8b01d429fa48b8b169d0a85e22c, type: 3}
   goable: 0
-  Notifi: {fileID: 5191902220139573463, guid: d7a0c8b01d429fa48b8b169d0a85e22c, type: 3}

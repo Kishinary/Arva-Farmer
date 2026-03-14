@@ -30,7 +30,7 @@ public class tractorGoingScript : MonoBehaviour
     void Start()
     {
         
-        Destroy(gameObject, lifeTime);
+        
         
         player = GameObject.FindWithTag("Player");
         playerMovement = player.GetComponent<PlayerMovement>();
@@ -85,15 +85,18 @@ public class tractorGoingScript : MonoBehaviour
             enemy.GetComponent<EnemyStats>().TakeDamage(Vector2.zero, damageAmount);
             
         }
-        if (collision.name == "Wall")
+        if (collision.name == "Wall" || collision.name == "Water")
         {
+            animator.SetBool("isExplode", true);
             
-            Destroy(gameObject);
         }
 
     }
 
-
+    public void DestroyAfterAnimation()
+    {
+        Destroy(gameObject);
+    }
 
 
 }

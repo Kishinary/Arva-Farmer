@@ -33,7 +33,7 @@ public class MainMenuManager : MonoBehaviour
     private void OnPlayClicked(ClickEvent evt)
     {
         
-        SceneManager.LoadScene("Lobby");
+        SceneController.Instance.NextScene("Lobby", true);
     }
 
     private void OnQuitClicked(ClickEvent evt)

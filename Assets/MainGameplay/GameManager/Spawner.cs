@@ -27,13 +27,12 @@ public class Spawner : MonoBehaviour
     private bool startCounting = false; // Chỉ bắt đầu đếm sau khi quái đã spawn
     private string NextScene;
 
-
-    private bool startCounting = false;
-
     [Header("Racket")]
     public BugRacket Player;
     public bool spawnable = true;
     private List<GameObject> activeFireflies = new List<GameObject>();
+
+    public GameObject Notifi;
     void Start()
     {
         // 1. Chặn script chạy ở các Scene không phải màn chơi chính
@@ -71,7 +70,17 @@ public class Spawner : MonoBehaviour
             return;
         }
         FireflyPopulation();
+        DungeonSpawner dSpawner = FindFirstObjectByType<DungeonSpawner>();
+        if (dSpawner != null)
+        {
+            NextScene = dSpawner.NextScene;
 
+            if (!string.IsNullOrEmpty(NextScene))
+            {
+                goable = true; // Đánh dấu đã xong để không Instantiate liên tục
+                ShowWinningNotification();
+            }
+        }
     }
 
     private void FireflyPopulation()
@@ -104,7 +113,7 @@ public class Spawner : MonoBehaviour
                     }
 
                     // Get a random spawn location from your list
-                    Vector2 spawnPos = RandomSpawn();
+                    Vector2 spawnPos = RandomSpawnPosition();
 
                     GameObject newFirefly = Instantiate(prefab, new Vector3(spawnPos.x, spawnPos.y, 0), Quaternion.identity);
                     activeFireflies.Add(newFirefly);
@@ -138,35 +147,15 @@ public class Spawner : MonoBehaviour
                     }
 
                     // Get a random spawn location from your list
-                    Vector2 spawnPos = RandomSpawn();
+                    Vector2 spawnPos = RandomSpawnPosition();
 
                     GameObject newFirefly = Instantiate(prefab, new Vector3(spawnPos.x, spawnPos.y, 0), Quaternion.identity);
                     activeFireflies.Add(newFirefly);
                 }
             }
         }
-            DungeonSpawner dSpawner = FindFirstObjectByType<DungeonSpawner>();
-            if (dSpawner != null)
-            {
-                NextScene = dSpawner.NextScene;
-                
-                if (!string.IsNullOrEmpty(NextScene))
-                {
-                    goable = true; // Đánh dấu đã xong để không Instantiate liên tục
-                    ShowWinningNotification();
-                }
-            }
-        }
     }
 
-    // Hàm lọc các Scene không muốn chạy logic thắng/thua
-    bool IsRestrictedScene()
-    {
-        string currentName = SceneManager.GetActiveScene().name.ToLower();
-        return currentName.Contains("mainmenu") || 
-               currentName.Contains("logoscene") || 
-               currentName.Contains("lobby");
-    }
 
     void ShowWinningNotification()
     {
@@ -232,5 +221,13 @@ public class Spawner : MonoBehaviour
         {
             SceneManager.LoadScene(NextScene);
         }
+    }
+    // Hàm lọc các Scene không muốn chạy logic thắng/thua
+    bool IsRestrictedScene()
+    {
+        string currentName = SceneManager.GetActiveScene().name.ToLower();
+        return currentName.Contains("mainmenu") ||
+               currentName.Contains("logoscene") ||
+               currentName.Contains("lobby");
     }
 }

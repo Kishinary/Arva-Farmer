@@ -109,7 +109,7 @@ public class Axe : MonoBehaviour
     }
 
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
 
         enemy = collision.gameObject;
@@ -121,9 +121,10 @@ public class Axe : MonoBehaviour
 
 
     }
+   
 
 
 
     //handle spawn effect
-    
+
 }

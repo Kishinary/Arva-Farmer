@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1408957847033708140}
   - component: {fileID: 214099848976454132}
   - component: {fileID: 6574053551102078410}
+  - component: {fileID: 8135563919142822756}
   m_Layer: 0
   m_Name: Racket
   m_TagString: Untagged
@@ -30,7 +31,8 @@ Transform:
   m_LocalPosition: {x: 8.23, y: -1.84, z: 0}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_ConstrainProportionsScale: 1
-  m_Children: []
+  m_Children:
+  - {fileID: 8411500219751484946}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &214099848976454132
@@ -110,3 +112,67 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &8135563919142822756
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 345690867608219919}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de52606868278a047b783127eabcda0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bugLayer:
+    serializedVersion: 2
+    m_Bits: 128
+  catchPoint: {fileID: 8411500219751484946}
+  catchRadius: 0.8
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  releaseRadius: 3
+  maxBugs: 5
+  shootPoint: {fileID: 8411500219751484946}
+  butterflyProjectile: {fileID: 4561330686045693173, guid: c202b8b623dd3e94e896a744642c8cc3, type: 3}
+  fireflyProjectile: {fileID: 1006031918985255391, guid: 936cdb3e20f10da47918642369f97a79, type: 3}
+  beetleProjectile: {fileID: 3848507586550782717, guid: a652c7b39baf51643b979f2db99dbc14, type: 3}
+  catchCooldown: 0.5
+  releaseCooldown: 1
+  butterflyDamage: 12
+  fireflyDamage: 18
+  beetleDamage: 25
+  catchParticle: {fileID: 5480312752237083547, guid: df69391ab8fc22c4596314a01a54959f, type: 3}
+  releaseParticle: {fileID: 5480312752237083547, guid: df69391ab8fc22c4596314a01a54959f, type: 3}
+--- !u!1 &6395469139614664735
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8411500219751484946}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8411500219751484946
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6395469139614664735}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.309, y: -0.069, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1408957847033708140}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

@@ -82,6 +82,7 @@ public class CineCamera : MonoBehaviour
             case "TakeDamage": RequestShake(8.0f, 0.20f); break;
             case "EnemyHit": RequestShake(2.5f, 0.05f); break;
             case "Explosion": RequestShake(10.0f, 0.40f); break;
+            case "BugRacket": RequestShake(3f, 0.5f); break;
         }
     }
 

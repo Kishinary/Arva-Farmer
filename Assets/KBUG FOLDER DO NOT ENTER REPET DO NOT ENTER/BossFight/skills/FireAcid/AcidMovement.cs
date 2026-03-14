@@ -4,10 +4,11 @@ using System.Collections;
 public class AcidMovement : MonoBehaviour
 {
     public GameObject bulletPrefab;
-    public float bulletSpeed = 8f;
-    public float bulletCount = 8;
+    public float bulletSpeed = 6f;
+    public float bulletCount = 4;
     public IEnumerator ExecuteEightWayShoot(Vector2 firePosition, Action onComplete)
     {
+        yield return new WaitForSeconds(1f);
         float angleStep = 360f / bulletCount;
         float currentAngle = UnityEngine.Random.Range(0f, 45f);
         for (int i = 0; i < bulletCount; i++)
@@ -22,7 +23,7 @@ public class AcidMovement : MonoBehaviour
             }
             currentAngle += angleStep;
         }
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0f);
 
         onComplete?.Invoke();
     }

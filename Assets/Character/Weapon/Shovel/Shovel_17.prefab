@@ -161,7 +161,7 @@ MonoBehaviour:
     m_Bits: 64
   attackPoint: {fileID: 3909966851905504772}
   normalAttackRadius: 0.5
-  specialAttackRadius: 2.5
+  specialAttackRadius: 6.5
   specialAttackAngle: 90
   attackCooldown: 0.5
   normalAttackCooldown: 0.5

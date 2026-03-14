@@ -16,7 +16,7 @@ public class TeleportAbility : Ability
     
 
     [SerializeField] private float maxTeleportDistance = 5f;
-    [SerializeField] private float checkRadius = 0.5f;
+    [SerializeField] private float checkRadius = 0.2f;
     [SerializeField] private LayerMask obstacleLayer;
     private Vector2 currentPosition;
 
@@ -37,15 +37,17 @@ public class TeleportAbility : Ability
 
         RaycastHit2D hit = Physics2D.CircleCast(currentPosition, checkRadius, direction, distance, obstacleLayer);
 
+
+
         if (hit.collider != null)
         {
-            // Bị vướng vật cản, trả về vị trí ngay trước vật cản
+            
             float safeDistance = distance * hit.fraction;
+            
             return currentPosition + (direction * safeDistance);
         }
         else
         {
-            // Không vướng, trả về vị trí tối đa
             return currentPosition + teleportVector;
         }
 
@@ -70,9 +72,7 @@ public class TeleportAbility : Ability
     public override void Activate(GameObject parent, Transform playerTransform, Rigidbody2D rb)
     {
         Vector2 targetPosition = CalculateTargetPosition(rb.position);
-
         
-
         rb.position = targetPosition;
        
 

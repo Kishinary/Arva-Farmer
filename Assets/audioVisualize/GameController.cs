@@ -1,15 +1,30 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
 
 
 
 
+
+
+
+public struct BeatPayload
+{
+    public bool kick;
+    public bool bass;
+    public bool lowMid;
+    public bool highMid;
+    public bool treble;
+}
+
 [RequireComponent(typeof(AudioSource))]
 public class GameController : MonoBehaviour
 {
-    [Header("Effects")]
-    public CameraShaker cameraShaker;
+    //looping
+    public event Action OnSongLooped;
+
+    private float lastAudioTime = 0f;
 
     [Header("References")]
     public SongAnalyzer analyzer;
@@ -33,6 +48,23 @@ public class GameController : MonoBehaviour
     public GameObject bassParticlePrefab;
     public float particleScaleMultiplier = 2f;
 
+    [Header("Dynamic Threshold Tuning")]
+    [Range(0.5f, 5.0f)] public float averageWindowSeconds = 1.5f;
+    [Range(1.1f, 3f)] public float sensitivityMultiplier = 1.5f;
+
+    //Dùng một mảng duy nhất lưu trữ trung bình của cả 5 dải tần
+    private FrequencyBands[] precalculatedAverages;
+
+    //Khai báo Event để các script khác (Boss, UI, Môi trường) đăng ký lắng nghe
+    public event Action<BeatPayload> OnBeatDetected;
+
+    // Thêm các Getter để Boss có thể truy cập dữ liệu an toàn
+    public List<SpectralEvent> GetSpectralData() => spectralData;
+    public FrequencyBands[] GetAverages() => precalculatedAverages;
+    public AudioSource GetAudioSource() => audioSource;
+
+    //Event báo hiệu dữ liệu đã sẵn sàng
+    public event Action OnDataReady;
 
     private async void Start()
     {
@@ -46,18 +78,25 @@ public class GameController : MonoBehaviour
 
             // Đợi SongAnalyzer phân tích xong
             await analyzer.AnalyzeAudioAsync(songToAnalyze);
-
-
             // Lấy danh sách beat đã phân tích lưu vào biến cục bộ
             spectralData = analyzer.spectralTimeline;
 
+            // Tính toán trước Ngưỡng Động
+            PrecalculateDynamicThresholds();
+
+            //Báo cho Boss biết để quét Combo TRƯỚC khi nhạc chạy
+            OnDataReady?.Invoke();
+
+            Debug.Log("[GameController] Complete");
+
             // 3. Chuẩn bị phát nhạc
             audioSource.clip = songToAnalyze;
+            audioSource.loop = true;//loop
             audioSource.Play();
             isPlaying = true;
 
-            Debug.Log($"[GameController] Nhạc lên! Tổng số nhịp tìm được: {spectralData.Count}");
-            // Bắt đầu phát nhạc và sinh quái vật tại đây...
+            
+            
         }
         else
         {
@@ -70,9 +109,19 @@ public class GameController : MonoBehaviour
         if (!isPlaying || spectralData == null || currentIndex >= spectralData.Count) return;
 
         float currentAudioTime = audioSource.time;
+        //Looping:
+        if (currentAudioTime < lastAudioTime)
+        {
+
+            lastProcessedIndex = -1;
+            OnSongLooped?.Invoke();
+        }
+        lastAudioTime = currentAudioTime;
+
         int sampleRate = audioSource.clip.frequency;
         int windowSize = 1024; // Phải khớp với N bên SongAnalyzer
 
+        
         // 1. TÍNH TOÁN INDEX HIỆN TẠI (O(1) Lookup)
         int currentFrameIndex = Mathf.FloorToInt((currentAudioTime * sampleRate) / windowSize);
 
@@ -95,7 +144,7 @@ public class GameController : MonoBehaviour
         {
             if (spectralData[i].IsBeat)
             {
-                OnBeatHit(spectralData[i]);
+                OnBeatHit(spectralData[i], i);
                 
             }
         }
@@ -106,22 +155,79 @@ public class GameController : MonoBehaviour
 
 
     }
-    private void OnBeatHit(SpectralEvent spectralInfo)
+
+    private void PrecalculateDynamicThresholds()
     {
-        if (spectralInfo.Bands.Kick > 0.20f)
+        int totalFrames = spectralData.Count;
+        precalculatedAverages = new FrequencyBands[totalFrames];
+        int sampleRate = audioSource.clip.frequency;
+        int fftWindowSize = 1024;
+        float audioFramesPerSecond = (float)sampleRate / fftWindowSize;
+
+        int windowSize = Mathf.RoundToInt(averageWindowSeconds * audioFramesPerSecond);
+
+        // Các biến lưu trữ tổng trượt (Sliding Sums)
+        float sumKick = 0f, sumBass = 0f, sumLowMid = 0f, sumHighMid = 0f, sumTreble = 0f;
+
+        for (int i = 0; i < totalFrames; i++)
         {
+            // 1. CỘNG giá trị của frame MỚI vào tổng
+            FrequencyBands currentBands = spectralData[i].Bands;
+            sumKick += currentBands.Kick;
+            sumBass += currentBands.Bass;
+            sumLowMid += currentBands.LowMid;
+            sumHighMid += currentBands.HighMid;
+            sumTreble += currentBands.Treble;
 
-
-            GameObject particle = Instantiate(bassParticlePrefab, Vector3.zero, Quaternion.identity);
-            float dynamicScale = spectralInfo.Bands.Kick * particleScaleMultiplier;
-
-            particle.transform.localScale = new Vector3(dynamicScale, dynamicScale, dynamicScale);
-
-
+            // 2. TRỪ giá trị của frame CŨ (đã trượt ra khỏi cửa sổ) khỏi tổng
+            int outOfWindowIndex = i - windowSize - 1;
+            if (outOfWindowIndex >= 0)
+            {
+                FrequencyBands oldBands = spectralData[outOfWindowIndex].Bands;
+                sumKick -= oldBands.Kick;
+                sumBass -= oldBands.Bass;
+                sumLowMid -= oldBands.LowMid;
+                sumHighMid -= oldBands.HighMid;
+                sumTreble -= oldBands.Treble;
+            }
+            // 3. Tính toán số lượng phần tử thực tế đang có trong cửa sổ
+            int count = Mathf.Min(i + 1, windowSize + 1);
+            // 4. Lưu vào mảng kết quả
+            // (Giả định FrequencyBands là một struct. Nếu là class, bạn cần dùng 'new FrequencyBands(...)')
+            precalculatedAverages[i] = new FrequencyBands
+            {
+                Kick = sumKick / count,
+                Bass = sumBass / count,
+                LowMid = sumLowMid / count,
+                HighMid = sumHighMid / count,
+                Treble = sumTreble / count
+            };
         }
 
     }
-    private void OnGUI()
+    private void OnBeatHit(SpectralEvent spectralInfo, int frameIndex)
+    {
+        FrequencyBands current = spectralInfo.Bands;
+        FrequencyBands average = precalculatedAverages[frameIndex];
+        float noiseGate = 0.02f;
+        BeatPayload payload = new BeatPayload
+        {
+            kick = current.Kick > (average.Kick * sensitivityMultiplier) && current.Kick > noiseGate,
+            bass = current.Bass > (average.Bass * sensitivityMultiplier) && current.Bass > noiseGate,
+            lowMid = current.LowMid > (average.LowMid * sensitivityMultiplier) && current.LowMid > noiseGate,
+            highMid = current.HighMid > (average.HighMid * sensitivityMultiplier) && current.HighMid > noiseGate,
+            treble = current.Treble > (average.Treble * sensitivityMultiplier) && current.Treble > noiseGate
+        };
+        if (payload.kick || payload.bass || payload.lowMid || payload.highMid || payload.treble)
+        {
+            OnBeatDetected?.Invoke(payload);
+        }
+
+
+
+
+    }
+    /*private void OnGUI()
     {
         if (!showVisualizer || !isPlaying) return;
 
@@ -155,7 +261,7 @@ public class GameController : MonoBehaviour
         DrawBar(2, "L-MID", displayBands.LowMid, Color.yellow);
         DrawBar(3, "H-MID", displayBands.HighMid, Color.green);
         DrawBar(4, "TREBLE", displayBands.Treble, Color.cyan);
-    }
+    }*/
 
 
 

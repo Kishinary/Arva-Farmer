@@ -2,7 +2,7 @@ using System.Collections;
 using System.Threading;
 using UnityEngine;
 
-public class Shovel : MonoBehaviour
+public class Shovel : MonoBehaviour, IWeapon
 {
     private Animator animator;
 
@@ -30,6 +30,9 @@ public class Shovel : MonoBehaviour
     private WeaponParent weaponParent;
     private PlayerMovement playerMove;
 
+    public string GetNormalShake() => "ShovelNormal";
+    public string GetSpecialShake() => "ShovelSpecial";
+
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -47,7 +50,7 @@ public class Shovel : MonoBehaviour
         }
     }
 
-    public void Attack() // Special Attack
+    public void SpecialAttack()
     {
         if (Time.time >= nextAttackTime)
         {
@@ -71,16 +74,21 @@ public class Shovel : MonoBehaviour
 
     }
 
-    public void ApplyParticle() 
+    public void ApplyParticle()
     {
         Quaternion particleRotation = weaponParent.transform.rotation;
+
         if (weaponParent.transform.localScale.y == -1)
         {
             particleRotation *= Quaternion.Euler(dirtParticle.transform.eulerAngles.x * -1 - 10f, 0, 0);
         }
 
-        Instantiate(dirtParticle, transform.position, weaponParent.transform.rotation);
-        PerformConeHitCheck(); 
+        // Force Y rotation to 90
+        particleRotation *= Quaternion.Euler(0, 90f, 0);
+
+        Instantiate(dirtParticle, transform.position, particleRotation);
+
+        PerformConeHitCheck();
     }
 
     private void PerformNormalHitCheck()
@@ -89,18 +97,16 @@ public class Shovel : MonoBehaviour
         foreach (Collider2D enemy in hitEnemies)
         {
             ApplyDamage(enemy, normalAttackDamage, "ShovelNormal");
-            float timer = 0;
-            while (timer <= 3)
-            {
-                timer += Time.deltaTime;
-                enemy.GetComponent<EnemyStats>().speedMultiplier = 0.2f;
-            }
-            if (timer >= 3)
-            {
-                enemy.GetComponent<EnemyStats>().speedMultiplier = 1f;
-
-            }
+            StartCoroutine(ApplySlow(enemy.GetComponent<EnemyStats>(), 0.2f, 3));
         }
+    }
+    IEnumerator ApplySlow(EnemyStats enemy, float slowAmount, float duration)
+    {
+        enemy.speedMultiplier = slowAmount;
+
+        yield return new WaitForSeconds(duration);
+
+        enemy.speedMultiplier = 1f;
     }
 
     private void PerformConeHitCheck()

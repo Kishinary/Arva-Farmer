@@ -13,6 +13,10 @@ public class Orbiter : MonoBehaviour
         player = GameObject.FindWithTag("Player").transform;
         angle = Random.Range(0f, 360f);
     }
+    private void Awake()
+    {
+        if (!player) player = GameObject.FindWithTag("Player").transform;
+    }
 
     void Update()
     {

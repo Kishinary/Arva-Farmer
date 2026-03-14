@@ -40,6 +40,7 @@ public class flyingBoomerang_right : MonoBehaviour
 
     void Awake()
     {
+        player = GameObject.FindWithTag("Player");
         currentPosition = player.transform.position;
 
         

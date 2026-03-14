@@ -22,9 +22,23 @@ public class Boomerang : Ability
     private GameObject flyingBoomerangPrefabLeft;
     private GameObject flyingBoomerangPrefabRight;
 
+    public GameObject indicator;
+    private GameObject indicatorForPlayer;
+
+    public override void BeginAim(GameObject parent, Transform playerTransform, Rigidbody2D rb)
+    {
+        indicatorForPlayer = Instantiate(indicator, playerTransform.position, Quaternion.identity);
+        indicatorForPlayer.SetActive(true);
+    }
+    public override void DuringAim(GameObject parent, Transform playerTransform, Rigidbody2D rb)
+    {
+  
+    }
+
 
     public override void Activate(GameObject parent, Transform playerTransform, Rigidbody2D rb)
     {
+        indicatorForPlayer.SetActive(false);
         
         player = GameObject.FindGameObjectWithTag("Player");
        

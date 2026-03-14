@@ -39,8 +39,13 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Talking")]
     public bool isTalking = false;
+
+    //slow effect by using skills
+    private float originalSpeed;
+    private Coroutine activeSlowCoroutine;
     void Start()
     {
+        originalSpeed = movespeed;
     }
 
     // Call this whenever you switch tools
@@ -67,6 +72,25 @@ public class PlayerMovement : MonoBehaviour
         watercan = GetComponentInChildren<Watercan>();
         scissors = GetComponentInChildren<Scissors>();
     }
+    //HAM LAM SLOW PLAYER DO SU DUNG SKILLS
+    
+    public void ApplySlow(float multiplier, float duration)
+    {
+        if (activeSlowCoroutine != null)
+        {
+            StopCoroutine(activeSlowCoroutine);
+        }
+        activeSlowCoroutine = StartCoroutine(SlowRoutine(multiplier, duration));
+    }
+    private IEnumerator SlowRoutine(float multiplier, float duration)
+    {
+        movespeed = multiplier * originalSpeed;
+        yield return new WaitForSeconds(duration);
+        movespeed = originalSpeed;
+
+        activeSlowCoroutine = null;
+    }
+
 
     private void FixedUpdate()
     {

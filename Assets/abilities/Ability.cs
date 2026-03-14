@@ -8,6 +8,10 @@ public class Ability : ScriptableObject
     public float activeTime;
     public Transform transform;
 
+    public virtual void BeginAim(GameObject parent, Transform playerTransform, Rigidbody2D rb) { }
+
+    public virtual void DuringAim(GameObject parent, Transform playerTransform, Rigidbody2D rb) { }
+
     public virtual void Activate(GameObject parent, Transform transform, Rigidbody2D rb){  }
     public virtual void BeginCoolDown(GameObject parent) { }
 }

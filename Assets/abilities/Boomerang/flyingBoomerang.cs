@@ -43,6 +43,8 @@ public class Axe : MonoBehaviour
 
     void Awake()
     {
+
+        player = GameObject.FindWithTag("Player");
         currentPosition = player.transform.position;
         
         SetupThrow();

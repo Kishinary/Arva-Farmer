@@ -14,6 +14,9 @@ public class AbilityHolder : MonoBehaviour
     public GameObject flyingBoomerangPrefab;
 
 
+    public GameObject tractorSkill;
+
+
     [System.Serializable]
     public class AbilitySlot
     {
@@ -28,6 +31,7 @@ public class AbilityHolder : MonoBehaviour
     public enum AbilityState
     {
         ready,
+        aiming,
         active,
         cooldown
     }
@@ -47,7 +51,7 @@ public class AbilityHolder : MonoBehaviour
     //teleport
     [Header("TeleportReferences")]
     public TeleportAbility teleportAbility;
-
+    
 
 
     private PlayerMovement movementScript;
@@ -59,6 +63,8 @@ public class AbilityHolder : MonoBehaviour
 
     private void Awake()
     {
+        player = GameObject.FindGameObjectWithTag("Player");
+
         playerTransform = player.transform;
         rb = player.GetComponent<Rigidbody2D>();
         movementScript = player.GetComponent<PlayerMovement>();
@@ -72,6 +78,8 @@ public class AbilityHolder : MonoBehaviour
 
     private float moveSpeedOrigin;
 
+    //checking if teleport
+    private bool isAimingTeleport = false;
 
     void Update()
     {
@@ -79,19 +87,28 @@ public class AbilityHolder : MonoBehaviour
         {
             ProcessAbilityLogic(abilities[i]);
         }
+
+
+
         //teleport
-
-
         if (teleportCooldownTimer > 0)
         {
-            teleportCooldownTimer -= Time.deltaTime;
-        }
-        else
-        {
-            // Khi Cooldown đã về 0 (Sẵn sàng)
 
-            // Khi ĐANG GIỮ phím
-            if (Input.GetKey(KeyCode.Space))
+            teleportCooldownTimer -= Time.deltaTime;
+            isAimingTeleport = false;
+            return;
+        }
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            if (!IsAnyAbilityInUse())
+            {
+                isAimingTeleport = true;
+            }
+        }
+       
+
+        // Khi ĐANG GIỮ phím
+        if (Input.GetKey(KeyCode.Space))
             {
                 // Bật lại indicator (nếu bạn đã ẩn nó đi lúc trước)
                 
@@ -105,16 +122,34 @@ public class AbilityHolder : MonoBehaviour
                 teleportAbility.Aim(rb, indicatorTarget);
             }
 
-            if (Input.GetKeyUp(KeyCode.Space))
-            {
-                TeleportHandler();
-            }
+        if (Input.GetKeyUp(KeyCode.Space))
+        {
+            TeleportHandler();
+            isAimingTeleport = false;
         }
+        
 
 
     }
 
-    
+    private bool IsAnyAbilityInUse(AbilitySlot currentSlotToCheck = null)
+    {
+        if (isAimingTeleport) return true;
+
+        foreach (var slot in abilities)
+        {
+            if (slot == currentSlotToCheck) continue;
+            if (slot.state == AbilityState.aiming || slot.state == AbilityState.active)
+            {
+                return true;
+            }
+
+        }
+        return false;
+    }
+
+
+
     private void TeleportHandler()
     {
         GameObject teleportDust = Instantiate(teleportEffect, rb.position, Quaternion.identity);
@@ -143,8 +178,8 @@ public class AbilityHolder : MonoBehaviour
     private IEnumerator TeleportRecoveryRoutine(SpriteRenderer sprite, Rigidbody2D rb)
     {
 
-        float freezeDuration = 0.5f; // Thời gian bị khóa di chuyển (giây)
-        float blinkInterval = 0.1f;  // Tốc độ nhấp nháy (giây)
+        float freezeDuration = 0.5f; 
+        float blinkInterval = 0.1f;  
         float timer = 0f;
 
 
@@ -154,22 +189,19 @@ public class AbilityHolder : MonoBehaviour
         moveSpeedOrigin = movementScript.movespeed;
         movementScript.movespeed = 0;
 
-        // 2. VÒNG LẶP NHẤP NHÁY
+       
         bool isFlashing = false;
         while (timer < freezeDuration)
         {
-            // Đảo qua lại giữa màu gốc và màu chớp trắng
             sprite.color = isFlashing ? originalColor : flashColor;
             isFlashing = !isFlashing;
 
-            // Đợi một khoảng thời gian ngắn rồi tiếp tục vòng lặp
             yield return new WaitForSeconds(blinkInterval);
             timer += blinkInterval;
         }
 
 
         movementScript.movespeed = moveSpeedOrigin;
-        //return color afterward
         sprite.color = originalColor;
 
 
@@ -186,14 +218,26 @@ public class AbilityHolder : MonoBehaviour
         switch (slot.state)
         {
             case AbilityState.ready:
-                if (Input.GetKeyDown(slot.key))
+                if (Input.GetKeyDown(slot.key) && !IsAnyAbilityInUse())
                 {
-                    slot.ability.Activate(gameObject, playerTransform, rb);
-                    slot.state = AbilityState.active;
-                    slot.activeTime = slot.ability.activeTime;
+                    slot.ability.BeginAim(gameObject, playerTransform, rb);
+                    slot.state = AbilityState.aiming;
+                  
                 }
                 break;
+            case AbilityState.aiming:
+                if (Input.GetKey(slot.key))
+                {
+                    slot.ability.DuringAim(gameObject, playerTransform, rb);
+                }
+                if (Input.GetKeyUp(slot.key))
+                {
+                    slot.ability.Activate(gameObject, playerTransform, rb);
+                    slot.activeTime = slot.ability.activeTime;
+                    slot.state = AbilityState.active;
+                }
 
+                break;
             case AbilityState.active:
                 if (slot.activeTime > 0)
                 {
@@ -223,99 +267,3 @@ public class AbilityHolder : MonoBehaviour
 
 
 }
-/*
- * 
- * 
- * 
- * 
- * 
- * 
- * 
- * 
- * using UnityEngine;
-using System.Collections;
-using System.Collections.Generic;
-using TMPro;
-
-public class AbilityHolder : MonoBehaviour
-{
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    public Ability ability;
-    float cooldownTime;
-    float activeTime;
-
-
-    [SerializeField] private GameObject player; // nhet player vao day
-
-    private Transform playerTransform;
-
-    private Rigidbody2D rb;
-    enum AbilityState
-    {
-        ready,
-        active,
-        cooldown
-    }
-    AbilityState state = AbilityState.ready;
-
-    public KeyCode key;
-
-    private void Awake()
-    {
-        rb = player.GetComponent<Rigidbody2D>();
-    }
-
-
-    void Update()
-    {
-        switch (state)
-        {
-            case AbilityState.ready:
-                if (Input.GetKeyDown(key))
-                {
-                    
-                    playerTransform = player.transform;
-                    
-                    ability.Activate(gameObject, playerTransform,rb);
-                    state = AbilityState.active;
-                    activeTime = ability.activeTime;
-                    
-                }
-                break;
-            case AbilityState.active:
-                
-                
-                    if(activeTime > 0)
-                    {
-                        
-                        activeTime -= Time.deltaTime;
-                    }
-                    else
-                    {   
-                        
-                        ability.BeginCoolDown(gameObject);
-                        state = AbilityState.cooldown;
-                        cooldownTime = ability.cooldownTime;
-                    }
-                
-                break;
-            case AbilityState.cooldown:
-               
-                    if (cooldownTime > 0)
-                    {
-                        
-                        cooldownTime -= Time.deltaTime;
-                    }
-                    else
-                    {   
-                        
-                    state = AbilityState.ready;
-                    }
-                
-                break;
-        }
-    }
-}
-
- * 
-*/

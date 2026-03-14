@@ -74,8 +74,7 @@ public class animation : MonoBehaviour
 
     private void HandleBiteAttackStart()
     {
-        // Nếu có animation riêng cho Bite, bạn có thể set trigger hoặc bool ở đây
-        // Ví dụ: animator.SetTrigger("BiteAttack");
+        
         float requiredSpeed = defaultJumpClipLength / 2f; // Giả sử thời gian của Bite là 2 s
         
         animator.SetBool(BiteAttackHash, true);
@@ -83,8 +82,7 @@ public class animation : MonoBehaviour
     }
     private void HandleBiteAttackEnd()
     {
-        // Nếu có animation riêng cho Bite, bạn có thể reset trigger hoặc bool ở đây
-        // Ví dụ: animator.ResetTrigger("BiteAttack");
+      
         animator.SetBool(BiteAttackHash, false);
         animator.SetFloat(BiteAttackSpeedHash, 1f); // Reset về tốc độ mặc định
     }

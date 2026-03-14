@@ -12,7 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c51403d0c9f7b244a84ec3ef97c13fa, type: 3}
   m_Name: New Tractor Script
   m_EditorClassIdentifier: 
-  name: 
-  cooldownTime: 0
+  name: tractorSkills
+  cooldownTime: 2
   activeTime: 0
-  transform: {fileID: 0}
+  transform: {fileID: 9000693671392385800, guid: 0b807ca803db5f849b83438aa983d66e, type: 3}
+  tractorPrefab: {fileID: 4441238151496353300, guid: 1922494438f2c354280cc7e50e472ab8, type: 3}
+  indicatorPrefab: {fileID: 5297723462012352110, guid: 0b807ca803db5f849b83438aa983d66e, type: 3}
+  tractorDamage: 100

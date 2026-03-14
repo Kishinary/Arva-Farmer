@@ -20,8 +20,8 @@ public class Shovel : MonoBehaviour, IWeapon
     private float nextNormalAttackTime = 0f;
 
     [Header("Damage")]
-    public int normalAttackDamage = 10;
-    public int specialAttackDamage = 25;
+    public int normalAttackDamage = 30;
+    public int specialAttackDamage =15;
 
     [Header("Particles")]
     public ParticleSystem dirtParticle;
@@ -40,23 +40,27 @@ public class Shovel : MonoBehaviour, IWeapon
         playerMove = GetComponentInParent<PlayerMovement>();
     }
 
-    public void NormalAttack()
+    public bool NormalAttack()
     {
         if (Time.time >= nextNormalAttackTime)
         {
             animator.SetTrigger("Smash");
             playerMove.movespeed = 3f;
             nextNormalAttackTime = Time.time + normalAttackCooldown;
+            return true;
         }
+        return false;
     }
 
-    public void SpecialAttack()
+    public bool SpecialAttack()
     {
         if (Time.time >= nextAttackTime)
         {
             animator.SetTrigger("Dig");
             nextAttackTime = Time.time + attackCooldown;
+            return true;
         }
+        return false;
     }
 
 

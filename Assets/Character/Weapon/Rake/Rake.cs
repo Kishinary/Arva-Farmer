@@ -7,7 +7,6 @@ public class Rake : MonoBehaviour, IWeapon
     private Animator animator;
 
     [Header("Trap Settings")]
-    public LayerMask bugLayer;
     public Transform TrapPoint;
     public float catchRadius = 1.2f;
 
@@ -20,11 +19,12 @@ public class Rake : MonoBehaviour, IWeapon
     public GameObject BearTrap;
     public GameObject RakeTrap;
     public GameObject Holetrap;
+    public GameObject SpikeTrap;
 
 
     [Header("Cooldowns")]
-    public float catchCooldown = 2f;
-    public float TrapCooldown = 2f;
+    public float catchCooldown = 1.5f;
+    public float TrapCooldown = 1.3f;
 
     private float nextCatchTime;
     private float nextReleaseTime;
@@ -38,7 +38,7 @@ public class Rake : MonoBehaviour, IWeapon
 
     private WeaponParent weaponParent;
     private PlayerMovement playerMove;
-    private bool isPulling = false;
+    public bool isPulling = false;
     public string GetNormalShake() => "BugRacket";
     public string GetSpecialShake() => "BugRacket";
 
@@ -49,36 +49,30 @@ public class Rake : MonoBehaviour, IWeapon
         playerMove = GetComponentInParent<PlayerMovement>();
     }
 
-    public void NormalAttack() 
+    private Coroutine attackRoutine;
+    public bool NormalAttack()
     {
         if (Time.time >= nextCatchTime)
         {
-            StartCoroutine(ComicalRakeAttack());
+            if (attackRoutine != null) StopCoroutine(attackRoutine);
+            animator.SetTrigger("Swing");
+            attackRoutine = StartCoroutine(ComicalRakeAttack());
             nextCatchTime = Time.time + catchCooldown;
+            return true;
         }
+        return false;
+
     }
 
-    public void SpecialAttack()
+    public bool SpecialAttack()
     {
         if (Time.time >= nextReleaseTime)
         {
             animator.SetTrigger("Release");
             nextReleaseTime = Time.time + TrapCooldown;
+            return true;
         }
-    }
-
-    public void ApplyTrap()
-    {
-        Quaternion particleRotation = weaponParent.transform.rotation;
-
-        if (weaponParent.transform.localScale.y == -1)
-        {
-            particleRotation *= Quaternion.Euler(TrapParticle.transform.eulerAngles.x * -1, 0, 0);
-        }
-
-        Instantiate(TrapParticle, transform.position, particleRotation);
-
-        ReleaseTrap();
+        return false;
     }
 
     public void ApplyRelease()
@@ -98,24 +92,23 @@ public class Rake : MonoBehaviour, IWeapon
 
     public void ReleaseTrap()
     {
-        float k = Random.Range(0, 8);
-        if (k <= 2)
+        float k = Random.Range(0, 4);
+        if (k == 0)
         {
             Instantiate(BearTrap, TrapPoint.position, Quaternion.identity);
         }
-        else if (k <= 5)
+        else if (k == 1)
         {
             Instantiate(RakeTrap, TrapPoint.position, Quaternion.identity);
         }
-        else
+        else if (k == 2)
         {
             Instantiate(Holetrap, TrapPoint.position, Quaternion.identity);
         }
-    }
-
-    public void Pull()
-    {
-
+        else
+        {
+            Instantiate(SpikeTrap, TrapPoint.position, Quaternion.identity);
+        }
     }
 
     IEnumerator ComicalRakeAttack()
@@ -127,7 +120,7 @@ public class Rake : MonoBehaviour, IWeapon
 
         isPulling = true; 
 
-        float duration = 0.4f;
+        float duration = 0.5f;
         float elapsed = 0f;
         Vector3 massiveScale = transform.localScale;
         Vector3 tinyScale = new Vector3(0.5f, 0.5f, 1f);
@@ -145,15 +138,14 @@ public class Rake : MonoBehaviour, IWeapon
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        // Only pull if the rake is in its 'retracting' state
         if (isPulling && collision.CompareTag("Enemy"))
         {
-            // Move enemy toward the player
-            collision.transform.position = Vector2.MoveTowards(
-                collision.transform.position,
-                playerMove.transform.position,
-                pullSpeed * Time.deltaTime
-            );
+            collision.GetComponent<EnemyStats>().TakeDamage(transform.position, 10);
+            Rigidbody2D enemyRb = collision.GetComponent<Rigidbody2D>();
+            var PlayerPull = (collision.transform.position - playerMove.transform.position).normalized * 2;
+            Vector2 knockbackDir = -PlayerPull;
+            enemyRb.linearVelocity = Vector2.zero;
+            enemyRb.AddForce(knockbackDir * 2.5f, ForceMode2D.Impulse);
         }
     }
 
@@ -165,7 +157,7 @@ public class Rake : MonoBehaviour, IWeapon
 
         while (elapsed < pullDuration)
         {
-            if (enemyTransform == null) yield break; // In case enemy dies mid-pull
+            if (enemyTransform == null) yield break; 
 
             elapsed += Time.deltaTime;
             // Move the enemy toward the player

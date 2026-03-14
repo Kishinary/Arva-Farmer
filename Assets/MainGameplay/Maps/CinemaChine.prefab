@@ -130,6 +130,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02273758e1ee4ec4e83e9820abcb46fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startZoomSize: 2
+  endZoomSize: 0
+  zoomOutDuration: 1.5
+  initialDelay: 0.5
+  globalFrequency: 15
+  following: 1
 --- !u!114 &5321882488840855390
 MonoBehaviour:
   m_ObjectHideFlags: 0

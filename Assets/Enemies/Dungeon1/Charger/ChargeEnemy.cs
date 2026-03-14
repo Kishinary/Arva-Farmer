@@ -34,11 +34,11 @@ public class ChargeEnemy : MonoBehaviour
 
         if (!isCharging)
         {
-            // Move toward player
+            float curSpeed = moveSpeed * GetComponent<EnemyStats>().speedMultiplier;
             transform.position = Vector2.MoveTowards(
                 transform.position,
                 player.position,
-                moveSpeed * Time.deltaTime
+                curSpeed * Time.deltaTime
             );
 
             if (dist <= chargeRange && canCharge)

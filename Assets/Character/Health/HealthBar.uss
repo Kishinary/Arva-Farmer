@@ -106,5 +106,5 @@
     font-size: 20px;
     -unity-font-style: bold;
     text-shadow: 1px 1px 2px black;
-    -unity-font-definition: url("project://database/Assets/TextMesh%20Pro/Fonts/ThaleahFat.ttf?fileID=12800000&guid=ac750909d96903d4381e41b27407aca1&type=3#ThaleahFat");
+    -unity-font-definition: url("project://database/Assets/Material/Pixel%20Game.otf?fileID=12800000&guid=b45585296b46ff14887a6f4d50d63943&type=3#Pixel Game");
 }

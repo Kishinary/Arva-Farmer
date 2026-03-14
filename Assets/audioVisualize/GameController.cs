@@ -227,7 +227,7 @@ public class GameController : MonoBehaviour
 
 
     }
-    private void OnGUI()
+    /*private void OnGUI()
     {
         if (!showVisualizer || !isPlaying) return;
 
@@ -261,7 +261,7 @@ public class GameController : MonoBehaviour
         DrawBar(2, "L-MID", displayBands.LowMid, Color.yellow);
         DrawBar(3, "H-MID", displayBands.HighMid, Color.green);
         DrawBar(4, "TREBLE", displayBands.Treble, Color.cyan);
-    }
+    }*/
 
 
 

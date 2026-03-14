@@ -6,7 +6,9 @@ public class explodeDamage : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private ParticleSystem ps;
 
-    public float totalLifetime = 0.5f;
+    public float totalLifetime = 1f;
+
+    public GameObject BlowEffect;
 
     void Start()
     {
@@ -30,7 +32,8 @@ public class explodeDamage : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            Debug.Log("Rock danh trung player");
+            Instantiate(BlowEffect, transform.position, Quaternion.identity);
+           
         }
     }
 

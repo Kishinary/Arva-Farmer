@@ -49,6 +49,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 30
   lifeTime: 2
+  BlowEffect: {fileID: 3151226660787749475, guid: 105a0a40ce8557e468e7717f3a319cde, type: 3}
 --- !u!61 &5164407081594537002
 BoxCollider2D:
   m_ObjectHideFlags: 0

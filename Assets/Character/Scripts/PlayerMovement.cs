@@ -28,13 +28,7 @@ public class PlayerMovement : MonoBehaviour
 
 
     [Header("Combat-related Components")]
-    public Shovel shovel;
     public WeaponParent weaponParent;
-    public PickaxeSlash Pickaxe;
-    public Watercan watercan;
-    public Scissors scissors;
-    public int PlayerWeapon = 1;
-
     public IWeapon currentWeapon;
 
     [Header("Talking")]
@@ -60,12 +54,7 @@ public class PlayerMovement : MonoBehaviour
         
         playerInput = GetComponent<PlayerInput>();
         DontDestroyOnLoad(this.gameObject);
-        
-        
-        shovel = GetComponentInChildren<Shovel>();
-        Pickaxe = GetComponentInChildren<PickaxeSlash>();
-        watercan = GetComponentInChildren<Watercan>();
-        scissors = GetComponentInChildren<Scissors>();
+       
     }
 
     private void FixedUpdate()
@@ -92,9 +81,6 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         if (mainCamera == null) mainCamera = Camera.main;
-        if (Pickaxe != null) {
-            Pickaxe.PointerPosition = GetPointerInput();
-        }
         pointerInput = GetPointerInput();
         UpdateMouseDirection();
 
@@ -121,26 +107,25 @@ public class PlayerMovement : MonoBehaviour
     {
         if (context.performed && !isTalking && currentWeapon != null)
         {
-            currentWeapon.NormalAttack();
-            CineCamera.instance.TriggerPreset(currentWeapon.GetNormalShake());
+            if (currentWeapon.NormalAttack()) {
+                CineCamera.instance.TriggerPreset(currentWeapon.GetNormalShake());
+            }
         }
     }
     public void OnSpecialMove(InputAction.CallbackContext context)
     {
         if (context.performed && !isTalking && currentWeapon != null)
         {
-            currentWeapon.SpecialAttack();
-            CineCamera.instance.TriggerPreset(currentWeapon.GetSpecialShake());
+            if (currentWeapon.SpecialAttack()) CineCamera.instance.TriggerPreset(currentWeapon.GetSpecialShake());
         }
     }
 
     public Vector2 GetPointerInput()
     {
-        // If the camera was destroyed by a scene change, find the new one
         if (mainCamera == null)
         {
             mainCamera = Camera.main;
-            if (mainCamera == null) return Vector2.zero; // Still no camera found
+            if (mainCamera == null) return Vector2.zero;
         }
         Vector3 mousePos = pointerPosition.ReadValue<Vector2>();
         mousePos.z = Camera.main.nearClipPlane;
@@ -150,11 +135,10 @@ public class PlayerMovement : MonoBehaviour
 
     void UpdateMouseDirection()
     {
-        // If the camera was destroyed by a scene change, find the new one
         if (mainCamera == null)
         {
             mainCamera = Camera.main;
-            if (mainCamera == null) return; // Still no camera found
+            if (mainCamera == null) return; 
         }
         if (Mouse.current == null) return;
         Vector3 mouseWorld = mainCamera.ScreenToWorldPoint(Mouse.current.position.ReadValue());
@@ -185,11 +169,6 @@ public class PlayerMovement : MonoBehaviour
         playerInput.ActivateInput();
         Debug.Log("Input Enabled");
     }
-
-
-
-
-
     public void OnInteract(InputAction.CallbackContext context)
     {
         Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, 0.5f);

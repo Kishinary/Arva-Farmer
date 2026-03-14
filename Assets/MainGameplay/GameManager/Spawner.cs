@@ -1,4 +1,3 @@
-using NUnit.Framework;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -14,7 +13,8 @@ public class Spawner : MonoBehaviour
 
     public Vector2 randomP;
 
-    public List<GameObject> SpawnLoc = new List<GameObject>();
+    public List<GameObject> SpawnLoc = new();
+    public List<GameObject> Fireflies = new();
 
     public Transform PlayerSpawn;
     public List<GameObject> Enemies = new List<GameObject>();
@@ -24,11 +24,22 @@ public class Spawner : MonoBehaviour
     private string NextScene;
     public GameObject Notifi;
 
+
     private bool startCounting = false;
+
+    [Header("Racket")]
+    public BugRacket Player;
+    public bool spawnable = true;
+    private List<GameObject> activeFireflies = new List<GameObject>();
     void Start()
     {
-        float rand = Random.Range(0, 9);
+        int rand = Random.Range(0, 10); 
         StartCoroutine(SpawnStarter(rand));
+        Player = FindFirstObjectByType<BugRacket>();
+        if (Player.GetComponent<BugRacket>())
+        {
+            spawnable = true;
+        }
     }
 
     private void Update()
@@ -42,6 +53,81 @@ public class Spawner : MonoBehaviour
                 Instantiate(Notifi);
             }
             return;
+        }
+        FireflyPopulation();
+
+    }
+
+    private void FireflyPopulation()
+    {
+        activeFireflies.RemoveAll(f => f == null);
+        if (Player)
+        {
+            if (activeFireflies.Count + Player.storedBugObject.Count < 8 && Fireflies.Count > 0)
+            {
+                while (activeFireflies.Count + Player.storedBugObject.Count < 8)
+                {
+                    float roll = Random.Range(0f, 100f);
+                    GameObject prefab;
+
+                    // 2. Assign prefab based on the roll
+                    if (roll < 50f)
+                    {
+                        // 50% chance
+                        prefab = Fireflies[0];
+                    }
+                    else if (roll < 80f)
+                    {
+                        // 30% chance (50 + 30 = 80)
+                        prefab = Fireflies[1];
+                    }
+                    else
+                    {
+                        // 20% chance (the remaining 80 to 100)
+                        prefab = Fireflies[2];
+                    }
+
+                    // Get a random spawn location from your list
+                    Vector2 spawnPos = RandomSpawn();
+
+                    GameObject newFirefly = Instantiate(prefab, new Vector3(spawnPos.x, spawnPos.y, 0), Quaternion.identity);
+                    activeFireflies.Add(newFirefly);
+                }
+            }
+        }
+        else
+        {
+            if (activeFireflies.Count < 7 && Fireflies.Count > 0)
+            {
+                while (activeFireflies.Count < 7)
+                {
+                    float roll = Random.Range(0f, 100f);
+                    GameObject prefab;
+
+                    // 2. Assign prefab based on the roll
+                    if (roll < 50f)
+                    {
+                        // 50% chance
+                        prefab = Fireflies[0];
+                    }
+                    else if (roll < 80f)
+                    {
+                        // 30% chance (50 + 30 = 80)
+                        prefab = Fireflies[1];
+                    }
+                    else
+                    {
+                        // 20% chance (the remaining 80 to 100)
+                        prefab = Fireflies[2];
+                    }
+
+                    // Get a random spawn location from your list
+                    Vector2 spawnPos = RandomSpawn();
+
+                    GameObject newFirefly = Instantiate(prefab, new Vector3(spawnPos.x, spawnPos.y, 0), Quaternion.identity);
+                    activeFireflies.Add(newFirefly);
+                }
+            }
         }
 
     }

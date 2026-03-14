@@ -147,7 +147,7 @@ ScriptedImporter:
   spriteSheetImportData:
   - name: Yess_0
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0, y: 0}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
@@ -166,30 +166,9 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
-  - name: Yess_6
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
-    border: {x: 0, y: 0, z: 0, w: 0}
-    customData: 
-    rect:
-      serializedVersion: 2
-      x: 123
-      y: 74
-      width: 54
-      height: 42
-    spriteID: d2d7689c635220c4dae4844170c32912
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 0, y: 0}
   - name: Yess_7
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0, y: 0}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
@@ -200,6 +179,48 @@ ScriptedImporter:
       width: 73
       height: 51
     spriteID: e782ab9e5c3d27847b4534087aa3bf99
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  - name: Yess_5
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 124
+      y: 74
+      width: 53
+      height: 40
+    spriteID: 4503be0ca3406a04cbf95e6ba2c1c308
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  - name: Yess_8
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 120
+      y: 19
+      width: 88
+      height: 33
+    spriteID: ada0d9f35795eea4ca3c262475ae605e
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -227,7 +248,7 @@ ScriptedImporter:
       cellRect:
         x: 25
         y: 8
-        width: 173
+        width: 204
         height: 112
       spriteId: c1614c8e0e5ae3a4e83f54963c7aff47
     linkedCells: []

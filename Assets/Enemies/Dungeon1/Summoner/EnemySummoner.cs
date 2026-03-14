@@ -1,5 +1,6 @@
-using UnityEngine;
 using System.Collections;
+using Unity.VisualScripting.Antlr3.Runtime.Misc;
+using UnityEngine;
 
 public class EnemySummoner : MonoBehaviour
 {
@@ -31,6 +32,7 @@ public class EnemySummoner : MonoBehaviour
 
     [Header("Particles")]
     public ParticleSystem summonParticle;
+    private EnemyStats stats;
 
     void Start()
     {
@@ -40,7 +42,7 @@ public class EnemySummoner : MonoBehaviour
         animator = GetComponent<Animator>();
 
         basePosition = transform.position;
-
+        stats = GetComponent<EnemyStats>();
         StartCoroutine(SummonLoop());
     }
 
@@ -67,8 +69,9 @@ public class EnemySummoner : MonoBehaviour
 
         if (dist < keepDistance)
         {
+            float currentSpeed = moveSpeed * stats.speedMultiplier;
             moveDir = -dir;
-            rb.linearVelocity = moveDir * moveSpeed;
+            rb.linearVelocity = moveDir * currentSpeed;
         }
         else
         {

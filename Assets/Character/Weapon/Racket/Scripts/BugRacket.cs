@@ -23,7 +23,7 @@ public class BugRacket : MonoBehaviour, IWeapon
     public GameObject beetleProjectile;
 
     List<BugType> storedBugs = new List<BugType>();
-    List<GameObject> storedBugObject = new List<GameObject>();
+    public List<GameObject> storedBugObject = new List<GameObject>();
 
 
     [Header("Cooldowns")]
@@ -55,22 +55,26 @@ public class BugRacket : MonoBehaviour, IWeapon
         playerMove = GetComponentInParent<PlayerMovement>();
     }
 
-    public void NormalAttack() // Catch Bugs
+    public bool NormalAttack() // Catch Bugs
     {
         if (Time.time >= nextCatchTime)
         {
             animator.SetTrigger("Swing");
             nextCatchTime = Time.time + catchCooldown;
+            return true;
         }
+        return false;
     }
 
-    public void SpecialAttack() 
+    public bool SpecialAttack() 
     {
         if (Time.time >= nextReleaseTime && storedBugs.Count > 0)
         {
             animator.SetTrigger("Release");
             nextReleaseTime = Time.time + releaseCooldown;
+            return true;
         }
+        return false;
     }
 
     public void ApplyCatch()

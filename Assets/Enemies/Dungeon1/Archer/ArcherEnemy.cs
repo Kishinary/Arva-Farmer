@@ -102,7 +102,8 @@ public class ArcherEnemy : MonoBehaviour
 
     void Orbiter()
     {
-        shadow.transform.position = Vector2.MoveTowards(shadow.transform.position, orbiter.transform.position, orbitSpeed * Time.deltaTime);
-        transform.position = Vector2.MoveTowards(transform.position, shadow.transform.position + new Vector3(0, 1.1f, 0), orbitSpeed * Time.deltaTime); 
+        float currentspeed = orbitSpeed * GetComponent<EnemyStats>().speedMultiplier;
+        shadow.transform.position = Vector2.MoveTowards(shadow.transform.position, orbiter.transform.position, currentspeed * Time.deltaTime);
+        transform.position = Vector2.MoveTowards(transform.position, shadow.transform.position + new Vector3(0, 1.1f, 0), currentspeed * Time.deltaTime); 
     }
 }

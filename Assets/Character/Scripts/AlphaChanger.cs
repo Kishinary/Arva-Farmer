@@ -2,38 +2,38 @@ using UnityEngine;
 
 public class AlphaChanger : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    public Collider2D bodyCollider;
+    public string obstructionTag = "Decorations";
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    [Header("Alpha Settings")]
+    [Range(0f, 1f)] public float transparentAlpha = 0.5f;
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D other)
     {
-        if (collision.CompareTag("Decorations"))
+        if (other.CompareTag("Decorations"))
         {
-            float timer = 0;
-            timer += Time.deltaTime;
-            Color TempColor = collision.GetComponent<Renderer>().material.color;
-            TempColor.a = Mathf.Lerp(1, 0.3f, timer / 0.1f);
-            collision.GetComponent<Renderer>().material.color = TempColor;
+            if (bodyCollider.IsTouching(other))
+            {
+                SpriteRenderer sr = other.GetComponent<SpriteRenderer>();
+                if (sr != null)
+                {
+                  Color curColor = sr.color;
+                    sr.color = new Color(curColor.r, curColor.g, curColor.b, transparentAlpha);
+                }
+            }
         }
     }
-    private void OnTriggerExit2D(Collider2D collision)
+
+    private void OnTriggerExit2D(Collider2D other)
     {
-        if (collision.CompareTag("Decorations"))
+        if (other.CompareTag("Decorations"))
         {
-            float timer = 0;
-            timer += Time.deltaTime;
-            Color TempColor = collision.GetComponent<Renderer>().material.color;
-            TempColor.a = Mathf.Lerp(1f, 2f, timer / 0.1f);
-            collision.GetComponent<Renderer>().material.color = TempColor;
+            SpriteRenderer sr = other.GetComponent<SpriteRenderer>();
+            if (sr != null)
+            {
+                Color curColor = sr.color;
+                sr.color = new Color(curColor.r, curColor.g, curColor.b, 1f);
+            }
         }
     }
 }

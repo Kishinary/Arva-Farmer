@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 796649130113868273}
   - component: {fileID: 6072911204477843084}
   - component: {fileID: -8079465630040853931}
+  - component: {fileID: 1500916382757597493}
   m_Layer: 7
   m_Name: Common
   m_TagString: Untagged
@@ -206,6 +207,22 @@ MonoBehaviour:
   player: {fileID: 0}
   radius: 2
   rotationSpeed: 120
+--- !u!114 &1500916382757597493
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3309490267925511256}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44c1a1712110e2a4199a0487f89d54fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 0.5
+  range: 0.8
+  hoverSpeed: 2
+  hoverAmount: 0.2
 --- !u!1 &7976445885786891083
 GameObject:
   m_ObjectHideFlags: 0

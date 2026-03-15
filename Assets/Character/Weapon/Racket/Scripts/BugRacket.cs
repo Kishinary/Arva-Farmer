@@ -118,6 +118,7 @@ public class BugRacket : MonoBehaviour, IWeapon
             if (bugScript != null)
             {
                 storedBugs.Add(bugScript.type);
+                bug.gameObject.GetComponent<BugMovement>().enabled = false;
                 bug.gameObject.GetComponent<Orbiter>().enabled = true;
                 storedBugObject.Add(bugScript.gameObject);
                 break;

@@ -1,0 +1,12 @@
+fileFormatVersion: 2
+guid: e88c299c90fcc9b478c803325c0656a6
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - enemySmallerStunIndicator: {fileID: 5801255692167919959, guid: 8dc78c5133f3b2b4ba63fe58c15ab85a, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

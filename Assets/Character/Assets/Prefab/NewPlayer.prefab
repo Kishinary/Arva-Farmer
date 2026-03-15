@@ -367,12 +367,7 @@ MonoBehaviour:
     m_Interactions: 
     m_SingletonActionBindings: []
     m_Flags: 0
-  shovel: {fileID: 0}
   weaponParent: {fileID: 0}
-  Pickaxe: {fileID: 0}
-  watercan: {fileID: 0}
-  scissors: {fileID: 0}
-  PlayerWeapon: 1
   isTalking: 0
   rockLaserBeam: {fileID: 0}
 --- !u!114 &2801642307190303101
@@ -1370,7 +1365,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2821783311030065784, guid: 6dc3e1130947c66439c6c8bc2e7580df, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2887755934665260456, guid: 6dc3e1130947c66439c6c8bc2e7580df, type: 3}
       propertyPath: player

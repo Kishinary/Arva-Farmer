@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -27,11 +27,13 @@ public class tractorGoingScript : MonoBehaviour
 
     [SerializeField] private LayerMask obstacleLayer;
 
+    public GameObject explodeParticleEffect;
+
     void Start()
     {
-        
-        
-        
+
+        Invoke("TriggerExplosion", lifeTime);
+
         player = GameObject.FindWithTag("Player");
         playerMovement = player.GetComponent<PlayerMovement>();
         animator = GetComponent<Animator>();
@@ -87,14 +89,24 @@ public class tractorGoingScript : MonoBehaviour
         }
         if (collision.name == "Wall" || collision.name == "Water")
         {
-            animator.SetBool("isExplode", true);
-            
+            TriggerExplosion();
+
+            CancelInvoke("TriggerExplosion");
+
         }
 
     }
-
+    public void TriggerExplosion()
+    {
+        animator.SetBool("isExplode", true);
+        speed = 0f;
+        Instantiate(explodeParticleEffect, transform.position, Quaternion.identity);
+    }
     public void DestroyAfterAnimation()
     {
+
+        
+
         Destroy(gameObject);
     }
 

@@ -1,4 +1,5 @@
 using System;
+using System.Collections; // Bắt buộc phải có để dùng IEnumerator
 using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
@@ -8,12 +9,14 @@ public class PlayerHealth : MonoBehaviour
     [Header("Stats")]
     [SerializeField] private float maxHealth = 100f;
 
+    [Header("Flash Effect")]
+    [SerializeField] private Material flashMaterial;
+    [SerializeField] private float flashDuration = 0.1f;
+
     [Header("Debug")]
     [SerializeField] private bool enableSpaceBarTest = false;
 
-    // --- THÊM DÒNG NÀY ĐỂ HẾT LỖI ---
     public static bool IsFirstLoad = true; 
-    // --------------------------------
 
     public static event Action<float, float> OnHealthChanged;
     public static event Action OnDied;
@@ -21,6 +24,10 @@ public class PlayerHealth : MonoBehaviour
     private float _currentHealth;
     public float MaxHealth => maxHealth;
     public float CurrentHealth => _currentHealth;
+
+    private SpriteRenderer spriteRenderer;
+    private Material originalMaterial;
+    private Coroutine flashRoutine;
 
     void Awake()
     {
@@ -33,6 +40,13 @@ public class PlayerHealth : MonoBehaviour
         DontDestroyOnLoad(gameObject);
 
         _currentHealth = maxHealth;
+        
+        // Nên lấy SpriteRenderer và Material gốc ở Awake để đảm bảo an toàn
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        if (spriteRenderer != null)
+        {
+            originalMaterial = spriteRenderer.material;
+        }
     }
 
     void Start()
@@ -50,16 +64,30 @@ public class PlayerHealth : MonoBehaviour
     {
         if (_currentHealth <= 0 || damage <= 0) return;
 
+        // Xử lý hiệu ứng nháy
+        if (flashMaterial != null && spriteRenderer != null)
+        {
+            if (flashRoutine != null) StopCoroutine(flashRoutine);
+            flashRoutine = StartCoroutine(FlashRoutine());
+        }
+    
         _currentHealth = Mathf.Max(_currentHealth - damage, 0);
         OnHealthChanged?.Invoke(_currentHealth, maxHealth);
 
         if (_currentHealth <= 0) OnDied?.Invoke();
     }
 
+    private IEnumerator FlashRoutine()
+    {
+        spriteRenderer.material = flashMaterial;
+        yield return new WaitForSeconds(flashDuration);
+        spriteRenderer.material = originalMaterial;
+        flashRoutine = null;
+    }
+
     public void Heal(float amount)
     {
         if (_currentHealth <= 0 || amount <= 0) return;
-
         _currentHealth = Mathf.Min(_currentHealth + amount, maxHealth);
         OnHealthChanged?.Invoke(_currentHealth, maxHealth);
     }

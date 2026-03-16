@@ -67,14 +67,18 @@ public class PlayerMovement : MonoBehaviour
     {
         if (activeSlowCoroutine != null)
         {
+            
             StopCoroutine(activeSlowCoroutine);
         }
+        
         activeSlowCoroutine = StartCoroutine(SlowRoutine(multiplier, duration));
     }
     private IEnumerator SlowRoutine(float multiplier, float duration)
     {
         movespeed = multiplier * originalSpeed;
+      
         yield return new WaitForSeconds(duration);
+
         movespeed = originalSpeed;
 
         activeSlowCoroutine = null;
@@ -99,7 +103,7 @@ public class PlayerMovement : MonoBehaviour
         mainCamera = Camera.main;
     }
 
-    public GameObject rockLaserBeam;
+    
 
 
     void Update()
@@ -185,11 +189,12 @@ public class PlayerMovement : MonoBehaviour
     {
         movespeed = 0;
         playerInput.DeactivateInput();
+        animator.SetBool("IsMoving", false); 
         Debug.Log("Input Disabled");
     }
     public void EnablePlayerInput()
     {
-        movespeed = 6f;
+        movespeed = originalSpeed;
         playerInput.ActivateInput();
         Debug.Log("Input Enabled");
     }

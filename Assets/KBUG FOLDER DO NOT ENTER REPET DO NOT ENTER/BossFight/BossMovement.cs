@@ -319,16 +319,8 @@ public class BossPhase2State : BossBaseState
     {
         if (boss.isActionLocked) return;
 
-        float duration = 0f;
-        if (combo.beatCount == 1 && hitIndex == 0)
-        {
-            duration = 1f + combo.beatTimes[hitIndex] - combo.beatTimes[hitIndex];
-        }
-
-        if (hitIndex < combo.beatCount - 1)
-        {
-            duration = combo.beatTimes[hitIndex + 1] - combo.beatTimes[hitIndex];
-        }
+        float duration = 0.5f;
+        
 
 
         if (combo.bandType == BandType.Kick)

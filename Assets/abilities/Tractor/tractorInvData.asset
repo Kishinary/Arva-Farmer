@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 293a99321ef16394c82654c02714b29d, type: 3}
+  m_Name: tractorInvData
+  m_EditorClassIdentifier: 
+  id: 1
+  itemName: tractor
+  itemIcon: {fileID: -4571828015118065507, guid: eb9eb96dc626c3847a92e7e6e5afdbcd, type: 3}
+  itemDescription: tractor test
+  maxStackSize: 64
+  itemPrefab: {fileID: 8384293969686541230, guid: 04afb223ce8eb7b4caf906a59adf535d, type: 3}
+  abilityScriptableObject: {fileID: 11400000, guid: ba457152a26b86c41ad5f49d207611f2, type: 2}

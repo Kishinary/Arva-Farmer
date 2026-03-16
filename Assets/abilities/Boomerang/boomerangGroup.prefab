@@ -183,8 +183,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -554137961
-  m_SortingLayer: 6
+  m_SortingLayerID: -70604381
+  m_SortingLayer: 7
   m_SortingOrder: 0
   m_Sprite: {fileID: -8992175993407916659, guid: e74442918725c924fb32f4401a59eac5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -429,11 +429,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 190c30b7aa493b8499e5e16f1b2d4d92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: Boomerang
+  itemData: {fileID: 0}
   quantity: 1
-  InInventorySprite: {fileID: 0}
-  itemDescription: I will comeback
-  abilityScriptableObject: {fileID: 11400000, guid: 7e047d024dbfa4a428d949a02472fca5, type: 2}
 --- !u!95 &5088094755097318302
 Animator:
   serializedVersion: 7

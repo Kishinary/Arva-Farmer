@@ -107,10 +107,9 @@ public class AbilityHolder : MonoBehaviour
         }
        
 
-        // Khi ĐANG GIỮ phím
         if (Input.GetKey(KeyCode.Space))
             {
-                // Bật lại indicator (nếu bạn đã ẩn nó đi lúc trước)
+                
                 
 
                 if (indicatorTarget != null && !indicatorTarget.activeSelf)
@@ -179,15 +178,16 @@ public class AbilityHolder : MonoBehaviour
     {
 
         float freezeDuration = 0.5f; 
-        float blinkInterval = 0.1f;  
+        float blinkInterval = 0.3f;  
         float timer = 0f;
 
 
         Color originalColor = sprite.color;
         Color flashColor = new Color(2f, 2f, 2f, 2f);
 
-        moveSpeedOrigin = movementScript.movespeed;
-        movementScript.movespeed = 0;
+
+
+        movementScript.ApplySlow(0f,freezeDuration);
 
        
         bool isFlashing = false;
@@ -201,7 +201,6 @@ public class AbilityHolder : MonoBehaviour
         }
 
 
-        movementScript.movespeed = moveSpeedOrigin;
         sprite.color = originalColor;
 
 

@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 293a99321ef16394c82654c02714b29d, type: 3}
+  m_Name: stunInv
+  m_EditorClassIdentifier: 
+  id: 
+  itemName: StunEnemy
+  itemIcon: {fileID: 21300000, guid: ed184a2883902d847a027af94f40c2e6, type: 3}
+  itemDescription: Make enemy slows
+  maxStackSize: 64
+  itemPrefab: {fileID: 26655022856714795, guid: d6cdaf83ebf06ce45bcfb44c37e7a504, type: 3}
+  abilityScriptableObject: {fileID: 11400000, guid: c339ed2a00557864d8dc77ab80b6f2fb, type: 2}

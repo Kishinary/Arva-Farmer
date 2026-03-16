@@ -27,7 +27,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.4162, y: 0.8836, z: -0.05}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2584128891213884003}
@@ -116,7 +116,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -2.4572868, y: -1.0175734, z: -0.04218699}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1836007511521271753}
@@ -208,11 +208,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 190c30b7aa493b8499e5e16f1b2d4d92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: teleport
+  itemData: {fileID: 11400000, guid: 89880e2bc9955a94bb6d9e1b7d1961ea, type: 2}
   quantity: 1
-  InInventorySprite: {fileID: -2690792559708188323, guid: 20cc92ab1476d3c40a644f4f92680cea, type: 3}
-  itemDescription: Teleportalll
-  abilityScriptableObject: {fileID: 11400000, guid: ba457152a26b86c41ad5f49d207611f2, type: 2}
 --- !u!1 &8789159910393996915
 GameObject:
   m_ObjectHideFlags: 0

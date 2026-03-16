@@ -9,6 +9,9 @@ public class WeaponParent : MonoBehaviour
 
     public bool isSwinging = false;
     public IWeapon currentWeapon;
+
+
+
     void Start()
     {
         weaponPosition = GetComponentInChildren<Transform>();
@@ -16,7 +19,7 @@ public class WeaponParent : MonoBehaviour
 
         if (currentWeapon == null)
         {
-            Debug.LogError("No weapon implementing IWeapon found!");
+            Debug.Log("No weapon implementing IWeapon found!");
             return;
         }
 

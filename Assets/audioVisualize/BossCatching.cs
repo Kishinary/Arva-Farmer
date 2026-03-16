@@ -7,9 +7,9 @@ using UnityEngine;
 public enum BandType { Kick = 0, Bass = 1, LowMid = 2, HighMid = 3, Treble = 4 }
 public struct BossCombo
 {
-    public BandType bandType;    // Bổ sung: Cho biết Combo này thuộc dải tần nào
-    public int beatCount;        // Tổng số nhịp (3 hoặc 5)
-    public float[] beatTimes;    // Mảng thời gian của từng nhịp
+    public BandType bandType;    
+    public int beatCount;       
+    public float[] beatTimes;   
     public int comboID;
 }
 public class BossCatching : MonoBehaviour
@@ -166,17 +166,17 @@ public class BossCatching : MonoBehaviour
             if (comboQueues[band].Count == 0) continue;
             BossCombo activeCombo = comboQueues[band].Peek();
 
-            int bIndex = currentBeatIndices[band]; // Tiến độ của dải tần này
+            int bIndex = currentBeatIndices[band];
 
             if (bIndex < activeCombo.beatCount)
             {
                 float telegraphTime = activeCombo.beatTimes[bIndex] - warningTime;
                 if (currentTime >= telegraphTime)
                 {
-                    // Gọi hàm xử lý tung chiêu. Lúc này lệnh được phát ra SỚM hơn nhịp thật.
+                    
                     ExecuteAttack(activeCombo, bIndex);
 
-                    // Tiến lên nhịp tiếp theo của dải này
+                   
                     currentBeatIndices[band]++;
                 }
 
@@ -203,33 +203,33 @@ public class BossCatching : MonoBehaviour
         {
             case BandType.Kick:
                 Instantiate(particlePrefab, new Vector3(0, 0, 0), Quaternion.identity);
-                
+
                 break;
             case BandType.Bass:
                 Instantiate(particlePrefab, new Vector3(2, 0, 0), Quaternion.identity);
-               
+
                 break;
             case BandType.LowMid:
                 Instantiate(particlePrefab, new Vector3(4, 0, 0), Quaternion.identity);
-                
+
                 break;
             case BandType.HighMid:
                 Instantiate(particlePrefab, new Vector3(6, 0, 0), Quaternion.identity);
-                
+
                 break;
             case BandType.Treble:
                 Instantiate(particlePrefab, new Vector3(8, 0, 0), Quaternion.identity);
-               
+
                 break;
         }*/
     }
     private void PrintAllCombosToConsole()
     {
-        // Khởi tạo StringBuilder để nối chuỗi cực nhanh
+
         StringBuilder sb = new StringBuilder();
         int totalCombos = 0;
 
-        sb.AppendLine("=== THỐNG KÊ SỐ LƯỢNG COMBO THEO TỪNG DẢI TẦN ===");
+        sb.AppendLine("THỐNG KÊ SỐ LƯỢNG COMBO THEO TỪNG DẢI TẦN ");
 
         // Duyệt qua 5 dải tần
         for (int band = 0; band < 5; band++)

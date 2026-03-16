@@ -37,10 +37,11 @@ public class CineCamera : MonoBehaviour
 
     private void Start()
     {
-        endZoomSize = Camera.main.orthographicSize;
+        endZoomSize = m_Camera.Lens.OrthographicSize;
         GameObject player = GameObject.FindWithTag("Player");
         if (player != null && following) m_Camera.Follow = player.transform;
         else Debug.LogWarning("CineCamera: No Player found with tag 'Player'.");
+        m_Camera.Follow = null;
         StartCoroutine(StartSequence());
     }
 
@@ -77,7 +78,7 @@ public class CineCamera : MonoBehaviour
             case "Scissors": RequestShake(3f, 0.04f); break;
             case "Watercan": RequestShake(4f, 0.10f); break;
             case "Slash": RequestShake(3.3f, 0.06f); break;
-            case "ShovelNormal": RequestShake(4.0f, 0.08f); break;
+            case "ShovelNormal": RequestShake(6f, 0.08f); break;
             case "ShovelSpecial": RequestShake(6.0f, 0.15f); break;
             case "TakeDamage": RequestShake(8.0f, 0.20f); break;
             case "EnemyHit": RequestShake(2.5f, 0.05f); break;
@@ -88,31 +89,36 @@ public class CineCamera : MonoBehaviour
 
     IEnumerator StartSequence()
     {
-        m_Camera.ForceCameraPosition(m_Camera.Follow.position, Quaternion.identity);
-        m_Camera.Lens.OrthographicSize = 2f;
+        Transform player = GameObject.FindWithTag("Player").transform;
+
+        // Snap camera to player at start
+        m_Camera.ForceCameraPosition(player.position - new Vector3(0,0, 10f), Quaternion.identity);
+
+        m_Camera.Lens.OrthographicSize = startZoomSize;
 
         if (confiner != null)
-        {
             confiner.InvalidateBoundingShapeCache();
-        }
 
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(initialDelay);
 
-        // 3. Smooth Zoom Out
         float timer = 0f;
-        float duration = 1f;
-        while (timer < duration)
+
+        while (timer < zoomOutDuration)
         {
             timer += Time.deltaTime;
-            float t = Mathf.SmoothStep(0, 1, timer / duration);
-            m_Camera.Lens.OrthographicSize = Mathf.Lerp(2f, 7f, t);
 
+            float t = Mathf.SmoothStep(0, 1, timer / zoomOutDuration);
+
+            m_Camera.Lens.OrthographicSize =
+                Mathf.Lerp(startZoomSize, endZoomSize, t);
 
             yield return null;
         }
+
+        // Enable follow AFTER zoom
+        m_Camera.Follow = player;
+
         if (confiner != null)
-        {
             confiner.InvalidateBoundingShapeCache();
-        }
     }
 }

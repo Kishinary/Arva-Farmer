@@ -20,11 +20,10 @@ public class Spawner : MonoBehaviour
     public Transform PlayerSpawn;
 
     [Header("UI & Victory Logic")]
-    [Tooltip("Kéo Prefab WinningCanvas vào đây")]
     public GameObject winningCanvasPrefab; 
     
-    public bool goable = false; // Trạng thái đã dọn sạch phòng
-    private bool startCounting = false; // Chỉ bắt đầu đếm sau khi quái đã spawn
+    public bool goable = false; 
+    private bool startCounting = false;
     private string NextScene;
 
     [Header("Racket")]
@@ -33,6 +32,9 @@ public class Spawner : MonoBehaviour
     private List<GameObject> activeFireflies = new List<GameObject>();
 
     public GameObject Notifi;
+
+    [Header("Spawn")]
+    public GameObject spawnAni;
     void Start()
     {
         // 1. Chặn script chạy ở các Scene không phải màn chơi chính
@@ -42,7 +44,7 @@ public class Spawner : MonoBehaviour
         int rand = Random.Range(0, 10);
         StartCoroutine(SpawnStarter(rand));
         Player = FindFirstObjectByType<BugRacket>();
-        if (Player.GetComponent<BugRacket>())
+        if (Player)
         {
             spawnable = true;
         }
@@ -50,34 +52,36 @@ public class Spawner : MonoBehaviour
 
     private void Update()
     {
-        // Kiểm tra Scene hợp lệ
+        FireflyPopulation();
+
+        // Combined Logic: Only run if we haven't already finished (goable is false)
+        if (!goable && startCounting)
+        {
+            SceneChecker();
+        }
+    }
+
+    private void SceneChecker()
+    {
+        // 1. Safety Check
         if (IsRestrictedScene()) return;
 
-        // Chỉ kiểm tra quái sau khi kết thúc 1.5s chờ ở Coroutine
-        if (!startCounting) return;
-
-        // Tìm quái vật hiện có trong Scene
+        // 2. Check if enemies still exist
         EnemyStats enemyManager = FindFirstObjectByType<EnemyStats>();
 
-        // Logic xuất hiện Winning Canvas: Hết quái + Chưa từng hiện bảng
-        if (enemyManager == null && !goable)
+        // 3. If NO enemies are left
+        if (enemyManager == null)
         {
-            NextScene = FindFirstObjectByType<DungeonSpawner>().NextScene;
-            if (NextScene != null && goable == false && startCounting) {
-                goable = true;
-                Instantiate(Notifi);
-            }
-            return;
-        }
-        FireflyPopulation();
-        DungeonSpawner dSpawner = FindFirstObjectByType<DungeonSpawner>();
-        if (dSpawner != null)
-        {
-            NextScene = dSpawner.NextScene;
+            DungeonSpawner dSpawner = FindFirstObjectByType<DungeonSpawner>();
 
-            if (!string.IsNullOrEmpty(NextScene))
+            // 4. Check if the Dungeon Spawner has prepared the next level
+            if (dSpawner != null && !string.IsNullOrEmpty(dSpawner.NextScene))
             {
-                goable = true; // Đánh dấu đã xong để không Instantiate liên tục
+                NextScene = dSpawner.NextScene;
+                goable = true; // Mark as finished
+
+                // Trigger your UI
+                Instantiate(Notifi);
                 ShowWinningNotification();
             }
         }
@@ -173,7 +177,7 @@ public class Spawner : MonoBehaviour
     IEnumerator SpawnStarter(float rand)
     {
         // Đợi 1.5s để Scene ổn định và tránh lỗi "vừa vào đã hiện"
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(2f);
         
         Instantiating((int)rand);
 
@@ -207,6 +211,7 @@ public class Spawner : MonoBehaviour
         {
             Vector2 spawnPos = RandomSpawnPosition();
             Instantiate(summonedObject, new Vector3(spawnPos.x, spawnPos.y, 0), Quaternion.identity);
+            Instantiate(spawnAni, new Vector3(spawnPos.x, spawnPos.y -0.5f, 0), Quaternion.identity);
         }
     }
 
@@ -218,13 +223,11 @@ public class Spawner : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        // Khi đã thắng (goable = true) và Player chạm vào Portal/Vùng chuyển cảnh
         if (goable && collision.CompareTag("Player"))
         {
             SceneManager.LoadScene(NextScene);
         }
     }
-    // Hàm lọc các Scene không muốn chạy logic thắng/thua
     bool IsRestrictedScene()
     {
         string currentName = SceneManager.GetActiveScene().name.ToLower();

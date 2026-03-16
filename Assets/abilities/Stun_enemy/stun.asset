@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: stun
   m_EditorClassIdentifier: 
   name: stunSkills
-  cooldownTime: 7
+  cooldownTime: 5
   activeTime: 1
   transform: {fileID: 7055012157935674578, guid: fea627461bdbda441aca5ee78addc822, type: 3}
   stunIndicator: {fileID: 5801255692167919959, guid: 8dc78c5133f3b2b4ba63fe58c15ab85a, type: 3}

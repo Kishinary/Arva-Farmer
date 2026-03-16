@@ -483,7 +483,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 822c41bea48c4bb4da046b40b617a755, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 4500
+  health: 2000
   maxHealth: 0
   invincible: 0
   invincibilityDuration: 0.02
@@ -664,7 +664,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 2539110795649395323, guid: 251da7cc0d16f404db08b50b15583f84, type: 3}
   bulletSpeed: 6
-  bulletCount: 5
+  bulletCount: 3
 --- !u!114 &2918939621575019791
 MonoBehaviour:
   m_ObjectHideFlags: 0

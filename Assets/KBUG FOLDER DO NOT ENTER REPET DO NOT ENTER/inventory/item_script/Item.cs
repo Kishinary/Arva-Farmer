@@ -1,91 +1,80 @@
 ﻿using UnityEngine;
 
+
+[RequireComponent(typeof(Collider2D))]
 public class Item : MonoBehaviour
 {
-    [SerializeField]
-    private string itemName;
+    [Header("Item Config")]
+    [SerializeField] private ItemData itemData; 
+    [SerializeField] private int quantity = 1;
 
-    [SerializeField]
-    private int quantity;
+    [SerializeField] private float floatSpeed = 3f;
+    private float floatHeight = 0.15f;
 
-    [SerializeField]
-    private Sprite InInventorySprite;
+    private Vector3 _startPos;
 
-    [TextArea]
-    [SerializeField] 
-    private string itemDescription;
+  
 
-    [SerializeField]
-    private Ability abilityScriptableObject;
-
-
-
-    private inventoryManager inventoryManager;
-
-    
-
-    void Start()
+    private void Start()
     {
-
-        GameObject canvasObj = GameObject.Find("inventory_canvas");
-        if (canvasObj != null)
-        {
-            inventoryManager = canvasObj.GetComponent<inventoryManager>();
-        }else
-        {
-                       Debug.LogError("inventoryManager not found on inventory_canvas!");
-        }
+        _startPos = transform.position;
     }
-    
 
+    private void Update()
+    {
+        float newY = _startPos.y + Mathf.Sin(Time.time * floatSpeed) * floatHeight;
+
+       
+        transform.position = new Vector3(_startPos.x, newY, _startPos.z);
+
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.CompareTag("Player") && inventoryManager != null)
+        if (collision.CompareTag("Player"))
         {
-            Debug.Log("Player collided with item: " + itemName);
-
-
-            int leftOverItems = inventoryManager.AddItem(itemName, quantity, InInventorySprite, itemDescription);
             
-            if (leftOverItems <= 0)
+
+            int leftOver = InventoryManager.Instance.AddItem(itemData, quantity);
+            
+            if (leftOver <= 0)
             {
-                AbilityHolder abilityHolder = collision.GetComponent<AbilityHolder>();
-                if (abilityHolder != null && abilityScriptableObject != null)
+
+                if (itemData.abilityScriptableObject != null)
                 {
-                    
-                    EquipAbilityToPlayer(abilityHolder);
+                    AbilityHolder abilityHolder = collision.GetComponent<AbilityHolder>();
+                    if (abilityHolder != null)
+                    {
+                        EquipAbilityToPlayer(abilityHolder);
+                    }
                 }
-
-
-                GetComponent<Collider2D>().enabled = false;
                 Destroy(gameObject);
             }
             else
             {
-                quantity = leftOverItems;
+                
+                quantity = leftOver;
             }
+
+
         }
     }
     private void EquipAbilityToPlayer(AbilityHolder holder)
     {
         bool isEquipped = false;
-        
         for (int i = 0; i < holder.abilities.Length; i++)
         {
-            
             if (holder.abilities[i].ability == null)
             {
-                holder.abilities[i].ability = abilityScriptableObject;
-
+                holder.abilities[i].ability = itemData.abilityScriptableObject;
                 isEquipped = true;
                 
                 break;
             }
         }
+
         if (!isEquipped)
         {
-            Debug.LogWarning("Cant equip more!");
-            
+            Debug.LogWarning("CantEquipt, full!");
         }
     }
 

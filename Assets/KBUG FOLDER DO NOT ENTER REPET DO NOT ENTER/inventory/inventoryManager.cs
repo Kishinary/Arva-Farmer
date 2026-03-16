@@ -1,98 +1,135 @@
-using UnityEngine;
+﻿using UnityEngine;
+using DG.Tweening;
 
-public class inventoryManager : MonoBehaviour
+public class InventoryManager : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    public static InventoryManager Instance { get; private set; }
 
-    public GameObject InventoryMenu;
-    private bool menuActivated;
-    public ItemSlot[] itemSlot;
+    [Header("UI References")]
 
-    void Start()
+
+    public GameObject blackScreen;
+
+  
+
+    [Header("UI Animation")]
+    public RectTransform inventoryPanel;
+    public float animDuration = 0.4f;
+
+    public ItemSlot[] itemSlots;
+
+    private bool _menuActivated;
+
+  
+    private GameObject player;
+    private PlayerMovement playerMovement;
+
+    private void Awake()
     {
-        InventoryMenu.SetActive(false);
+        if (Instance != null && Instance != this)
+        {
+            Destroy(this.gameObject);
+            return;
+        }
+
+        Instance = this;
     }
-
-    // Update is called once per frame
-    void Update()
+    private void Start()
     {
-        
+        player = GameObject.FindWithTag("Player");
+
+
+        for (int i = 0; i < itemSlots.Length; i++)
+        {
+            itemSlots[i].InitializeSlot();
+        }
+
+        if (itemSlots.Length > 0)
+        {
+            itemSlots[0].ClearDescription();
+        }
+
+
+
+        blackScreen.SetActive(false);
+        _menuActivated = false;
+
+        inventoryPanel.gameObject.SetActive(false);
+
+        inventoryPanel.anchoredPosition = new Vector2(inventoryPanel.anchoredPosition.x, -1000f);
+
+        if (playerMovement == null)
+        {
+            playerMovement = player.GetComponent<PlayerMovement>();
+        }
+    }
+    private void Update()
+    {
+      
         if (Input.GetButtonDown("Inventory"))
         {
-            
+            _menuActivated = !_menuActivated;
 
-            //turn on || off inventory menu
-            if (menuActivated)
+            inventoryPanel.DOKill();
+
+            blackScreen.SetActive(_menuActivated);
+
+            if (playerMovement != null)
             {
-                
-                InventoryMenu.SetActive(false);
-                menuActivated = false;
-                // turn off inventory
-            }
-            else
-            {
-                
-                
-                InventoryMenu.SetActive(true);
-                menuActivated = true;
-                // turn on inventory
-            }
+                if (_menuActivated)
+                {
+                    inventoryPanel.gameObject.SetActive(true);
 
+                    inventoryPanel.anchoredPosition = new Vector2(inventoryPanel.anchoredPosition.x, -1000f);
 
+                    inventoryPanel.DOAnchorPosY(0f, animDuration).SetEase(Ease.OutBack).SetUpdate(true);
+                    playerMovement.DisablePlayerInput();
+                }
+                else
+                {
+                    inventoryPanel.DOAnchorPosY(-1000f, animDuration).SetEase(Ease.InBack).SetUpdate(true).OnComplete(() =>
+                    {
+                        inventoryPanel.gameObject.SetActive(false);
+                    });
+
+                    playerMovement.EnablePlayerInput();
+                }
+            }
         }
-       
         
     }
-
-    public int AddItem(string itemName, int quantity, Sprite itemSprite, string itemDescription)
+    public int AddItem(ItemData itemData, int amount)
     {
-        for (int i = 0; i < itemSlot.Length; i++)
+        int leftoverAmount = amount;
+        for (int i = 0; i < itemSlots.Length; i++)
         {
-           
-            if (itemSlot[i].isFull == false && itemSlot[i].itemName == itemName || itemSlot[i].quantity == 0)
+            if (!itemSlots[i].IsFull() && itemSlots[i].GetItemData() == itemData)
             {
-                int leftOverItems = itemSlot[i].AddItem(itemName, quantity, itemSprite, itemDescription);
-                
-                if (leftOverItems > 0)
-                {
-
-
-                    leftOverItems = AddItem(itemName, leftOverItems, itemSprite, itemDescription);
-                   
-
-
-                }
-                
-                return leftOverItems;
-                
-
-
-
+                leftoverAmount = itemSlots[i].AddItem(itemData, leftoverAmount);
+                if (leftoverAmount <= 0) return 0; 
             }
         }
-       
-        return quantity;
+        if (leftoverAmount > 0)
+        {
+            for (int i = 0; i < itemSlots.Length; i++)
+            {
+                if (itemSlots[i].IsEmpty())
+                {
+                    leftoverAmount = itemSlots[i].AddItem(itemData, leftoverAmount);
+                    if (leftoverAmount <= 0) return 0; 
+                }
+            }
+        }
+
+        return leftoverAmount;
+
     }
-
-
     public void DeselectAllSlots()
     {
-        for (int i = 0; i < itemSlot.Length; i++)
+        for (int i = 0; i < itemSlots.Length; i++)
         {
-            itemSlot[i].selectedShader.SetActive(false);
-            itemSlot[i].thisItemSelected = false;
+            itemSlots[i].Deselect();
         }
     }
-
-
-
-
-
-
-
-
-
-
-
 
 }

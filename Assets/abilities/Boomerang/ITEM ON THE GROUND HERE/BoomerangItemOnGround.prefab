@@ -28,13 +28,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 26655022856714795}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1.4572868, y: -4.0175734, z: -0.04218699}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 855785362789856360}
   - {fileID: 145801451984898263}
+  - {fileID: 855785362789856360}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &8686856802059619556
@@ -122,11 +122,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 190c30b7aa493b8499e5e16f1b2d4d92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: Boomerang
+  itemData: {fileID: 11400000, guid: f0cc463e9bba533489d2d52d66d1b7e8, type: 2}
   quantity: 1
-  InInventorySprite: {fileID: 0}
-  itemDescription: I will comeback
-  abilityScriptableObject: {fileID: 11400000, guid: 7e047d024dbfa4a428d949a02472fca5, type: 2}
 --- !u!95 &5517136607141034590
 Animator:
   serializedVersion: 7
@@ -201,7 +198,7 @@ SpriteRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
@@ -222,9 +219,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -554137961
-  m_SortingLayer: 6
-  m_SortingOrder: 0
+  m_SortingLayerID: 648175891
+  m_SortingLayer: 5
+  m_SortingOrder: -1
   m_Sprite: {fileID: -2784270819266107061, guid: 0ab00b186f48daf4ebf4966931440b3b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -235,7 +232,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
+  m_SpriteSortPoint: 1
 --- !u!1 &7398221538506004931
 GameObject:
   m_ObjectHideFlags: 0
@@ -288,7 +285,7 @@ SpriteRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
@@ -311,7 +308,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -554137961
   m_SortingLayer: 6
-  m_SortingOrder: 1
+  m_SortingOrder: 0
   m_Sprite: {fileID: -8992175993407916659, guid: e74442918725c924fb32f4401a59eac5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -322,4 +319,4 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
+  m_SpriteSortPoint: 1

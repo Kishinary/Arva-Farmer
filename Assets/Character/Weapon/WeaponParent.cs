@@ -9,6 +9,9 @@ public class WeaponParent : MonoBehaviour
 
     public bool isSwinging = false;
     public IWeapon currentWeapon;
+
+
+
     void Start()
     {
         weaponPosition = GetComponentInChildren<Transform>();

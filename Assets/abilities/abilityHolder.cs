@@ -178,7 +178,7 @@ public class AbilityHolder : MonoBehaviour
     private IEnumerator TeleportRecoveryRoutine(SpriteRenderer sprite, Rigidbody2D rb)
     {
 
-        float freezeDuration = 0.5f; 
+        float freezeDuration = 0.2f; 
         float blinkInterval = 0.1f;  
         float timer = 0f;
 
@@ -186,8 +186,9 @@ public class AbilityHolder : MonoBehaviour
         Color originalColor = sprite.color;
         Color flashColor = new Color(2f, 2f, 2f, 2f);
 
-        moveSpeedOrigin = movementScript.movespeed;
-        movementScript.movespeed = 0;
+
+
+        movementScript.ApplySlow(0f,freezeDuration);
 
        
         bool isFlashing = false;
@@ -201,7 +202,6 @@ public class AbilityHolder : MonoBehaviour
         }
 
 
-        movementScript.movespeed = moveSpeedOrigin;
         sprite.color = originalColor;
 
 

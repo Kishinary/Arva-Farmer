@@ -1,136 +1,162 @@
-using UnityEngine;
+﻿using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
-using System;
-
 
 public class ItemSlot : MonoBehaviour, IPointerClickHandler
 {
-    //===============ITEM DATA===============//
-    public string itemName;
-    public int quantity;
-    public Sprite itemSprite;
-    public bool isFull;
-    public string itemDescription;
-    [SerializeField]
-    private int maxNumberOfItems;
+    [Header("Slot Data")]
+    private ItemData itemData;
+    private int quantity;
 
+    [Header("Slot UI")]
+    [SerializeField] private TMP_Text quantityText;
+    [SerializeField] private Image itemImage;
+    [SerializeField] private GameObject selectedShader;
 
-   
+    [Header("Description UI")]
+    [SerializeField] private Image itemDescriptionImage;
+    [SerializeField] private TMP_Text itemDescriptionNameText;
+    [SerializeField] private TMP_Text itemDescriptionText;
 
+    private bool thisItemSelected;
 
-    //===============ITEM SLOT===============//
     
-    public TMP_Text quantityText;
-
-    [SerializeField]
-    private Image itemImage;
-
-
-    //===============ITEM DESCRIPTION SLOT===============//
-    public Image itemDescriptionImage;
-    public TMP_Text itemDescriptionNameText;
-    public TMP_Text itemDescriptionText;
-
-    //===============nothing===============//
-    public GameObject selectedShader;
-
-    public bool thisItemSelected;
-
-    private inventoryManager inventoryManager;
-
-    private void Start()
+    public void InitializeSlot()
     {
-        inventoryManager = GameObject.Find("inventory_canvas").GetComponent<inventoryManager>();
+        EmptySlot();
     }
 
+    public bool IsEmpty() => itemData == null;
+    public bool IsFull() => itemData != null && quantity >= itemData.maxStackSize;
+    public ItemData GetItemData() => itemData;
 
-
-
-    public int AddItem(string itemName, int quantity, Sprite itemSprite, string itemDescription)
+    public int AddItem(ItemData newData, int amountToAdd)
     {
-        //check if the itemslot is full 
-        if (isFull)
+        if (IsEmpty())
         {
-            
-            return quantity;
+            itemData = newData;
+            itemImage.sprite = itemData.itemIcon;
+            itemImage.enabled = true;
         }
-        //Update Name
-        this.itemName = itemName;
-        
-
-
-        //Update Sprite
-        this.itemSprite = itemSprite;
-        itemImage.sprite = this.itemSprite;
-
-
-
-        //Update description
-        this.itemDescription = itemDescription;
-        
-
-
-        //Update quantity
-        this.quantity += quantity;
-        if (this.quantity >= maxNumberOfItems)
+        quantity += amountToAdd;
+        if (quantity >= itemData.maxStackSize)
         {
-            quantityText.text = maxNumberOfItems.ToString();
-            quantityText.enabled = true;
-            isFull = true;
+            int extraItems = quantity - itemData.maxStackSize;
+            quantity = itemData.maxStackSize;
 
-
-
-
-            //Return the LEFTOVER
-            int extraItems = this.quantity - maxNumberOfItems;
-            this.quantity = maxNumberOfItems;
+            UpdateUI();
             return extraItems;
         }
-        //Update Quantity Text
-        quantityText.text = this.quantity.ToString();
-        quantityText.enabled = true;
-        
-
-
-
+        UpdateUI();
         return 0;
 
-    }
 
+    }
     public void OnPointerClick(PointerEventData eventData)
     {
-        if(eventData.button == PointerEventData.InputButton.Left)
+        if (eventData.button == PointerEventData.InputButton.Left)
         {
-            //Debug.Log("Left Clicked");
+            
             OnLeftClick();
         }
-        if (eventData.button == PointerEventData.InputButton.Right)
+        else if (eventData.button == PointerEventData.InputButton.Right)
         {
-            //Debug.Log("Right Clicked");
+          
             OnRightClick();
         }
     }
 
-
-
     public void OnLeftClick()
     {
-        inventoryManager.DeselectAllSlots();
+        if (IsEmpty()) return;
+        InventoryManager.Instance.DeselectAllSlots();
+
         selectedShader.SetActive(true);
         thisItemSelected = true;
-        itemDescriptionNameText.text = itemName;
-        itemDescriptionText.text = itemDescription;
+        itemDescriptionNameText.text = itemData.itemName;
+        itemDescriptionText.text = itemData.itemDescription;
+        itemDescriptionImage.sprite = itemData.itemIcon;
+        itemDescriptionImage.enabled = true;
 
-        itemDescriptionImage.sprite = itemSprite;
-            
-        
-        
-        }
-
+    }
     public void OnRightClick()
     {
-        Debug.Log("Right Clicked");
+        if (!IsEmpty() && itemData.itemPrefab != null)
+        {
+            if (quantity == 1 && itemData.abilityScriptableObject != null)
+            {
+                RemoveAbilityFromPlayer(itemData.abilityScriptableObject);
+            }
+
+            quantity--;
+            UpdateUI();
+            GameObject player = GameObject.FindGameObjectWithTag("Player");
+            if (player != null)
+            {
+                
+                Vector3 dropOffset = new Vector3(Random.Range(-0.5f, 0.5f), Random.Range(-0.5f, 0.5f), 0);
+                Instantiate(itemData.itemPrefab, player.transform.position + dropOffset, Quaternion.identity);
+            }
+            else
+            {
+                Debug.LogWarning("No player detected");
+            }
+
+            if (quantity <= 0)
+            {
+                EmptySlot();
+            }
+        }
     }
+
+    private void RemoveAbilityFromPlayer(Ability abilityToRemove)
+    {
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        AbilityHolder holder = player.GetComponent<AbilityHolder>();
+        for (int i = 0; i < holder.abilities.Length; i++)
+        {
+            if (holder.abilities[i].ability == abilityToRemove)
+            {
+                holder.abilities[i].ability = null;
+                holder.abilities[i].state = AbilityHolder.AbilityState.ready;
+                holder.abilities[i].cooldownTime = 0;
+                holder.abilities[i].activeTime = 0;
+                break;
+            }
+        }
+    }
+    public void Deselect()
+    {
+        selectedShader.SetActive(false);
+        thisItemSelected = false;
+    }
+    private void EmptySlot()
+    {
+        itemData = null;
+        quantity = 0;
+
+        itemImage.sprite = null;
+        itemImage.enabled = false;
+        quantityText.enabled = false;
+
+        if (thisItemSelected)
+        {
+            ClearDescription();
+        }
+    }
+    private void UpdateUI()
+    {
+        quantityText.text = quantity.ToString();
+        quantityText.enabled = true;
+    }
+    public void ClearDescription()
+    {
+        itemDescriptionNameText.text = "";
+        itemDescriptionText.text = "";
+        itemDescriptionImage.sprite = null;
+        itemDescriptionImage.enabled = false; 
+    }
+
+
 }

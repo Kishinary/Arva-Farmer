@@ -173,11 +173,13 @@ public class Spawner : MonoBehaviour
     IEnumerator SpawnStarter(float rand)
     {
         // Đợi 1.5s để Scene ổn định và tránh lỗi "vừa vào đã hiện"
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(0.5f);
         
         Instantiating((int)rand);
-        
+
         // Sau khi gọi hàm tạo quái xong, mới cho phép Update quét quái
+        yield return new WaitForSeconds(1.5f);
+
         startCounting = true;
     }
 

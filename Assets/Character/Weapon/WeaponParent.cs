@@ -16,7 +16,7 @@ public class WeaponParent : MonoBehaviour
 
         if (currentWeapon == null)
         {
-            Debug.LogError("No weapon implementing IWeapon found!");
+            Debug.Log("No weapon implementing IWeapon found!");
             return;
         }
 

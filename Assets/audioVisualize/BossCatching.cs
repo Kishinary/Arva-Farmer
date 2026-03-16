@@ -7,9 +7,9 @@ using UnityEngine;
 public enum BandType { Kick = 0, Bass = 1, LowMid = 2, HighMid = 3, Treble = 4 }
 public struct BossCombo
 {
-    public BandType bandType;    // Bổ sung: Cho biết Combo này thuộc dải tần nào
-    public int beatCount;        // Tổng số nhịp (3 hoặc 5)
-    public float[] beatTimes;    // Mảng thời gian của từng nhịp
+    public BandType bandType;    
+    public int beatCount;       
+    public float[] beatTimes;   
     public int comboID;
 }
 public class BossCatching : MonoBehaviour
@@ -199,7 +199,7 @@ public class BossCatching : MonoBehaviour
 
         OnBossAttackTriggered?.Invoke(combo, currentHitIndex);
 
-        switch (combo.bandType)
+        /*switch (combo.bandType)
         {
             case BandType.Kick:
                 Instantiate(particlePrefab, new Vector3(0, 0, 0), Quaternion.identity);
@@ -221,11 +221,11 @@ public class BossCatching : MonoBehaviour
                 Instantiate(particlePrefab, new Vector3(8, 0, 0), Quaternion.identity);
 
                 break;
-        }
+        }*/
     }
     private void PrintAllCombosToConsole()
     {
-        // Khởi tạo StringBuilder để nối chuỗi cực nhanh
+
         StringBuilder sb = new StringBuilder();
         int totalCombos = 0;
 

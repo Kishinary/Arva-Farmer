@@ -23,8 +23,6 @@ public class Item : MonoBehaviour
     private void Update()
     {
         float newY = _startPos.y + Mathf.Sin(Time.time * floatSpeed) * floatHeight;
-
-       
         transform.position = new Vector3(_startPos.x, newY, _startPos.z);
 
     }

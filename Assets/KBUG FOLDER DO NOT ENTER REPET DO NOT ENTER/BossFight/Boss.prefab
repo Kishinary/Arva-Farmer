@@ -483,7 +483,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 822c41bea48c4bb4da046b40b617a755, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 2000
+  health: 4000
   maxHealth: 0
   invincible: 0
   invincibilityDuration: 0.02
@@ -998,7 +998,7 @@ PrefabInstance:
     - target: {fileID: 1896434134751253953, guid: 9536ad46f520d844694047c18890e436, type: 3}
       propertyPath: songToAnalyze
       value: 
-      objectReference: {fileID: 8300000, guid: ff322cb352e4f064a8efa0914437d33e, type: 3}
+      objectReference: {fileID: 8300000, guid: 659dc95811ce2534c896f8c133635837, type: 3}
     - target: {fileID: 1896434134751253953, guid: 9536ad46f520d844694047c18890e436, type: 3}
       propertyPath: showVisualizer
       value: 1
@@ -1066,7 +1066,7 @@ PrefabInstance:
     - target: {fileID: 6571809235210285382, guid: 9536ad46f520d844694047c18890e436, type: 3}
       propertyPath: m_Resource
       value: 
-      objectReference: {fileID: 8300000, guid: ff322cb352e4f064a8efa0914437d33e, type: 3}
+      objectReference: {fileID: 8300000, guid: 659dc95811ce2534c896f8c133635837, type: 3}
     - target: {fileID: 6693944588071350941, guid: 9536ad46f520d844694047c18890e436, type: 3}
       propertyPath: m_Name
       value: squareVisualize

@@ -107,10 +107,9 @@ public class AbilityHolder : MonoBehaviour
         }
        
 
-        // Khi ĐANG GIỮ phím
         if (Input.GetKey(KeyCode.Space))
             {
-                // Bật lại indicator (nếu bạn đã ẩn nó đi lúc trước)
+                
                 
 
                 if (indicatorTarget != null && !indicatorTarget.activeSelf)
@@ -178,8 +177,8 @@ public class AbilityHolder : MonoBehaviour
     private IEnumerator TeleportRecoveryRoutine(SpriteRenderer sprite, Rigidbody2D rb)
     {
 
-        float freezeDuration = 0.2f; 
-        float blinkInterval = 0.1f;  
+        float freezeDuration = 0.5f; 
+        float blinkInterval = 0.3f;  
         float timer = 0f;
 
 

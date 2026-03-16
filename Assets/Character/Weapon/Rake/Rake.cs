@@ -140,7 +140,7 @@ public class Rake : MonoBehaviour, IWeapon
     {
         if (isPulling && collision.CompareTag("Enemy"))
         {
-            collision.GetComponent<EnemyStats>().TakeDamage(transform.position, 10);
+            collision.GetComponent<EnemyStats>().TakeDamage(transform.position, 4);
             Rigidbody2D enemyRb = collision.GetComponent<Rigidbody2D>();
             var PlayerPull = (collision.transform.position - playerMove.transform.position).normalized * 2;
             Vector2 knockbackDir = -PlayerPull;

@@ -2,13 +2,15 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.UIElements; 
-using TMPro; // Thêm namespace này để dùng TextMeshPro
+using TMPro;
+using System.Runtime.InteropServices; // Thêm namespace này để dùng TextMeshPro
 
 public class EnemyStats : MonoBehaviour
 {
     [Header("Health Settings")]
-    public float health = 20;
+    public float health;
     public float maxHealth;
+    public float realMaxHealth;
     public bool invincible = false;
     [SerializeField] private float invincibilityDuration = 0.02f;
 
@@ -56,7 +58,8 @@ public class EnemyStats : MonoBehaviour
         if (sr == null) sr = GetComponent<SpriteRenderer>();
         hitbox = GetComponent<Collider2D>();
 
-        maxHealth = health;
+        realMaxHealth = health * (DungeonSpawner.instance == null ? 1f : DungeonSpawner.instance.HealthMultiplier);
+        health = realMaxHealth;
         originalMaterial = sr.material;
     }
 
@@ -82,7 +85,7 @@ public class EnemyStats : MonoBehaviour
         }
         else if (healthSlider != null)
         {
-            healthSlider.maxValue = maxHealth;
+            healthSlider.maxValue = realMaxHealth;
             healthSlider.value = health;
         }
     }

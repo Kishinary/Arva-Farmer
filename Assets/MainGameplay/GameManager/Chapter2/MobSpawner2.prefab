@@ -1,0 +1,64 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8604981364317289988
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1232018037396727245}
+  - component: {fileID: 892977045492051634}
+  m_Layer: 0
+  m_Name: MobSpawner2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1232018037396727245
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8604981364317289988}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -14.130974, y: 7.521161, z: -0.12124106}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &892977045492051634
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8604981364317289988}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10947f7c90fa65046b1ddb3428dc59c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Toucher: {fileID: 0}
+  Archer: {fileID: 0}
+  Summoner: {fileID: 0}
+  Mage: {fileID: 0}
+  Charger: {fileID: 0}
+  randomP: {x: 0, y: 0}
+  SpawnLoc: []
+  Fireflies:
+  - {fileID: 3309490267925511256, guid: 0c81c07654f82724885c06e425210dc8, type: 3}
+  - {fileID: 4610477781470734361, guid: 0c72cb1e605957245af89ee8415c0d11, type: 3}
+  - {fileID: 4558509688674043311, guid: 1d73acefb8338d54b8ecca0ba740ecc7, type: 3}
+  PlayerSpawn: {fileID: 0}
+  winningCanvasPrefab: {fileID: 0}
+  goable: 0
+  Player: {fileID: 0}
+  spawnable: 1
+  Notifi: {fileID: 0}
+  spawnAni: {fileID: 0}

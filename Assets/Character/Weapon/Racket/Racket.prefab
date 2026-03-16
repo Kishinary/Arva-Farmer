@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 345690867608219919}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.288, y: -0.012, z: 0}
   m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -138,6 +138,7 @@ MonoBehaviour:
   butterflyProjectile: {fileID: 4561330686045693173, guid: c202b8b623dd3e94e896a744642c8cc3, type: 3}
   fireflyProjectile: {fileID: 1006031918985255391, guid: 936cdb3e20f10da47918642369f97a79, type: 3}
   beetleProjectile: {fileID: 3848507586550782717, guid: a652c7b39baf51643b979f2db99dbc14, type: 3}
+  storedBugObject: []
   catchCooldown: 0.5
   releaseCooldown: 1
   butterflyDamage: 12

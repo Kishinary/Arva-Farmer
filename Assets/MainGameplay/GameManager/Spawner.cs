@@ -12,8 +12,11 @@ public class Spawner : MonoBehaviour
     public GameObject Mage;
     public GameObject Charger;
 
-    [Header("Spawn Settings")]
-    public List<GameObject> SpawnLoc = new List<GameObject>();
+    public Vector2 randomP;
+
+    public List<GameObject> SpawnLoc = new();
+    public List<GameObject> Fireflies = new();
+
     public Transform PlayerSpawn;
 
     [Header("UI & Victory Logic")]
@@ -24,6 +27,12 @@ public class Spawner : MonoBehaviour
     private bool startCounting = false; // Chỉ bắt đầu đếm sau khi quái đã spawn
     private string NextScene;
 
+    [Header("Racket")]
+    public BugRacket Player;
+    public bool spawnable = true;
+    private List<GameObject> activeFireflies = new List<GameObject>();
+
+    public GameObject Notifi;
     void Start()
     {
         // 1. Chặn script chạy ở các Scene không phải màn chơi chính
@@ -32,6 +41,11 @@ public class Spawner : MonoBehaviour
         // 2. Random đội hình quái (0-9)
         int rand = Random.Range(0, 10);
         StartCoroutine(SpawnStarter(rand));
+        Player = FindFirstObjectByType<BugRacket>();
+        if (Player.GetComponent<BugRacket>())
+        {
+            spawnable = true;
+        }
     }
 
     private void Update()
@@ -48,28 +62,100 @@ public class Spawner : MonoBehaviour
         // Logic xuất hiện Winning Canvas: Hết quái + Chưa từng hiện bảng
         if (enemyManager == null && !goable)
         {
-            DungeonSpawner dSpawner = FindFirstObjectByType<DungeonSpawner>();
-            if (dSpawner != null)
+            NextScene = FindFirstObjectByType<DungeonSpawner>().NextScene;
+            if (NextScene != null && goable == false && startCounting) {
+                goable = true;
+                Instantiate(Notifi);
+            }
+            return;
+        }
+        FireflyPopulation();
+        DungeonSpawner dSpawner = FindFirstObjectByType<DungeonSpawner>();
+        if (dSpawner != null)
+        {
+            NextScene = dSpawner.NextScene;
+
+            if (!string.IsNullOrEmpty(NextScene))
             {
-                NextScene = dSpawner.NextScene;
-                
-                if (!string.IsNullOrEmpty(NextScene))
+                goable = true; // Đánh dấu đã xong để không Instantiate liên tục
+                ShowWinningNotification();
+            }
+        }
+    }
+
+    private void FireflyPopulation()
+    {
+        activeFireflies.RemoveAll(f => f == null);
+        if (Player)
+        {
+            if (activeFireflies.Count + Player.storedBugObject.Count < 8 && Fireflies.Count > 0)
+            {
+                while (activeFireflies.Count + Player.storedBugObject.Count < 8)
                 {
-                    goable = true; // Đánh dấu đã xong để không Instantiate liên tục
-                    ShowWinningNotification();
+                    float roll = Random.Range(0f, 100f);
+                    GameObject prefab;
+
+                    // 2. Assign prefab based on the roll
+                    if (roll < 50f)
+                    {
+                        // 50% chance
+                        prefab = Fireflies[0];
+                    }
+                    else if (roll < 80f)
+                    {
+                        // 30% chance (50 + 30 = 80)
+                        prefab = Fireflies[1];
+                    }
+                    else
+                    {
+                        // 20% chance (the remaining 80 to 100)
+                        prefab = Fireflies[2];
+                    }
+
+                    // Get a random spawn location from your list
+                    Vector2 spawnPos = RandomSpawnPosition();
+
+                    GameObject newFirefly = Instantiate(prefab, new Vector3(spawnPos.x, spawnPos.y, 0), Quaternion.identity);
+                    activeFireflies.Add(newFirefly);
+                }
+            }
+        }
+        else
+        {
+            if (activeFireflies.Count < 7 && Fireflies.Count > 0)
+            {
+                while (activeFireflies.Count < 7)
+                {
+                    float roll = Random.Range(0f, 100f);
+                    GameObject prefab;
+
+                    // 2. Assign prefab based on the roll
+                    if (roll < 50f)
+                    {
+                        // 50% chance
+                        prefab = Fireflies[0];
+                    }
+                    else if (roll < 80f)
+                    {
+                        // 30% chance (50 + 30 = 80)
+                        prefab = Fireflies[1];
+                    }
+                    else
+                    {
+                        // 20% chance (the remaining 80 to 100)
+                        prefab = Fireflies[2];
+                    }
+
+                    // Get a random spawn location from your list
+                    Vector2 spawnPos = RandomSpawnPosition();
+
+                    GameObject newFirefly = Instantiate(prefab, new Vector3(spawnPos.x, spawnPos.y, 0), Quaternion.identity);
+                    activeFireflies.Add(newFirefly);
                 }
             }
         }
     }
 
-    // Hàm lọc các Scene không muốn chạy logic thắng/thua
-    bool IsRestrictedScene()
-    {
-        string currentName = SceneManager.GetActiveScene().name.ToLower();
-        return currentName.Contains("mainmenu") || 
-               currentName.Contains("logoscene") || 
-               currentName.Contains("lobby");
-    }
 
     void ShowWinningNotification()
     {
@@ -135,5 +221,13 @@ public class Spawner : MonoBehaviour
         {
             SceneManager.LoadScene(NextScene);
         }
+    }
+    // Hàm lọc các Scene không muốn chạy logic thắng/thua
+    bool IsRestrictedScene()
+    {
+        string currentName = SceneManager.GetActiveScene().name.ToLower();
+        return currentName.Contains("mainmenu") ||
+               currentName.Contains("logoscene") ||
+               currentName.Contains("lobby");
     }
 }

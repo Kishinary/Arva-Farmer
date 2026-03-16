@@ -89,7 +89,6 @@ public class EnemyStats : MonoBehaviour
 
     void Update()
     {
-        EnemyMoveSpeed();
         if (healthSlider != null && healthSlider.gameObject.activeInHierarchy && healthSlider.transform.parent != null)
         {
             healthSlider.transform.parent.rotation = Quaternion.identity;
@@ -197,29 +196,30 @@ public class EnemyStats : MonoBehaviour
         hitbox.enabled = true;
     }
 
+    IEnumerator Slowed(float speed, float time)
+    {
+        this.speedMultiplier = speed;
 
+        yield return new WaitForSeconds(time);
+        this.speedMultiplier = 1f;
+    }
 
+    public void TriggerSLowed(float speed, float time)
+    {
+        StartCoroutine(Slowed(speed, time));
+    }
+    public void TriggerPit(float time)
+    {
+        StartCoroutine(PitfallSequence(time));
+    }
+    IEnumerator PitfallSequence(float time)
+    {
+        this.GetComponent<SpriteRenderer>().enabled = false;
+        this.GetComponent<Collider2D>().enabled = false;
 
-    void EnemyMoveSpeed() {
-        if (this.GetComponent<EnemySummoner>())
-        {
-            this.GetComponent<EnemySummoner>().moveSpeed *= speedMultiplier;
-        }
-        if (this.GetComponent<MageEnemy>())
-        {
-            this.GetComponent<MageEnemy>().moveSpeed *= speedMultiplier;
-        }
-        if (this.GetComponent<EnemyTouch>())
-        {
-            this.GetComponent<EnemyTouch>().speed *= speedMultiplier;
-        }
-        if (this.GetComponent<ArcherEnemy>())
-        {
-            this.GetComponent<ArcherEnemy>().orbitSpeed *= speedMultiplier;
-        }
-        if (this.GetComponent<ChargeEnemy>())
-        {
-            this.GetComponent<ChargeEnemy>().moveSpeed *= speedMultiplier;
-        }
+        yield return new WaitForSeconds(time);
+
+        this.GetComponent<SpriteRenderer>().enabled = true;
+        this.GetComponent<Collider2D>().enabled = true;
     }
 }

@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
 
 public class EnemyTouch : MonoBehaviour
@@ -16,9 +17,12 @@ public class EnemyTouch : MonoBehaviour
     float randomTimer;
     Vector2 randomOffset;
 
+    private EnemyStats stats;
+
     void Start()
     {
         playerTransform = GameObject.FindWithTag("Player").transform;
+        stats = GetComponent<EnemyStats>(); // Get the stats component
         animator = GetComponent<Animator>();
 
         ChooseRandomOffset();
@@ -43,8 +47,8 @@ public class EnemyTouch : MonoBehaviour
 
             // Mix chase direction with random offset
             moveDir = (dirToPlayer + randomOffset * 0.6f).normalized;
-
-            transform.position += (Vector3)moveDir * speed * Time.deltaTime;
+            float currentSpeed = speed * stats.speedMultiplier;
+            transform.position += (Vector3)moveDir * currentSpeed * Time.deltaTime;
 
             if (dist <= 1 && !isAttacking)
             {

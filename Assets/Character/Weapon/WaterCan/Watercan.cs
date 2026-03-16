@@ -35,22 +35,26 @@ public class Watercan : MonoBehaviour, IWeapon
     {
     }
 
-    public void NormalAttack()
+    public bool NormalAttack()
     {
         if (!isShooting)
         {
             animator.SetTrigger("Shoot");
             StartCoroutine(ShootLaserPulse());
+            return true;
         }
+        return false;
     }
 
-    public void SpecialAttack()
+    public bool SpecialAttack()
     {
         if (!isShooting)
         {
             animator.SetTrigger("Shoot");
             StartCoroutine(ShootLaserPulse());
+            return true;
         }
+        return false;
     }
     IEnumerator ShootLaserPulse()
     {

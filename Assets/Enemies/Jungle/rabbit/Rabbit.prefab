@@ -431,6 +431,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85bdb5fa1dca9fe4393f8ded9e5cf629, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 4
   isAttacking: 0
 --- !u!114 &965871171068622706
 MonoBehaviour:
@@ -458,6 +459,7 @@ MonoBehaviour:
   ghostDelay: 0.3
   sr: {fileID: 0}
   DeathPar: {fileID: 8813979716979246122, guid: a0d8df6e7bc8cb64a896255174e2a806, type: 3}
+  speedMultiplier: 1
 --- !u!70 &5829165595666979193
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -584,7 +586,7 @@ Transform:
   m_GameObject: {fileID: 6519971743114740728}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.029, y: -0.248, z: 0}
+  m_LocalPosition: {x: -0.119, y: -0.408, z: 0}
   m_LocalScale: {x: 1.1616666, y: 1.1616666, z: 1.1616666}
   m_ConstrainProportionsScale: 0
   m_Children: []

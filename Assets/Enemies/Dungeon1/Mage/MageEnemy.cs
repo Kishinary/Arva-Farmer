@@ -84,8 +84,8 @@ public class MageEnemy : MonoBehaviour
             // Good range → strafe
             moveDir = strafeDir;
         }
-
-        transform.position += (Vector3)(moveDir * moveSpeed * Time.deltaTime);
+        float currentSpeed = moveSpeed * GetComponent<EnemyStats>().speedMultiplier;
+        transform.position += (Vector3)(moveDir * currentSpeed * Time.deltaTime);
     }
 
     IEnumerator AttackRoutine()

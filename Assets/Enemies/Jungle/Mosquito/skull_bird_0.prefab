@@ -378,6 +378,7 @@ MonoBehaviour:
   ghostDelay: 0.3
   sr: {fileID: 0}
   DeathPar: {fileID: 8813979716979246122, guid: a0d8df6e7bc8cb64a896255174e2a806, type: 3}
+  speedMultiplier: 1
 --- !u!50 &-7236248468311698895
 Rigidbody2D:
   serializedVersion: 5
@@ -632,8 +633,8 @@ Transform:
   m_GameObject: {fileID: 6036305692396814667}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.001, y: -0.6, z: 0}
-  m_LocalScale: {x: 1.3323, y: 1.3323, z: 1.3323}
+  m_LocalPosition: {x: 0.03, y: -0.6, z: 0}
+  m_LocalScale: {x: 2.6135728, y: 2.6135728, z: 2.6135728}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5514523366104250883}

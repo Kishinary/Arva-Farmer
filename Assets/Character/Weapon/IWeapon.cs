@@ -2,8 +2,8 @@ using UnityEngine;
 
 public interface IWeapon
 {
-    void NormalAttack();
-    void SpecialAttack();
+    bool NormalAttack();
+    bool SpecialAttack();
     string GetNormalShake();
     string GetSpecialShake();
 }

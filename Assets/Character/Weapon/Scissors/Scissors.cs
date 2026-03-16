@@ -48,7 +48,7 @@ public class Scissors : MonoBehaviour, IWeapon
     {
     }
 
-    public void SpecialAttack()
+    public bool SpecialAttack()
     {
         if (Time.time >= nextAttackTime)
         {
@@ -56,11 +56,13 @@ public class Scissors : MonoBehaviour, IWeapon
             PlayerMove.movespeed = 7f;
             nextAttackTime = Time.time + attackCooldown;
             StartCoroutine(ThrustRoutine());
+            return true;
         }
+        return false;
     }
 
 
-    public void NormalAttack()
+    public bool NormalAttack()
     {
         if (Time.time >= nextNormalAttackTime)
         {
@@ -68,7 +70,9 @@ public class Scissors : MonoBehaviour, IWeapon
             PlayerMove.movespeed = 7f;
             nextAttackTime = Time.time + NormalattackCooldown;
             StartCoroutine(Thrust());
+            return true;
         }
+        return false;
     }
 
 
@@ -114,7 +118,7 @@ public class Scissors : MonoBehaviour, IWeapon
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.CompareTag("Enemy"))
         {

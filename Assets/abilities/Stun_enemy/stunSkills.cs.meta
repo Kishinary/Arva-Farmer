@@ -1,0 +1,13 @@
+fileFormatVersion: 2
+guid: 1df809dc2085b134f951f74eae3c0283
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - transform: {instanceID: 0}
+  - stunIndicator: {fileID: 5801255692167919959, guid: 8dc78c5133f3b2b4ba63fe58c15ab85a, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

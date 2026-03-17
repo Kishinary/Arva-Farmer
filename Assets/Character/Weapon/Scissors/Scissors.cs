@@ -32,6 +32,9 @@ public class Scissors : MonoBehaviour, IWeapon
     private Vector3 originalLocalPos;
     private bool isAttacking = false;
 
+    [Header("Effect")]
+    private LineRenderer line;
+
     public string GetNormalShake() => "Scissors";
     public string GetSpecialShake() => "Scissors";
 
@@ -40,6 +43,7 @@ public class Scissors : MonoBehaviour, IWeapon
         animator = GetComponent<Animator>();
         PlayerMove = GetComponentInParent<PlayerMovement>();
         originalLocalPos = transform.localPosition;
+        line = GetComponentInChildren<LineRenderer>(); 
 
     }
 
@@ -80,7 +84,7 @@ public class Scissors : MonoBehaviour, IWeapon
     IEnumerator ThrustRoutine()
     {
         isAttacking = true;
-
+        line.enabled = true;    
         float timer = 0f;
         while (timer < attackDuration)
         {
@@ -104,6 +108,8 @@ public class Scissors : MonoBehaviour, IWeapon
         }
 
         transform.localPosition = originalLocalPos;
+        line.enabled = false;
+
         yield return new WaitForSeconds(0.3f);
         isAttacking = false;
     }

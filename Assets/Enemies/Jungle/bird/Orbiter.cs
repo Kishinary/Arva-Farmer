@@ -15,7 +15,6 @@ public class Orbiter : MonoBehaviour
     }
     private void Awake()
     {
-        if (!player) player = GameObject.FindWithTag("Player").transform;
     }
 
     void Update()

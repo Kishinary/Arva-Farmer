@@ -15,7 +15,7 @@ public class DungeonEntrance : MonoBehaviour, IInteractable
     {
         if (collision.gameObject.tag == "Player")
         {
-            SceneController.Instance.NextScene("MainDungeon2", true);
+            SceneController.Instance.NextScene("DungeonPath", true);
 
         }
     }

@@ -87,7 +87,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-            rb.linearVelocity = moveInput * movespeed;
+        rb.linearVelocity = Vector2.Lerp(rb.linearVelocity, moveInput * movespeed, 0.2f);
     }
     void OnEnable()
     {

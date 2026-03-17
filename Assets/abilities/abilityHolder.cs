@@ -177,13 +177,13 @@ public class AbilityHolder : MonoBehaviour
     private IEnumerator TeleportRecoveryRoutine(SpriteRenderer sprite, Rigidbody2D rb)
     {
 
-        float freezeDuration = 0.5f; 
+        float freezeDuration = 0.25f; 
         float blinkInterval = 0.3f;  
         float timer = 0f;
 
 
         Color originalColor = sprite.color;
-        Color flashColor = new Color(2f, 2f, 2f, 2f);
+        Color flashColor = new Color(1.8f, 1.8f, 1.8f, 1.8f);
 
 
 

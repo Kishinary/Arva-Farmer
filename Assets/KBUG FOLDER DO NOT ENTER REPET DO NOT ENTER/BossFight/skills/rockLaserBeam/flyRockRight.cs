@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 
+
+
 public class flyRockRight : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -8,6 +10,8 @@ public class flyRockRight : MonoBehaviour
     private Rigidbody2D rb;
 
     public GameObject BlowEffect;
+
+    public float damage = 10f;
 
     void Start()
     {
@@ -27,6 +31,11 @@ public class flyRockRight : MonoBehaviour
        
         if (other.CompareTag("Player"))
         {
+
+         
+            PlayerHealth playerHealth = other.GetComponent<PlayerHealth>();
+            playerHealth.TakeDamage(damage);
+
             Instantiate(BlowEffect,transform.position, Quaternion.identity);
             
             Destroy(gameObject);

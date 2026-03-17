@@ -1,9 +1,14 @@
 ﻿using UnityEngine;
 
+
+
+
 public class acidBullet : MonoBehaviour
 {
     public float lifetime = 2f; // Thời gian sống tối đa (giây) trước khi tự bốc hơi
-    public int damage = 10;
+    public float damage = 5f;
+
+
 
     public GameObject BlowEffect;
 
@@ -16,6 +21,10 @@ public class acidBullet : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+
+            PlayerHealth playerHealth = other.GetComponent<PlayerHealth>();
+            playerHealth.TakeDamage(damage);
+
             Instantiate(BlowEffect, transform.position, Quaternion.identity);
 
             Destroy(gameObject);

@@ -18,7 +18,7 @@ public class PlayerHealth : MonoBehaviour
     public static event Action<float, float> OnHealthChanged;
     public static event Action OnDied;
 
-    private float _currentHealth;
+    public float _currentHealth;
     public float MaxHealth => maxHealth;
     public float CurrentHealth => _currentHealth;
 

@@ -39,15 +39,13 @@ public class KnightPhase1State : KnightBaseState
 
     public override void ExitState()
     {
-
+        boss.SetMovementDirection(Vector2.zero);
     }
 
     private void ChasePlayer()
     {
         Vector2 direction = ((Vector2)boss.player.transform.position - (Vector2)boss.transform.position).normalized;
-        boss.transform.position += (Vector3)(direction * boss.moveSpeed * Time.deltaTime);
-        boss.NotifyMovement(direction);
-
+        boss.SetMovementDirection(direction);
     }
 }
 
@@ -88,10 +86,21 @@ public class knightMovement : MonoBehaviour
     public EnemyStats enemyStats;
     public bool isActionLocked = false;
 
-   /* [Header("Effect")]
+    /* [Header("Effect")]
 
-    [Header("Cooldowns")]
-*/
+     [Header("Cooldowns")]
+ */
+
+    //movement using rigidbody
+    
+    private Vector2 currentDirection;//movement cache
+    [SerializeField] private Rigidbody2D rb;
+
+
+    private void Awake()
+    {
+        if(rb == null) rb = GetComponent<Rigidbody2D>();
+    }
 
     void Start()
     {
@@ -102,6 +111,10 @@ public class knightMovement : MonoBehaviour
         //phase2State = new KnightPhase2State(this);
 
         //start phase 1
+        if (bossCatching != null)
+        {
+            bossCatching.OnBossAttackTriggered += HandleComboAttack;
+        }
         ChangeState(phase1State);
     }
 
@@ -112,33 +125,61 @@ public class knightMovement : MonoBehaviour
 
     private void OnDestroy()
     {
-        
+
+        if (bossCatching != null)
+        {
             bossCatching.OnBossAttackTriggered -= HandleComboAttack;
+        }
     }
 
     private void Update()
     {
         currentState?.UpdateState();
+        
+        
 
         if (!isPhase2 && enemyStats.health <= enemyStats.maxHealth * phase2Threshold)
         {
-            //ChangeState(phase2State);
+           
             isPhase2 = true;
         }
     }
+     
+    private void FixedUpdate()
+    {
+        if (!isActionLocked)
+        {
+            
+            rb.linearVelocity = currentDirection * moveSpeed;
+        }
+        else
+        {
+            rb.linearVelocity = Vector2.zero; 
+        }
+        
+    }
     public void ChangeState(KnightBaseState newState)
     {
-        currentState.ExitState();
+        currentState?.ExitState();
         currentState = newState;
-        currentState.EnterState();
+        currentState?.EnterState();
     }
 
-    public event Action onIdle;
+   
     public event Action<Vector2> OnMove;
 
-    public void NotifyMovement(Vector2 direction)
+    public void SetMovementDirection(Vector2 direction)
     {
-        OnMove?.Invoke(direction);
+        currentDirection = direction;
+        NotifyWalk(direction);
+    }
+
+    public void NotifyWalk(Vector2 direction)
+    {
+        if (direction != Vector2.zero)
+        {
+            OnMove?.Invoke(direction);
+        }
     }
 
 

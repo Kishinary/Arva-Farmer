@@ -33,7 +33,7 @@ public class knighBossAnim : MonoBehaviour
 
     private void HandleMoveAnimation(Vector2 direction)
     {
-        Debug.Log("dáoidasuiodjasodi");
+ 
 
 
         animator.SetFloat("posX", direction.x);

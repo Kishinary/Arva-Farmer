@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System;
 using UnityEngine;
 
@@ -29,7 +30,9 @@ public class KnightPhase1State : KnightBaseState
     public override void UpdateState()
     {
         ChasePlayer();
+       
 
+        boss.dartAttack();
     }
 
     public override void ExecuteComboAttack(BossCombo combo, int hitIndex)
@@ -72,6 +75,9 @@ public class knightMovement : MonoBehaviour
     [Header("Phase Thresholds")]
     [Range(0f, 1f)]
     public float phase2Threshold = 0.5f;
+
+    [Header("Abilities Modules")]
+    public KnightDartAttack dartAttackModule;
 
     // FSM manager
     private KnightBaseState currentState;
@@ -179,6 +185,16 @@ public class knightMovement : MonoBehaviour
         if (direction != Vector2.zero)
         {
             OnMove?.Invoke(direction);
+        }
+    }
+
+
+
+    public void dartAttack()
+    {
+        if (dartAttackModule != null)
+        {
+            dartAttackModule.ExecuteAttack();
         }
     }
 

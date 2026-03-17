@@ -11,8 +11,12 @@ public class Projectile : MonoBehaviour
     public string bug;
     public GameObject explosion;
     public LayerMask enemy;
+
+    [Header("Parent")]
+    private BugRacket racket;
     void Start()
     {
+        racket = GetComponentInParent<BugRacket>();
         Destroy(gameObject, lifeTime);
 
         Vector3 mouse = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -39,7 +43,7 @@ public class Projectile : MonoBehaviour
                 Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(transform.position, 3, enemy);
                 foreach (Collider2D enemy in hitEnemies)
                 {
-                    enemy.GetComponent<EnemyStats>().TakeDamage(transform.position, 30);
+                    enemy.GetComponent<EnemyStats>().TakeDamage(transform.position, racket.GetFinalDamage() * 2f);
                 }
                 Instantiate(explosion, transform.position, Quaternion.identity);
                 Destroy(this.gameObject);
@@ -49,7 +53,7 @@ public class Projectile : MonoBehaviour
                 EnemyStats enemy = hit.GetComponent<EnemyStats>();
 
                 if (enemy != null)
-                    enemy.TakeDamage(transform.position, damage);
+                    enemy.TakeDamage(transform.position, racket.GetFinalDamage());
                 Destroy(this.gameObject);
             }
             else
@@ -57,7 +61,7 @@ public class Projectile : MonoBehaviour
                 EnemyStats enemy = hit.GetComponent<EnemyStats>();
 
                 if (enemy != null)
-                    enemy.TakeDamage(transform.position, damage + 10);
+                    enemy.TakeDamage(transform.position, racket.GetFinalDamage() * 1.75f);
             }
 
         }

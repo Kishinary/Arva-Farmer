@@ -46,6 +46,11 @@ public class Watercan : MonoBehaviour, IWeapon
         return false;
     }
 
+    public float GetFinalDamage()
+    {
+        return damage * GetComponentInParent<PlayerMovement>().Damagepercentage;
+    }
+
     public bool SpecialAttack()
     {
         if (!isShooting)
@@ -71,7 +76,7 @@ public class Watercan : MonoBehaviour, IWeapon
 
         if (hit && hit.collider.TryGetComponent(out EnemyStats health))
         {
-            health.TakeDamage(transform.position, damage);
+            health.TakeDamage(transform.position, GetFinalDamage());
         }
 
         if (hit && impactEffect != null)

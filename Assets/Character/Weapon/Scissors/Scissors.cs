@@ -24,7 +24,7 @@ public class Scissors : MonoBehaviour, IWeapon
     private float NormalattackCooldown = 0.25f;
 
     [Header("Combat")]
-    public float damage = 5f;
+    public float damage = 10f;
     public LayerMask enemyLayer;
     public Transform hitPoint;
     public float hitRadius = 0.5f;
@@ -52,6 +52,10 @@ public class Scissors : MonoBehaviour, IWeapon
     {
     }
 
+    public float GetFinalDamage()
+    {
+        return damage * PlayerMove.Damagepercentage;
+    }
     public bool SpecialAttack()
     {
         if (Time.time >= nextAttackTime)
@@ -129,10 +133,10 @@ public class Scissors : MonoBehaviour, IWeapon
         if (collision.CompareTag("Enemy"))
         {
             if (isAttacking) { 
-                collision.GetComponent<EnemyStats>().TakeDamage(transform.position, 4f);
+                collision.GetComponent<EnemyStats>().TakeDamage(transform.position, GetFinalDamage());
             }
             if (isNormaling) {
-                collision.GetComponent<EnemyStats>().TakeDamage(transform.position, 10f);
+                collision.GetComponent<EnemyStats>().TakeDamage(transform.position, GetFinalDamage() * 2);
             }
 
         }

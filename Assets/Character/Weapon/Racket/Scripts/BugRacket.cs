@@ -34,10 +34,7 @@ public class BugRacket : MonoBehaviour, IWeapon
     private float nextReleaseTime;
 
     [Header("Damage")]
-    public int butterflyDamage = 12;
-    public int fireflyDamage = 18;
-    public int beetleDamage = 25;
-
+    public float damage = 15;
     [Header("Particles")]
     public ParticleSystem catchParticle;
     public ParticleSystem releaseParticle;
@@ -54,7 +51,10 @@ public class BugRacket : MonoBehaviour, IWeapon
         weaponParent = GetComponentInParent<WeaponParent>();
         playerMove = GetComponentInParent<PlayerMovement>();
     }
-
+    public float GetFinalDamage()
+    {
+        return damage * playerMove.Damagepercentage;
+    }
     public bool NormalAttack() // Catch Bugs
     {
         if (Time.time >= nextCatchTime)

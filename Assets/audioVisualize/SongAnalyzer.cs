@@ -8,11 +8,11 @@ using UnityEngine.UIElements;
 [System.Serializable]
 public struct FrequencyBands
 {
-    public float Kick;     // SubBass
-    public float Bass;     // Bass
-    public float LowMid;   // Melody Trầm
-    public float HighMid;  // Melody Cao
-    public float Treble;   // Hi-hat / Cymbals
+    public float Kick;     
+    public float Bass;     
+    public float LowMid;   
+    public float HighMid;  
+    public float Treble;   
 }
 
 [System.Serializable]

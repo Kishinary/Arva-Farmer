@@ -76,20 +76,17 @@ public class GameController : MonoBehaviour
         {
             Debug.Log("[GameController] Bắt đầu quá trình phân tích bài hát...");
 
-            // Đợi SongAnalyzer phân tích xong
+           
             await analyzer.AnalyzeAudioAsync(songToAnalyze);
             // Lấy danh sách beat đã phân tích lưu vào biến cục bộ
             spectralData = analyzer.spectralTimeline;
 
-            // Tính toán trước Ngưỡng Động
             PrecalculateDynamicThresholds();
 
-            //Báo cho Boss biết để quét Combo TRƯỚC khi nhạc chạy
             OnDataReady?.Invoke();
 
             Debug.Log("[GameController] Complete");
 
-            // 3. Chuẩn bị phát nhạc
             audioSource.clip = songToAnalyze;
             audioSource.loop = true;//loop
             audioSource.Play();
@@ -122,13 +119,10 @@ public class GameController : MonoBehaviour
         int windowSize = 1024; // Phải khớp với N bên SongAnalyzer
 
         
-        // 1. TÍNH TOÁN INDEX HIỆN TẠI (O(1) Lookup)
         int currentFrameIndex = Mathf.FloorToInt((currentAudioTime * sampleRate) / windowSize);
 
-        // Đảm bảo không vượt quá mảng
         if (currentFrameIndex >= spectralData.Count) return;
 
-        // 2. CẬP NHẬT VISUALIZER LIÊN TỤC (UI)
         FrequencyBands currentBands = spectralData[currentFrameIndex].Bands;
         float lerpSpeed = Time.deltaTime * 15f; // Tăng tốc độ mượt lên một chút
 
@@ -227,7 +221,7 @@ public class GameController : MonoBehaviour
 
 
     }
-    /*private void OnGUI()
+    private void OnGUI()
     {
         if (!showVisualizer || !isPlaying) return;
 
@@ -261,7 +255,7 @@ public class GameController : MonoBehaviour
         DrawBar(2, "L-MID", displayBands.LowMid, Color.yellow);
         DrawBar(3, "H-MID", displayBands.HighMid, Color.green);
         DrawBar(4, "TREBLE", displayBands.Treble, Color.cyan);
-    }*/
+    }
 
 
 

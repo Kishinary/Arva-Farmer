@@ -10,6 +10,9 @@ public class flyRockLeft : MonoBehaviour
 
     public GameObject BlowEffect;
 
+    public float damage = 10f;
+
+    
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -26,6 +29,11 @@ public class flyRockLeft : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+
+          
+            PlayerHealth playerHealth = other.GetComponent<PlayerHealth>();
+            playerHealth.TakeDamage(damage);
+
             Instantiate(BlowEffect, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }

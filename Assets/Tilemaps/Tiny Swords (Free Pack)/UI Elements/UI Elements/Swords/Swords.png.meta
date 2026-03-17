@@ -67,7 +67,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -146,10 +146,10 @@ TextureImporter:
       name: Swords_0
       rect:
         serializedVersion: 2
-        x: 22
+        x: 23
         y: 0
-        width: 107
-        height: 640
+        width: 105
+        height: 512
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -168,13 +168,13 @@ TextureImporter:
       name: Swords_1
       rect:
         serializedVersion: 2
-        x: 191
-        y: 530
-        width: 66
-        height: 92
+        x: 87
+        y: 512
+        width: 261
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 105, y: 0, z: 96, w: 0}
       customData: 
       outline: []
       physicsShape: []
@@ -190,10 +190,10 @@ TextureImporter:
       name: Swords_2
       rect:
         serializedVersion: 2
-        x: 319
-        y: 531
-        width: 94
-        height: 90
+        x: 150
+        y: 495
+        width: 43
+        height: 9
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -212,10 +212,10 @@ TextureImporter:
       name: Swords_3
       rect:
         serializedVersion: 2
-        x: 191
-        y: 402
-        width: 66
-        height: 92
+        x: 192
+        y: 403
+        width: 64
+        height: 90
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -234,10 +234,10 @@ TextureImporter:
       name: Swords_4
       rect:
         serializedVersion: 2
-        x: 319
-        y: 403
-        width: 94
-        height: 90
+        x: 320
+        y: 404
+        width: 92
+        height: 88
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -256,10 +256,10 @@ TextureImporter:
       name: Swords_5
       rect:
         serializedVersion: 2
-        x: 191
-        y: 274
-        width: 66
-        height: 92
+        x: 192
+        y: 275
+        width: 64
+        height: 90
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -278,10 +278,10 @@ TextureImporter:
       name: Swords_6
       rect:
         serializedVersion: 2
-        x: 319
-        y: 275
-        width: 94
-        height: 90
+        x: 320
+        y: 276
+        width: 92
+        height: 88
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -300,10 +300,10 @@ TextureImporter:
       name: Swords_7
       rect:
         serializedVersion: 2
-        x: 191
-        y: 146
-        width: 66
-        height: 92
+        x: 192
+        y: 147
+        width: 64
+        height: 90
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -322,10 +322,10 @@ TextureImporter:
       name: Swords_8
       rect:
         serializedVersion: 2
-        x: 319
-        y: 147
-        width: 94
-        height: 90
+        x: 320
+        y: 148
+        width: 92
+        height: 88
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -344,10 +344,10 @@ TextureImporter:
       name: Swords_9
       rect:
         serializedVersion: 2
-        x: 191
-        y: 18
-        width: 66
-        height: 92
+        x: 192
+        y: 19
+        width: 64
+        height: 90
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -366,10 +366,10 @@ TextureImporter:
       name: Swords_10
       rect:
         serializedVersion: 2
-        x: 319
-        y: 19
-        width: 94
-        height: 90
+        x: 320
+        y: 20
+        width: 92
+        height: 88
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -388,7 +388,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: eee9c5d4049fb4641959b04b78ab47e9
     internalID: 0
     vertices: []
     indices: 

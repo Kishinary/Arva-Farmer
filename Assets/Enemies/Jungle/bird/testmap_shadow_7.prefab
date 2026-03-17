@@ -362,6 +362,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 40
   maxHealth: 0
+  realMaxHealth: 0
   invincible: 0
   invincibilityDuration: 0.5
   damageTextPrefab: {fileID: 4533503312433578376, guid: 19e108fc8970a754aacc294cdacb7da7, type: 3}
@@ -375,6 +376,9 @@ MonoBehaviour:
   sr: {fileID: 0}
   DeathPar: {fileID: 8813979716979246122, guid: a0d8df6e7bc8cb64a896255174e2a806, type: 3}
   speedMultiplier: 1
+  moneyPrefab: {fileID: 5875139448233303119, guid: ffb2f5acc48f5f74dbd103b1c37fa242, type: 3}
+  minCoins: 3
+  maxCoins: 5
 --- !u!114 &7592413016887159144
 MonoBehaviour:
   m_ObjectHideFlags: 0

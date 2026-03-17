@@ -52,6 +52,12 @@ public class EnemyStats : MonoBehaviour
     [Header("Movement")]
     public float speedMultiplier = 1;
 
+
+    [Header("Money")]
+    public GameObject moneyPrefab;
+    public int minCoins;
+    public int maxCoins;
+
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -189,7 +195,16 @@ public class EnemyStats : MonoBehaviour
         if (healthBarDocument != null) healthBarDocument.gameObject.SetActive(false);
 
         if (transform.parent != null) Destroy(transform.parent.gameObject);
-        else Destroy(gameObject);
+        else
+        {
+            int amountToSpawn = Random.Range(minCoins, maxCoins + 1);
+
+            for (int i = 0; i < amountToSpawn; i++)
+            {
+                Instantiate(moneyPrefab, transform.position, Quaternion.identity);
+            }
+            Destroy(gameObject);
+        }
     }
 
     IEnumerator ResetHitBox()

@@ -17,6 +17,7 @@ public class InventoryManager : MonoBehaviour
     public float animDuration = 0.4f;
 
     public ItemSlot[] itemSlots;
+    public ItemSlot[] skillSlots;
 
     private bool _menuActivated;
 
@@ -43,12 +44,17 @@ public class InventoryManager : MonoBehaviour
         {
             itemSlots[i].InitializeSlot();
         }
+        for (int i = 0; i < skillSlots.Length; i++)
+        {
+            skillSlots[i].InitializeSlot();
+        }
+
 
         if (itemSlots.Length > 0)
         {
             itemSlots[0].ClearDescription();
         }
-
+        if (skillSlots.Length > 0) skillSlots[0].ClearDescription();
 
 
         blackScreen.SetActive(false);
@@ -100,23 +106,27 @@ public class InventoryManager : MonoBehaviour
     }
     public int AddItem(ItemData itemData, int amount)
     {
+        ItemSlot[] targetSlots = itemData.isSkill ? skillSlots : itemSlots;
+
         int leftoverAmount = amount;
-        for (int i = 0; i < itemSlots.Length; i++)
+
+        for (int i = 0; i < targetSlots.Length; i++)
         {
-            if (!itemSlots[i].IsFull() && itemSlots[i].GetItemData() == itemData)
+            if (!targetSlots[i].IsFull() && targetSlots[i].GetItemData() == itemData)
             {
-                leftoverAmount = itemSlots[i].AddItem(itemData, leftoverAmount);
-                if (leftoverAmount <= 0) return 0; 
+                leftoverAmount = targetSlots[i].AddItem(itemData, leftoverAmount);
+                if (leftoverAmount <= 0) return 0;
             }
         }
+
         if (leftoverAmount > 0)
         {
-            for (int i = 0; i < itemSlots.Length; i++)
+            for (int i = 0; i < targetSlots.Length; i++)
             {
-                if (itemSlots[i].IsEmpty())
+                if (targetSlots[i].IsEmpty())
                 {
-                    leftoverAmount = itemSlots[i].AddItem(itemData, leftoverAmount);
-                    if (leftoverAmount <= 0) return 0; 
+                    leftoverAmount = targetSlots[i].AddItem(itemData, leftoverAmount);
+                    if (leftoverAmount <= 0) return 0;
                 }
             }
         }
@@ -129,6 +139,10 @@ public class InventoryManager : MonoBehaviour
         for (int i = 0; i < itemSlots.Length; i++)
         {
             itemSlots[i].Deselect();
+        }
+        for (int i = 0; i < skillSlots.Length; i++)
+        {
+            skillSlots[i].Deselect();
         }
     }
 

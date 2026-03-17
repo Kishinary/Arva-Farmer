@@ -48,7 +48,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3476021506982197510
 Transform:
   m_ObjectHideFlags: 0
@@ -333,6 +333,9 @@ MonoBehaviour:
   sr: {fileID: 0}
   DeathPar: {fileID: 8813979716979246122, guid: a0d8df6e7bc8cb64a896255174e2a806, type: 3}
   speedMultiplier: 1
+  moneyPrefab: {fileID: 0}
+  minCoins: 0
+  maxCoins: 0
 --- !u!114 &3240529693473964136
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -340,7 +343,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4413353320462866757}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b3206568347207d4196a6b7d7d709da0, type: 3}
   m_Name: 

@@ -75,15 +75,15 @@ public class CineCamera : MonoBehaviour
     {
         switch (actionName)
         {
-            case "Scissors": RequestShake(3f, 0.04f); break;
-            case "Watercan": RequestShake(4f, 0.10f); break;
-            case "Slash": RequestShake(3.3f, 0.06f); break;
-            case "ShovelNormal": RequestShake(6f, 0.08f); break;
-            case "ShovelSpecial": RequestShake(6.0f, 0.15f); break;
-            case "TakeDamage": RequestShake(8.0f, 0.20f); break;
-            case "EnemyHit": RequestShake(2.5f, 0.05f); break;
-            case "Explosion": RequestShake(10.0f, 0.40f); break;
-            case "BugRacket": RequestShake(3f, 0.5f); break;
+            case "Scissors": RequestShake(10f, 0.04f); break;
+            case "Watercan": RequestShake(20f, 0.10f); break;
+            case "Slash": RequestShake(15f, 0.06f); break;
+            case "ShovelNormal": RequestShake(15f, 0.08f); break;
+            case "ShovelSpecial": RequestShake(120f, 0.15f); break;
+            case "TakeDamage": RequestShake(12.0f, 0.20f); break;
+            case "EnemyHit": RequestShake(10f, 0.05f); break;
+            case "Explosion": RequestShake(40.0f, 0.40f); break;
+            case "BugRacket": RequestShake(20f, 0.5f); break;
         }
     }
 

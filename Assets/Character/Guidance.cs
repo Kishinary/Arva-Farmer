@@ -6,11 +6,11 @@ public class Guidance : MonoBehaviour
 {
     public Image Image;
     public string text;
-    public TextMeshPro textUI;
+    public TMP_Text textUI;
     void Start()
     {
         this.GetComponent<Canvas>().worldCamera = Camera.main;
-        textUI = GetComponentInChildren<TextMeshPro>();
+        textUI = GetComponentInChildren<TMP_Text>();
         Image = GetComponentInChildren<Image>();
         textUI.text = text;
     }

@@ -435,6 +435,7 @@ MonoBehaviour:
   Damagepercentage: 1
   weaponParent: {fileID: 0}
   isTalking: 0
+  InteractGuide: {fileID: 0}
 --- !u!114 &839512068000240927
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2084,9 +2085,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1040939815097163653, guid: d727e3835f40cec4e928f9cf01339fb3, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 265.6394
+      objectReference: {fileID: 0}
     - target: {fileID: 1240524922936965203, guid: d727e3835f40cec4e928f9cf01339fb3, type: 3}
       propertyPath: m_Name
       value: CashCount
+      objectReference: {fileID: 0}
+    - target: {fileID: 3491536085354689172, guid: d727e3835f40cec4e928f9cf01339fb3, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 256.6394
+      objectReference: {fileID: 0}
+    - target: {fileID: 6015447216726642081, guid: d727e3835f40cec4e928f9cf01339fb3, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 266
+      objectReference: {fileID: 0}
+    - target: {fileID: 7462375920653389691, guid: d727e3835f40cec4e928f9cf01339fb3, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 260.6394
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

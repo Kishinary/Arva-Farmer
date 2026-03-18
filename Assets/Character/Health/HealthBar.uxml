@@ -1,7 +1,7 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
     <Style src="project://database/Assets/Character/Health/HealthBar.uss?fileID=7433441132597879392&amp;guid=d2e158a2bb3cb3149b3d793dbf33efbb&amp;type=3#HealthBar" />
     <ui:VisualElement name="hp-bar-container" class="hp-bar-container">
-        <ui:Label name="hp-label" text="HP" class="hp-label" style="-unity-font-definition: url(&quot;project://database/Assets/TextMesh%20Pro/Fonts/ThaleahFat.ttf?fileID=12800000&amp;guid=ac750909d96903d4381e41b27407aca1&amp;type=3#ThaleahFat&quot;);" />
+        <ui:Label name="hp-label" text="HP" class="hp-label" style="-unity-font-definition: url(&quot;project://database/Assets/KBUG%20FOLDER%20DO%20NOT%20ENTER%20REPET%20DO%20NOT%20ENTER/inventory/font/ThaleahFat.ttf?fileID=12800000&amp;guid=a4fc35085e2f4754cbafb8bc71cd7990&amp;type=3#ThaleahFat&quot;);" />
         <ui:VisualElement name="hp-bar-stack" class="hp-bar-stack">
             <ui:VisualElement name="hp-shadow-drop" class="hp-shadow-drop" />
             <ui:VisualElement name="hp-bevel-dark" class="hp-bevel-dark">
@@ -10,18 +10,11 @@
                         <ui:VisualElement name="hp-bar-ghost" class="hp-bar-ghost" />
                         <ui:VisualElement name="hp-bar-fill" class="hp-bar-fill">
                             <ui:VisualElement name="hp-fill-highlight" class="hp-fill-highlight" />
-<<<<<<< Updated upstream
-=======
-                            <ui:VisualElement name="hp-fill-bottom-shadow" class="hp-fill-bottom-shadow" />
-                        </ui:VisualElement>
-                        <ui:VisualElement name="hp-bar-empty" class="hp-bar-empty" style="height: 18px;">
-                            <ui:VisualElement name="hp-empty-top-shadow" class="hp-empty-top-shadow" />
->>>>>>> Stashed changes
                         </ui:VisualElement>
                     </ui:VisualElement>
                 </ui:VisualElement>
             </ui:VisualElement>
-            <ui:Label name="hp-text" text="100/100" class="hp-text" style="-unity-font-definition: url(&quot;project://database/Assets/Material/Pixel%20Game.otf?fileID=12800000&amp;guid=b45585296b46ff14887a6f4d50d63943&amp;type=3#Pixel Game&quot;);" />
+            <ui:Label name="hp-text" text="100/100" class="hp-text" />
         </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>

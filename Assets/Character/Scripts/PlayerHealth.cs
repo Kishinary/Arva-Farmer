@@ -1,6 +1,7 @@
 using System;
 using System.Collections; // Bắt buộc phải có để dùng IEnumerator
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -62,7 +63,11 @@ public class PlayerHealth : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
-        if (_currentHealth <= 0 || damage <= 0) return;
+        if (_currentHealth <= 0 || damage <= 0){
+            SceneController.Instance.NextScene("Lobby", true);
+            _currentHealth = MaxHealth;
+
+        }
 
         // Xử lý hiệu ứng nháy
         if (flashMaterial != null && spriteRenderer != null)

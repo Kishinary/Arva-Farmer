@@ -47,6 +47,13 @@ MonoBehaviour:
   SoundManager: {fileID: 6558455594643323442, guid: 5e928e3121f8ad944851dbeb12dbac6a, type: 3}
   DungeonMap:
   - {fileID: 1687452668730072466, guid: fee88992bfdc3f64b8de3ce038f1db6e, type: 3}
+  - {fileID: 1687452668730072466, guid: 2ac17f834d13dad40b641119049b1759, type: 3}
+  - {fileID: 1687452668730072466, guid: f78683e36e4605941925797f2f31346c, type: 3}
+  - {fileID: 1687452668730072466, guid: 9d7445265de66f24e9dec3e38ab34ca3, type: 3}
+  - {fileID: 1687452668730072466, guid: c8e5cf32f69758547b3f60163c895dcc, type: 3}
+  - {fileID: 1687452668730072466, guid: d3502da89a3c974478982f1a006bd449, type: 3}
+  - {fileID: 1687452668730072466, guid: d727ec9b4c2a7974b93ac915217b82e5, type: 3}
+  - {fileID: 1687452668730072466, guid: 1d75f903c65bdf0418a6a70eb8b251c3, type: 3}
   player: {fileID: 770272872962949749, guid: fea627461bdbda441aca5ee78addc822, type: 3}
   NextScene: 
   HealthMultiplier: 0

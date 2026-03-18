@@ -34,6 +34,9 @@ public class PlayerMovement : MonoBehaviour
     [Header("Talking")]
     public bool isTalking = false;
 
+    [Header("Interact")]
+    public GameObject InteractGuide;
+
     //slow effect by using skills
     private float originalSpeed;
     private Coroutine activeSlowCoroutine;
@@ -215,13 +218,29 @@ public class PlayerMovement : MonoBehaviour
             if (hit.CompareTag("Interactable"))
             {
                 IInteractable interactable = hit.GetComponent<IInteractable>();
-
                 if (interactable != null)
                 {
                     interactable.Interact();
                     return;
                 }
             }
+        }
+
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Interactable"))
+        {
+            InteractGuide.SetActive(true);
+
+        }
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Interactable"))
+        {
+            InteractGuide.SetActive(false);
+
         }
     }
 

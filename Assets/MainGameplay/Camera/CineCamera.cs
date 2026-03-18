@@ -79,7 +79,7 @@ public class CineCamera : MonoBehaviour
             case "Watercan": RequestShake(20f, 0.10f); break;
             case "Slash": RequestShake(15f, 0.06f); break;
             case "ShovelNormal": RequestShake(15f, 0.08f); break;
-            case "ShovelSpecial": RequestShake(120f, 0.15f); break;
+            case "ShovelSpecial": RequestShake(12f, 0.15f); break;
             case "TakeDamage": RequestShake(12.0f, 0.20f); break;
             case "EnemyHit": RequestShake(10f, 0.05f); break;
             case "Explosion": RequestShake(40.0f, 0.40f); break;

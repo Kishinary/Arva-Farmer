@@ -10,6 +10,13 @@
                         <ui:VisualElement name="hp-bar-ghost" class="hp-bar-ghost" />
                         <ui:VisualElement name="hp-bar-fill" class="hp-bar-fill">
                             <ui:VisualElement name="hp-fill-highlight" class="hp-fill-highlight" />
+<<<<<<< Updated upstream
+=======
+                            <ui:VisualElement name="hp-fill-bottom-shadow" class="hp-fill-bottom-shadow" />
+                        </ui:VisualElement>
+                        <ui:VisualElement name="hp-bar-empty" class="hp-bar-empty" style="height: 18px;">
+                            <ui:VisualElement name="hp-empty-top-shadow" class="hp-empty-top-shadow" />
+>>>>>>> Stashed changes
                         </ui:VisualElement>
                     </ui:VisualElement>
                 </ui:VisualElement>

@@ -27,7 +27,7 @@ public class Spawner : MonoBehaviour
     private string NextScene;
 
     [Header("Racket")]
-    public BugRacket Player;
+    private BugRacket Player;
     public bool spawnable = true;
     private List<GameObject> activeFireflies = new List<GameObject>();
 

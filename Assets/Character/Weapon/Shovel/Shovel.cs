@@ -20,8 +20,8 @@ public class Shovel : MonoBehaviour, IWeapon
     private float nextNormalAttackTime = 0f;
 
     [Header("Damage")]
-    public int normalAttackDamage = 30;
-    public int specialAttackDamage =15;
+    public float damage = 30;
+    public float SpecialAttackDamage;
 
     [Header("Particles")]
     public ParticleSystem dirtParticle;
@@ -38,6 +38,11 @@ public class Shovel : MonoBehaviour, IWeapon
         animator = GetComponent<Animator>();
         weaponParent = GetComponentInParent<WeaponParent>();
         playerMove = GetComponentInParent<PlayerMovement>();
+    }
+
+    public float GetFinalDamage()
+    {
+        return damage * playerMove.Damagepercentage;
     }
 
     public bool NormalAttack()
@@ -100,7 +105,7 @@ public class Shovel : MonoBehaviour, IWeapon
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, normalAttackRadius, enemyLayer);
         foreach (Collider2D enemy in hitEnemies)
         {
-            ApplyDamage(enemy, normalAttackDamage, "ShovelNormal");
+            ApplyDamage(enemy, GetFinalDamage(), "ShovelNormal");
             StartCoroutine(ApplySlow(enemy.GetComponent<EnemyStats>(), 0.2f, 3));
         }
     }
@@ -123,12 +128,12 @@ public class Shovel : MonoBehaviour, IWeapon
 
             if (angleToEnemy < specialAttackAngle / 2f)
             {
-                ApplyDamage(enemy, specialAttackDamage, "ShovelSpecial");
+                ApplyDamage(enemy, GetFinalDamage()/2 , "ShovelSpecial");
             }
         }
     }
 
-    private void ApplyDamage(Collider2D enemy, int damage, string shakePreset)
+    private void ApplyDamage(Collider2D enemy, float damage, string shakePreset)
     {
         enemy.GetComponent<EnemyStats>().TakeDamage(playerMove.transform.position, damage);
         CineCamera.instance.TriggerPreset(shakePreset);

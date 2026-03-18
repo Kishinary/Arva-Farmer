@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 6943538664680091905}
   - component: {fileID: 8893344865121274438}
   - component: {fileID: 4895332725144627215}
+  - component: {fileID: 884165953376760982}
   m_Layer: 0
   m_Name: Scizzor_0
   m_TagString: Untagged
@@ -317,3 +318,16 @@ LineRenderer:
   m_UseWorldSpace: 1
   m_Loop: 0
   m_ApplyActiveColorSpace: 1
+--- !u!114 &884165953376760982
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7334418678631019261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0e1c89fe1f4ae845b99c35d9e28d3bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  droppedItemPrefab: {fileID: 8384293969686541230, guid: af2f0df8b48a5ab4eac558c4f72ffbdf, type: 3}

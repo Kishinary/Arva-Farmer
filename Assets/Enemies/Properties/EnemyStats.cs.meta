@@ -1,2 +1,18 @@
 fileFormatVersion: 2
 guid: 822c41bea48c4bb4da046b40b617a755
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - damageTextPrefab: {instanceID: 0}
+  - flashMaterial: {fileID: 2100000, guid: 38558de54466ec243bde7b2399495bfa, type: 2}
+  - healthSlider: {instanceID: 0}
+  - healthBarDocument: {instanceID: 0}
+  - sr: {instanceID: 0}
+  - DeathPar: {fileID: 8813979716979246122, guid: a0d8df6e7bc8cb64a896255174e2a806, type: 3}
+  - moneyPrefab: {fileID: 5875139448233303119, guid: ffb2f5acc48f5f74dbd103b1c37fa242, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

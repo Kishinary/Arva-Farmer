@@ -75,7 +75,7 @@ public class PauseMenuController : MonoBehaviour
     private void EnsureEventSystem()
     {
         // Nếu Scene mới thiếu EventSystem, chuột sẽ không bấm được. Code này tự tạo nó.
-        if (FindObjectOfType<EventSystem>() == null)
+        if (FindFirstObjectByType<EventSystem>() == null)
         {
             new GameObject("EventSystem", typeof(EventSystem), typeof(StandaloneInputModule));
         }

@@ -210,7 +210,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponPrefabToEquip: {fileID: 7334418678631019261, guid: f79b15faf18fa284895c56b292fe2d6c, type: 3}
   player: {fileID: 0}
-  inventory: {fileID: 5913732711904486494, guid: 7043ec425e149a746aea30759bd36789, type: 3}
+  floatSpeed: 3
+  dropRadius: 1.5
+  jumpPower: 1.5
+  dropDuration: 0.5
 --- !u!1 &8789159910393996915
 GameObject:
   m_ObjectHideFlags: 0

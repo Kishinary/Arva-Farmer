@@ -29,6 +29,8 @@ public class Rake : MonoBehaviour, IWeapon
     private float nextCatchTime;
     private float nextReleaseTime;
 
+    float damage = 10f;
+
 
     [Header("Damage")]
 
@@ -48,6 +50,12 @@ public class Rake : MonoBehaviour, IWeapon
         weaponParent = GetComponentInParent<WeaponParent>();
         playerMove = GetComponentInParent<PlayerMovement>();
     }
+
+    public float GetFinalDamage()
+    {
+        return damage * playerMove.Damagepercentage;
+    }
+
 
     private Coroutine attackRoutine;
     public bool NormalAttack()
@@ -140,7 +148,7 @@ public class Rake : MonoBehaviour, IWeapon
     {
         if (isPulling && collision.CompareTag("Enemy"))
         {
-            collision.GetComponent<EnemyStats>().TakeDamage(transform.position, 4);
+            collision.GetComponent<EnemyStats>().TakeDamage(transform.position, GetFinalDamage() * 0.5f);
             Rigidbody2D enemyRb = collision.GetComponent<Rigidbody2D>();
             var PlayerPull = (collision.transform.position - playerMove.transform.position).normalized * 2;
             Vector2 knockbackDir = -PlayerPull;

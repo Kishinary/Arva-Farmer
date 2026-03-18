@@ -11,6 +11,9 @@ public class ItemData : ScriptableObject
     [TextArea(3, 5)]
     public string itemDescription;
 
+    [Header("Item Category")]
+    public bool isSkill = false;
+
     [Header("Inventory Rules")]
     public int maxStackSize = 64; 
     public GameObject itemPrefab; 

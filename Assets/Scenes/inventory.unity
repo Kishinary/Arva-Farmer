@@ -319,7 +319,7 @@ PrefabInstance:
     - target: {fileID: 4587282200397394695, guid: fea627461bdbda441aca5ee78addc822, type: 3}
       propertyPath: weapon
       value: 
-      objectReference: {fileID: 1919892357}
+      objectReference: {fileID: 0}
     - target: {fileID: 4587282200397394695, guid: fea627461bdbda441aca5ee78addc822, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -327,7 +327,7 @@ PrefabInstance:
     - target: {fileID: 4587282200397394695, guid: fea627461bdbda441aca5ee78addc822, type: 3}
       propertyPath: weaponPosition
       value: 
-      objectReference: {fileID: 1919892358}
+      objectReference: {fileID: 0}
     - target: {fileID: 5250555202186392987, guid: fea627461bdbda441aca5ee78addc822, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -600,16 +600,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1919892357 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 139806096551837312, guid: fea627461bdbda441aca5ee78addc822, type: 3}
-  m_PrefabInstance: {fileID: 417063355}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &1919892358 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6009494202557789507, guid: fea627461bdbda441aca5ee78addc822, type: 3}
-  m_PrefabInstance: {fileID: 417063355}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7351978058403753077
 PrefabInstance:
   m_ObjectHideFlags: 0

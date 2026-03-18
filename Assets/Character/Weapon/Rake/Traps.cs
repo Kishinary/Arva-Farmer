@@ -3,6 +3,7 @@ using System.Collections.Generic; // Required for Dictionary
 
 public class Traps : MonoBehaviour
 {
+    public float damage;
     public string Traptype;
     public float stunDuration = 2f;
     public float spikeDamageInterval = 0.5f; // New variable for interval
@@ -24,7 +25,7 @@ public class Traps : MonoBehaviour
 
             if (Traptype == "BearTrap")
             {
-                stats.TakeDamage(transform.position, 30);
+                stats.TakeDamage(transform.position, damage * 3);
                 Destroy(this.gameObject);
             }
             else if (Traptype == "HoleTrap")
@@ -35,7 +36,7 @@ public class Traps : MonoBehaviour
             }
             else if (Traptype == "RakeTrap")
             {
-                stats.TakeDamage(transform.position, 5);
+                stats.TakeDamage(transform.position, damage/2);
                 stats.TriggerSLowed(0, 2f);
             }
             // Note: SpikeTrap initial hit is handled by OnTriggerStay logic below
@@ -52,7 +53,7 @@ public class Traps : MonoBehaviour
             if (!damageTimers.ContainsKey(enemyID) || Time.time >= damageTimers[enemyID])
             {
                 // Deal Damage
-                collision.GetComponent<EnemyStats>().TakeDamage(transform.position, 10f);
+                collision.GetComponent<EnemyStats>().TakeDamage(transform.position, damage);
 
                 // Set the next allowed damage time (Current Time + 0.5s)
                 damageTimers[enemyID] = Time.time + spikeDamageInterval;

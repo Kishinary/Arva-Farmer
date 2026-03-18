@@ -25,7 +25,7 @@ public class PlayerMovement : MonoBehaviour
     [Header("Combat")]
     public InputAction pointerPosition;
     Vector2 pointerInput;
-
+    public float Damagepercentage = 1;
 
     [Header("Combat-related Components")]
     public WeaponParent weaponParent;
@@ -46,6 +46,14 @@ public class PlayerMovement : MonoBehaviour
     public void SetWeapon(IWeapon newWeapon)
     {
         currentWeapon = newWeapon;
+    }
+
+    public void DamageChange(float percentage)
+    {
+        if (percentage > 0)
+        {
+            Damagepercentage += percentage;
+        }
     }
     private void Awake()
     {
@@ -87,7 +95,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-            rb.linearVelocity = moveInput * movespeed;
+        rb.linearVelocity = Vector2.Lerp(rb.linearVelocity, moveInput * movespeed, 0.2f);
     }
     void OnEnable()
     {
@@ -216,4 +224,8 @@ public class PlayerMovement : MonoBehaviour
             }
         }
     }
+
+
+
+
 }

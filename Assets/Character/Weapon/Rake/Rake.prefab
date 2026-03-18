@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2524370250863331075}
   - component: {fileID: 607720775127988695}
   - component: {fileID: 7241656908648975934}
+  - component: {fileID: 5260204462034069932}
   m_Layer: 0
   m_Name: Rake
   m_TagString: Untagged
@@ -185,6 +186,19 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1.0138743, y: 0.9975598}
   m_EdgeRadius: 0
+--- !u!114 &5260204462034069932
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3231131308460318669}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0e1c89fe1f4ae845b99c35d9e28d3bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  droppedItemPrefab: {fileID: 8384293969686541230, guid: 250cf002b5aae914e87cb19353c149ee, type: 3}
 --- !u!1 &6747431968149084360
 GameObject:
   m_ObjectHideFlags: 0

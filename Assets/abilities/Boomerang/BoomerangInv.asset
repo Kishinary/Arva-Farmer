@@ -16,6 +16,7 @@ MonoBehaviour:
   itemName: Boomerang
   itemIcon: {fileID: -7810130899584404274, guid: e74442918725c924fb32f4401a59eac5, type: 3}
   itemDescription: I will comeback
+  isSkill: 1
   maxStackSize: 64
   itemPrefab: {fileID: 26655022856714795, guid: 3369ab6d6126fd8469be4e10a30ad599, type: 3}
   abilityScriptableObject: {fileID: 11400000, guid: 7e047d024dbfa4a428d949a02472fca5, type: 2}

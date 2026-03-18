@@ -16,6 +16,7 @@ MonoBehaviour:
   itemName: StunEnemy
   itemIcon: {fileID: 21300000, guid: ed184a2883902d847a027af94f40c2e6, type: 3}
   itemDescription: Make enemy slows
+  isSkill: 0
   maxStackSize: 64
   itemPrefab: {fileID: 26655022856714795, guid: d6cdaf83ebf06ce45bcfb44c37e7a504, type: 3}
   abilityScriptableObject: {fileID: 11400000, guid: c339ed2a00557864d8dc77ab80b6f2fb, type: 2}

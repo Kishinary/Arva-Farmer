@@ -26,7 +26,11 @@ MonoBehaviour:
   m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   m_Match: 1
+=======
+  m_Match: 0.5
+>>>>>>> Stashed changes
 =======
   m_Match: 0.5
 >>>>>>> Stashed changes

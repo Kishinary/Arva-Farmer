@@ -16,7 +16,7 @@ public class Projectile : MonoBehaviour
     private BugRacket racket;
     void Start()
     {
-        racket = GetComponentInParent<BugRacket>();
+        racket = FindFirstObjectByType<BugRacket>().GetComponent<BugRacket>();
         Destroy(gameObject, lifeTime);
 
         Vector3 mouse = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -61,7 +61,10 @@ public class Projectile : MonoBehaviour
                 EnemyStats enemy = hit.GetComponent<EnemyStats>();
 
                 if (enemy != null)
+                {
                     enemy.TakeDamage(transform.position, racket.GetFinalDamage() * 1.75f);
+
+                }
             }
 
         }

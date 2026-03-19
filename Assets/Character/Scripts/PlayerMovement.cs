@@ -163,8 +163,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (mainCamera == null)
         {
-            mainCamera = Camera.main;
-            if (mainCamera == null) return Vector2.zero;
+             return Vector2.zero;
         }
         Vector3 mousePos = pointerPosition.ReadValue<Vector2>();
         mousePos.z = Camera.main.nearClipPlane;
@@ -227,7 +226,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
     }
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.CompareTag("Interactable"))
         {

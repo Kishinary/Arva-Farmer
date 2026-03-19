@@ -15,8 +15,6 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] private float flashDuration = 0.1f;
 
     [Header("Debug")]
-    [SerializeField] private bool enableSpaceBarTest = false;
-
     public static bool IsFirstLoad = true; 
 
     public static event Action<float, float> OnHealthChanged;
@@ -30,8 +28,10 @@ public class PlayerHealth : MonoBehaviour
     private Material originalMaterial;
     private Coroutine flashRoutine;
 
+    private Animator anim;
     void Awake()
     {
+        anim = GetComponent<Animator>();
         if (Instance != null && Instance != this)
         {
             Destroy(gameObject);
@@ -57,15 +57,14 @@ public class PlayerHealth : MonoBehaviour
 
     void Update()
     {
-        if (enableSpaceBarTest && Input.GetKeyDown(KeyCode.Space))
-            TakeDamage(10f);
     }
 
     public void TakeDamage(float damage)
     {
         if (_currentHealth <= 0 || damage <= 0){
-            SceneController.Instance.NextScene("Lobby", true);
-            _currentHealth = MaxHealth;
+            anim.SetTrigger("Die");
+            //SceneController.Instance.NextScene("Lobby", true);
+            //_currentHealth = MaxHealth;
 
         }
 
@@ -79,7 +78,7 @@ public class PlayerHealth : MonoBehaviour
         _currentHealth = Mathf.Max(_currentHealth - damage, 0);
         OnHealthChanged?.Invoke(_currentHealth, maxHealth);
 
-        if (_currentHealth <= 0) OnDied?.Invoke();
+        if (_currentHealth <= 0) anim.SetTrigger("Die");
     }
 
     private IEnumerator FlashRoutine()

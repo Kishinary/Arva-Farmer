@@ -3,7 +3,7 @@ using System.Collections.Generic; // Required for Dictionary
 
 public class Traps : MonoBehaviour
 {
-    public float damage;
+    public float damage = 10;
     public string Traptype;
     public float stunDuration = 2f;
     public float spikeDamageInterval = 0.5f; // New variable for interval

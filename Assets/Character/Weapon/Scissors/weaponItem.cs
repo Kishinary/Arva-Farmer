@@ -110,8 +110,6 @@ public class weaponItem : MonoBehaviour
         {
             isPlayerInRange = true;
             playerColliderRef = collision; 
-           
-
         }
     }
 

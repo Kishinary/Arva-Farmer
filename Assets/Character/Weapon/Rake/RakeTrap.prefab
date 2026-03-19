@@ -101,8 +101,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9218803b9ba8b064786d4ee6cacd8212, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 10
   Traptype: RakeTrap
   stunDuration: 2
+  spikeDamageInterval: 0.5
 --- !u!58 &4553413543957555144
 CircleCollider2D:
   m_ObjectHideFlags: 0

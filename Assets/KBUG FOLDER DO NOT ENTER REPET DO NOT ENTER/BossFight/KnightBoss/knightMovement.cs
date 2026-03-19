@@ -1,5 +1,6 @@
 using JetBrains.Annotations;
 using System;
+using System.Collections;
 using UnityEngine;
 
 
@@ -16,46 +17,81 @@ public abstract class KnightBaseState
     public abstract void EnterState();
     public abstract void UpdateState();
     public abstract void ExitState();
-    public abstract void ExecuteComboAttack(BossCombo combo, int hitIndex);
+    public virtual void ExecuteComboAttack(BossCombo combo, int hitIndex)
+    {
+        if (boss.isActionLocked) return;
+
+        switch (combo.bandType)
+        {
+            case BandType.Kick: HandleKickCombo(combo, hitIndex); break;
+            case BandType.Bass: HandleBassCombo(combo, hitIndex); break;
+            case BandType.LowMid: HandleLowMidCombo(combo, hitIndex); break;
+            case BandType.HighMid: HandleHighMidCombo(combo, hitIndex); break;
+            case BandType.Treble: HandleTrebleCombo(combo, hitIndex); break;
+        }
+    }
+
+    protected virtual void HandleKickCombo(BossCombo combo, int hitIndex) { }
+    protected virtual void HandleBassCombo(BossCombo combo, int hitIndex) { }
+    protected virtual void HandleLowMidCombo(BossCombo combo, int hitIndex) { }
+    protected virtual void HandleHighMidCombo(BossCombo combo, int hitIndex) { }
+    protected virtual void HandleTrebleCombo(BossCombo combo, int hitIndex) { }
 }
+
 
 public class KnightPhase1State : KnightBaseState
 {
     public KnightPhase1State(knightMovement boss) : base(boss) { }
     public override void EnterState()
     {
-        boss.moveSpeed = 2f;
+        boss.moveSpeed = 0f;
 
     }
     public override void UpdateState()
     {
-        ChasePlayer();
+        boss.ChasePlayer();
        
 
-        boss.dartAttack();
+        //boss.dartAttack();
     }
 
-    public override void ExecuteComboAttack(BossCombo combo, int hitIndex)
+    protected override void HandleKickCombo(BossCombo combo, int hitIndex)
     {
-        
+        if (combo.beatCount == 1)
+        {
+            //boss.PerformDartAttack(); 
+        }
     }
+    protected override void HandleBassCombo(BossCombo combo, int hitIndex)
+    {
+    }
+    protected override void HandleLowMidCombo(BossCombo combo, int hitIndex)
+    {
+    }
+    protected override void HandleHighMidCombo(BossCombo combo, int hitIndex)
+    {
+    }
+    protected override void HandleTrebleCombo(BossCombo combo, int hitIndex)
+    {
+    }
+
+
+
+
 
     public override void ExitState()
     {
         boss.SetMovementDirection(Vector2.zero);
     }
 
-    private void ChasePlayer()
-    {
-        Vector2 direction = ((Vector2)boss.player.transform.position - (Vector2)boss.transform.position).normalized;
-        boss.SetMovementDirection(direction);
-    }
+    
 }
 
 /*public class KnightPhase2State : BossBaseState
 {
 
 }*/
+
 
 
 public class knightMovement : MonoBehaviour
@@ -129,6 +165,11 @@ public class knightMovement : MonoBehaviour
         currentState?.ExecuteComboAttack(combo, hitIndex);
     }
 
+
+
+
+
+
     private void OnDestroy()
     {
 
@@ -179,7 +220,6 @@ public class knightMovement : MonoBehaviour
         currentDirection = direction;
         NotifyWalk(direction);
     }
-
     public void NotifyWalk(Vector2 direction)
     {
         if (direction != Vector2.zero)
@@ -188,7 +228,11 @@ public class knightMovement : MonoBehaviour
         }
     }
 
-
+    public void ChasePlayer()
+    {
+        Vector2 direction = ((Vector2)player.transform.position - (Vector2)transform.position).normalized;
+        SetMovementDirection(direction);
+    }
 
     public void dartAttack()
     {

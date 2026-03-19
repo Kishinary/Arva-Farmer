@@ -424,6 +424,18 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5314731719176796391, guid: f1f3cea2810fed44bb49b71805166ab0, type: 3}
+      propertyPath: itemDescriptionText
+      value: 
+      objectReference: {fileID: 8721605203062371851}
+    - target: {fileID: 5314731719176796391, guid: f1f3cea2810fed44bb49b71805166ab0, type: 3}
+      propertyPath: itemDescriptionImage
+      value: 
+      objectReference: {fileID: 4809904363837072656}
+    - target: {fileID: 5314731719176796391, guid: f1f3cea2810fed44bb49b71805166ab0, type: 3}
+      propertyPath: itemDescriptionNameText
+      value: 
+      objectReference: {fileID: 2079677106386000098}
     - target: {fileID: 5454782182741491692, guid: f1f3cea2810fed44bb49b71805166ab0, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -492,6 +504,18 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6931287673027666911, guid: f1f3cea2810fed44bb49b71805166ab0, type: 3}
+      propertyPath: itemDescriptionText
+      value: 
+      objectReference: {fileID: 8721605203062371851}
+    - target: {fileID: 6931287673027666911, guid: f1f3cea2810fed44bb49b71805166ab0, type: 3}
+      propertyPath: itemDescriptionImage
+      value: 
+      objectReference: {fileID: 4809904363837072656}
+    - target: {fileID: 6931287673027666911, guid: f1f3cea2810fed44bb49b71805166ab0, type: 3}
+      propertyPath: itemDescriptionNameText
+      value: 
+      objectReference: {fileID: 2079677106386000098}
     - target: {fileID: 7252500823423382918, guid: f1f3cea2810fed44bb49b71805166ab0, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -611,6 +635,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2079677106386000098 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2115801646232560509, guid: f1f3cea2810fed44bb49b71805166ab0, type: 3}
+  m_PrefabInstance: {fileID: 108272399233235871}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &2103328776381657118 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2067204235469212545, guid: f1f3cea2810fed44bb49b71805166ab0, type: 3}
@@ -649,6 +684,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 2748366150076681815, guid: f1f3cea2810fed44bb49b71805166ab0, type: 3}
   m_PrefabInstance: {fileID: 108272399233235871}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &4809904363837072656 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4846048728279850639, guid: f1f3cea2810fed44bb49b71805166ab0, type: 3}
+  m_PrefabInstance: {fileID: 108272399233235871}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &5585885327854262523 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5477965048462140260, guid: f1f3cea2810fed44bb49b71805166ab0, type: 3}
@@ -665,6 +711,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 6792085242191199861, guid: f1f3cea2810fed44bb49b71805166ab0, type: 3}
   m_PrefabInstance: {fileID: 108272399233235871}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &8721605203062371851 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8685742279177899412, guid: f1f3cea2810fed44bb49b71805166ab0, type: 3}
+  m_PrefabInstance: {fileID: 108272399233235871}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &8818329778017740463 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8926601866863287600, guid: f1f3cea2810fed44bb49b71805166ab0, type: 3}

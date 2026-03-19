@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 293a99321ef16394c82654c02714b29d, type: 3}
+  m_Name: yensao
+  m_EditorClassIdentifier: 
+  id: 
+  itemName: YenSao
+  itemIcon: {fileID: 1403812638501723641, guid: 39c617104796ca74db4b2e550f035cf9, type: 3}
+  itemDescription: 'Best yen sao
+
+    x2 speed'
+  itemType: 0
+  maxStackSize: 3
+  itemPrefab: {fileID: 8384293969686541230, guid: bbd4c08064c898244b2f868e9e1962ce, type: 3}
+  abilityScriptableObject: {fileID: 11400000, guid: 96f56335bc4631f48be067683feccc93, type: 2}

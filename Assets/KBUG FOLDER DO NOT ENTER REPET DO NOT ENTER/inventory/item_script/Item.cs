@@ -37,7 +37,7 @@ public class Item : MonoBehaviour
             if (leftOver <= 0)
             {
 
-                if (itemData.abilityScriptableObject != null)
+                if (itemData.abilityScriptableObject != null && itemData.itemType == ItemType.Skill)
                 {
                     AbilityHolder abilityHolder = collision.GetComponent<AbilityHolder>();
                     if (abilityHolder != null)

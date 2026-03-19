@@ -79,6 +79,7 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler
         itemDescriptionImage.sprite = itemData.itemIcon;
         itemDescriptionImage.enabled = true;
 
+        InventoryManager.Instance.SetSelectedSlot(this);
     }
     public void OnRightClick()
     {
@@ -105,6 +106,11 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler
 
             if (quantity <= 0)
             {
+                if (thisItemSelected)
+                {
+                    Deselect();            
+                    InventoryManager.Instance.SetSelectedSlot(null);
+                }
                 EmptySlot();
             }
         }
@@ -157,6 +163,18 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler
         itemDescriptionImage.sprite = null;
         itemDescriptionImage.enabled = false; 
     }
-
+    public void RemoveItem(int amountToRemove)
+    {
+        if (IsEmpty()) return;
+        quantity -= amountToRemove;
+        if (quantity <= 0)
+        {
+            EmptySlot();
+        }
+        else
+        {
+            UpdateUI();
+        }
+    }
 
 }

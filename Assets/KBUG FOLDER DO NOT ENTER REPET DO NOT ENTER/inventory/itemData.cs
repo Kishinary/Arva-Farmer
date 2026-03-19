@@ -1,5 +1,14 @@
 using UnityEngine;
 
+
+
+public enum ItemType
+{
+    Potion,    
+    Weapon,     
+    Skill,      
+
+}
 [CreateAssetMenu(fileName = "New Item Data", menuName = "Inventory/Item Data")]
 public class ItemData : ScriptableObject
 {
@@ -12,7 +21,7 @@ public class ItemData : ScriptableObject
     public string itemDescription;
 
     [Header("Item Category")]
-    public bool isSkill = false;
+    public ItemType itemType;
 
     [Header("Inventory Rules")]
     public int maxStackSize = 64; 

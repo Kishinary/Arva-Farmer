@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 293a99321ef16394c82654c02714b29d, type: 3}
+  m_Name: BaMia
+  m_EditorClassIdentifier: 
+  id: 
+  itemName: Ba Mia
+  itemIcon: {fileID: 6989642852348889387, guid: 6a8adb02ab80cac49ad797c6a59ac111, type: 3}
+  itemDescription: 'Used to create smt:
+
+    +3.6 health
+
+    +18% speed
+
+    +10
+    Seconds'
+  itemType: 0
+  maxStackSize: 64
+  itemPrefab: {fileID: 8384293969686541230, guid: be39b3a9f7d80504fb51ca49990e99d3, type: 3}
+  abilityScriptableObject: {fileID: 11400000, guid: 1b184f61ebed1f343a3191653d85c58f, type: 2}

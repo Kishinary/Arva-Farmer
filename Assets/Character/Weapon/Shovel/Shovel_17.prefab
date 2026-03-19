@@ -44,6 +44,7 @@ GameObject:
   - component: {fileID: 3136430380355952634}
   - component: {fileID: 5941984190580075794}
   - component: {fileID: 3579902126863066116}
+  - component: {fileID: 1538618135797681871}
   m_Layer: 0
   m_Name: Shovel_17
   m_TagString: Untagged
@@ -215,3 +216,16 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.55615276, y: 0.5418284}
   m_EdgeRadius: 0
+--- !u!114 &1538618135797681871
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5029004373836615730}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0e1c89fe1f4ae845b99c35d9e28d3bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  droppedItemPrefab: {fileID: 8384293969686541230, guid: adf3cdc00ab99814f88c8f48da15a536, type: 3}

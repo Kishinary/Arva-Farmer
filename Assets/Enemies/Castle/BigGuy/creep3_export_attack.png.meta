@@ -1,73 +1,55 @@
 fileFormatVersion: 2
-guid: ea18e05848a80cf4d97086d82bea72fd
+guid: 741148fb643b3f742ba0838f885927f1
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5698477272865039271
-    second: city_2_0
+      213: -3184187025957485850
+    second: creep3_export_attack_0
   - first:
-      213: 4552221553625487381
-    second: city_2_1
+      213: -1168517404432231323
+    second: creep3_export_attack_1
   - first:
-      213: -4581882102742899705
-    second: city_2_2
+      213: 6497241758587980942
+    second: creep3_export_attack_2
   - first:
-      213: 8945382478418745378
-    second: city_2_3
+      213: 5070663088177234172
+    second: creep3_export_attack_3
   - first:
-      213: -679276422272126985
-    second: city_2_4
+      213: 8067338741031774951
+    second: creep3_export_attack_4
   - first:
-      213: 548184314406845035
-    second: city_2_5
+      213: 5362796028573138749
+    second: creep3_export_attack_5
   - first:
-      213: 8216146850183291773
-    second: city_2_6
+      213: 4468599425721465251
+    second: creep3_export_attack_6
   - first:
-      213: -8036980721038218714
-    second: city_2_7
+      213: 2436389068942948771
+    second: creep3_export_attack_7
   - first:
-      213: -4122303075253760917
-    second: city_2_8
+      213: -7030650832850550874
+    second: creep3_export_attack_8
   - first:
-      213: -3717539015094246060
-    second: city_2_9
+      213: -5066781011398841702
+    second: creep3_export_attack_9
   - first:
-      213: 8659378628448221168
-    second: city_2_10
+      213: 6430050518915616485
+    second: creep3_export_attack_10
   - first:
-      213: -7372476689757373138
-    second: city_2_11
+      213: 6175898070882127007
+    second: creep3_export_attack_11
   - first:
-      213: -7192800676977914447
-    second: city_2_12
+      213: -6368989465334438888
+    second: creep3_export_attack_12
   - first:
-      213: 3081065569545473341
-    second: city_2_13
+      213: 8188196941806193010
+    second: creep3_export_attack_13
   - first:
-      213: 1917154180074585298
-    second: city_2_14
+      213: -4783958775672271706
+    second: creep3_export_attack_14
   - first:
-      213: -688859457285030536
-    second: city_2_15
-  - first:
-      213: 615813195994565412
-    second: city_2_16
-  - first:
-      213: -7337366749313366003
-    second: city_2_17
-  - first:
-      213: -8565988827209544133
-    second: city_2_18
-  - first:
-      213: -7847779450593171175
-    second: city_2_19
-  - first:
-      213: -8184540099100885525
-    second: city_2_20
-  - first:
-      213: -5721735149531373475
-    second: city_2_21
+      213: -7883383778063510689
+    second: creep3_export_attack_15
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -114,7 +96,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -176,13 +158,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: city_2_0
+      name: creep3_export_attack_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 240
-        width: 65
-        height: 33
+        x: 8
+        y: 206
+        width: 46
+        height: 43
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -191,195 +173,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 95c1e36bc11fae0b0800000000000000
-      internalID: -5698477272865039271
+      spriteID: 6e2856b35ce7fc3d0800000000000000
+      internalID: -3184187025957485850
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: city_2_1
+      name: creep3_export_attack_1
       rect:
         serializedVersion: 2
-        x: 42
-        y: 114
-        width: 138
-        height: 139
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 51859b2626dbc2f30800000000000000
-      internalID: 4552221553625487381
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: city_2_2
-      rect:
-        serializedVersion: 2
-        x: 200
-        y: 247
-        width: 20
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 7042a4fd082e960c0800000000000000
-      internalID: -4581882102742899705
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: city_2_3
-      rect:
-        serializedVersion: 2
-        x: 227
-        y: 245
-        width: 27
-        height: 25
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 228172e28f1642c70800000000000000
-      internalID: 8945382478418745378
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: city_2_4
-      rect:
-        serializedVersion: 2
-        x: 259
-        y: 176
-        width: 28
-        height: 73
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 7ffeb2261b9b296f0800000000000000
-      internalID: -679276422272126985
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: city_2_5
-      rect:
-        serializedVersion: 2
-        x: 352
-        y: 209
-        width: 33
-        height: 62
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: b6a39a3caba8b9700800000000000000
-      internalID: 548184314406845035
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: city_2_6
-      rect:
-        serializedVersion: 2
-        x: 197
-        y: 214
-        width: 23
-        height: 23
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: d73ae9b770e950270800000000000000
-      internalID: 8216146850183291773
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: city_2_7
-      rect:
-        serializedVersion: 2
-        x: 228
-        y: 214
-        width: 23
-        height: 23
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 62aaadfad98e67090800000000000000
-      internalID: -8036980721038218714
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: city_2_8
-      rect:
-        serializedVersion: 2
-        x: 289
-        y: 176
-        width: 29
-        height: 70
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: b6ccff6a133aac6c0800000000000000
-      internalID: -4122303075253760917
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: city_2_9
-      rect:
-        serializedVersion: 2
-        x: 329
-        y: 176
-        width: 14
+        x: 74
+        y: 198
+        width: 44
         height: 50
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -389,240 +195,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 455e6ae46f5a86cc0800000000000000
-      internalID: -3717539015094246060
+      spriteID: 56494fa9c9798cfe0800000000000000
+      internalID: -1168517404432231323
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: city_2_10
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 137
-        width: 33
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 0f7f344bbfa4c2870800000000000000
-      internalID: 8659378628448221168
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: city_2_11
-      rect:
-        serializedVersion: 2
-        x: 194
-        y: 176
-        width: 27
-        height: 34
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: e2df9200383bfa990800000000000000
-      internalID: -7372476689757373138
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: city_2_12
-      rect:
-        serializedVersion: 2
-        x: 229
-        y: 176
-        width: 25
-        height: 34
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 1bdca84b4e90e2c90800000000000000
-      internalID: -7192800676977914447
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: city_2_13
-      rect:
-        serializedVersion: 2
-        x: 203
-        y: 149
-        width: 12
-        height: 21
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: d3dc172bfc422ca20800000000000000
-      internalID: 3081065569545473341
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: city_2_14
-      rect:
-        serializedVersion: 2
-        x: 233
-        y: 149
-        width: 13
-        height: 24
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 2dc300bb1991b9a10800000000000000
-      internalID: 1917154180074585298
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: city_2_15
-      rect:
-        serializedVersion: 2
-        x: 160
-        y: 112
-        width: 30
-        height: 34
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 87d7b5c29fda076f0800000000000000
-      internalID: -688859457285030536
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: city_2_16
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 113
-        width: 29
-        height: 30
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 42b014bc6decb8800800000000000000
-      internalID: 615813195994565412
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: city_2_17
-      rect:
-        serializedVersion: 2
-        x: 224
-        y: 112
-        width: 29
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: d080a6801df6c2a90800000000000000
-      internalID: -7337366749313366003
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: city_2_18
-      rect:
-        serializedVersion: 2
-        x: 255
-        y: 98
-        width: 48
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: b3ec534db8e7f1980800000000000000
-      internalID: -8565988827209544133
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: city_2_19
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 118
-        height: 110
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 919a8c34b26171390800000000000000
-      internalID: -7847779450593171175
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: city_2_20
+      name: creep3_export_attack_2
       rect:
         serializedVersion: 2
         x: 128
-        y: 1
-        width: 129
-        height: 94
+        y: 193
+        width: 55
+        height: 46
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -631,20 +217,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: bedb627b42caa6e80800000000000000
-      internalID: -8184540099100885525
+      spriteID: e8c8870a4f6da2a50800000000000000
+      internalID: 6497241758587980942
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: city_2_21
+      name: creep3_export_attack_3
       rect:
         serializedVersion: 2
-        x: 287
-        y: 48
-        width: 98
-        height: 34
+        x: 203
+        y: 196
+        width: 40
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -653,8 +239,272 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d50e05152305890b0800000000000000
-      internalID: -5721735149531373475
+      spriteID: cf04d72963d9e5640800000000000000
+      internalID: 5070663088177234172
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: creep3_export_attack_4
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 137
+        width: 34
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7ea22f5a7d1f4ff60800000000000000
+      internalID: 8067338741031774951
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: creep3_export_attack_5
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 137
+        width: 37
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d3f3afd139a7c6a40800000000000000
+      internalID: 5362796028573138749
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: creep3_export_attack_6
+      rect:
+        serializedVersion: 2
+        x: 154
+        y: 135
+        width: 39
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3a974a58087a30e30800000000000000
+      internalID: 4468599425721465251
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: creep3_export_attack_7
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 137
+        width: 48
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3a93dfc13facfc120800000000000000
+      internalID: 2436389068942948771
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: creep3_export_attack_8
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 73
+        width: 34
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6af7328415c1e6e90800000000000000
+      internalID: -7030650832850550874
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: creep3_export_attack_9
+      rect:
+        serializedVersion: 2
+        x: 77
+        y: 73
+        width: 37
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a9aa0ecd38d2fa9b0800000000000000
+      internalID: -5066781011398841702
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: creep3_export_attack_10
+      rect:
+        serializedVersion: 2
+        x: 127
+        y: 71
+        width: 39
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5ee08cb01e02c3950800000000000000
+      internalID: 6430050518915616485
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: creep3_export_attack_11
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 73
+        width: 48
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f9c03fbf29235b550800000000000000
+      internalID: 6175898070882127007
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: creep3_export_attack_12
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 10
+        width: 50
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 814298c53ddcc97a0800000000000000
+      internalID: -6368989465334438888
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: creep3_export_attack_13
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 4
+        width: 45
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2794c435cb152a170800000000000000
+      internalID: 8188196941806193010
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: creep3_export_attack_14
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 15
+        width: 53
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6ac01fb07d6fb9db0800000000000000
+      internalID: -4783958775672271706
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: creep3_export_attack_15
+      rect:
+        serializedVersion: 2
+        x: 207
+        y: 8
+        width: 43
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f539278c838989290800000000000000
+      internalID: -7883383778063510689
       vertices: []
       indices: 
       edges: []
@@ -673,28 +523,22 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      city_2_0: -5698477272865039271
-      city_2_1: 4552221553625487381
-      city_2_10: 8659378628448221168
-      city_2_11: -7372476689757373138
-      city_2_12: -7192800676977914447
-      city_2_13: 3081065569545473341
-      city_2_14: 1917154180074585298
-      city_2_15: -688859457285030536
-      city_2_16: 615813195994565412
-      city_2_17: -7337366749313366003
-      city_2_18: -8565988827209544133
-      city_2_19: -7847779450593171175
-      city_2_2: -4581882102742899705
-      city_2_20: -8184540099100885525
-      city_2_21: -5721735149531373475
-      city_2_3: 8945382478418745378
-      city_2_4: -679276422272126985
-      city_2_5: 548184314406845035
-      city_2_6: 8216146850183291773
-      city_2_7: -8036980721038218714
-      city_2_8: -4122303075253760917
-      city_2_9: -3717539015094246060
+      creep3_export_attack_0: -3184187025957485850
+      creep3_export_attack_1: -1168517404432231323
+      creep3_export_attack_10: 6430050518915616485
+      creep3_export_attack_11: 6175898070882127007
+      creep3_export_attack_12: -6368989465334438888
+      creep3_export_attack_13: 8188196941806193010
+      creep3_export_attack_14: -4783958775672271706
+      creep3_export_attack_15: -7883383778063510689
+      creep3_export_attack_2: 6497241758587980942
+      creep3_export_attack_3: 5070663088177234172
+      creep3_export_attack_4: 8067338741031774951
+      creep3_export_attack_5: 5362796028573138749
+      creep3_export_attack_6: 4468599425721465251
+      creep3_export_attack_7: 2436389068942948771
+      creep3_export_attack_8: -7030650832850550874
+      creep3_export_attack_9: -5066781011398841702
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

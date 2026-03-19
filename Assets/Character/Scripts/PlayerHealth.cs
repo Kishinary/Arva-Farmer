@@ -62,10 +62,7 @@ public class PlayerHealth : MonoBehaviour
     public void TakeDamage(float damage)
     {
         if (_currentHealth <= 0 || damage <= 0){
-            anim.SetTrigger("Die");
-            //SceneController.Instance.NextScene("Lobby", true);
-            //_currentHealth = MaxHealth;
-
+            StartCoroutine(Diesequence());
         }
 
         // Xử lý hiệu ứng nháy
@@ -94,5 +91,13 @@ public class PlayerHealth : MonoBehaviour
         if (_currentHealth <= 0 || amount <= 0) return;
         _currentHealth = Mathf.Min(_currentHealth + amount, maxHealth);
         OnHealthChanged?.Invoke(_currentHealth, maxHealth);
+    }
+
+    private IEnumerator Diesequence ()
+    {
+        anim.SetTrigger("Die");
+        yield return new WaitForSeconds(0.25f);
+        SceneController.Instance.NextScene("Lobby", true);
+        _currentHealth = MaxHealth;
     }
 }

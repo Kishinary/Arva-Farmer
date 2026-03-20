@@ -50,20 +50,20 @@ public class KnightPhase1State : KnightBaseState
     }
     public override void UpdateState()
     {
-        if (!boss.isActionLocked)
-        {
-            float distanceToPlayer = Vector2.Distance(boss.transform.position, boss.player.transform.position);
+        if (boss.isActionLocked) return;
+        float distanceToPlayer = Vector2.Distance(boss.transform.position, boss.player.transform.position);
 
-            if (distanceToPlayer <= closeAttackRange && !isExecutingCloseAttack)
-            {
-                StartCloseAttackSequence();
-            }
+        // Kích hoạt Close Attack nếu đủ gần và chưa bắt đầu chuỗi
+        if (distanceToPlayer <= closeAttackRange && !isExecutingCloseAttack)
+        {
+            StartCloseAttackSequence();
         }
-        else
+        // Chỉ đuổi theo Player khi KHÔNG TRONG CHUỖI CẬN CHIẾN
+        else if (!isExecutingCloseAttack)
         {
             boss.ChasePlayer();
         }
-        
+
     }
 
     protected override void HandleKickCombo(BossCombo combo, int hitIndex)
@@ -130,6 +130,7 @@ public class KnightPhase1State : KnightBaseState
 
         if (isExecutingCloseAttack)
         {
+            Debug.Log("take");
             // Mỗi nhịp Treble đánh xuống, tăng bước và xuất chiêu
             currentCloseAttackStep++;
             boss.ExecuteCloseAttackStrike(currentCloseAttackStep);
@@ -175,7 +176,7 @@ public class KnightPhase1State : KnightBaseState
         currentCloseAttackStep = 0;
 
         // Khóa Boss lại để không bị ChasePlayer() làm trượt đi khi đang chém
-        boss.isActionLocked = true;
+        
         boss.SetMovementDirection(Vector2.zero);
 
         Debug.Log(">>> Bắt đầu chuỗi Close Attack 5 nhịp! <<<");
@@ -185,7 +186,7 @@ public class KnightPhase1State : KnightBaseState
     {
         isExecutingCloseAttack = false;
         currentCloseAttackStep = 0;
-        boss.isActionLocked = false; 
+        
         //boss.RegisterAttack();
 
         Debug.Log(">>> Kết thúc chuỗi Close Attack! <<<");
@@ -194,6 +195,7 @@ public class KnightPhase1State : KnightBaseState
     public override void ExitState()
     {
         boss.SetMovementDirection(Vector2.zero);
+        isExecutingCloseAttack = false;
     }
 
     

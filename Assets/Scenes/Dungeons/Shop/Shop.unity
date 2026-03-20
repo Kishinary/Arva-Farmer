@@ -919,6 +919,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerSpawn: {fileID: 1703925187}
+  Playser: {fileID: 0}
 --- !u!4 &1703925187
 Transform:
   m_ObjectHideFlags: 0

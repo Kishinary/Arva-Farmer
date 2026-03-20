@@ -15,7 +15,7 @@ public class BossEntrance : MonoBehaviour, IInteractable
     {
         if (collision.gameObject.tag == "Player")
         {
-            SceneController.Instance.NextScene("Dungeon2-4", true);
+            SceneController.Instance.NextScene("Boss", true);
 
         }
     }

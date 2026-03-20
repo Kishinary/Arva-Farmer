@@ -84,7 +84,7 @@ public class KnightPhase1State : KnightBaseState
 
 
             }
-
+            CineCamera.instance.TriggerPreset("ShovelSpecial");
             boss.RegisterAttack();
 
         }
@@ -337,8 +337,8 @@ public class knightMovement : MonoBehaviour
         float scaleMultiplier = 1f;
         switch (bandType)
         {
-           
-            case BandType.Treble: scaleMultiplier = 1.3f; break; 
+            
+            case BandType.Treble: scaleMultiplier = 1.3f; break;
         }
         Transform targetTransform = scaleByBeatBoss.transform;
         targetTransform.localScale = originalScale * scaleMultiplier;
@@ -508,12 +508,14 @@ public class knightMovement : MonoBehaviour
         }
     }
 
-   
 
-    
-  
+
+
+
 
     //lightningSkills
+
+
     
     private float maxLightningRadius = 5f;
     private float safeLightningRadius = 1f;

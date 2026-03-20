@@ -66,7 +66,7 @@ public class BasicDialogue : MonoBehaviour
             index = 0;
             StartCoroutine(TypeLine());
             notSpawnyet = false;
-            if (CineZoom.instance) CineZoom.instance.ZoomIn(transform.position, 0.5f);
+            if (CineZoom.instance) CineZoom.instance.ZoomIn(new Vector2(transform.position.x, transform.position.y + 0.25f), 0.5f);
         }
     }
 

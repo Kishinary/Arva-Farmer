@@ -101,7 +101,6 @@ public class PlayerHealth : MonoBehaviour
     
     // Đóng băng thời gian
     Time.timeScale = 0f;
-   
     anim.SetTrigger("Die");
 
     // Đợi 2 giây thời gian thực (vì timeScale đã = 0)

@@ -17556,6 +17556,10 @@ PrefabInstance:
       propertyPath: songToAnalyze
       value: 
       objectReference: {fileID: 8300000, guid: ff322cb352e4f064a8efa0914437d33e, type: 3}
+    - target: {fileID: 80515181176230287, guid: 236dbb89d0352754aa00627cdd5763a3, type: 3}
+      propertyPath: showVisualizer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 107446350824224902, guid: 236dbb89d0352754aa00627cdd5763a3, type: 3}
       propertyPath: health
       value: 1000
@@ -19454,7 +19458,7 @@ Tilemap:
       - {fileID: 3872948843030971524, guid: f1295d50f1bbfeb44afd7e6fe4c84353, type: 3}
       - {fileID: 5327173470454327868, guid: f1295d50f1bbfeb44afd7e6fe4c84353, type: 3}
       - {fileID: 5692974674431277200, guid: f1295d50f1bbfeb44afd7e6fe4c84353, type: 3}
-      m_AnimationSpeed: 5
+      m_AnimationSpeed: 5.0000005
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: -5, y: 4, z: 0}

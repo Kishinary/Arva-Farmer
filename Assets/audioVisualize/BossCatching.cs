@@ -199,7 +199,7 @@ public class BossCatching : MonoBehaviour
 
         OnBossAttackTriggered?.Invoke(combo, currentHitIndex);
 
-        switch (combo.bandType)
+        /*switch (combo.bandType)
         {
             case BandType.Kick:
                 Instantiate(particlePrefab, new Vector3(0, 0, 0), Quaternion.identity);
@@ -221,7 +221,7 @@ public class BossCatching : MonoBehaviour
                 Instantiate(particlePrefab, new Vector3(8, 0, 0), Quaternion.identity);
 
                 break;
-        }
+        }*/
     }
     private void PrintAllCombosToConsole()
     {

@@ -45,6 +45,6 @@ public class SlideUI : MonoBehaviour
 
     public void GotoLobby()
     {
-        SceneManager.LoadScene("Lobby");
+        SceneController.Instance.NextScene("Lobby", true);
     }
 }

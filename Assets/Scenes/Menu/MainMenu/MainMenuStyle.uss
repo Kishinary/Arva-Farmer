@@ -1,60 +1,40 @@
-/* Container tổng bao phủ toàn màn hình */
 .background {
     flex-grow: 1;
-    /* Đẩy toàn bộ nội dung lên sát mép trên */
-    justify-content: flex-start; 
-    /* Căn lề trái để thẳng hàng với Logo (giữ nguyên 290px theo yêu cầu cũ) */
-    align-items: flex-start; 
-    
-    padding-left: 0px;
-    /* Khoảng cách từ mép trên màn hình xuống thanh menu */
-    padding-top:50px; 
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding-left: 0;
+    padding-top: 50px;
     padding-bottom: 0;
-    
     background-color: rgba(0, 0, 0, 0);
+    background-image: url("project://database/Assets/Scenes/Menu/title_blank.png?fileID=2800000&guid=1eee5045e003a974a800a2716d8ccef0&type=3#title_blank");
 }
 
-/* Container chứa các nút bấm */
 .menu-container {
-    /* QUAN TRỌNG: Chuyển các mục từ hàng dọc sang hàng ngang */
-    flex-direction: row; 
-    /* Căn giữa các chữ theo trục dọc của thanh menu */
-    align-items: center; 
+    flex-direction: row;
+    align-items: center;
     justify-content: flex-start;
     padding: 0;
     margin: 0;
 }
 
-/* Định dạng từng mục chữ trong Menu */
 .menu-item {
     -unity-font-definition: url("project://database/Assets/TextMesh%20Pro/Fonts/ThaleahFat.ttf?fileID=12800000&guid=ac750909d96903d4381e41b27407aca1&type=3#ThaleahFat");
     font-size: 50px;
     -unity-font-style: bold;
-    
-    /* Màu vàng lúa mỳ đặc trưng */
-    color: rgb(255, 215, 130); 
-    
-    /* Tạo khoảng cách giữa các chữ khi nằm ngang */
+    color: rgb(255, 215, 130);
     margin-left: 250px;
     margin-right: 250px;
     margin-top: 0;
     margin-bottom: 0;
-    
     padding: 0;
-    /* Đổ bóng chữ để nổi bật trên nền */
-    text-shadow: 2px 2px 0 rgb(40, 20, 0); 
-    
+    text-shadow: 2px 2px 0 rgb(40, 20, 0);
     transition-property: scale, color;
     transition-duration: 0.1s;
-    /* Phóng to từ tâm chữ khi nằm ngang sẽ cân đối hơn */
-    transform-origin: center; 
-    
+    transform-origin: center;
     -unity-text-align: middle-center;
 }
 
-/* Hiệu ứng khi di chuột vào (Hover) */
 .menu-item:hover {
-    /* Màu vàng sáng rực rỡ hơn */
-    color: rgb(255, 255, 200); 
+    color: rgb(255, 255, 200);
     scale: 1.1 1.1;
 }

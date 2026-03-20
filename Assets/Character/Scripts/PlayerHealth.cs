@@ -61,24 +61,43 @@ public class PlayerHealth : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
-        if (_currentHealth <= 0 || damage <= 0){
-            anim.SetTrigger("Die");
-            //SceneController.Instance.NextScene("Lobby", true);
-            //_currentHealth = MaxHealth;
+    if (_currentHealth <= 0 || damage <= 0) return;
 
-        }
+    // 1. Trừ máu và cập nhật UI
+    _currentHealth = Mathf.Max(_currentHealth - damage, 0);
+    OnHealthChanged?.Invoke(_currentHealth, maxHealth);
 
-        // Xử lý hiệu ứng nháy
-        if (flashMaterial != null && spriteRenderer != null)
-        {
-            if (flashRoutine != null) StopCoroutine(flashRoutine);
-            flashRoutine = StartCoroutine(FlashRoutine());
-        }
+    // 2. Xử lý hiệu ứng nháy (Flash)
+    if (flashMaterial != null && spriteRenderer != null)
+    {
+        if (flashRoutine != null) StopCoroutine(flashRoutine);
+        flashRoutine = StartCoroutine(FlashRoutine());
+    }
+
+    // 3. Kiểm tra nếu hết máu thì chạy chuỗi hành động chết
+    if (_currentHealth <= 0)
+    {
+        StartCoroutine(DeathSequence());
+        _currentHealth = maxHealth;
+    }
+    }
+
+// Hàm xử lý riêng cho việc chết và chuyển cảnh
+    IEnumerator DeathSequence()
+    {
+    // Chạy Anim chết ngay lập tức
+    anim.SetTrigger("Die");
     
-        _currentHealth = Mathf.Max(_currentHealth - damage, 0);
-        OnHealthChanged?.Invoke(_currentHealth, maxHealth);
+    // Đóng băng thời gian
+    Time.timeScale = 0f;
 
-        if (_currentHealth <= 0) anim.SetTrigger("Die");
+    // Đợi 2 giây thời gian thực (vì timeScale đã = 0)
+    yield return new WaitForSecondsRealtime(1.5f);
+    // Reset lại trạng thái trước khi chuyển cảnh
+    Time.timeScale = 1f;
+    SceneController.Instance.NextScene("Lobby", true);
+
+    // Chuyển về Lobby qua SceneController của bạn
     }
 
     private IEnumerator FlashRoutine()

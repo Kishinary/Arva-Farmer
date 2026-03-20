@@ -17,12 +17,7 @@ MonoBehaviour:
   itemIcon: {fileID: 6989642852348889387, guid: 6a8adb02ab80cac49ad797c6a59ac111, type: 3}
   itemDescription: 'Used to create smt:
 
-    +3.6 health
-
-    +18% speed
-
-    +10
-    Seconds'
+    +3.6 health | +18% speed | +10 Seconds'
   itemType: 0
   maxStackSize: 64
   itemPrefab: {fileID: 8384293969686541230, guid: be39b3a9f7d80504fb51ca49990e99d3, type: 3}

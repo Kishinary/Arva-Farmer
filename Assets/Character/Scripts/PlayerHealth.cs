@@ -77,8 +77,16 @@ public class PlayerHealth : MonoBehaviour
     // 3. Kiểm tra nếu hết máu thì chạy chuỗi hành động chết
     if (_currentHealth <= 0)
     {
+        string currentSceneName = SceneManager.GetActiveScene().name;
+        if (currentSceneName == "Dungeon2-4"){
+            StartCoroutine(DeathSequence());
+            SceneController.Instance.NextScene("Dungeon2-4", true);
+            _currentHealth = maxHealth;
+        }else{
         StartCoroutine(DeathSequence());
+        SceneController.Instance.NextScene("Lobby", true);
         _currentHealth = maxHealth;
+        }
     }
     }
 
@@ -95,9 +103,6 @@ public class PlayerHealth : MonoBehaviour
     yield return new WaitForSecondsRealtime(1.5f);
     // Reset lại trạng thái trước khi chuyển cảnh
     Time.timeScale = 1f;
-    SceneController.Instance.NextScene("Lobby", true);
-
-    // Chuyển về Lobby qua SceneController của bạn
     }
 
     private IEnumerator FlashRoutine()

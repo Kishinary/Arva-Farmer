@@ -18,6 +18,7 @@ public class ShopSlotUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     
     public void OnPointerEnter(PointerEventData eventData)
     {
+        Debug.Log("dsadasd");
         ShopManager.Instance.ShowDescription(currentItem);
     }
     public void OnPointerExit(PointerEventData eventData)

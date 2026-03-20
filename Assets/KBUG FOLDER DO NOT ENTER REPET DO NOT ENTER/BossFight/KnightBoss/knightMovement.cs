@@ -1,4 +1,4 @@
-using JetBrains.Annotations;
+﻿using JetBrains.Annotations;
 using System;
 using System.Collections;
 using UnityEngine;
@@ -131,13 +131,44 @@ public class KnightPhase1State : KnightBaseState
 
             boss.RegisterAttack();
 
+
+            /*if(!isExecutingCloseAttack) StartCloseAttackSequence();*/
+            
+
+
         }
-        
+        /*if (isExecutingCloseAttack)
+        {
+            currentCloseAttackStep++;
+            boss.ExecuteCloseAttackStrike(currentCloseAttackStep);
+            if (currentCloseAttackStep >= maxCloseAttackSteps)
+            {
+                EndCloseAttackSequence();
+            }
+            return;
+        }*/
+
     }
 
+    private bool isExecutingCloseAttack = false;
+    private int currentCloseAttackStep = 0;
+    private readonly int maxCloseAttackSteps = 5;
+    public void StartCloseAttackSequence()
+    {
+        isExecutingCloseAttack = true;
+        currentCloseAttackStep = 0;
 
+        boss.isActionLocked = true;
+        boss.SetMovementDirection(Vector2.zero);
+    }
 
-
+    private void EndCloseAttackSequence()
+    {
+        isExecutingCloseAttack = false;
+        currentCloseAttackStep = 0;
+        boss.isActionLocked = false; 
+        boss.RegisterAttack();
+    }
 
     public override void ExitState()
     {
@@ -362,9 +393,34 @@ public class knightMovement : MonoBehaviour
         GameObject newStrike = Instantiate(lightningStrike, spawnPos, Quaternion.identity);
     }
 
+    public void ExecuteCloseAttackStrike(int step)
+    {
+        Vector2 directionToPlayer = ((Vector2)player.transform.position - (Vector2)transform.position).normalized;
+        switch (step)
+        {
+            case 1:
+                Debug.Log("Superboost 1");
+                break;
+            case 2:
+                Debug.Log("SuperBoost 2");
+                break;
+            case 3:
+                Debug.Log("SuperBoost 3");
+                break;
+            case 4:
+                Debug.Log("SuperBoost 4");
+                break;
+
+            case 5:
+               
+                Debug.Log("Close Attack: Đòn kết liễu nhịp 5!");
+             
+                break;
+        }
+    }
 
 
-    
+
 
 
 

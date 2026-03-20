@@ -29,6 +29,10 @@ public class SolidDirtWall : MonoBehaviour
         {
             ApplyHeavyHit(collision.gameObject);
         }
+        else if (collision.gameObject.CompareTag("Player"))
+        {
+            collision.gameObject.GetComponent<PlayerHealth>().TakeDamage(6f);
+        }
     }
 
     private void ApplyHeavyHit(GameObject player)
@@ -36,17 +40,13 @@ public class SolidDirtWall : MonoBehaviour
         var playerMove = player.GetComponent<PlayerMovement>();
         if (playerMove != null)
         {
-            // Calculate direction from the CENTER of the wall to the player
             Vector2 knockDir = (player.transform.position - transform.position).normalized;
 
-            // Fallback if exactly at center
             if (knockDir == Vector2.zero) knockDir = transform.up;
 
-            // Trigger the knockback logic in your PlayerMovement script
             playerMove.ApplyKnockback(knockDir * knockbackStrength, 0.25f);
 
-            // Optional: damage the player here
-            // player.GetComponent<PlayerStats>()?.TakeDamage(damage);
+            player.GetComponent<PlayerHealth>().TakeDamage(damage);
         }
     }
 

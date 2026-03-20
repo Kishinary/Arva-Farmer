@@ -100,7 +100,15 @@ public class PlayerHealth : MonoBehaviour
     CineZoom.instance.ZoomIn(transform.position, 1f);
     anim.SetTrigger("Die");
     yield return new WaitForSecondsRealtime(1f);
-    SceneController.Instance.NextScene("Lobby", true);
+    if (SceneManager.GetActiveScene().name == "Boss" || SceneManager.GetActiveScene().name == "Boss2")
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+    else
+        {
+            Destroy(gameObject);
+            SceneController.Instance.NextScene("Lobby", true);
+        }
     // Đợi 2 giây thời gian thực (vì timeScale đã = 0)
     Time.timeScale = 1f;
     _currentHealth = maxHealth;

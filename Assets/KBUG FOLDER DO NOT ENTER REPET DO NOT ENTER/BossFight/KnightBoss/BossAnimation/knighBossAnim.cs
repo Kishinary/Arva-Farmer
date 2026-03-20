@@ -23,12 +23,27 @@ public class knighBossAnim : MonoBehaviour
     {
         knightMovement.OnMove += HandleMoveAnimation;
 
+        knightMovement.OnSlashAttack += HandleSlashAttack;
+        knightMovement.EndSlashAttack += endSlashAttack;
+
+
     }
     private void OnDisable()
     {
         knightMovement.OnMove -= HandleMoveAnimation;
+
+        knightMovement.OnSlashAttack -= HandleSlashAttack;
+        knightMovement.EndSlashAttack -= endSlashAttack;
     }
 
+
+    private void HandleSlashAttack(Vector2 direction)
+    {
+        animator.SetBool("slashAttack", true);
+        animator.SetFloat("posX", direction.x);
+        animator.SetFloat("posY", direction.y);
+    }
+    private void endSlashAttack() { animator.SetBool("slashAttack", false); }
 
 
     private void HandleMoveAnimation(Vector2 direction)

@@ -509,6 +509,7 @@ PrefabInstance:
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ffb2f5acc48f5f74dbd103b1c37fa242, type: 3}
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 --- !u!1 &1989434449
 GameObject:
   m_ObjectHideFlags: 0
@@ -1342,6 +1343,8 @@ Tilemap:
     e33: 1
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
 --- !u!1001 &2109776245
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1412,7 +1415,12 @@ SceneRoots:
   - {fileID: 781264440}
   - {fileID: 1986535267}
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   - {fileID: 1989434451}
+=======
+  - {fileID: 2109776245}
+  - {fileID: 59722587}
+>>>>>>> Stashed changes
 =======
   - {fileID: 2109776245}
   - {fileID: 59722587}

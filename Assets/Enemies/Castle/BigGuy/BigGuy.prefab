@@ -635,7 +635,7 @@ Rigidbody2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1024
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
@@ -661,7 +661,7 @@ MonoBehaviour:
   retreatDistance: 3
   acceleration: 150
   attackInterval: 4
-  wallSpawnOffset: 2.5
+  wallSpawnOffset: 3
   projectileSpeed: 8
 --- !u!61 &412695795829326806
 BoxCollider2D:
@@ -739,12 +739,12 @@ CapsuleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.014527559, y: -0.38740316}
-  m_Size: {x: 0.5367875, y: 0.5367875}
+  m_Offset: {x: -0.01639595, y: -0.007759571}
+  m_Size: {x: 0.95357937, y: 1.2960752}
   m_Direction: 0
 --- !u!1 &7302009424466550454
 GameObject:

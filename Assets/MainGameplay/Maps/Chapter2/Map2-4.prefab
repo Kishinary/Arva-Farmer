@@ -8001,7 +8001,7 @@ GameObject:
   - component: {fileID: 4211860050475688754}
   - component: {fileID: 9163287895452648726}
   - component: {fileID: 684855189559767195}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Hitbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30427,6 +30427,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BridgePath (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 2186708704072464987, guid: 1e316754aaadfd04692db32ec3aeafd6, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 2660541935723007683, guid: 1e316754aaadfd04692db32ec3aeafd6, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.23
@@ -30467,7 +30471,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 3943123729492299568, guid: 1e316754aaadfd04692db32ec3aeafd6, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4147619220840276166, guid: 1e316754aaadfd04692db32ec3aeafd6, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 9212010008387094153, guid: 1e316754aaadfd04692db32ec3aeafd6, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 140846292369743184, guid: 1e316754aaadfd04692db32ec3aeafd6, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -30625,6 +30642,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BridgePath
       objectReference: {fileID: 0}
+    - target: {fileID: 2186708704072464987, guid: 1e316754aaadfd04692db32ec3aeafd6, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 2660541935723007683, guid: 1e316754aaadfd04692db32ec3aeafd6, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.35
@@ -30665,7 +30686,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 3943123729492299568, guid: 1e316754aaadfd04692db32ec3aeafd6, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4147619220840276166, guid: 1e316754aaadfd04692db32ec3aeafd6, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 9212010008387094153, guid: 1e316754aaadfd04692db32ec3aeafd6, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 140846292369743184, guid: 1e316754aaadfd04692db32ec3aeafd6, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -30686,6 +30720,10 @@ PrefabInstance:
     - target: {fileID: 2186708704072464987, guid: 1e316754aaadfd04692db32ec3aeafd6, type: 3}
       propertyPath: m_Name
       value: BridgePath (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2186708704072464987, guid: 1e316754aaadfd04692db32ec3aeafd6, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2660541935723007683, guid: 1e316754aaadfd04692db32ec3aeafd6, type: 3}
       propertyPath: m_LocalPosition.x
@@ -30727,7 +30765,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 3943123729492299568, guid: 1e316754aaadfd04692db32ec3aeafd6, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4147619220840276166, guid: 1e316754aaadfd04692db32ec3aeafd6, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 9212010008387094153, guid: 1e316754aaadfd04692db32ec3aeafd6, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 140846292369743184, guid: 1e316754aaadfd04692db32ec3aeafd6, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

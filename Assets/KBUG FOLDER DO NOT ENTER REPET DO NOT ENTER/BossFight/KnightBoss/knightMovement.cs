@@ -279,6 +279,12 @@ public class knightMovement : MonoBehaviour
     [Header("Settings")]
     public GameObject spriteComponent;
     private SpriteRenderer spriteRenderer;
+
+    [Header("Beat Scaling Visuals")]
+    public float scaleReturnSpeed = 10f; 
+    private Vector3 originalScale;
+    public SpriteRenderer scaleByBeatBoss;
+
     private void Awake()
     {
         if(rb == null) rb = GetComponent<Rigidbody2D>();
@@ -289,7 +295,8 @@ public class knightMovement : MonoBehaviour
     {
         player = GameObject.FindWithTag("Player");
 
-        
+        originalScale = scaleByBeatBoss.transform.localScale;
+
         phase1State = new KnightPhase1State(this);
         //phase2State = new KnightPhase2State(this);
 
@@ -304,9 +311,21 @@ public class knightMovement : MonoBehaviour
 
     private void HandleComboAttack(BossCombo combo, int hitIndex)
     {
+        ApplyBeatScale(combo.bandType);
+
         currentState?.ExecuteComboAttack(combo, hitIndex);
     }
-
+    private void ApplyBeatScale(BandType bandType)
+    {
+        float scaleMultiplier = 1f;
+        switch (bandType)
+        {
+           
+            case BandType.Treble: scaleMultiplier = 1.3f; break; 
+        }
+        Transform targetTransform = scaleByBeatBoss.transform;
+        targetTransform.localScale = originalScale * scaleMultiplier;
+    }
 
 
 
@@ -324,8 +343,9 @@ public class knightMovement : MonoBehaviour
     private void Update()
     {
         currentState?.UpdateState();
-        
-        
+
+        Transform targetTransform = scaleByBeatBoss.transform;
+        targetTransform.localScale = Vector3.Lerp(targetTransform.localScale, originalScale, Time.deltaTime * scaleReturnSpeed);
 
         if (!isPhase2 && enemyStats.health <= enemyStats.maxHealth * phase2Threshold)
         {

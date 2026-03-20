@@ -1,55 +1,55 @@
 fileFormatVersion: 2
-guid: 7b8aa422f6bc1d44882622d8675c3d3b
+guid: f53b04f9c668bad4ca85f46505931e5e
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1886333387862934588
-    second: creep2_export_0
+      213: 3381340933266839209
+    second: creep1_export_0
   - first:
-      213: -1850435375140451292
-    second: creep2_export_1
+      213: 1781519770508618796
+    second: creep1_export_1
   - first:
-      213: 5256853372390904907
-    second: creep2_export_2
+      213: 7096929674266170066
+    second: creep1_export_2
   - first:
-      213: -6691392236889186324
-    second: creep2_export_3
+      213: -8415698531568278672
+    second: creep1_export_3
   - first:
-      213: -6228042940309105370
-    second: creep2_export_4
+      213: 7350137066184385996
+    second: creep1_export_4
   - first:
-      213: 155068618568898184
-    second: creep2_export_5
+      213: -3016402830321694398
+    second: creep1_export_5
   - first:
-      213: -2826558567256504057
-    second: creep2_export_6
+      213: 9218037852004615728
+    second: creep1_export_6
   - first:
-      213: -1006462407992967103
-    second: creep2_export_7
+      213: -8104670026568581276
+    second: creep1_export_7
   - first:
-      213: -3041458864562900110
-    second: creep2_export_8
+      213: 7549366315182574066
+    second: creep1_export_8
   - first:
-      213: 2019329785778714221
-    second: creep2_export_9
+      213: 1296139504085646445
+    second: creep1_export_9
   - first:
-      213: -8112791889099901645
-    second: creep2_export_10
+      213: 3242841382880520045
+    second: creep1_export_10
   - first:
-      213: -2505364519582184961
-    second: creep2_export_11
+      213: -3867176599624822018
+    second: creep1_export_11
   - first:
-      213: 6566484447909780251
-    second: creep2_export_12
+      213: -1631989664933355656
+    second: creep1_export_12
   - first:
-      213: 8158450676368421770
-    second: creep2_export_13
+      213: -7681667056209697037
+    second: creep1_export_13
   - first:
-      213: 7465268795366540703
-    second: creep2_export_14
+      213: 6243018602287869522
+    second: creep1_export_14
   - first:
-      213: 1610387646315058041
-    second: creep2_export_15
+      213: 6310974563220114612
+    second: creep1_export_15
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -69,7 +69,7 @@ TextureImporter:
     heightScale: 0.25
     normalMapFilter: 0
     flipGreenChannel: 0
-  isReadable: 1
+  isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
@@ -158,13 +158,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: creep2_export_0
+      name: creep1_export_0
       rect:
         serializedVersion: 2
         x: 13
-        y: 150
-        width: 21
-        height: 35
+        y: 148
+        width: 18
+        height: 37
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -173,20 +173,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c348787d83a9d2a10800000000000000
-      internalID: 1886333387862934588
+      spriteID: 9a69bd7e9afecee20800000000000000
+      internalID: 3381340933266839209
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: creep2_export_1
+      name: creep1_export_1
       rect:
         serializedVersion: 2
         x: 60
-        y: 151
-        width: 23
-        height: 35
+        y: 149
+        width: 22
+        height: 37
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -195,20 +195,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 42ccfe094dee156e0800000000000000
-      internalID: -1850435375140451292
+      spriteID: c2c6089daca39b810800000000000000
+      internalID: 1781519770508618796
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: creep2_export_2
+      name: creep1_export_2
       rect:
         serializedVersion: 2
         x: 109
-        y: 150
-        width: 21
-        height: 35
+        y: 148
+        width: 18
+        height: 37
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -217,20 +217,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b449ca94a4814f840800000000000000
-      internalID: 5256853372390904907
+      spriteID: 2d2509600fb5d7260800000000000000
+      internalID: 7096929674266170066
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: creep2_export_3
+      name: creep1_export_3
       rect:
         serializedVersion: 2
         x: 159
-        y: 150
+        y: 148
         width: 14
-        height: 35
+        height: 37
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -239,20 +239,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: cefd96b86366323a0800000000000000
-      internalID: -6691392236889186324
+      spriteID: 073a81916ce653b80800000000000000
+      internalID: -8415698531568278672
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: creep2_export_4
+      name: creep1_export_4
       rect:
         serializedVersion: 2
-        x: 11
-        y: 101
-        width: 19
-        height: 36
+        x: 10
+        y: 100
+        width: 20
+        height: 37
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -261,19 +261,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6251ff081fb8199a0800000000000000
-      internalID: -6228042940309105370
+      spriteID: cc52a5018bee00660800000000000000
+      internalID: 7350137066184385996
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: creep2_export_5
+      name: creep1_export_5
       rect:
         serializedVersion: 2
-        x: 57
+        x: 54
         y: 103
-        width: 22
+        width: 25
         height: 36
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -283,14 +283,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8861c95461ae62200800000000000000
-      internalID: 155068618568898184
+      spriteID: 249413f7b959326d0800000000000000
+      internalID: -3016402830321694398
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: creep2_export_6
+      name: creep1_export_6
       rect:
         serializedVersion: 2
         x: 107
@@ -305,14 +305,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 709c6d575fb06c8d0800000000000000
-      internalID: -2826558567256504057
+      spriteID: 03607de469c0def70800000000000000
+      internalID: 9218037852004615728
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: creep2_export_7
+      name: creep1_export_7
       rect:
         serializedVersion: 2
         x: 155
@@ -327,19 +327,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1408bcbb5c35802f0800000000000000
-      internalID: -1006462407992967103
+      spriteID: 46fbf9c1d8d668f80800000000000000
+      internalID: -8104670026568581276
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: creep2_export_8
+      name: creep1_export_8
       rect:
         serializedVersion: 2
         x: 15
         y: 54
-        width: 15
+        width: 16
         height: 37
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -349,19 +349,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 273f3cae6419ac5d0800000000000000
-      internalID: -3041458864562900110
+      spriteID: 2f9c1c75aacb4c860800000000000000
+      internalID: 7549366315182574066
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: creep2_export_9
+      name: creep1_export_9
       rect:
         serializedVersion: 2
-        x: 61
+        x: 58
         y: 54
-        width: 21
+        width: 24
         height: 37
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -371,19 +371,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d66b4b5cdb9160c10800000000000000
-      internalID: 2019329785778714221
+      spriteID: d6c30600300dcf110800000000000000
+      internalID: 1296139504085646445
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: creep2_export_10
+      name: creep1_export_10
       rect:
         serializedVersion: 2
         x: 111
         y: 54
-        width: 15
+        width: 16
         height: 37
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -393,19 +393,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 335b781a2c2996f80800000000000000
-      internalID: -8112791889099901645
+      spriteID: d67a7817e03e00d20800000000000000
+      internalID: 3242841382880520045
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: creep2_export_11
+      name: creep1_export_11
       rect:
         serializedVersion: 2
         x: 159
         y: 54
-        width: 20
+        width: 23
         height: 37
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -415,19 +415,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ff9cf615e382b3dd0800000000000000
-      internalID: -2505364519582184961
+      spriteID: ef2d8af2f57055ac0800000000000000
+      internalID: -3867176599624822018
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: creep2_export_12
+      name: creep1_export_12
       rect:
         serializedVersion: 2
-        x: 16
+        x: 15
         y: 6
-        width: 15
+        width: 16
         height: 37
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -437,19 +437,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b1b1acc80d6d02b50800000000000000
-      internalID: 6566484447909780251
+      spriteID: 87fd980eb020a59e0800000000000000
+      internalID: -1631989664933355656
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: creep2_export_13
+      name: creep1_export_13
       rect:
         serializedVersion: 2
-        x: 60
+        x: 62
         y: 6
-        width: 21
+        width: 24
         height: 37
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -459,19 +459,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a833c723aa3a83170800000000000000
-      internalID: 8158450676368421770
+      spriteID: 3f6ecc7f28c356590800000000000000
+      internalID: -7681667056209697037
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: creep2_export_14
+      name: creep1_export_14
       rect:
         serializedVersion: 2
         x: 110
         y: 6
-        width: 15
+        width: 16
         height: 37
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -481,19 +481,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f9581acaa66f99760800000000000000
-      internalID: 7465268795366540703
+      spriteID: 25e26838758a3a650800000000000000
+      internalID: 6243018602287869522
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: creep2_export_15
+      name: creep1_export_15
       rect:
         serializedVersion: 2
-        x: 156
+        x: 154
         y: 6
-        width: 20
+        width: 23
         height: 37
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -503,8 +503,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9735949380f395610800000000000000
-      internalID: 1610387646315058041
+      spriteID: 4bcc243ade5159750800000000000000
+      internalID: 6310974563220114612
       vertices: []
       indices: 
       edges: []
@@ -523,22 +523,22 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      creep2_export_0: 1886333387862934588
-      creep2_export_1: -1850435375140451292
-      creep2_export_10: -8112791889099901645
-      creep2_export_11: -2505364519582184961
-      creep2_export_12: 6566484447909780251
-      creep2_export_13: 8158450676368421770
-      creep2_export_14: 7465268795366540703
-      creep2_export_15: 1610387646315058041
-      creep2_export_2: 5256853372390904907
-      creep2_export_3: -6691392236889186324
-      creep2_export_4: -6228042940309105370
-      creep2_export_5: 155068618568898184
-      creep2_export_6: -2826558567256504057
-      creep2_export_7: -1006462407992967103
-      creep2_export_8: -3041458864562900110
-      creep2_export_9: 2019329785778714221
+      creep1_export_0: 3381340933266839209
+      creep1_export_1: 1781519770508618796
+      creep1_export_10: 3242841382880520045
+      creep1_export_11: -3867176599624822018
+      creep1_export_12: -1631989664933355656
+      creep1_export_13: -7681667056209697037
+      creep1_export_14: 6243018602287869522
+      creep1_export_15: 6310974563220114612
+      creep1_export_2: 7096929674266170066
+      creep1_export_3: -8415698531568278672
+      creep1_export_4: 7350137066184385996
+      creep1_export_5: -3016402830321694398
+      creep1_export_6: 9218037852004615728
+      creep1_export_7: -8104670026568581276
+      creep1_export_8: 7549366315182574066
+      creep1_export_9: 1296139504085646445
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

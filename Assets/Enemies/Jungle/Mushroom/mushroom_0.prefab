@@ -407,7 +407,7 @@ MonoBehaviour:
   maxHealth: 0
   realMaxHealth: 0
   invincible: 0
-  invincibilityDuration: 0.1
+  invincibilityDuration: 0.5
   damageTextPrefab: {fileID: 4533503312433578376, guid: 19e108fc8970a754aacc294cdacb7da7, type: 3}
   damageTextOffset: {x: 0, y: 1, z: 0}
   flashMaterial: {fileID: 2100000, guid: 38558de54466ec243bde7b2399495bfa, type: 2}

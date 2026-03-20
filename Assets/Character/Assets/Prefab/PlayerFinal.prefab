@@ -509,6 +509,7 @@ MonoBehaviour:
   maxHealth: 100
   flashMaterial: {fileID: 2100000, guid: 38558de54466ec243bde7b2399495bfa, type: 2}
   flashDuration: 0.1
+  enableSpaceBarTest: 0
   _currentHealth: 0
 --- !u!70 &8695111669101988339
 CapsuleCollider2D:
@@ -606,7 +607,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64f2d4dd8fa18a3419b7800992ecba35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentMoney: 0
+  currentMoney: 1000
 --- !u!1 &3038015940576609032
 GameObject:
   m_ObjectHideFlags: 0
@@ -1260,12 +1261,8 @@ Transform:
   m_LocalPosition: {x: -0.007, y: -0.024, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-<<<<<<< Updated upstream
   m_Children:
   - {fileID: 4488546802986990420}
-=======
-  m_Children: []
->>>>>>> Stashed changes
   m_Father: {fileID: 3997397752232016244}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5342974721168086146
@@ -2391,7 +2388,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5729837408233819124, guid: 2f6602f97e68f9f47827e21c56c6f547, type: 3}
       propertyPath: text
-      value: Press F to Interact
+      value: Press E to Interact
       objectReference: {fileID: 0}
     - target: {fileID: 5729837408233819124, guid: 2f6602f97e68f9f47827e21c56c6f547, type: 3}
       propertyPath: Image
@@ -2671,10 +2668,6 @@ PrefabInstance:
       value: 398.31
       objectReference: {fileID: 0}
     - target: {fileID: 6015447216726642081, guid: d727e3835f40cec4e928f9cf01339fb3, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 452.7523
-      objectReference: {fileID: 0}
-    - target: {fileID: 6015447216726642081, guid: d727e3835f40cec4e928f9cf01339fb3, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.82173
       objectReference: {fileID: 0}
@@ -2688,7 +2681,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6015447216726642081, guid: d727e3835f40cec4e928f9cf01339fb3, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -760.0525
+      value: -788
       objectReference: {fileID: 0}
     - target: {fileID: 6015447216726642081, guid: d727e3835f40cec4e928f9cf01339fb3, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -3381,11 +3374,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5087521416447958601, guid: 7043ec425e149a746aea30759bd36789, type: 3}
   m_PrefabInstance: {fileID: 7109481311599635502}
   m_PrefabAsset: {fileID: 0}
-<<<<<<< Updated upstream
 --- !u!224 &3921611441802589871 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6108481167414827649, guid: 7043ec425e149a746aea30759bd36789, type: 3}
   m_PrefabInstance: {fileID: 7109481311599635502}
   m_PrefabAsset: {fileID: 0}
-=======
->>>>>>> Stashed changes

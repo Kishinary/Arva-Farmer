@@ -42,10 +42,13 @@ public class BasicDialogue : MonoBehaviour
             isChatting = true;
             if (textComponent.text == lines[index])
             {
+                audioSource.Stop();
                 NextLine();
+
             }
             else
             {
+                audioSource.Stop();
                 StopAllCoroutines();
                 textComponent.text = lines[index];
             }

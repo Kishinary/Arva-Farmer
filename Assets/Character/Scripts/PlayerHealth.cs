@@ -81,11 +81,15 @@ public class PlayerHealth : MonoBehaviour
         if (currentSceneName == "Dungeon2-4"){
             StartCoroutine(DeathSequence());
             SceneController.Instance.NextScene("Dungeon2-4", true);
+            Time.timeScale = 1f;
             _currentHealth = maxHealth;
+            OnHealthChanged?.Invoke(_currentHealth, maxHealth);
         }else{
         StartCoroutine(DeathSequence());
         SceneController.Instance.NextScene("Lobby", true);
+        Time.timeScale = 1f;
         _currentHealth = maxHealth;
+        OnHealthChanged?.Invoke(_currentHealth, maxHealth);
         }
     }
     }
@@ -94,15 +98,15 @@ public class PlayerHealth : MonoBehaviour
     IEnumerator DeathSequence()
     {
     // Chạy Anim chết ngay lập tức
-    anim.SetTrigger("Die");
     
     // Đóng băng thời gian
     Time.timeScale = 0f;
+   
+    anim.SetTrigger("Die");
 
     // Đợi 2 giây thời gian thực (vì timeScale đã = 0)
     yield return new WaitForSecondsRealtime(1.5f);
     // Reset lại trạng thái trước khi chuyển cảnh
-    Time.timeScale = 1f;
     }
 
     private IEnumerator FlashRoutine()

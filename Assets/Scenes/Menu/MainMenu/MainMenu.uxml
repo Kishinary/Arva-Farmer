@@ -3,6 +3,7 @@
     <ui:VisualElement name="Background" class="background" style="background-image: url(&quot;project://database/Assets/Scenes/Menu/title_blank.png?fileID=2800000&amp;guid=1eee5045e003a974a800a2716d8ccef0&amp;type=3#title_blank&quot;);">
         <ui:VisualElement name="MenuContainer" class="menu-container">
             <ui:Label text="PLAY" name="play-label" class="menu-item" />
+            <ui:Label text="ART" name="play-label" class="menu-item" />
             <ui:Label text="QUIT" name="quit-label" class="menu-item" />
         </ui:VisualElement>
     </ui:VisualElement>

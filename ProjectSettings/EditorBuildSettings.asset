@@ -47,6 +47,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Dungeons/Shop/Shop2.unity
     guid: cfb7213fccfef494392183c1ae72c16c
+  - enabled: 1
+    path: Assets/Scenes/Dungeons/Dungeon2-4.unity
+    guid: 4c156c39aa895584f863500492b01dc5
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

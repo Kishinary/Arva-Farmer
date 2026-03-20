@@ -6,7 +6,7 @@
     translate: -50% 0; 
     
     width: 400px;
-    height: 60px;
+    height: 100px;
     align-items: center;
     justify-content: center;
 }

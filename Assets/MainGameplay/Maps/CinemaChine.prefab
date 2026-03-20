@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2355356734295097804}
   - component: {fileID: 8385534043938652436}
   - component: {fileID: 5321882488840855390}
+  - component: {fileID: -7267849523504543722}
   m_Layer: 0
   m_Name: CinemaChine
   m_TagString: Untagged
@@ -153,3 +154,17 @@ MonoBehaviour:
   AmplitudeGain: 1
   FrequencyGain: 15
   m_NoiseOffsets: {x: 0, y: 0, z: 0}
+--- !u!114 &-7267849523504543722
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7292965899853526195}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ade1546c6d331f448af64efeec94aa3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  normalSize: 8
+  zoomSize: 3.5

@@ -225,7 +225,7 @@ public class Spawner : MonoBehaviour
     {
         if (goable && collision.CompareTag("Player"))
         {
-            SceneManager.LoadScene(NextScene);
+            SceneController.Instance.NextScene(NextScene, true);
         }
     }
     bool IsRestrictedScene()

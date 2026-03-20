@@ -221,7 +221,7 @@ public class knightMovement : MonoBehaviour
 
     [Header("Phase Thresholds")]
     [Range(0f, 1f)]
-    public float phase2Threshold = 0.5f;
+    public float phase2Threshold = 0f;
 
 
     // FSM manager
@@ -266,6 +266,9 @@ public class knightMovement : MonoBehaviour
     [Header("Dash Settings")]
     public float dashSpeed = 40f;
     public bool isDashing = false;
+
+    public TrailRenderer dashTrail;
+
     public GameObject ghostTrailPrefab;
     public float ghostSpawnInterval = 0.05f;
     [Header("Piercing Dash Settings")]
@@ -356,6 +359,9 @@ public class knightMovement : MonoBehaviour
     public event Action<Vector2> OnMove;
     public event Action<Vector2> OnSlashAttack;
     public event Action EndSlashAttack;
+
+    public event Action<Vector2> OnPiercingDash;
+    public event Action EndPiercingDash;
 
     public void SetMovementDirection(Vector2 direction)
     {
@@ -623,6 +629,8 @@ public class knightMovement : MonoBehaviour
         isActionLocked = true;
         Vector2 oldDirection = direction;
 
+        OnPiercingDash?.Invoke(direction);
+
         float angle = Mathf.Atan2(oldDirection.y, oldDirection.x) * Mathf.Rad2Deg;
         Quaternion warningRotation = Quaternion.Euler(0f, 0f, angle);
 
@@ -654,6 +662,8 @@ public class knightMovement : MonoBehaviour
         rb.linearVelocity = Vector2.zero;
         isActionLocked = false;
         isDashing = false;
+
+        EndPiercingDash?.Invoke();
 
         yield return new WaitForSeconds(0.2f);
 

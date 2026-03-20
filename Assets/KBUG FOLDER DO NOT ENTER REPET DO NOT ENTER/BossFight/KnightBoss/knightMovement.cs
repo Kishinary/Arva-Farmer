@@ -52,6 +52,15 @@ public class KnightPhase1State : KnightBaseState
     {
         if (!boss.isActionLocked)
         {
+            float distanceToPlayer = Vector2.Distance(boss.transform.position, boss.player.transform.position);
+
+            if (distanceToPlayer <= closeAttackRange && !isExecutingCloseAttack)
+            {
+                StartCloseAttackSequence();
+            }
+        }
+        else
+        {
             boss.ChasePlayer();
         }
         
@@ -118,6 +127,23 @@ public class KnightPhase1State : KnightBaseState
     }
     protected override void HandleTrebleCombo(BossCombo combo, int hitIndex)
     {
+
+        if (isExecutingCloseAttack)
+        {
+            // Mỗi nhịp Treble đánh xuống, tăng bước và xuất chiêu
+            currentCloseAttackStep++;
+            boss.ExecuteCloseAttackStrike(currentCloseAttackStep);
+
+            // Hoàn thành 5 nhịp -> Kết thúc chuỗi
+            if (currentCloseAttackStep >= maxCloseAttackSteps)
+            {
+                EndCloseAttackSequence();
+            }
+
+            // Lệnh return RẤT QUAN TRỌNG: Ngăn không cho code chạy xuống nhánh B
+            
+        }
+
         if (combo.beatCount == 1)
         {
             switch (boss.currentLongRangeStance)
@@ -132,24 +158,14 @@ public class KnightPhase1State : KnightBaseState
             boss.RegisterAttack();
 
 
-            /*if(!isExecutingCloseAttack) StartCloseAttackSequence();*/
             
 
 
         }
-        /*if (isExecutingCloseAttack)
-        {
-            currentCloseAttackStep++;
-            boss.ExecuteCloseAttackStrike(currentCloseAttackStep);
-            if (currentCloseAttackStep >= maxCloseAttackSteps)
-            {
-                EndCloseAttackSequence();
-            }
-            return;
-        }*/
+        
 
     }
-
+    private readonly float closeAttackRange = 3f;
     private bool isExecutingCloseAttack = false;
     private int currentCloseAttackStep = 0;
     private readonly int maxCloseAttackSteps = 5;
@@ -158,8 +174,11 @@ public class KnightPhase1State : KnightBaseState
         isExecutingCloseAttack = true;
         currentCloseAttackStep = 0;
 
+        // Khóa Boss lại để không bị ChasePlayer() làm trượt đi khi đang chém
         boss.isActionLocked = true;
         boss.SetMovementDirection(Vector2.zero);
+
+        Debug.Log(">>> Bắt đầu chuỗi Close Attack 5 nhịp! <<<");
     }
 
     private void EndCloseAttackSequence()
@@ -167,7 +186,9 @@ public class KnightPhase1State : KnightBaseState
         isExecutingCloseAttack = false;
         currentCloseAttackStep = 0;
         boss.isActionLocked = false; 
-        boss.RegisterAttack();
+        //boss.RegisterAttack();
+
+        Debug.Log(">>> Kết thúc chuỗi Close Attack! <<<");
     }
 
     public override void ExitState()

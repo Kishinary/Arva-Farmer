@@ -1260,8 +1260,7 @@ Transform:
   m_LocalPosition: {x: -0.007, y: -0.024, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 4488546802986990420}
+  m_Children: []
   m_Father: {fileID: 3997397752232016244}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5342974721168086146
@@ -2223,68 +2222,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1001 &1538736998156558284
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 8054268396938053328}
-    m_Modifications:
-    - target: {fileID: 3103038058813875352, guid: b64756531872c294f9adaac1766b1b64, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.167
-      objectReference: {fileID: 0}
-    - target: {fileID: 3103038058813875352, guid: b64756531872c294f9adaac1766b1b64, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.056
-      objectReference: {fileID: 0}
-    - target: {fileID: 3103038058813875352, guid: b64756531872c294f9adaac1766b1b64, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3103038058813875352, guid: b64756531872c294f9adaac1766b1b64, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3103038058813875352, guid: b64756531872c294f9adaac1766b1b64, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3103038058813875352, guid: b64756531872c294f9adaac1766b1b64, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3103038058813875352, guid: b64756531872c294f9adaac1766b1b64, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3103038058813875352, guid: b64756531872c294f9adaac1766b1b64, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3103038058813875352, guid: b64756531872c294f9adaac1766b1b64, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3103038058813875352, guid: b64756531872c294f9adaac1766b1b64, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3231131308460318669, guid: b64756531872c294f9adaac1766b1b64, type: 3}
-      propertyPath: m_Name
-      value: Rake
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: b64756531872c294f9adaac1766b1b64, type: 3}
---- !u!4 &4488546802986990420 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3103038058813875352, guid: b64756531872c294f9adaac1766b1b64, type: 3}
-  m_PrefabInstance: {fileID: 1538736998156558284}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1751234633860316577
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2646,6 +2583,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: CashCount
       objectReference: {fileID: 0}
+    - target: {fileID: 1571948617071303169, guid: d727e3835f40cec4e928f9cf01339fb3, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 1571948617071303169, guid: d727e3835f40cec4e928f9cf01339fb3, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 3491536085354689172, guid: d727e3835f40cec4e928f9cf01339fb3, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.82173
@@ -2666,6 +2611,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 398.31
       objectReference: {fileID: 0}
+    - target: {fileID: 5067242441544326476, guid: d727e3835f40cec4e928f9cf01339fb3, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 5067242441544326476, guid: d727e3835f40cec4e928f9cf01339fb3, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 6015447216726642081, guid: d727e3835f40cec4e928f9cf01339fb3, type: 3}
       propertyPath: m_SizeDelta.x
       value: 452.7523

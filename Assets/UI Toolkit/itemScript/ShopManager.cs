@@ -57,16 +57,19 @@ public class ShopManager : MonoBehaviour
             }
         }
         shopPanel.gameObject.SetActive(true);
+        shopPanel.DOKill();
         shopPanel.DOAnchorPosY(0f, animDuration).SetEase(Ease.OutBack).SetUpdate(true);
 
     }
     public void CloseShop()
     {
+        shopPanel.DOKill();
         shopPanel.DOAnchorPosY(1000f, animDuration).SetEase(Ease.InBack).SetUpdate(true).OnComplete(() =>
         {
             shopPanel.gameObject.SetActive(false);
+            currentNPC = null;
         });
-        currentNPC = null;
+        
     }
     public void BuyItem(ShopItem shopItem)
     {

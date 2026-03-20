@@ -11,7 +11,8 @@ public class ShopSlotUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     public TextMeshProUGUI priceText;
     public Button buyButton;
 
-    
+    private ItemData _currentItem;
+
     private ShopItem currentItem;
 
     

@@ -3,7 +3,7 @@ using UnityEngine;
 public class Slash : MonoBehaviour
 {
     public float speed = 12f;
-    public float lifeTime = 0.3f;
+    public float lifeTime = 3f;
     public float damage = 8f;
     void Start()
     {

@@ -22,11 +22,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: baad2a0aae4057c4e82a81d18237dc89, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.66059
+      value: 1.8232284
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: baad2a0aae4057c4e82a81d18237dc89, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.66059
+      value: 0.9116142
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: baad2a0aae4057c4e82a81d18237dc89, type: 3}
       propertyPath: m_LocalScale.z
@@ -34,11 +34,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: baad2a0aae4057c4e82a81d18237dc89, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0.33716
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: baad2a0aae4057c4e82a81d18237dc89, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.32131
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: baad2a0aae4057c4e82a81d18237dc89, type: 3}
       propertyPath: m_LocalPosition.z
@@ -121,7 +121,7 @@ PolygonCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -170,7 +170,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 12
-  lifeTime: 0.3
+  lifeTime: 3
+  damage: 13
 --- !u!50 &5404474069370551548
 Rigidbody2D:
   serializedVersion: 5

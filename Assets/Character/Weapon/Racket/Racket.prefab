@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 214099848976454132}
   - component: {fileID: 6574053551102078410}
   - component: {fileID: 8135563919142822756}
+  - component: {fileID: -1112905311489119685}
   m_Layer: 0
   m_Name: Racket
   m_TagString: Untagged
@@ -28,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 345690867608219919}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.288, y: -0.012, z: 0}
+  m_LocalPosition: {x: 0.135, y: 0.068, z: 0}
   m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -141,11 +142,22 @@ MonoBehaviour:
   storedBugObject: []
   catchCooldown: 0.5
   releaseCooldown: 1
-  butterflyDamage: 12
-  fireflyDamage: 18
-  beetleDamage: 25
+  damage: 15
   catchParticle: {fileID: 5480312752237083547, guid: df69391ab8fc22c4596314a01a54959f, type: 3}
   releaseParticle: {fileID: 5480312752237083547, guid: df69391ab8fc22c4596314a01a54959f, type: 3}
+--- !u!114 &-1112905311489119685
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 345690867608219919}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0e1c89fe1f4ae845b99c35d9e28d3bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  droppedItemPrefab: {fileID: 8384293969686541230, guid: db4a7676e20dce6408a86f126e6185eb, type: 3}
 --- !u!1 &6395469139614664735
 GameObject:
   m_ObjectHideFlags: 0

@@ -95,6 +95,29 @@ public class PlayerMovement : MonoBehaviour
         activeSlowCoroutine = null;
     }
 
+    public void ApplySpeedPlayer(float multiplier, float duration)
+    {
+        
+        ApplySpeedModifier(multiplier, duration);
+    }
+    private void ApplySpeedModifier(float multiplier, float duration)
+    {
+        if (activeSlowCoroutine != null)
+        {
+            StopCoroutine(activeSlowCoroutine);
+        }
+        
+        activeSlowCoroutine = StartCoroutine(SpeedModifierRoutine(multiplier, duration));
+    }
+    private IEnumerator SpeedModifierRoutine(float multiplier, float duration)
+    {
+        movespeed = originalSpeed * multiplier;
+
+        yield return new WaitForSeconds(duration);
+
+        movespeed = originalSpeed;
+        activeSlowCoroutine = null;
+    }
 
     private void FixedUpdate()
     {
@@ -197,14 +220,14 @@ public class PlayerMovement : MonoBehaviour
 
     public void DisablePlayerInput()
     {
-        movespeed = 0;
+        //movespeed = 0;
         playerInput.DeactivateInput();
         animator.SetBool("IsMoving", false); 
         Debug.Log("Input Disabled");
     }
     public void EnablePlayerInput()
     {
-        movespeed = originalSpeed;
+        //movespeed = originalSpeed;
         playerInput.ActivateInput();
         Debug.Log("Input Enabled");
     }

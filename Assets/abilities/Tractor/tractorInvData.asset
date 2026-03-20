@@ -16,7 +16,7 @@ MonoBehaviour:
   itemName: tractor
   itemIcon: {fileID: -4571828015118065507, guid: eb9eb96dc626c3847a92e7e6e5afdbcd, type: 3}
   itemDescription: tractor test
-  isSkill: 1
+  itemType: 2
   maxStackSize: 64
   itemPrefab: {fileID: 8384293969686541230, guid: 04afb223ce8eb7b4caf906a59adf535d, type: 3}
   abilityScriptableObject: {fileID: 11400000, guid: ba457152a26b86c41ad5f49d207611f2, type: 2}

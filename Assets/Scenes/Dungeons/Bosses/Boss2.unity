@@ -193,7 +193,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &433381728
 Transform:
   m_ObjectHideFlags: 0
@@ -295,41 +295,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: KnightBoss
       objectReference: {fileID: 0}
-    - target: {fileID: 539293137466827599, guid: 0ab23e6c982fb5345b9f14f3d0c9feab, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1304720466734885283, guid: 0ab23e6c982fb5345b9f14f3d0c9feab, type: 3}
-      propertyPath: m_Resource
-      value: 
-      objectReference: {fileID: 8300000, guid: 058d76ab94db0c045a7e04ff744f8f69, type: 3}
-    - target: {fileID: 2301361129874402853, guid: 0ab23e6c982fb5345b9f14f3d0c9feab, type: 3}
-      propertyPath: m_SortingLayer
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 2301361129874402853, guid: 0ab23e6c982fb5345b9f14f3d0c9feab, type: 3}
-      propertyPath: m_SortingOrder
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2301361129874402853, guid: 0ab23e6c982fb5345b9f14f3d0c9feab, type: 3}
-      propertyPath: m_SortingLayerID
-      value: 2063039921
-      objectReference: {fileID: 0}
-    - target: {fileID: 2687128151991700940, guid: 0ab23e6c982fb5345b9f14f3d0c9feab, type: 3}
-      propertyPath: moveSpeed
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 3240529693473964136, guid: 0ab23e6c982fb5345b9f14f3d0c9feab, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3476021506982197510, guid: 0ab23e6c982fb5345b9f14f3d0c9feab, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 7.4
       objectReference: {fileID: 0}
     - target: {fileID: 3476021506982197510, guid: 0ab23e6c982fb5345b9f14f3d0c9feab, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -10
+      value: 6.7
       objectReference: {fileID: 0}
     - target: {fileID: 3476021506982197510, guid: 0ab23e6c982fb5345b9f14f3d0c9feab, type: 3}
       propertyPath: m_LocalPosition.z
@@ -363,14 +335,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6833441078191954896, guid: 0ab23e6c982fb5345b9f14f3d0c9feab, type: 3}
-      propertyPath: songToAnalyze
-      value: 
-      objectReference: {fileID: 8300000, guid: 058d76ab94db0c045a7e04ff744f8f69, type: 3}
-    - target: {fileID: 8166185538663848845, guid: 0ab23e6c982fb5345b9f14f3d0c9feab, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -387,7 +351,7 @@ GameObject:
   - component: {fileID: 921016905}
   - component: {fileID: 921016904}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -826,11 +790,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3997397752232016244, guid: a70e9e47d23e45449aa01a415b87a85b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.0355096
+      value: -1.69
       objectReference: {fileID: 0}
     - target: {fileID: 3997397752232016244, guid: a70e9e47d23e45449aa01a415b87a85b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -6.59
+      value: 4.81
       objectReference: {fileID: 0}
     - target: {fileID: 3997397752232016244, guid: a70e9e47d23e45449aa01a415b87a85b, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1031,6 +995,10 @@ PrefabInstance:
     - target: {fileID: 7003707452119293050, guid: a70e9e47d23e45449aa01a415b87a85b, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -51
+      objectReference: {fileID: 0}
+    - target: {fileID: 7155139596838038745, guid: a70e9e47d23e45449aa01a415b87a85b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7522822442119397520, guid: a70e9e47d23e45449aa01a415b87a85b, type: 3}
       propertyPath: m_AnchorMax.y
@@ -1356,8 +1324,8 @@ SceneRoots:
   m_Roots:
   - {fileID: 2133563587}
   - {fileID: 47417342}
+  - {fileID: 921016905}
   - {fileID: 1490304750}
   - {fileID: 1323129283}
   - {fileID: 867602977}
-  - {fileID: 921016905}
   - {fileID: 433381728}

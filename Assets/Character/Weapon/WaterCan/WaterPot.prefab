@@ -44,6 +44,7 @@ GameObject:
   - component: {fileID: 2664103697478846295}
   - component: {fileID: 115856472514985398}
   - component: {fileID: 7005576448825038783}
+  - component: {fileID: -4182896707260465417}
   m_Layer: 0
   m_Name: WaterPot
   m_TagString: Untagged
@@ -60,7 +61,7 @@ Transform:
   m_GameObject: {fileID: 8831136815272496137}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.318, y: 0.047, z: 0}
+  m_LocalPosition: {x: 0.308, y: -0.078, z: 0}
   m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -273,3 +274,16 @@ LineRenderer:
   m_UseWorldSpace: 1
   m_Loop: 0
   m_ApplyActiveColorSpace: 1
+--- !u!114 &-4182896707260465417
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8831136815272496137}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0e1c89fe1f4ae845b99c35d9e28d3bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  droppedItemPrefab: {fileID: 8384293969686541230, guid: 1638516ba78a7a248962ae9f17336471, type: 3}

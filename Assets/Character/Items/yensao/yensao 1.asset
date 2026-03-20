@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80c220deb472d58479ad2391ae04a729, type: 3}
+  m_Name: yensao 1
+  m_EditorClassIdentifier: 
+  name: yensao
+  cooldownTime: 0
+  activeTime: 0
+  transform: {fileID: 0}
+  speedIncreasePercent: 1
+  duration: 3

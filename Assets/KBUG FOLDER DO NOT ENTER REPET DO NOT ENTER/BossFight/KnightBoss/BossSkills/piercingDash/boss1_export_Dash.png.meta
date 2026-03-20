@@ -1,0 +1,663 @@
+fileFormatVersion: 2
+guid: e4b55ce74b2252a4282880a29dd3d0ab
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -6190855707990485202
+    second: boss1_export_Dash_0
+  - first:
+      213: 876143330943859456
+    second: boss1_export_Dash_1
+  - first:
+      213: -8624868777337580536
+    second: boss1_export_Dash_2
+  - first:
+      213: -2749869743018393925
+    second: boss1_export_Dash_3
+  - first:
+      213: 4683642208259462606
+    second: boss1_export_Dash_4
+  - first:
+      213: 3195400233463870900
+    second: boss1_export_Dash_5
+  - first:
+      213: -4884702773759837618
+    second: boss1_export_Dash_6
+  - first:
+      213: 1448656963573770105
+    second: boss1_export_Dash_7
+  - first:
+      213: -1228002338448752518
+    second: boss1_export_Dash_8
+  - first:
+      213: 7228084821968482461
+    second: boss1_export_Dash_9
+  - first:
+      213: -2978782267088202307
+    second: boss1_export_Dash_10
+  - first:
+      213: -3622050449986395151
+    second: boss1_export_Dash_11
+  - first:
+      213: 6240164700959661870
+    second: boss1_export_Dash_12
+  - first:
+      213: -3399954862016280303
+    second: boss1_export_Dash_13
+  - first:
+      213: -6202872987872907061
+    second: boss1_export_Dash_14
+  - first:
+      213: 4852310961101205612
+    second: boss1_export_Dash_15
+  - first:
+      213: -1903390093493599329
+    second: boss1_export_Dash_16
+  - first:
+      213: -2193012770142497114
+    second: boss1_export_Dash_17
+  - first:
+      213: 8904585327268583951
+    second: boss1_export_Dash_18
+  - first:
+      213: 1733698930655511099
+    second: boss1_export_Dash_19
+  - first:
+      213: 5256764695810109207
+    second: boss1_export_Dash_20
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 64
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: boss1_export_Dash_0
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 200
+        width: 40
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e27178db889a51aa0800000000000000
+      internalID: -6190855707990485202
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss1_export_Dash_1
+      rect:
+        serializedVersion: 2
+        x: 77
+        y: 197
+        width: 33
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 00b7c3da7bfa82c00800000000000000
+      internalID: 876143330943859456
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss1_export_Dash_2
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 191
+        width: 53
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8049f642b8f4e4880800000000000000
+      internalID: -8624868777337580536
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss1_export_Dash_3
+      rect:
+        serializedVersion: 2
+        x: 205
+        y: 194
+        width: 34
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bbe3bc4c90086d9d0800000000000000
+      internalID: -2749869743018393925
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss1_export_Dash_4
+      rect:
+        serializedVersion: 2
+        x: 213
+        y: 242
+        width: 11
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec5d45ef5c3aff040800000000000000
+      internalID: 4683642208259462606
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss1_export_Dash_5
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 136
+        width: 38
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4b570d61597585c20800000000000000
+      internalID: 3195400233463870900
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss1_export_Dash_6
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 135
+        width: 31
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e4afda025bc063cb0800000000000000
+      internalID: -4884702773759837618
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss1_export_Dash_7
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 127
+        width: 31
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 977e53345d9aa1410800000000000000
+      internalID: 1448656963573770105
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss1_export_Dash_8
+      rect:
+        serializedVersion: 2
+        x: 204
+        y: 127
+        width: 38
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a70c961216245fee0800000000000000
+      internalID: -1228002338448752518
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss1_export_Dash_9
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 70
+        width: 37
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d90f2db79d05f4460800000000000000
+      internalID: 7228084821968482461
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss1_export_Dash_10
+      rect:
+        serializedVersion: 2
+        x: 77
+        y: 69
+        width: 40
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: db599f27f4d39a6d0800000000000000
+      internalID: -2978782267088202307
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss1_export_Dash_11
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 69
+        width: 60
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1f364026e44ebbdc0800000000000000
+      internalID: -3622050449986395151
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss1_export_Dash_12
+      rect:
+        serializedVersion: 2
+        x: 197
+        y: 86
+        width: 19
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e2fd1a4dbb4899650800000000000000
+      internalID: 6240164700959661870
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss1_export_Dash_13
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 69
+        width: 54
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1194825111fe0d0d0800000000000000
+      internalID: -3399954862016280303
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss1_export_Dash_14
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 77
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bc038fab1e7fae9a0800000000000000
+      internalID: -6202872987872907061
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss1_export_Dash_15
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 6
+        width: 37
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c60fb284c1fd65340800000000000000
+      internalID: 4852310961101205612
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss1_export_Dash_16
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 5
+        width: 40
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f9301586bccc595e0800000000000000
+      internalID: -1903390093493599329
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss1_export_Dash_17
+      rect:
+        serializedVersion: 2
+        x: 127
+        y: 5
+        width: 60
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a6d2cf218ad091e0800000000000000
+      internalID: -2193012770142497114
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss1_export_Dash_18
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 5
+        width: 54
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f0adff73d21739b70800000000000000
+      internalID: 8904585327268583951
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss1_export_Dash_19
+      rect:
+        serializedVersion: 2
+        x: 232
+        y: 22
+        width: 19
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b32423dedf55f0810800000000000000
+      internalID: 1733698930655511099
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss1_export_Dash_20
+      rect:
+        serializedVersion: 2
+        x: 250
+        y: 13
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 71f6399a3a7c3f840800000000000000
+      internalID: 5256764695810109207
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      boss1_export_Dash_0: -6190855707990485202
+      boss1_export_Dash_1: 876143330943859456
+      boss1_export_Dash_10: -2978782267088202307
+      boss1_export_Dash_11: -3622050449986395151
+      boss1_export_Dash_12: 6240164700959661870
+      boss1_export_Dash_13: -3399954862016280303
+      boss1_export_Dash_14: -6202872987872907061
+      boss1_export_Dash_15: 4852310961101205612
+      boss1_export_Dash_16: -1903390093493599329
+      boss1_export_Dash_17: -2193012770142497114
+      boss1_export_Dash_18: 8904585327268583951
+      boss1_export_Dash_19: 1733698930655511099
+      boss1_export_Dash_2: -8624868777337580536
+      boss1_export_Dash_20: 5256764695810109207
+      boss1_export_Dash_3: -2749869743018393925
+      boss1_export_Dash_4: 4683642208259462606
+      boss1_export_Dash_5: 3195400233463870900
+      boss1_export_Dash_6: -4884702773759837618
+      boss1_export_Dash_7: 1448656963573770105
+      boss1_export_Dash_8: -1228002338448752518
+      boss1_export_Dash_9: 7228084821968482461
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

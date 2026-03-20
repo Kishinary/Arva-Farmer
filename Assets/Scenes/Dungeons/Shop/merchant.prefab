@@ -1,0 +1,321 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6317987649721630018
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8720804357983003878}
+  - component: {fileID: 9100239782016054587}
+  - component: {fileID: 1481859113815424803}
+  - component: {fileID: 7789749994949753036}
+  m_Layer: 0
+  m_Name: merchant
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8720804357983003878
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6317987649721630018}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.87, z: 0}
+  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 921060983336546896}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &9100239782016054587
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6317987649721630018}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e5670d75b352ae4ab021119dee68db1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemsForSale:
+  - itemName: Racket
+    itemIcon: {fileID: -756095576920410430, guid: 0444ee84cf3a66947aa1fdc9bf7c77ef, type: 3}
+    dropPrefab: {fileID: 8384293969686541230, guid: db4a7676e20dce6408a86f126e6185eb, type: 3}
+    price: 150
+    description: 'Catch bugs and shoot them! A reliable <#FF8800>ranged weapon</color>
+      with fast reloads.
+
+      DMG: 15 | Catch Range: 0.8 | CD: 0.5s
+
+      <#FFFF00>150G</color>'
+  - itemName: Rake
+    itemIcon: {fileID: 3835505975060019071, guid: f643d299f47bea142a19ec879f31f0d0, type: 3}
+    dropPrefab: {fileID: 8384293969686541230, guid: 250cf002b5aae914e87cb19353c149ee, type: 3}
+    price: 180
+    description: 'Pull enemies in and set <#FF4444>deadly traps</color>. Excellent
+      for crowd control.
+
+      Trap Cap: 5 | Pull SPD: 4
+
+      <#FFFF00>180G</color>'
+  - itemName: Scissors
+    itemIcon: {fileID: -8534046741536091761, guid: 20146001a85e3304990116a73a6c2804, type: 3}
+    dropPrefab: {fileID: 8384293969686541230, guid: af2f0df8b48a5ab4eac558c4f72ffbdf, type: 3}
+    price: 450
+    description: 'Lightning-fast <#FF4444>melee thrusts</color>. Shreds enemies up
+      close in the blink of an eye.
+
+      DMG: 25 | CD: 0.05s
+
+      <#FFFF00>450G</color>'
+  - itemName: WaterCan
+    itemIcon: {fileID: -5253021402717179167, guid: 3efab488fc2fc3848ac079f400fb964e, type: 3}
+    dropPrefab: {fileID: 8384293969686541230, guid: 1638516ba78a7a248962ae9f17336471, type: 3}
+    price: 350
+    description: 'Fires a piercing <#00FFFF>laser beam</color> to easily sweep through
+      large swarms.
+
+      DMG: 10/tick | Max Dist: 10
+
+      <#FFFF00>350G</color>'
+  - itemName: Boomerang
+    itemIcon: {fileID: -8992175993407916659, guid: e74442918725c924fb32f4401a59eac5, type: 3}
+    dropPrefab: {fileID: 26655022856714795, guid: 3369ab6d6126fd8469be4e10a30ad599, type: 3}
+    price: 300
+    description: 'Throws a heavy axe that <#FF8800>returns</color> to you, hitting
+      targets twice.
+
+      DMG: 10 | Throw SPD: 20
+
+      <#FFFF00>300G</color>'
+  - itemName: tractor
+    itemIcon: {fileID: -4571828015118065507, guid: eb9eb96dc626c3847a92e7e6e5afdbcd, type: 3}
+    dropPrefab: {fileID: 8384293969686541230, guid: 04afb223ce8eb7b4caf906a59adf535d, type: 3}
+    price: 1200
+    description: 'Summon a massive tractor to <#FF4444>crush everything</color> in
+      its path!
+
+      Burst DMG: 100 | CD: 2s
+
+      <#FFFF00>1200G</color>'
+  - itemName: stun
+    itemIcon: {fileID: 21300000, guid: ed184a2883902d847a027af94f40c2e6, type: 3}
+    dropPrefab: {fileID: 26655022856714795, guid: d6cdaf83ebf06ce45bcfb44c37e7a504, type: 3}
+    price: 400
+    description: 'Paralyze enemies with a <#00FFFF>shockwave</color>. Perfect for
+      tactical escapes.
+
+      CC Duration: High | AoE
+
+      <#FFFF00>400G</color>'
+  - itemName: Yen sao
+    itemIcon: {fileID: 1403812638501723641, guid: 39c617104796ca74db4b2e550f035cf9, type: 3}
+    dropPrefab: {fileID: 8384293969686541230, guid: bbd4c08064c898244b2f868e9e1962ce, type: 3}
+    price: 250
+    description: 'A premium drink granting a <#00FF00>massive speed boost</color>
+      for a quick getaway.
+
+      SPD: +100% | Duration: 3s
+
+      <#FFFF00>250G</color>'
+  - itemName: Kera
+    itemIcon: {fileID: -6066339755881754766, guid: 52f50bfdcc2114f49bd7fab66fdb69ba, type: 3}
+    dropPrefab: {fileID: 8384293969686541230, guid: dd7e169812697624ba1e4cca8ad9e298, type: 3}
+    price: 20
+    description: 'A sweet candy that <#00FF00>restores health</color> instantly in
+      the heat of battle.
+
+      Heal: 20 HP
+
+      <#FFFF00>150G</color>'
+  - itemName: Ba Mia
+    itemIcon: {fileID: 6989642852348889387, guid: 6a8adb02ab80cac49ad797c6a59ac111, type: 3}
+    dropPrefab: {fileID: 8384293969686541230, guid: be39b3a9f7d80504fb51ca49990e99d3, type: 3}
+    price: 50
+    description: 'Refreshing juice for a <#00FF00>slight heal</color> and a gentle
+      speed bump.
+
+      Heal: 3.6 HP | SPD: +18%
+
+      <#FFFF00>50G</color> (Cheapest
+      early-game item)'
+  - itemName: Kho Ga
+    itemIcon: {fileID: 1202198104528492017, guid: 189742f1bea96094bb47abcb89434d92, type: 3}
+    dropPrefab: {fileID: 8384293969686541230, guid: eeb4de2e27f23d94abf32d916ec607f4, type: 3}
+    price: 800
+    description: 'The ultimate snack! Grants <#00FF00>huge healing</color> and an
+      insane adrenaline rush.
+
+      Heal: 67 HP | SPD: +360%
+
+      <#FFFF00>800G</color>
+      (Very expensive, life-saving item)'
+--- !u!61 &1481859113815424803
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6317987649721630018}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: -0.000000029802322}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 2, y: 2}
+  m_EdgeRadius: 0
+--- !u!50 &7789749994949753036
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6317987649721630018}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
+--- !u!1001 &7033991268347104605
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 8720804357983003878}
+    m_Modifications:
+    - target: {fileID: -2253911629886400664, guid: 77c3cfc6bfccc1b4eb3208a90245caa6, type: 3}
+      propertyPath: m_Name
+      value: merchant
+      objectReference: {fileID: 0}
+    - target: {fileID: 3626916397498700004, guid: 77c3cfc6bfccc1b4eb3208a90245caa6, type: 3}
+      propertyPath: m_SortingLayer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3626916397498700004, guid: 77c3cfc6bfccc1b4eb3208a90245caa6, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -70604381
+      objectReference: {fileID: 0}
+    - target: {fileID: 7878350319992209165, guid: 77c3cfc6bfccc1b4eb3208a90245caa6, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7878350319992209165, guid: 77c3cfc6bfccc1b4eb3208a90245caa6, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7878350319992209165, guid: 77c3cfc6bfccc1b4eb3208a90245caa6, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7878350319992209165, guid: 77c3cfc6bfccc1b4eb3208a90245caa6, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7878350319992209165, guid: 77c3cfc6bfccc1b4eb3208a90245caa6, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7878350319992209165, guid: 77c3cfc6bfccc1b4eb3208a90245caa6, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7878350319992209165, guid: 77c3cfc6bfccc1b4eb3208a90245caa6, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7878350319992209165, guid: 77c3cfc6bfccc1b4eb3208a90245caa6, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7878350319992209165, guid: 77c3cfc6bfccc1b4eb3208a90245caa6, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7878350319992209165, guid: 77c3cfc6bfccc1b4eb3208a90245caa6, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7878350319992209165, guid: 77c3cfc6bfccc1b4eb3208a90245caa6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7878350319992209165, guid: 77c3cfc6bfccc1b4eb3208a90245caa6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7878350319992209165, guid: 77c3cfc6bfccc1b4eb3208a90245caa6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7878350319992209165, guid: 77c3cfc6bfccc1b4eb3208a90245caa6, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: -8435245712485981826, guid: 77c3cfc6bfccc1b4eb3208a90245caa6, type: 3}
+--- !u!4 &921060983336546896 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7878350319992209165, guid: 77c3cfc6bfccc1b4eb3208a90245caa6, type: 3}
+  m_PrefabInstance: {fileID: 7033991268347104605}
+  m_PrefabAsset: {fileID: 0}

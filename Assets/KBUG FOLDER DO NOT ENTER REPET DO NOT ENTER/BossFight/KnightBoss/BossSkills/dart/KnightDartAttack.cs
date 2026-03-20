@@ -4,7 +4,6 @@ using UnityEngine;
 public class KnightDartAttack : MonoBehaviour
 {
     [Header("Dart Attack Settings")]
-    public GameObject dartPrefab;
     public Transform firePoint;
     public GameObject warningPrefab;
 
@@ -58,23 +57,11 @@ public class KnightDartAttack : MonoBehaviour
             Instantiate(warningPrefab, posRight, dartRotation);
         }
         yield return castWait;
-        ShootDart(posCenter, posLeft, posRight, dartRotation);
         yield return recoveryWait;
         boss.isActionLocked = false;
     }
 
-    private void ShootDart(Vector3 pos1, Vector3 pos2, Vector3 pos3, Quaternion rotation)
-    {
-        if (dartPrefab == null)
-        {
-            Debug.LogWarning("No prefab detected!");
-            return;
-        }
-        Instantiate(dartPrefab, pos1, rotation);
-        Instantiate(dartPrefab, pos2, rotation);
-        Instantiate(dartPrefab, pos3, rotation);
-    }
-
+    
 
 
 }

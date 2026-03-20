@@ -39,7 +39,7 @@ public class CineZoom : MonoBehaviour
         vcam.Follow = null;
 
         Vector3 startPos = vcam.transform.position;
-        Vector3 targetPos = new Vector3(position.x, position.y + 0.25f, -10);
+        Vector3 targetPos = new Vector3(position.x, position.y, -10);
 
         float moveTimer = 0f;
         float moveDuration = 0.1f;

@@ -67,6 +67,7 @@ Transform:
   - {fileID: 574765088003092737}
   - {fileID: 319377170604845949}
   - {fileID: 5510464364502444170}
+  - {fileID: 7745264764274177043}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &813901230977075878
@@ -252,6 +253,57 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &2291347926189506771
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7745264764274177043}
+  - component: {fileID: 3339512043293971842}
+  m_Layer: 5
+  m_Name: BossHealthBar
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7745264764274177043
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2291347926189506771}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3476021506982197510}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3339512043293971842
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2291347926189506771}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 19102, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_PanelSettings: {fileID: 11400000, guid: ff0f9bffa0dbc424ab03beda6a79d489, type: 2}
+  m_ParentUI: {fileID: 0}
+  sourceAsset: {fileID: 9197481963319205126, guid: 5048e6843f05d314b916622e5caf7135, type: 3}
+  m_SortingOrder: 0
+  m_WorldSpaceSizeMode: 1
+  m_WorldSpaceWidth: 1920
+  m_WorldSpaceHeight: 1080
 --- !u!1 &4413353320462866757
 GameObject:
   m_ObjectHideFlags: 0
@@ -304,7 +356,7 @@ MonoBehaviour:
   bossCatching: {fileID: 2921206277121168507}
   player: {fileID: 0}
   moveSpeed: 50
-  phase2Threshold: 0.5
+  phase2Threshold: 0
   enemyStats: {fileID: 9013230341728840679}
   isActionLocked: 0
   rb: {fileID: 813901230977075878}
@@ -336,6 +388,22 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   spriteComponent: {fileID: 8589546339284349299}
+  scaleReturnSpeed: 10
+  scaleByBeatBoss: {fileID: 2301361129874402853}
+  enemyPrefabs:
+  - {fileID: 7347843447860981962, guid: b811eccd007f36e449f17ab0b2578085, type: 3}
+  - {fileID: 3763713802245534256, guid: 1a2ee40c774807c44a8566daa01e9e90, type: 3}
+  - {fileID: 4313094473236286479, guid: c54960daa66fe2a4d902ddbf840ee8d8, type: 3}
+  - {fileID: 5231209078013737565, guid: 7952d352bd3776e44b47fca4a392c4f9, type: 3}
+  - {fileID: 2679225800252764106, guid: 4bfe80eb659a78047a02dfc9d549f6e6, type: 3}
+  - {fileID: 6633057718085472503, guid: 2497255e9e431494a9333a3843f5c973, type: 3}
+  - {fileID: 7982472919756427086, guid: cabdfa8db3e065642bc907b91d2c68c1, type: 3}
+  summonPositions:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   minAttacksPerStance: 8
   maxAttacksPerStance: 20
   currentLongRangeStance: 0
@@ -352,9 +420,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 822c41bea48c4bb4da046b40b617a755, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 2000
-  maxHealth: 0
-  realMaxHealth: 0
+  health: 4000
+  maxHealth: 4000
+  realMaxHealth: 1
   invincible: 0
   invincibilityDuration: 0.02
   damageTextPrefab: {fileID: 4533503312433578376, guid: 19e108fc8970a754aacc294cdacb7da7, type: 3}
@@ -362,8 +430,8 @@ MonoBehaviour:
   flashMaterial: {fileID: 2100000, guid: 38558de54466ec243bde7b2399495bfa, type: 2}
   flashDuration: 0.15
   knockbackForce: 0.5
-  healthSlider: {fileID: 0}
-  healthBarDocument: {fileID: 0}
+  healthSlider: {fileID: 3377394160277509218, guid: cd73b1c0934153b44b36e12e06ac3c3e, type: 3}
+  healthBarDocument: {fileID: 3339512043293971842}
   ghostDelay: 0.3
   sr: {fileID: 2301361129874402853}
   DeathPar: {fileID: 8813979716979246122, guid: a0d8df6e7bc8cb64a896255174e2a806, type: 3}

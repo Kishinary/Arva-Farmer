@@ -659,9 +659,9 @@ MonoBehaviour:
   moveSpeed: 2
   preferredDistance: 5
   retreatDistance: 3
-  acceleration: 100
+  acceleration: 150
   attackInterval: 4
-  wallSpawnOffset: 2
+  wallSpawnOffset: 2.5
   projectileSpeed: 8
 --- !u!61 &412695795829326806
 BoxCollider2D:

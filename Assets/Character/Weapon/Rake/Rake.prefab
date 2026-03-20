@@ -137,6 +137,8 @@ MonoBehaviour:
   SpikeTrap: {fileID: 8343181208542798348, guid: 61b9d305100b15e408d9b90cbf5fc347, type: 3}
   catchCooldown: 1.5
   TrapCooldown: 1.3
+  TrapPoint: {fileID: 6326875201239266838}
+  releaseParticle: {fileID: 8813979716979246122, guid: a0d8df6e7bc8cb64a896255174e2a806, type: 3}
 --- !u!114 &5260204462034069932
 MonoBehaviour:
   m_ObjectHideFlags: 0

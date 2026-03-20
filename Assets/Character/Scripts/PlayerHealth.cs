@@ -86,9 +86,6 @@ public class PlayerHealth : MonoBehaviour
             OnHealthChanged?.Invoke(_currentHealth, maxHealth);
         }else{
         StartCoroutine(DeathSequence());
-        Time.timeScale = 1f;
-        _currentHealth = maxHealth;
-        OnHealthChanged?.Invoke(_currentHealth, maxHealth);
         }
     }
     }
@@ -100,14 +97,14 @@ public class PlayerHealth : MonoBehaviour
     
     // Đóng băng thời gian
     Time.timeScale = 0f;
-    CineZoom.instance.ZoomIn(transform.position, 2f);
-    anim.SetTrigger("Die"); 
-    yield return new WaitForSeconds(2.5f);
-   
+    CineZoom.instance.ZoomIn(transform.position, 1f);
+    anim.SetTrigger("Die");
+    yield return new WaitForSecondsRealtime(1f);
     SceneController.Instance.NextScene("Lobby", true);
-
     // Đợi 2 giây thời gian thực (vì timeScale đã = 0)
-    
+    Time.timeScale = 1f;
+    _currentHealth = maxHealth;
+    OnHealthChanged?.Invoke(_currentHealth, maxHealth);
     // Reset lại trạng thái trước khi chuyển cảnh
     }
 

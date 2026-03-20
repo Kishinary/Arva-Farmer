@@ -31,6 +31,10 @@ public class Rake : MonoBehaviour, IWeapon
     private PlayerMovement playerMove;
     private bool isPulling = false;
 
+    public Transform TrapPoint;
+    public ParticleSystem releaseParticle;
+
+
     // Prevents double-hitting the same enemy during one pull
     private HashSet<GameObject> alreadyHit = new HashSet<GameObject>();
 
@@ -142,7 +146,73 @@ public class Rake : MonoBehaviour, IWeapon
         Gizmos.DrawWireCube(Vector3.zero, Vector3.one);
     }
 
-    // Special Attack Release logic remains the same...
-    public void ApplyRelease() { /* Your existing release logic */ }
-    public void ReleaseTrap() { /* Your existing trap logic */ }
+    public void ApplyRelease()
+
+    {
+
+        Quaternion particleRotation = weaponParent.transform.rotation;
+
+
+
+        if (weaponParent.transform.localScale.y == -1)
+
+        {
+
+            particleRotation *= Quaternion.Euler(releaseParticle.transform.eulerAngles.x * -1, 0, 0);
+
+        }
+
+
+
+        Instantiate(releaseParticle, transform.position, particleRotation);
+
+
+
+        ReleaseTrap();
+
+    }
+
+
+
+
+
+    public void ReleaseTrap()
+
+    {
+
+        float k = Random.Range(0, 4);
+
+        if (k == 0)
+
+        {
+
+            Instantiate(BearTrap, TrapPoint.position, Quaternion.identity);
+
+        }
+
+        else if (k == 1)
+
+        {
+
+            Instantiate(RakeTrap, TrapPoint.position, Quaternion.identity);
+
+        }
+
+        else if (k == 2)
+
+        {
+
+            Instantiate(Holetrap, TrapPoint.position, Quaternion.identity);
+
+        }
+
+        else
+
+        {
+
+            Instantiate(SpikeTrap, TrapPoint.position, Quaternion.identity);
+
+        }
+
+    }
 }

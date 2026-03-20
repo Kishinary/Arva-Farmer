@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 5636062909299726006}
   - component: {fileID: 7126722779263975787}
   - component: {fileID: 2521988743746216105}
-  m_Layer: 0
+  - component: {fileID: 5065663502702976739}
+  m_Layer: 10
   m_Name: fn 1_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -74,8 +75,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 2063039921
-  m_SortingLayer: 8
+  m_SortingLayerID: 648175891
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: -2888186560229209825, guid: 77a015e403ebee741af8ebfa4e03828f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -134,3 +135,21 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 2.82, y: 1.7158253}
   m_EdgeRadius: 0
+--- !u!114 &5065663502702976739
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4877165625052535984}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 281c01cda7e554b4da7559a0debab100, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 20
+  knockbackStrength: 15
+  wallSize: {x: 2, y: 3}
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 512

@@ -1,14 +1,19 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class BossSceneSuccess : MonoBehaviour
 {
     public bool goable = false;
+    public bool going = false;
+
+    public GameObject YesGameObject;
+    public GameObject nahh;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        StartCoroutine(StartCheck());
     }
 
     // Update is called once per frame
@@ -16,7 +21,13 @@ public class BossSceneSuccess : MonoBehaviour
     {
         if (goable)
         {
-            SceneManager.LoadScene("Lobby");
+            if (!GameObject.FindWithTag("Enemy"))
+            {
+                going = true;
+                goable = false;
+                Instantiate(nahh, YesGameObject.transform.position, Quaternion.identity);
+                Destroy(YesGameObject);
+            }
         }
     }
 
@@ -25,4 +36,17 @@ public class BossSceneSuccess : MonoBehaviour
         yield return new WaitForSeconds(5);
         goable = true;
     }
+
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (going && collision.gameObject.GetComponent<PlayerMovement>())
+        {
+            SceneManager.LoadScene("Dungeon2-1");
+        }
+    }
+
+
+
+
 }

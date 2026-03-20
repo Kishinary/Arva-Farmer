@@ -34631,6 +34631,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 1377226967825187614}
     m_Modifications:
     - target: {fileID: 892977045492051634, guid: 6cd3283d3bb50bd4dad62af1b1e41368, type: 3}
+      propertyPath: PlayerSpawn
+      value: 
+      objectReference: {fileID: 5328861528864094630}
+    - target: {fileID: 892977045492051634, guid: 6cd3283d3bb50bd4dad62af1b1e41368, type: 3}
       propertyPath: SpawnLoc.Array.size
       value: 28
       objectReference: {fileID: 0}
@@ -34748,11 +34752,11 @@ PrefabInstance:
       objectReference: {fileID: 6128481939720703655}
     - target: {fileID: 1232018037396727245, guid: 6cd3283d3bb50bd4dad62af1b1e41368, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -14.130974
+      value: -0.95
       objectReference: {fileID: 0}
     - target: {fileID: 1232018037396727245, guid: 6cd3283d3bb50bd4dad62af1b1e41368, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 7.521161
+      value: -10.8
       objectReference: {fileID: 0}
     - target: {fileID: 1232018037396727245, guid: 6cd3283d3bb50bd4dad62af1b1e41368, type: 3}
       propertyPath: m_LocalPosition.z

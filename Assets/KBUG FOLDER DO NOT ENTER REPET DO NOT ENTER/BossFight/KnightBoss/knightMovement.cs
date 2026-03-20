@@ -2,6 +2,7 @@ using JetBrains.Annotations;
 using System;
 using System.Collections;
 using UnityEngine;
+using static knightMovement;
 
 
 
@@ -44,35 +45,94 @@ public class KnightPhase1State : KnightBaseState
     public KnightPhase1State(knightMovement boss) : base(boss) { }
     public override void EnterState()
     {
-        boss.moveSpeed = 0f;
+        boss.moveSpeed = 0.5f;
 
     }
     public override void UpdateState()
     {
-        boss.ChasePlayer();
-       
-
-        //boss.dartAttack();
+        if (!boss.isActionLocked)
+        {
+            boss.ChasePlayer();
+        }
+        
     }
 
     protected override void HandleKickCombo(BossCombo combo, int hitIndex)
     {
         if (combo.beatCount == 1)
         {
-            //boss.PerformDartAttack(); 
+            /*switch (boss.currentLongRangeStance)
+            {
+                case BossStance.LightningFocus:
+                    boss.lightningStrikePerform();
+                    break;
+
+                
+            }
+
+            boss.RegisterAttack();*/
+            
+        }
+        else if(combo.beatCount == 2)
+        {
+            switch (boss.currentLongRangeStance)
+            {
+                case BossStance.LightningFocus:
+                    boss.lightningStrikePerform();
+                    break;
+
+
+            }
+
+            boss.RegisterAttack();
         }
     }
     protected override void HandleBassCombo(BossCombo combo, int hitIndex)
     {
+        if (combo.beatCount == 1)
+        {
+            switch (boss.currentLongRangeStance)
+            {
+                case BossStance.LightningFocus:
+                    boss.lightningStrikePerform();
+                    break;
+
+
+            }
+
+            boss.RegisterAttack();
+        }
     }
     protected override void HandleLowMidCombo(BossCombo combo, int hitIndex)
     {
+        if (combo.beatCount == 1)
+        {
+            
+        }
     }
     protected override void HandleHighMidCombo(BossCombo combo, int hitIndex)
     {
+        if (combo.beatCount == 1)
+        {
+        }
     }
     protected override void HandleTrebleCombo(BossCombo combo, int hitIndex)
     {
+        if (combo.beatCount == 1)
+        {
+            switch (boss.currentLongRangeStance)
+            {
+                case BossStance.LightningFocus:
+                    boss.lightningStrikePerform();
+                    break;
+
+
+            }
+
+            boss.RegisterAttack();
+
+        }
+        
     }
 
 
@@ -102,7 +162,7 @@ public class knightMovement : MonoBehaviour
     [HideInInspector]
     public GameObject player;
 
-    [Header("Abilities")]
+
 
 
     [Header("Stats")]
@@ -137,18 +197,22 @@ public class knightMovement : MonoBehaviour
     
     private Vector2 currentDirection;//movement cache
     [SerializeField] private Rigidbody2D rb;
+    [Header("SkillsPrefab")]
+    public GameObject lightningStrike;
+    public GameObject fireCirclePrefab;
 
 
     private void Awake()
     {
         if(rb == null) rb = GetComponent<Rigidbody2D>();
+        
     }
 
     void Start()
     {
         player = GameObject.FindWithTag("Player");
 
-    
+        
         phase1State = new KnightPhase1State(this);
         //phase2State = new KnightPhase2State(this);
 
@@ -158,6 +222,7 @@ public class knightMovement : MonoBehaviour
             bossCatching.OnBossAttackTriggered += HandleComboAttack;
         }
         ChangeState(phase1State);
+        RollNextStance();
     }
 
     private void HandleComboAttack(BossCombo combo, int hitIndex)
@@ -234,6 +299,47 @@ public class knightMovement : MonoBehaviour
         SetMovementDirection(direction);
     }
 
+
+    public int minAttacksPerStance = 8;
+    public int maxAttacksPerStance = 20;
+
+    private int targetAttackCount;
+    private int currentAttackCount;
+    public enum BossStance
+    {
+        LightningFocus,
+        
+       
+    }
+    public BossStance currentLongRangeStance = BossStance.LightningFocus;
+    public void RollNextStance()
+    {
+        int numberOfStances = System.Enum.GetNames(typeof(BossStance)).Length;
+        if (numberOfStances > 1)
+        {
+            BossStance newStance = currentLongRangeStance;
+            while (newStance == currentLongRangeStance)
+            {
+                newStance = (BossStance)UnityEngine.Random.Range(0, numberOfStances);
+            }
+            currentLongRangeStance = newStance;
+        }
+
+       
+        targetAttackCount = UnityEngine.Random.Range(minAttacksPerStance, maxAttacksPerStance + 1);
+
+        currentAttackCount = 0;
+    }
+    public void RegisterAttack()
+    {
+        currentAttackCount++;
+        
+        if (currentAttackCount >= targetAttackCount)
+        {
+            RollNextStance();
+        }
+    }
+
     public void dartAttack()
     {
         if (dartAttackModule != null)
@@ -242,6 +348,23 @@ public class knightMovement : MonoBehaviour
         }
     }
 
+    
+  
+
+    //lightningSkills
+    
+    private float maxLightningRadius = 5f;
+    private float safeLightningRadius = 1f;
+    public void lightningStrikePerform()
+    {
+        Vector2 playerPos = player.transform.position;
+        Vector2 spawnPos = MathUtility.GetRandomPositionAround(playerPos, maxLightningRadius, safeLightningRadius);
+        GameObject newStrike = Instantiate(lightningStrike, spawnPos, Quaternion.identity);
+    }
+
+
+
+    
 
 
 

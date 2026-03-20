@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class lightning : MonoBehaviour
+public class lightningWarning : MonoBehaviour
 {
     public float blinkSpeed = 5f;
     public float minAlpha = 0.2f;

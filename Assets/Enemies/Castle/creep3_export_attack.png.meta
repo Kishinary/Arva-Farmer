@@ -1,52 +1,55 @@
 fileFormatVersion: 2
-guid: 047afda05b47b954a90702cd95a5e405
+guid: c5566702a4859e64285074efbb822edd
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4175585490383636818
-    second: testmap_1_0
+      213: -3184187025957485850
+    second: creep3_export_attack_0
   - first:
-      213: 4009780878603288616
-    second: testmap_1_1
+      213: -1168517404432231323
+    second: creep3_export_attack_1
   - first:
-      213: 6362148461190802023
-    second: testmap_1_2
+      213: 6497241758587980942
+    second: creep3_export_attack_2
   - first:
-      213: -333095951737605709
-    second: testmap_1_3
+      213: 5070663088177234172
+    second: creep3_export_attack_3
   - first:
-      213: 8157847346728585636
-    second: testmap_1_4
+      213: 8067338741031774951
+    second: creep3_export_attack_4
   - first:
-      213: 3646209396066281992
-    second: testmap_1_5
+      213: 5362796028573138749
+    second: creep3_export_attack_5
   - first:
-      213: 4172600710923558202
-    second: testmap_1_6
+      213: 4468599425721465251
+    second: creep3_export_attack_6
   - first:
-      213: 5506806082942283333
-    second: testmap_1_7
+      213: 2436389068942948771
+    second: creep3_export_attack_7
   - first:
-      213: -3933233552749332337
-    second: testmap_1_8
+      213: -7030650832850550874
+    second: creep3_export_attack_8
   - first:
-      213: 5606348335760610486
-    second: testmap_1_9
+      213: -5066781011398841702
+    second: creep3_export_attack_9
   - first:
-      213: 4333774653972485968
-    second: testmap_1_10
+      213: 6430050518915616485
+    second: creep3_export_attack_10
   - first:
-      213: 7305233004840601249
-    second: testmap_1_11
+      213: 6175898070882127007
+    second: creep3_export_attack_11
   - first:
-      213: -8544456999797430398
-    second: testmap_1_12
+      213: -6368989465334438888
+    second: creep3_export_attack_12
   - first:
-      213: -5892319426310831191
-    second: testmap_1_13
+      213: 8188196941806193010
+    second: creep3_export_attack_13
   - first:
-      213: -1194739624949600683
-    second: testmap_1_14
+      213: -4783958775672271706
+    second: creep3_export_attack_14
+  - first:
+      213: -7883383778063510689
+    second: creep3_export_attack_15
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -66,7 +69,7 @@ TextureImporter:
     heightScale: 0.25
     normalMapFilter: 0
     flipGreenChannel: 0
-  isReadable: 1
+  isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
@@ -117,7 +120,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -155,331 +158,353 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: testmap_1_0
+      name: creep3_export_attack_0
       rect:
         serializedVersion: 2
-        x: 37
-        y: 138
-        width: 213
-        height: 115
+        x: 8
+        y: 206
+        width: 46
+        height: 43
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ea67864ae175d06c0800000000000000
-      internalID: -4175585490383636818
+      spriteID: 6e2856b35ce7fc3d0800000000000000
+      internalID: -3184187025957485850
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: testmap_1_1
+      name: creep3_export_attack_1
       rect:
         serializedVersion: 2
-        x: 256
-        y: 192
-        width: 33
-        height: 31
-      alignment: 9
-      pivot: {x: 0.5, y: -0.008627122}
+        x: 74
+        y: 198
+        width: 44
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8208d40e67a95a730800000000000000
-      internalID: 4009780878603288616
+      spriteID: 56494fa9c9798cfe0800000000000000
+      internalID: -1168517404432231323
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: testmap_1_2
+      name: creep3_export_attack_2
       rect:
         serializedVersion: 2
-        x: 291
-        y: 199
-        width: 27
-        height: 17
-      alignment: 9
-      pivot: {x: 0.5191673, y: 0}
+        x: 128
+        y: 193
+        width: 55
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 76a639d3154ea4850800000000000000
-      internalID: 6362148461190802023
+      spriteID: e8c8870a4f6da2a50800000000000000
+      internalID: 6497241758587980942
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: testmap_1_3
+      name: creep3_export_attack_3
       rect:
         serializedVersion: 2
-        x: 320
-        y: 194
-        width: 32
-        height: 28
-      alignment: 9
-      pivot: {x: 0.5053911, y: 0.08105523}
+        x: 203
+        y: 196
+        width: 40
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 3b13f882ffa906bf0800000000000000
-      internalID: -333095951737605709
+      spriteID: cf04d72963d9e5640800000000000000
+      internalID: 5070663088177234172
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: testmap_1_4
+      name: creep3_export_attack_4
       rect:
         serializedVersion: 2
-        x: 351
-        y: 197
-        width: 32
-        height: 21
-      alignment: 9
-      pivot: {x: 0.50539017, y: 0.105699085}
+        x: 15
+        y: 137
+        width: 34
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4a9ce9190fe763170800000000000000
-      internalID: 8157847346728585636
+      spriteID: 7ea22f5a7d1f4ff60800000000000000
+      internalID: 8067338741031774951
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: testmap_1_5
+      name: creep3_export_attack_5
       rect:
         serializedVersion: 2
-        x: 267
-        y: 162
+        x: 78
+        y: 137
+        width: 37
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d3f3afd139a7c6a40800000000000000
+      internalID: 5362796028573138749
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: creep3_export_attack_6
+      rect:
+        serializedVersion: 2
+        x: 154
+        y: 135
+        width: 39
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3a974a58087a30e30800000000000000
+      internalID: 4468599425721465251
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: creep3_export_attack_7
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 137
         width: 48
-        height: 29
-      alignment: 9
-      pivot: {x: 0.39577675, y: 0.08360501}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 80ae8359020f99230800000000000000
-      internalID: 3646209396066281992
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: testmap_1_6
-      rect:
-        serializedVersion: 2
-        x: 324
-        y: 170
-        width: 23
-        height: 15
-      alignment: 9
-      pivot: {x: 0.46999723, y: 0.0859843}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: a3d142c3d3e08e930800000000000000
-      internalID: 4172600710923558202
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: testmap_1_7
-      rect:
-        serializedVersion: 2
-        x: 357
-        y: 159
-        width: 24
-        height: 34
-      alignment: 9
-      pivot: {x: 0.46406046, y: 0.053512573}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 54e2cb4c4fa1c6c40800000000000000
-      internalID: 5506806082942283333
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: testmap_1_8
-      rect:
-        serializedVersion: 2
-        x: 254
-        y: 128
-        width: 33
-        height: 33
-      alignment: 9
-      pivot: {x: 0.47386217, y: 0.09225695}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: f887ab54ce85a69c0800000000000000
-      internalID: -3933233552749332337
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: testmap_1_9
-      rect:
-        serializedVersion: 2
-        x: 293
-        y: 131
-        width: 24
-        height: 27
-      alignment: 9
-      pivot: {x: 0.44249725, y: 0.02720416}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 6b41d109b10cdcd40800000000000000
-      internalID: 5606348335760610486
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: testmap_1_10
-      rect:
-        serializedVersion: 2
-        x: 323
-        y: 127
-        width: 26
-        height: 34
-      alignment: 9
-      pivot: {x: 0.5656198, y: 0.09856235}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 0571f922619a42c30800000000000000
-      internalID: 4333774653972485968
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: testmap_1_11
-      rect:
-        serializedVersion: 2
-        x: 36
-        y: 31
-        width: 189
-        height: 98
+        height: 49
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1a6cbfe86b6616560800000000000000
-      internalID: 7305233004840601249
+      spriteID: 3a93dfc13facfc120800000000000000
+      internalID: 2436389068942948771
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: testmap_1_12
+      name: creep3_export_attack_8
       rect:
         serializedVersion: 2
-        x: 258
-        y: 95
-        width: 27
-        height: 34
-      alignment: 9
-      pivot: {x: 0.5070213, y: 0.014930276}
+        x: 15
+        y: 73
+        width: 34
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 287697011adfb6980800000000000000
-      internalID: -8544456999797430398
+      spriteID: 6af7328415c1e6e90800000000000000
+      internalID: -7030650832850550874
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: testmap_1_13
+      name: creep3_export_attack_9
       rect:
         serializedVersion: 2
-        x: 288
-        y: 97
-        width: 31
-        height: 30
-      alignment: 9
-      pivot: {x: 0.5244603, y: 0.019762421}
+        x: 77
+        y: 73
+        width: 37
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9a30c9b53b64a3ea0800000000000000
-      internalID: -5892319426310831191
+      spriteID: a9aa0ecd38d2fa9b0800000000000000
+      internalID: -5066781011398841702
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: testmap_1_14
+      name: creep3_export_attack_10
       rect:
         serializedVersion: 2
-        x: 325
-        y: 98
-        width: 26
-        height: 30
-      alignment: 9
-      pivot: {x: 0.51458156, y: 0.08295135}
+        x: 127
+        y: 71
+        width: 39
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 55eabcf14ae6b6fe0800000000000000
-      internalID: -1194739624949600683
+      spriteID: 5ee08cb01e02c3950800000000000000
+      internalID: 6430050518915616485
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: creep3_export_attack_11
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 73
+        width: 48
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f9c03fbf29235b550800000000000000
+      internalID: 6175898070882127007
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: creep3_export_attack_12
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 10
+        width: 50
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 814298c53ddcc97a0800000000000000
+      internalID: -6368989465334438888
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: creep3_export_attack_13
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 4
+        width: 45
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2794c435cb152a170800000000000000
+      internalID: 8188196941806193010
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: creep3_export_attack_14
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 15
+        width: 53
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6ac01fb07d6fb9db0800000000000000
+      internalID: -4783958775672271706
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: creep3_export_attack_15
+      rect:
+        serializedVersion: 2
+        x: 207
+        y: 8
+        width: 43
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f539278c838989290800000000000000
+      internalID: -7883383778063510689
       vertices: []
       indices: 
       edges: []
@@ -488,7 +513,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 836f2bc2e694d5d459193db1e4038765
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -498,21 +523,22 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      testmap_1_0: -4175585490383636818
-      testmap_1_1: 4009780878603288616
-      testmap_1_10: 4333774653972485968
-      testmap_1_11: 7305233004840601249
-      testmap_1_12: -8544456999797430398
-      testmap_1_13: -5892319426310831191
-      testmap_1_14: -1194739624949600683
-      testmap_1_2: 6362148461190802023
-      testmap_1_3: -333095951737605709
-      testmap_1_4: 8157847346728585636
-      testmap_1_5: 3646209396066281992
-      testmap_1_6: 4172600710923558202
-      testmap_1_7: 5506806082942283333
-      testmap_1_8: -3933233552749332337
-      testmap_1_9: 5606348335760610486
+      creep3_export_attack_0: -3184187025957485850
+      creep3_export_attack_1: -1168517404432231323
+      creep3_export_attack_10: 6430050518915616485
+      creep3_export_attack_11: 6175898070882127007
+      creep3_export_attack_12: -6368989465334438888
+      creep3_export_attack_13: 8188196941806193010
+      creep3_export_attack_14: -4783958775672271706
+      creep3_export_attack_15: -7883383778063510689
+      creep3_export_attack_2: 6497241758587980942
+      creep3_export_attack_3: 5070663088177234172
+      creep3_export_attack_4: 8067338741031774951
+      creep3_export_attack_5: 5362796028573138749
+      creep3_export_attack_6: 4468599425721465251
+      creep3_export_attack_7: 2436389068942948771
+      creep3_export_attack_8: -7030650832850550874
+      creep3_export_attack_9: -5066781011398841702
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

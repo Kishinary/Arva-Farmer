@@ -44,11 +44,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10947f7c90fa65046b1ddb3428dc59c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Toucher: {fileID: 0}
-  Archer: {fileID: 0}
-  Summoner: {fileID: 0}
-  Mage: {fileID: 0}
-  Charger: {fileID: 0}
+  Toucher: {fileID: 4722678987932133778, guid: f43f6704c43a66249ba3d8d7600a5ccc, type: 3}
+  Archer: {fileID: 3367397080660815856, guid: b352dfa489e7bb246b1112daa1334d95, type: 3}
+  Summoner: {fileID: 6633057718085472503, guid: 2497255e9e431494a9333a3843f5c973, type: 3}
+  Mage: {fileID: 6633057718085472503, guid: 2497255e9e431494a9333a3843f5c973, type: 3}
+  Charger: {fileID: 7982472919756427086, guid: cabdfa8db3e065642bc907b91d2c68c1, type: 3}
   randomP: {x: 0, y: 0}
   SpawnLoc: []
   Fireflies:
@@ -56,9 +56,8 @@ MonoBehaviour:
   - {fileID: 4610477781470734361, guid: 0c72cb1e605957245af89ee8415c0d11, type: 3}
   - {fileID: 4558509688674043311, guid: 1d73acefb8338d54b8ecca0ba740ecc7, type: 3}
   PlayerSpawn: {fileID: 0}
-  winningCanvasPrefab: {fileID: 0}
+  winningCanvasPrefab: {fileID: 5191902220139573463, guid: d7a0c8b01d429fa48b8b169d0a85e22c, type: 3}
   goable: 0
-  Player: {fileID: 0}
   spawnable: 1
-  Notifi: {fileID: 0}
-  spawnAni: {fileID: 0}
+  Notifi: {fileID: 5191902220139573463, guid: d7a0c8b01d429fa48b8b169d0a85e22c, type: 3}
+  spawnAni: {fileID: 1071127806595815306, guid: 3d4aa5d016a340440a5d0b39a41f3959, type: 3}

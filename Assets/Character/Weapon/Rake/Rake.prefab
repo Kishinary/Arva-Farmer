@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 1340346376396451204}
   - component: {fileID: 2524370250863331075}
   - component: {fileID: 607720775127988695}
-  - component: {fileID: 7241656908648975934}
   - component: {fileID: 5260204462034069932}
   m_Layer: 0
   m_Name: Rake
@@ -126,66 +125,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8eceacab9d146743b1ba0e8051b4bb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TrapPoint: {fileID: 6326875201239266838}
-  catchRadius: 1.2
-  releaseRadius: 3
-  pullSpeed: 4
-  maxtraps: 5
+  hitBoxLength: 6
+  hitBoxWidth: 3.5
+  hitOffset: 3
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 64
   BearTrap: {fileID: 9123476094774535400, guid: 79967c6bda2904147a1a95b103906f5d, type: 3}
   RakeTrap: {fileID: 6676478249475969654, guid: f2ae392af5794a54e9a7768ee1805a73, type: 3}
   Holetrap: {fileID: 7789775789825950198, guid: f03d7ca1c03e9634b921fd7494cb8092, type: 3}
   SpikeTrap: {fileID: 8343181208542798348, guid: 61b9d305100b15e408d9b90cbf5fc347, type: 3}
   catchCooldown: 1.5
   TrapCooldown: 1.3
-  TrapParticle: {fileID: 5480312752237083547, guid: df69391ab8fc22c4596314a01a54959f, type: 3}
-  releaseParticle: {fileID: 5480312752237083547, guid: df69391ab8fc22c4596314a01a54959f, type: 3}
-  isPulling: 0
---- !u!61 &7241656908648975934
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3231131308460318669}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
-  m_Offset: {x: 0.3506869, y: 0.41187876}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0}
-    oldSize: {x: 0.3125, y: 0.84375}
-    newSize: {x: 0.375, y: 0.90625}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Size: {x: 1.0138743, y: 0.9975598}
-  m_EdgeRadius: 0
 --- !u!114 &5260204462034069932
 MonoBehaviour:
   m_ObjectHideFlags: 0

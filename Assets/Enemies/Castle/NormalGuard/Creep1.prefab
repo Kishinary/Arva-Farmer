@@ -136,8 +136,8 @@ GameObject:
   - component: {fileID: 8116484085832419385}
   - component: {fileID: 2073782137709311898}
   - component: {fileID: 550547508801328647}
-  - component: {fileID: 8511100145835303747}
   - component: {fileID: 3490964675064146311}
+  - component: {fileID: 2756406086078449561}
   m_Layer: 6
   m_Name: Creep1
   m_TagString: Enemy
@@ -238,27 +238,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &8511100145835303747
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3367397080660815856}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b3ddb123c842b544db91ec82eb9a37f6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  firePoint: {fileID: 8116484085832419385}
-  projectilePrefab: {fileID: 8020215003754084377, guid: 70c5f5a5f7683c44081402774a755077, type: 3}
-  animator: {fileID: 0}
-  moveSpeed: 3
-  preferredDistance: 4
-  strafeChangeTime: 2
-  retreatDistance: 2.5
-  attackInterval: 4
-  projectileSpeed: 8
 --- !u!114 &3490964675064146311
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -290,6 +269,27 @@ MonoBehaviour:
   moneyPrefab: {fileID: 5875139448233303119, guid: ffb2f5acc48f5f74dbd103b1c37fa242, type: 3}
   minCoins: 4
   maxCoins: 7
+--- !u!114 &2756406086078449561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3367397080660815856}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a2b51e03fd1c704ab1ad8a4a699b6fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  firePoint: {fileID: 8116484085832419385}
+  projectilePrefab: {fileID: 8020215003754084377, guid: 70c5f5a5f7683c44081402774a755077, type: 3}
+  animator: {fileID: 0}
+  moveSpeed: 3
+  preferredDistance: 4
+  strafeChangeTime: 5
+  retreatDistance: 2.5
+  attackInterval: 4
+  projectileSpeed: 8
 --- !u!1 &6784346312554996858
 GameObject:
   m_ObjectHideFlags: 0

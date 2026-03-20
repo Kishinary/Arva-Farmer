@@ -1,4 +1,6 @@
 using System.Collections;
+using System.Collections.Generic;
+using Unity.Collections.LowLevel.Unsafe;
 using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
 
@@ -18,6 +20,10 @@ public class EnemyTouch : MonoBehaviour
     Vector2 randomOffset;
 
     private EnemyStats stats;
+
+    public LayerMask enemyLayer;
+    private HashSet<GameObject> alreadyHit = new HashSet<GameObject>();
+
 
     void Start()
     {
@@ -74,28 +80,40 @@ public class EnemyTouch : MonoBehaviour
         randomOffset = Random.insideUnitCircle.normalized;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+
+    IEnumerator AttackYes()
     {
-        if (collision.transform.CompareTag("Player") && isAttacking)
+        yield return new WaitForSeconds(0.5f);
+        Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, 1f);
+
+        foreach (Collider2D hit in hits)
         {
-            collision.gameObject.GetComponent<PlayerHealth>().TakeDamage(10);
+            if (!alreadyHit.Contains(hit.gameObject))
+            {
+                PlayerHealth stats = hit.GetComponent<PlayerHealth>();
+                if (stats != null)
+                {
+                    stats.TakeDamage(10);
+                    alreadyHit.Add(hit.gameObject); 
+                }
+            }
         }
+        yield return new WaitForSeconds(0.5f);
+        alreadyHit.Clear();
+        isAttacking = false;
     }
 
     void Attack()
     {
         isAttacking = true;
-
         Vector2 dir = (playerTransform.position - transform.position).normalized;
 
         animator.SetFloat("AttackX", dir.x);
         animator.SetFloat("AttackY", dir.y);
 
         animator.SetTrigger("Attack");
+        StartCoroutine(AttackYes());
     }
 
-    void OnEndAttack()
-    {
-        isAttacking = false;
-    }
+
 }

@@ -6718,7 +6718,7 @@ GameObject:
   - component: {fileID: 747975780112657970}
   - component: {fileID: 2942206320811848802}
   - component: {fileID: 8018607272974280560}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: ShadowUp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7291,7 +7291,7 @@ GameObject:
   - component: {fileID: 1416342124412500939}
   - component: {fileID: 743962324860077048}
   - component: {fileID: 6834490312800083337}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9883,7 +9883,7 @@ GameObject:
   - component: {fileID: 4211860050475688754}
   - component: {fileID: 9163287895452648726}
   - component: {fileID: 684855189559767195}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Hitbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11946,7 +11946,7 @@ GameObject:
   - component: {fileID: 986061229863920474}
   - component: {fileID: 8698286977041891984}
   - component: {fileID: 8659778835772228244}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Ground2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -33327,7 +33327,7 @@ GameObject:
   - component: {fileID: 6942325200992592104}
   - component: {fileID: 777598184607866773}
   - component: {fileID: 8308400133416059847}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Ground2-Up
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -34631,6 +34631,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 1377226967825187614}
     m_Modifications:
     - target: {fileID: 892977045492051634, guid: 6cd3283d3bb50bd4dad62af1b1e41368, type: 3}
+      propertyPath: PlayerSpawn
+      value: 
+      objectReference: {fileID: 5328861528864094630}
+    - target: {fileID: 892977045492051634, guid: 6cd3283d3bb50bd4dad62af1b1e41368, type: 3}
       propertyPath: SpawnLoc.Array.size
       value: 28
       objectReference: {fileID: 0}
@@ -34748,11 +34752,11 @@ PrefabInstance:
       objectReference: {fileID: 6128481939720703655}
     - target: {fileID: 1232018037396727245, guid: 6cd3283d3bb50bd4dad62af1b1e41368, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -14.130974
+      value: -0.95
       objectReference: {fileID: 0}
     - target: {fileID: 1232018037396727245, guid: 6cd3283d3bb50bd4dad62af1b1e41368, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 7.521161
+      value: -10.8
       objectReference: {fileID: 0}
     - target: {fileID: 1232018037396727245, guid: 6cd3283d3bb50bd4dad62af1b1e41368, type: 3}
       propertyPath: m_LocalPosition.z

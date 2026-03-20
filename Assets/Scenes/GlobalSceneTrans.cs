@@ -18,6 +18,9 @@ public class GlobalSceneTrans : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        SceneManager.LoadScene(SceneString);
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            SceneController.Instance.NextScene(SceneString, true);
+        }
     }
 }

@@ -8272,7 +8272,7 @@ GameObject:
   - component: {fileID: 4211860050475688754}
   - component: {fileID: 9163287895452648726}
   - component: {fileID: 684855189559767195}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Hitbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -31479,6 +31479,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 1377226967825187614}
     m_Modifications:
     - target: {fileID: 892977045492051634, guid: 6cd3283d3bb50bd4dad62af1b1e41368, type: 3}
+      propertyPath: PlayerSpawn
+      value: 
+      objectReference: {fileID: 5328861528864094630}
+    - target: {fileID: 892977045492051634, guid: 6cd3283d3bb50bd4dad62af1b1e41368, type: 3}
       propertyPath: SpawnLoc.Array.size
       value: 22
       objectReference: {fileID: 0}
@@ -31572,11 +31576,11 @@ PrefabInstance:
       objectReference: {fileID: 3923693050094774861}
     - target: {fileID: 1232018037396727245, guid: 6cd3283d3bb50bd4dad62af1b1e41368, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -14.130974
+      value: -1.3
       objectReference: {fileID: 0}
     - target: {fileID: 1232018037396727245, guid: 6cd3283d3bb50bd4dad62af1b1e41368, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 7.521161
+      value: -11.4
       objectReference: {fileID: 0}
     - target: {fileID: 1232018037396727245, guid: 6cd3283d3bb50bd4dad62af1b1e41368, type: 3}
       propertyPath: m_LocalPosition.z

@@ -46,23 +46,28 @@ public class KnightPhase1State : KnightBaseState
     public KnightPhase1State(knightMovement boss) : base(boss) { }
     public override void EnterState()
     {
-        boss.moveSpeed = 4f;
+        boss.moveSpeed = 2f;
         boss.ResetCloseAttackCooldown();
 
     }
     public override void UpdateState()
     {
-        if (boss.isActionLocked) return;
+        if (boss.isActionLocked || boss.isDashing) { return;  }
 
-        boss.UpdateCombatCooldowns(); 
+        boss.UpdateCombatCooldowns();
 
-        if (boss.CanExecuteCloseAttack())
+        if (!boss.isExecutingCloseAttack)
         {
-            boss.StartCloseAttackSequence(); 
-        }
-        else if (!boss.isExecutingCloseAttack)
-        {
-            boss.ChasePlayer();
+            float distanceToPlayer = Vector2.Distance(boss.transform.position, boss.player.transform.position);
+
+            if (boss.CanExecuteCloseAttack())
+            {
+                boss.StartCloseAttackSequence();
+            }
+            else
+            {
+                boss.ChasePlayer();
+            }
         }
 
     }
@@ -99,7 +104,12 @@ public class KnightPhase1State : KnightBaseState
 
 
         if (combo.beatCount >= 4 && hitIndex == 0) {
+            
             boss.spikeBoomPerform(combo.beatCount);
+        }
+        if(combo.beatCount == 5 && hitIndex == 0)
+        {
+            boss.SummonEnemiesPerform(combo.beatCount);
         }
     }
     protected override void HandleBassCombo(BossCombo combo, int hitIndex)
@@ -121,6 +131,10 @@ public class KnightPhase1State : KnightBaseState
         {
             boss.spikeBoomPerform(combo.beatCount);
         }
+        if (combo.beatCount == 5 && hitIndex == 0)
+        {
+            boss.SummonEnemiesPerform(combo.beatCount);
+        }
     }
     protected override void HandleLowMidCombo(BossCombo combo, int hitIndex)
     {
@@ -131,6 +145,10 @@ public class KnightPhase1State : KnightBaseState
         if (combo.beatCount >= 4 && hitIndex == 0)
         {
             boss.spikeBoomPerform(combo.beatCount);
+        }
+        if (combo.beatCount == 5 && hitIndex == 0)
+        {
+            boss.SummonEnemiesPerform(combo.beatCount);
         }
 
     }
@@ -168,10 +186,7 @@ public class KnightPhase1State : KnightBaseState
 
 
         }
-        if (boss.isExecutingCloseAttack)
-        {
-            boss.ProgressCloseAttackStep();
-        }
+        
 
 
     }
@@ -219,10 +234,8 @@ public class knightMovement : MonoBehaviour
 
     [Header("Phase Thresholds")]
     [Range(0f, 1f)]
-    public float phase2Threshold = 0.5f;
+    public float phase2Threshold = 0f;
 
-    [Header("Abilities Modules")]
-    public KnightDartAttack dartAttackModule;
 
     // FSM manager
     private KnightBaseState currentState;
@@ -250,28 +263,57 @@ public class knightMovement : MonoBehaviour
     public GameObject lightningStrike;
     public GameObject fireCirclePrefab;
     public GameObject spikeBoomController;
+
     public Transform[] spikeBoomPosition;
 
+    public GameObject slashHitBox;
+    public GameObject indicatorSplashHitBox;
+
     [Header("Close Attack Management")]
+    public float closeAttackRange = 3f;
     public float minCloseAttackCooldown = 5f;
     public float maxCloseAttackCooldown = 10f;
 
-    public int maxCloseAttackSteps = 5;
     public bool isExecutingCloseAttack { get; private set; }
-    public int currentCloseAttackStep { get; private set; }
 
+    [Header("Dash Settings")]
+    public float dashSpeed = 40f;
+    public bool isDashing = false;
+
+    public TrailRenderer dashTrail;
+
+    public GameObject ghostTrailPrefab;
+    public float ghostSpawnInterval = 0.05f;
+    [Header("Piercing Dash Settings")]
+    public float piercingDashSpeed = 30f;
+    public float maxDashDuration = 20f;
+    public LayerMask obstacleLayer;
+
+    [Header("Settings")]
+    public GameObject spriteComponent;
+    private SpriteRenderer spriteRenderer;
+
+    [Header("Beat Scaling Visuals")]
+    public float scaleReturnSpeed = 10f; 
+    private Vector3 originalScale;
+    public SpriteRenderer scaleByBeatBoss;
+
+    [Header("Summon Enemies Settings")]
+    public GameObject[] enemyPrefabs;      
+    public Transform[] summonPositions;
 
     private void Awake()
     {
         if(rb == null) rb = GetComponent<Rigidbody2D>();
-        
+        spriteRenderer = spriteComponent.GetComponent<SpriteRenderer>();
     }
 
     void Start()
     {
         player = GameObject.FindWithTag("Player");
 
-        
+        originalScale = scaleByBeatBoss.transform.localScale;
+
         phase1State = new KnightPhase1State(this);
         //phase2State = new KnightPhase2State(this);
 
@@ -286,11 +328,51 @@ public class knightMovement : MonoBehaviour
 
     private void HandleComboAttack(BossCombo combo, int hitIndex)
     {
+        ApplyBeatScale(combo.bandType);
+
         currentState?.ExecuteComboAttack(combo, hitIndex);
     }
+    private void ApplyBeatScale(BandType bandType)
+    {
+        float scaleMultiplier = 1f;
+        switch (bandType)
+        {
+           
+            case BandType.Treble: scaleMultiplier = 1.3f; break; 
+        }
+        Transform targetTransform = scaleByBeatBoss.transform;
+        targetTransform.localScale = originalScale * scaleMultiplier;
+    }
 
+    public void SummonEnemiesPerform(int numberOfEnemies)
+    {
+        // Kiểm tra an toàn xem có mảng nào bị trống không
+        if (enemyPrefabs == null || enemyPrefabs.Length == 0) return;
+        if (summonPositions == null || summonPositions.Length == 0) return;
 
+        // Giới hạn số lượng quái gọi ra tối đa bằng số lượng vị trí đang có
+        int actualEnemiesToSpawn = Mathf.Min(numberOfEnemies, summonPositions.Length);
 
+        // Tạo một list tạm thời từ mảng vị trí để rút dần
+        List<Transform> availablePoints = new List<Transform>(summonPositions);
+
+        for (int i = 0; i < actualEnemiesToSpawn; i++)
+        {
+            // 1. Chọn ngẫu nhiên 1 vị trí
+            int randomPosIndex = UnityEngine.Random.Range(0, availablePoints.Count);
+            Transform selectedPoint = availablePoints[randomPosIndex];
+
+            // 2. Chọn ngẫu nhiên 1 loại quái trong mảng enemyPrefabs
+            int randomEnemyIndex = UnityEngine.Random.Range(0, enemyPrefabs.Length);
+            GameObject enemyToSpawn = enemyPrefabs[randomEnemyIndex];
+
+            // 3. Summon quái ra vị trí đó
+            Instantiate(enemyToSpawn, selectedPoint.position, Quaternion.identity);
+
+            // 4. Xóa vị trí này khỏi list để quái sau không bị spawn đè lên
+            availablePoints.RemoveAt(randomPosIndex);
+        }
+    }
 
 
 
@@ -306,8 +388,9 @@ public class knightMovement : MonoBehaviour
     private void Update()
     {
         currentState?.UpdateState();
-        
-        
+
+        Transform targetTransform = scaleByBeatBoss.transform;
+        targetTransform.localScale = Vector3.Lerp(targetTransform.localScale, originalScale, Time.deltaTime * scaleReturnSpeed);
 
         if (!isPhase2 && enemyStats.health <= enemyStats.maxHealth * phase2Threshold)
         {
@@ -318,16 +401,17 @@ public class knightMovement : MonoBehaviour
      
     private void FixedUpdate()
     {
+        if (isDashing) return;
+
         if (!isActionLocked)
         {
-            
             rb.linearVelocity = currentDirection * moveSpeed;
         }
         else
         {
-            rb.linearVelocity = Vector2.zero; 
+            rb.linearVelocity = Vector2.zero;
         }
-        
+
     }
     public void ChangeState(KnightBaseState newState)
     {
@@ -338,6 +422,11 @@ public class knightMovement : MonoBehaviour
 
    
     public event Action<Vector2> OnMove;
+    public event Action<Vector2> OnSlashAttack;
+    public event Action EndSlashAttack;
+
+    public event Action<Vector2> OnPiercingDash;
+    public event Action EndPiercingDash;
 
     public void SetMovementDirection(Vector2 direction)
     {
@@ -349,6 +438,14 @@ public class knightMovement : MonoBehaviour
         if (direction != Vector2.zero)
         {
             OnMove?.Invoke(direction);
+        }
+    }
+
+    public void SetSlashAttackDirection(Vector2 direction)
+    {
+        if (direction != Vector2.zero)
+        {
+            OnSlashAttack?.Invoke(direction);
         }
     }
 
@@ -411,13 +508,7 @@ public class knightMovement : MonoBehaviour
         }
     }
 
-    public void dartAttack()
-    {
-        if (dartAttackModule != null)
-        {
-            dartAttackModule.ExecuteAttack();
-        }
-    }
+   
 
     
   
@@ -464,7 +555,8 @@ public class knightMovement : MonoBehaviour
     public enum CloseAttackType
     {
         SuperBoost,
-        //HeavyCleave
+        PiercingDash,
+
     }
     private CloseAttackType currentCloseAttackType = CloseAttackType.SuperBoost;
     public bool CanExecuteCloseAttack()
@@ -474,67 +566,171 @@ public class knightMovement : MonoBehaviour
     public void StartCloseAttackSequence()
     {
         isExecutingCloseAttack = true;
-        currentCloseAttackStep = 0;
-
+        isActionLocked = true;
         SetMovementDirection(Vector2.zero); 
-        Debug.Log("Start Close Attack");
+        StartCoroutine(CloseAttackRoutine());
     }
-    public void ProgressCloseAttackStep()
-    {
-        currentCloseAttackStep++;
+    
 
-        ExecuteCloseAttackStrike(currentCloseAttackStep);
 
-        if (currentCloseAttackStep >= maxCloseAttackSteps)
-        {
-            EndCloseAttackSequence();
-        }
-    }
     public void EndCloseAttackSequence()
     {
         isExecutingCloseAttack = false;
-        currentCloseAttackStep = 0;
+        isActionLocked = false;
         ResetCloseAttackCooldown(); 
 
         Debug.Log($"Attack end!");
     }
-    public void ExecuteCloseAttackStrike(int step)
+    
+
+    
+    private IEnumerator slashAttack(Vector2 direction, float duration) //superboose = slashAttack
     {
+
+        Vector3 indicatorAdd = new Vector3(1, 3, 0);
+        Instantiate(indicatorSplashHitBox, transform.position + indicatorAdd, Quaternion.identity);
+
+        float blinkSpeed = 5f;
+        float minAlpha = 0.5f;
+        float maxAlpha = 1f;
+        float timeBlink = 0.5f;
+
+        Color originColor = spriteRenderer.color;
+        Color currentColor = originColor;
+        while (timeBlink > 0)
+        {
+
+
+            float t = Mathf.PingPong(Time.time * blinkSpeed, 1f);
+            currentColor.a = Mathf.Lerp(minAlpha, maxAlpha, t);
+            spriteRenderer.color = currentColor;
+
+            timeBlink -= Time.deltaTime;
+
+            yield return null;
+        }
+        spriteRenderer.color = originColor;
+        //yield return new WaitForSeconds(duration);
+
+        SetSlashAttackDirection(direction);
+
+        float hitboxOffsetDistance = 2f;
+        Vector2 bossPos = transform.position;
+        Vector2 spawnPosition = bossPos + (direction * hitboxOffsetDistance);
+
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        Quaternion spawnRotation = Quaternion.Euler(0f, 0f, angle);
+
+        Instantiate(slashHitBox, spawnPosition, spawnRotation);
+        
+
+
+        yield return new WaitForSeconds(duration);
+        EndSlashAttack?.Invoke();
+    }
+
+   
+
+    public void StartDashToPlayer(float distanceOffset = 1.5f)
+    {
+        StartCoroutine(DashRoutine(distanceOffset));
+    }
+    private IEnumerator DashRoutine(float distanceOffset)
+    {
+       
+        isDashing = true;
+
+
+        Vector2 playerPos = player.transform.position;
+        Vector2 bossPos = transform.position;
+        Vector2 directionToPlayer = (playerPos - bossPos).normalized;
+
+        float fixedDashTime = 0.2f;
+
+        rb.linearVelocity = directionToPlayer * dashSpeed;
+
+        yield return new WaitForSeconds(fixedDashTime);
+
+        rb.linearVelocity = Vector2.zero;
+
+        isDashing = false;
+       
+
+    }
+    
+    
+    private IEnumerator CloseAttackRoutine()
+    {
+
         Vector2 directionToPlayer = ((Vector2)player.transform.position - (Vector2)transform.position).normalized;
 
         switch (currentCloseAttackType)
         {
-            case CloseAttackType.SuperBoost:
-                PerformSuperBoostCombo(step, directionToPlayer);
-                break;
-            /*case CloseAttackType.HeavyCleave:
-                Debug.Log("HeavyCleave");
+            /*case CloseAttackType.SuperBoost:
+                yield return StartCoroutine(DashRoutine(1.5f));
+                yield return StartCoroutine(slashAttack(directionToPlayer, 0.7f));
                 break;*/
-        }
-    }
-
-    private void PerformSuperBoostCombo(int step, Vector2 direction)
-    {
-        switch (step)
-        {
-            case 1: Debug.Log("test 1"); break;
-            case 2: Debug.Log("test 2"); break;
-            case 3: Debug.Log("test 3"); break;
-            case 4:
-                Debug.Log("test 4");
+            case CloseAttackType.PiercingDash:
+                yield return StartCoroutine(PiercingDashRoutine(directionToPlayer));
                 break;
 
-            case 5:
-                Debug.Log("test 5");
-                RandomizeNextCloseAttack();
-                break;
+
+
+
         }
+
+        RandomizeNextCloseAttack();
+
+        EndCloseAttackSequence();
     }
     private void RandomizeNextCloseAttack()
     {
         Array values = Enum.GetValues(typeof(CloseAttackType));
         currentCloseAttackType = (CloseAttackType)values.GetValue(UnityEngine.Random.Range(0, values.Length));
     }
+    public GameObject PiercingDashWarning;
+    private IEnumerator PiercingDashRoutine(Vector2 direction)
+    {
+        isActionLocked = true;
+        Vector2 oldDirection = direction;
+
+        OnPiercingDash?.Invoke(direction);
+
+        float angle = Mathf.Atan2(oldDirection.y, oldDirection.x) * Mathf.Rad2Deg;
+        Quaternion warningRotation = Quaternion.Euler(0f, 0f, angle);
+
+        Instantiate(PiercingDashWarning,transform.position, warningRotation);
+        yield return new WaitForSeconds(1f);
+        isDashing = true;
+
+        float timer = 0f;
+        bool hitObstacle = false;
+        rb.linearVelocity = oldDirection * piercingDashSpeed;
 
 
+        while (timer < maxDashDuration && !hitObstacle)
+        {
+            float rayDistance = (piercingDashSpeed * Time.fixedDeltaTime) + 0.1f;
+
+            RaycastHit2D hit = Physics2D.Raycast(transform.position, oldDirection, rayDistance, obstacleLayer);
+
+            if (hit.collider != null)
+            {
+                Debug.Log("Hit Obstacle: " + hit.collider.gameObject.name);
+                hitObstacle = true;
+            }
+
+            timer += Time.deltaTime;
+            yield return new WaitForFixedUpdate();
+        }
+
+        rb.linearVelocity = Vector2.zero;
+        isActionLocked = false;
+        isDashing = false;
+
+        EndPiercingDash?.Invoke();
+
+        yield return new WaitForSeconds(0.2f);
+
+    }
 }

@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class Scissors : MonoBehaviour, IWeapon
 {
@@ -7,17 +8,13 @@ public class Scissors : MonoBehaviour, IWeapon
     public float attackCooldown = 4f;
     private Animator animator;
 
-    public bool isNormaling;
-
     [Header("Components")]
     private PlayerMovement PlayerMove;
 
     [Header("Thrust Settings")]
-    public float thrustDistance = 2f;     
-    public float attackDuration = 0.15f;    
-    public float returnDuration = 0.1f;    
-    public AnimationCurve thrustCurve;    
-
+    public float thrustDistance = 2f;
+    public float attackDuration = 0.15f;
+    public float returnDuration = 0.1f;
 
     [Header("Normal Attack")]
     private float nextNormalAttackTime;
@@ -26,11 +23,10 @@ public class Scissors : MonoBehaviour, IWeapon
     [Header("Combat")]
     public float damage = 10f;
     public LayerMask enemyLayer;
-    public Transform hitPoint;
-    public float hitRadius = 0.5f;
+    public float hitRadius = 1f;
 
     private Vector3 originalLocalPos;
-    private bool isAttacking = false;
+    private HashSet<GameObject> alreadyHit = new HashSet<GameObject>();
 
     [Header("Effect")]
     private LineRenderer line;
@@ -43,134 +39,95 @@ public class Scissors : MonoBehaviour, IWeapon
         animator = GetComponent<Animator>();
         PlayerMove = GetComponentInParent<PlayerMovement>();
         originalLocalPos = transform.localPosition;
-        line = GetComponentInChildren<LineRenderer>(); 
-
+        line = GetComponentInChildren<LineRenderer>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-    }
+    public float GetFinalDamage() => damage * PlayerMove.Damagepercentage;
 
-    public float GetFinalDamage()
-    {
-        return damage * PlayerMove.Damagepercentage;
-    }
     public bool SpecialAttack()
     {
         if (Time.time >= nextAttackTime)
         {
             animator.SetTrigger("Thrust");
-            PlayerMove.movespeed = 7f;
             nextAttackTime = Time.time + attackCooldown;
-            StartCoroutine(ThrustRoutine());
+            // 1f damage, 1f distance (Full Lunge)
+            StartCoroutine(ThrustRoutine(1f, 1f));
             return true;
         }
         return false;
     }
-
 
     public bool NormalAttack()
     {
         if (Time.time >= nextNormalAttackTime)
         {
             animator.SetTrigger("Thrust");
-            PlayerMove.movespeed = 7f;
-            nextAttackTime = Time.time + NormalattackCooldown;
-            StartCoroutine(Thrust());
+            nextNormalAttackTime = Time.time + NormalattackCooldown;
+            // 2f damage, 0.15f distance (Short Poke)
+            StartCoroutine(ThrustRoutine(2f, 0.15f));
             return true;
         }
         return false;
     }
 
-
-
-    IEnumerator ThrustRoutine()
+    IEnumerator ThrustRoutine(float damageMult, float distMult)
     {
-        isAttacking = true;
-        line.enabled = true;    
+        alreadyHit.Clear();
+        if (line != null) line.enabled = true;
+
+        float targetDist = thrustDistance * distMult;
         float timer = 0f;
+
+        // --- FORWARD PHASE ---
         while (timer < attackDuration)
         {
             timer += Time.deltaTime;
             float percent = timer / attackDuration;
 
-            transform.localPosition = originalLocalPos + Vector3.right * (thrustDistance * percent);
+            // Apply the distance multiplier here
+            transform.localPosition = originalLocalPos + Vector3.right * (targetDist * percent);
 
+            CheckForHits(damageMult);
             yield return null;
         }
+
+        // --- RETURN PHASE ---
         timer = 0f;
         while (timer < returnDuration)
         {
             timer += Time.deltaTime;
             float percent = timer / returnDuration;
 
-            // Return from the extended position back to original
-            transform.localPosition = Vector3.Lerp(originalLocalPos + Vector3.right * thrustDistance, originalLocalPos, percent);
-
+            // Smoothly return from the actual distance reached
+            transform.localPosition = Vector3.Lerp(originalLocalPos + Vector3.right * targetDist, originalLocalPos, percent);
             yield return null;
         }
 
         transform.localPosition = originalLocalPos;
-        line.enabled = false;
-
-        yield return new WaitForSeconds(0.3f);
-        isAttacking = false;
+        if (line != null) line.enabled = false;
     }
 
+    private void CheckForHits(float multiplier)
+    {
+        Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, hitRadius, enemyLayer);
+
+        foreach (Collider2D hit in hits)
+        {
+            if (!alreadyHit.Contains(hit.gameObject))
+            {
+                EnemyStats stats = hit.GetComponent<EnemyStats>();
+                if (stats != null)
+                {
+                    stats.TakeDamage(transform.position, GetFinalDamage() * multiplier);
+                    alreadyHit.Add(hit.gameObject);
+                }
+            }
+        }
+    }
 
     private void OnDrawGizmosSelected()
     {
-        if (hitPoint != null)
-        {
-            Gizmos.color = Color.red;
-            Gizmos.DrawWireSphere(hitPoint.position, hitRadius);
-        }
-    }
-
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Enemy"))
-        {
-            if (isAttacking) { 
-                collision.GetComponent<EnemyStats>().TakeDamage(transform.position, GetFinalDamage());
-            }
-            if (isNormaling) {
-                collision.GetComponent<EnemyStats>().TakeDamage(transform.position, GetFinalDamage() * 2);
-            }
-
-        }
-    }
-
-    IEnumerator Thrust()
-    {
-        isNormaling = true;
-
-        float timer = 0f;
-        while (timer < attackDuration)
-        {
-            timer += Time.deltaTime;
-            float percent = timer / attackDuration;
-
-            transform.localPosition = originalLocalPos + Vector3.right * (thrustDistance * percent * 0.15f);
-
-            yield return null;
-        }
-        timer = 0f;
-        while (timer < returnDuration)
-        {
-            timer += Time.deltaTime;
-            float percent = timer / returnDuration;
-
-            // Return from the extended position back to original
-            transform.localPosition = Vector3.Lerp(originalLocalPos + Vector3.right * thrustDistance * 0.1f, originalLocalPos, percent);
-
-            yield return null;
-        }
-
-        transform.localPosition = originalLocalPos;
-        yield return new WaitForSeconds(0.3f);
-        isNormaling = false;
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, hitRadius);
     }
 }
-

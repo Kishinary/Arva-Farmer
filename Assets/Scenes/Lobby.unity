@@ -131,7 +131,7 @@ GameObject:
   - component: {fileID: 90126075}
   - component: {fileID: 90126077}
   - component: {fileID: 90126076}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Tileset_0
   m_TagString: Decorations
   m_Icon: {fileID: 0}
@@ -374,7 +374,7 @@ GameObject:
   m_Component:
   - component: {fileID: 238924993}
   - component: {fileID: 238924992}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Placement
   m_TagString: Decorations
   m_Icon: {fileID: 0}
@@ -463,7 +463,7 @@ GameObject:
   - component: {fileID: 278210715}
   - component: {fileID: 278210714}
   - component: {fileID: 278210716}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7350,7 +7350,7 @@ GameObject:
   - component: {fileID: 348304820}
   - component: {fileID: 348304819}
   - component: {fileID: 348304818}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Grocery
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7772,7 +7772,7 @@ GameObject:
   - component: {fileID: 434593237}
   - component: {fileID: 434593239}
   - component: {fileID: 434593238}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: ChiefHouse
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7907,7 +7907,7 @@ GameObject:
   - component: {fileID: 439670835}
   - component: {fileID: 439670837}
   - component: {fileID: 439670836}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10330,7 +10330,7 @@ GameObject:
   - component: {fileID: 510917619}
   - component: {fileID: 510917621}
   - component: {fileID: 510917622}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: NormalHouse2
   m_TagString: Decorations
   m_Icon: {fileID: 0}
@@ -10517,7 +10517,7 @@ GameObject:
   m_Component:
   - component: {fileID: 554527650}
   - component: {fileID: 554527651}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: yip_7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10726,7 +10726,7 @@ GameObject:
   - component: {fileID: 602203328}
   - component: {fileID: 602203330}
   - component: {fileID: 602203329}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Tileset_0 (3)
   m_TagString: Decorations
   m_Icon: {fileID: 0}
@@ -12886,6 +12886,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerSpawn: {fileID: 724274997}
+  Playser: {fileID: 0}
 --- !u!1 &793942400
 GameObject:
   m_ObjectHideFlags: 0
@@ -13692,7 +13693,7 @@ GameObject:
   - component: {fileID: 899851352}
   - component: {fileID: 899851354}
   - component: {fileID: 899851353}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Tileset_12
   m_TagString: Decorations
   m_Icon: {fileID: 0}
@@ -16830,7 +16831,7 @@ Tilemap:
       - {fileID: 3872948843030971524, guid: f1295d50f1bbfeb44afd7e6fe4c84353, type: 3}
       - {fileID: 5327173470454327868, guid: f1295d50f1bbfeb44afd7e6fe4c84353, type: 3}
       - {fileID: 5692974674431277200, guid: f1295d50f1bbfeb44afd7e6fe4c84353, type: 3}
-      m_AnimationSpeed: 5.0000005
+      m_AnimationSpeed: 5
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: -18, y: -2, z: 0}
@@ -17267,7 +17268,7 @@ Tilemap:
       - {fileID: 3872948843030971524, guid: f1295d50f1bbfeb44afd7e6fe4c84353, type: 3}
       - {fileID: 5327173470454327868, guid: f1295d50f1bbfeb44afd7e6fe4c84353, type: 3}
       - {fileID: 5692974674431277200, guid: f1295d50f1bbfeb44afd7e6fe4c84353, type: 3}
-      m_AnimationSpeed: 5
+      m_AnimationSpeed: 5.0000005
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: -45, y: 4, z: 0}
@@ -18210,7 +18211,7 @@ Tilemap:
       - {fileID: 3872948843030971524, guid: f1295d50f1bbfeb44afd7e6fe4c84353, type: 3}
       - {fileID: 5327173470454327868, guid: f1295d50f1bbfeb44afd7e6fe4c84353, type: 3}
       - {fileID: 5692974674431277200, guid: f1295d50f1bbfeb44afd7e6fe4c84353, type: 3}
-      m_AnimationSpeed: 5.0000005
+      m_AnimationSpeed: 5
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: -41, y: 5, z: 0}
@@ -18486,7 +18487,7 @@ Tilemap:
       - {fileID: 3872948843030971524, guid: f1295d50f1bbfeb44afd7e6fe4c84353, type: 3}
       - {fileID: 5327173470454327868, guid: f1295d50f1bbfeb44afd7e6fe4c84353, type: 3}
       - {fileID: 5692974674431277200, guid: f1295d50f1bbfeb44afd7e6fe4c84353, type: 3}
-      m_AnimationSpeed: 5
+      m_AnimationSpeed: 5.0000005
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: -8, y: 5, z: 0}
@@ -18693,7 +18694,7 @@ Tilemap:
       - {fileID: 3872948843030971524, guid: f1295d50f1bbfeb44afd7e6fe4c84353, type: 3}
       - {fileID: 5327173470454327868, guid: f1295d50f1bbfeb44afd7e6fe4c84353, type: 3}
       - {fileID: 5692974674431277200, guid: f1295d50f1bbfeb44afd7e6fe4c84353, type: 3}
-      m_AnimationSpeed: 5
+      m_AnimationSpeed: 5.0000005
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: -29, y: 6, z: 0}
@@ -19107,7 +19108,7 @@ Tilemap:
       - {fileID: 3872948843030971524, guid: f1295d50f1bbfeb44afd7e6fe4c84353, type: 3}
       - {fileID: 5327173470454327868, guid: f1295d50f1bbfeb44afd7e6fe4c84353, type: 3}
       - {fileID: 5692974674431277200, guid: f1295d50f1bbfeb44afd7e6fe4c84353, type: 3}
-      m_AnimationSpeed: 5
+      m_AnimationSpeed: 5.0000005
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 13, y: 8, z: 0}
@@ -19199,7 +19200,7 @@ Tilemap:
       - {fileID: 3872948843030971524, guid: f1295d50f1bbfeb44afd7e6fe4c84353, type: 3}
       - {fileID: 5327173470454327868, guid: f1295d50f1bbfeb44afd7e6fe4c84353, type: 3}
       - {fileID: 5692974674431277200, guid: f1295d50f1bbfeb44afd7e6fe4c84353, type: 3}
-      m_AnimationSpeed: 5
+      m_AnimationSpeed: 5.0000005
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: -19, y: 9, z: 0}
@@ -19843,7 +19844,7 @@ Tilemap:
       - {fileID: 3872948843030971524, guid: f1295d50f1bbfeb44afd7e6fe4c84353, type: 3}
       - {fileID: 5327173470454327868, guid: f1295d50f1bbfeb44afd7e6fe4c84353, type: 3}
       - {fileID: 5692974674431277200, guid: f1295d50f1bbfeb44afd7e6fe4c84353, type: 3}
-      m_AnimationSpeed: 5
+      m_AnimationSpeed: 5.0000005
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 25, y: 9, z: 0}
@@ -20073,7 +20074,7 @@ Tilemap:
       - {fileID: 3872948843030971524, guid: f1295d50f1bbfeb44afd7e6fe4c84353, type: 3}
       - {fileID: 5327173470454327868, guid: f1295d50f1bbfeb44afd7e6fe4c84353, type: 3}
       - {fileID: 5692974674431277200, guid: f1295d50f1bbfeb44afd7e6fe4c84353, type: 3}
-      m_AnimationSpeed: 5.0000005
+      m_AnimationSpeed: 5
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: -6, y: 10, z: 0}
@@ -21001,7 +21002,7 @@ GameObject:
   - component: {fileID: 1203732348}
   - component: {fileID: 1203732350}
   - component: {fileID: 1203732349}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Tileset_14
   m_TagString: Decorations
   m_Icon: {fileID: 0}
@@ -21187,7 +21188,7 @@ GameObject:
   - component: {fileID: 1204009678}
   - component: {fileID: 1204009680}
   - component: {fileID: 1204009681}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: NormalHouse1
   m_TagString: Decorations
   m_Icon: {fileID: 0}
@@ -21368,7 +21369,7 @@ GameObject:
   - component: {fileID: 1207962491}
   - component: {fileID: 1207962490}
   - component: {fileID: 1207962489}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Monastery_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21677,7 +21678,7 @@ GameObject:
   - component: {fileID: 1316994601}
   - component: {fileID: 1316994603}
   - component: {fileID: 1316994602}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Tileset_0 (1)
   m_TagString: Decorations
   m_Icon: {fileID: 0}
@@ -26448,80 +26449,6 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
---- !u!1001 &1383949106
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 1035324755012112591, guid: b811eccd007f36e449f17ab0b2578085, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 2.7299588
-      objectReference: {fileID: 0}
-    - target: {fileID: 1035324755012112591, guid: b811eccd007f36e449f17ab0b2578085, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.1294401
-      objectReference: {fileID: 0}
-    - target: {fileID: 1035324755012112591, guid: b811eccd007f36e449f17ab0b2578085, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1035324755012112591, guid: b811eccd007f36e449f17ab0b2578085, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1035324755012112591, guid: b811eccd007f36e449f17ab0b2578085, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1035324755012112591, guid: b811eccd007f36e449f17ab0b2578085, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1035324755012112591, guid: b811eccd007f36e449f17ab0b2578085, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1035324755012112591, guid: b811eccd007f36e449f17ab0b2578085, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1035324755012112591, guid: b811eccd007f36e449f17ab0b2578085, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1035324755012112591, guid: b811eccd007f36e449f17ab0b2578085, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1702215959557264467, guid: b811eccd007f36e449f17ab0b2578085, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1702215959557264467, guid: b811eccd007f36e449f17ab0b2578085, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2777395335063735181, guid: b811eccd007f36e449f17ab0b2578085, type: 3}
-      propertyPath: radius
-      value: 13
-      objectReference: {fileID: 0}
-    - target: {fileID: 7347843447860981962, guid: b811eccd007f36e449f17ab0b2578085, type: 3}
-      propertyPath: m_Name
-      value: testmap_shadow_7
-      objectReference: {fileID: 0}
-    - target: {fileID: 7592413016887159144, guid: b811eccd007f36e449f17ab0b2578085, type: 3}
-      propertyPath: attackInterval
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects:
-    - {fileID: 5826187866941540355, guid: b811eccd007f36e449f17ab0b2578085, type: 3}
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: b811eccd007f36e449f17ab0b2578085, type: 3}
 --- !u!1 &1398715322
 GameObject:
   m_ObjectHideFlags: 0
@@ -26534,7 +26461,7 @@ GameObject:
   - component: {fileID: 1398715324}
   - component: {fileID: 1398715326}
   - component: {fileID: 1398715325}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Tileset_1 (1)
   m_TagString: Decorations
   m_Icon: {fileID: 0}
@@ -26720,7 +26647,7 @@ GameObject:
   - component: {fileID: 1416133671}
   - component: {fileID: 1416133673}
   - component: {fileID: 1416133674}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: NormalHouse3
   m_TagString: Decorations
   m_Icon: {fileID: 0}
@@ -27513,7 +27440,7 @@ GameObject:
   - component: {fileID: 1580936834}
   - component: {fileID: 1580936836}
   - component: {fileID: 1580936835}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Tileset_11
   m_TagString: Decorations
   m_Icon: {fileID: 0}
@@ -27697,7 +27624,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1628753957}
   - component: {fileID: 1628753956}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Bridge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27991,7 +27918,7 @@ GameObject:
   - component: {fileID: 1656999572}
   - component: {fileID: 1656999574}
   - component: {fileID: 1656999573}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Tileset_1
   m_TagString: Decorations
   m_Icon: {fileID: 0}
@@ -82710,7 +82637,7 @@ GameObject:
   - component: {fileID: 1752936138}
   - component: {fileID: 1752936140}
   - component: {fileID: 1752936139}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Tileset_0 (4)
   m_TagString: Decorations
   m_Icon: {fileID: 0}
@@ -82898,7 +82825,7 @@ GameObject:
   - component: {fileID: 1754924015}
   - component: {fileID: 1754924017}
   - component: {fileID: 1754924016}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Tileset_0 (2)
   m_TagString: Decorations
   m_Icon: {fileID: 0}
@@ -83124,7 +83051,7 @@ GameObject:
   - component: {fileID: 1812730184}
   - component: {fileID: 1812730183}
   - component: {fileID: 1812730185}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Water
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -87619,7 +87546,7 @@ GameObject:
   - component: {fileID: 1882603949}
   - component: {fileID: 1882603950}
   - component: {fileID: 1882603951}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: hang_rao_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -87753,7 +87680,7 @@ GameObject:
   - component: {fileID: 1923893290}
   - component: {fileID: 1923893289}
   - component: {fileID: 1923893291}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: House1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -87976,7 +87903,7 @@ GameObject:
   - component: {fileID: 1946320686}
   - component: {fileID: 1946320688}
   - component: {fileID: 1946320687}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Tileset_10
   m_TagString: Decorations
   m_Icon: {fileID: 0}
@@ -88583,7 +88510,7 @@ GameObject:
   - component: {fileID: 2076656848}
   - component: {fileID: 2076656850}
   - component: {fileID: 2076656849}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Tileset_0
   m_TagString: Decorations
   m_Icon: {fileID: 0}
@@ -88891,7 +88818,7 @@ GameObject:
   - component: {fileID: 2130877982}
   - component: {fileID: 2130877984}
   - component: {fileID: 2130877983}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Tileset_1
   m_TagString: Decorations
   m_Icon: {fileID: 0}
@@ -89074,7 +89001,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2135334522}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Decorations
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -90783,10 +90710,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4770586981628163838, guid: a70e9e47d23e45449aa01a415b87a85b, type: 3}
-      propertyPath: m_UpdateMode
-      value: 2
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -91046,4 +90969,3 @@ SceneRoots:
   - {fileID: 825345971}
   - {fileID: 3256652972828805513}
   - {fileID: 724274997}
-  - {fileID: 1383949106}

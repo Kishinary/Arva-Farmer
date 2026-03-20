@@ -28,6 +28,8 @@ public class MageEnemy : MonoBehaviour
     Vector2 moveDir;
     Vector2 strafeDir;
 
+    Vector2 snappedDir;
+
     void Start()
     {
         player = GameObject.FindWithTag("Player")?.transform;
@@ -91,7 +93,6 @@ public class MageEnemy : MonoBehaviour
     IEnumerator AttackRoutine()
     {
         isAttacking = true;
-
         // Stop movement
         moveDir = Vector2.zero;
 
@@ -133,7 +134,13 @@ public class MageEnemy : MonoBehaviour
 
     void UpdateAnimator()
     {
-        animator.SetFloat("MoveX", moveDir.x);
-        animator.SetFloat("MoveY", moveDir.y);
+        Vector2 dir = (player.position - transform.position).normalized;
+
+        float snapX = Mathf.Abs(dir.x) > 0.1f ? Mathf.Sign(dir.x) : 0;
+        float snapY = Mathf.Abs(dir.y) > 0.1f ? Mathf.Sign(dir.y) : 0;
+
+        snappedDir = new Vector2(snapX, snapY);
+        animator.SetFloat("MoveX", snappedDir.x);
+        animator.SetFloat("MoveY", snappedDir.y);
     }
 }

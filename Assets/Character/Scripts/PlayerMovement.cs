@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Threading;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Rendering;
@@ -40,11 +41,12 @@ public class PlayerMovement : MonoBehaviour
     //slow effect by using skills
     private float originalSpeed;
     private Coroutine activeSlowCoroutine;
+
+    private bool isKnockedBack;
     void Start()
     {
         originalSpeed = movespeed;
     }
-
     // Call this whenever you switch tools
     public void SetWeapon(IWeapon newWeapon)
     {
@@ -121,7 +123,9 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (isKnockedBack) return;
         rb.linearVelocity = Vector2.Lerp(rb.linearVelocity, moveInput * movespeed, 0.2f);
+
     }
     void OnEnable()
     {
@@ -266,7 +270,20 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    public void ApplyKnockback(Vector2 force, float duration)
+    {
+        StopAllCoroutines(); // Optional: cancel current movement routines
+        StartCoroutine(KnockbackRoutine(force, duration));
+    }
 
+    private IEnumerator KnockbackRoutine(Vector2 force, float duration)
+    {
+        isKnockedBack = true; // Set a bool that stops your normal movement input
+        rb.linearVelocity = Vector2.zero;
+        rb.AddForce(force, ForceMode2D.Impulse);
 
+        yield return new WaitForSeconds(duration);
+        isKnockedBack = false;
+    }
 
 }

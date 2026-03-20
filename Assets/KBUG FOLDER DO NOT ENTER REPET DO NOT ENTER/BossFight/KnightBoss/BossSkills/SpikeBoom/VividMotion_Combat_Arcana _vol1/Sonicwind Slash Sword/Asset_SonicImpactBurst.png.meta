@@ -1,0 +1,897 @@
+fileFormatVersion: 2
+guid: 4dc85f115e25fb540af7ab7bef0192b4
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 6736597734981105092
+    second: Asset_SonicImpactBurst_0
+  - first:
+      213: -9120834446171312484
+    second: Asset_SonicImpactBurst_1
+  - first:
+      213: -3908252026584301528
+    second: Asset_SonicImpactBurst_2
+  - first:
+      213: -6446116518934351351
+    second: Asset_SonicImpactBurst_3
+  - first:
+      213: -2937802286163106157
+    second: Asset_SonicImpactBurst_4
+  - first:
+      213: -6285129336332394633
+    second: Asset_SonicImpactBurst_5
+  - first:
+      213: -8066995669111212433
+    second: Asset_SonicImpactBurst_6
+  - first:
+      213: -8170904699378467376
+    second: Asset_SonicImpactBurst_7
+  - first:
+      213: -3668559018181203881
+    second: Asset_SonicImpactBurst_8
+  - first:
+      213: 8303271982447244697
+    second: Asset_SonicImpactBurst_9
+  - first:
+      213: -1917065405609726719
+    second: Asset_SonicImpactBurst_10
+  - first:
+      213: -7314231616459090168
+    second: Asset_SonicImpactBurst_11
+  - first:
+      213: -1638729607801168826
+    second: Asset_SonicImpactBurst_12
+  - first:
+      213: -3524827668027988006
+    second: Asset_SonicImpactBurst_13
+  - first:
+      213: -8194140623555903071
+    second: Asset_SonicImpactBurst_14
+  - first:
+      213: -858293172337121735
+    second: Asset_SonicImpactBurst_15
+  - first:
+      213: -7353864745712573423
+    second: Asset_SonicImpactBurst_16
+  - first:
+      213: -1219309567466052834
+    second: Asset_SonicImpactBurst_17
+  - first:
+      213: -8459236580915726198
+    second: Asset_SonicImpactBurst_18
+  - first:
+      213: 5898937755984201124
+    second: Asset_SonicImpactBurst_19
+  - first:
+      213: 3211172974747571869
+    second: Asset_SonicImpactBurst_20
+  - first:
+      213: -8553840002014297254
+    second: Asset_SonicImpactBurst_21
+  - first:
+      213: 1798079262032605679
+    second: Asset_SonicImpactBurst_22
+  - first:
+      213: -4511631210499835479
+    second: Asset_SonicImpactBurst_23
+  - first:
+      213: 6259140085571214353
+    second: Asset_SonicImpactBurst_24
+  - first:
+      213: -7184096521340284366
+    second: Asset_SonicImpactBurst_25
+  - first:
+      213: -3145812338875212650
+    second: Asset_SonicImpactBurst_26
+  - first:
+      213: -1351112758646965102
+    second: Asset_SonicImpactBurst_27
+  - first:
+      213: 8091587268729529029
+    second: Asset_SonicImpactBurst_28
+  - first:
+      213: -258680044875602828
+    second: Asset_SonicImpactBurst_29
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Asset_SonicImpactBurst_0
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 89
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4c5ff3ca2f33d7d50800000000000000
+      internalID: 6736597734981105092
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Asset_SonicImpactBurst_1
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 89
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c9eefcc35694c6180800000000000000
+      internalID: -9120834446171312484
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Asset_SonicImpactBurst_2
+      rect:
+        serializedVersion: 2
+        x: 137
+        y: 6
+        width: 56
+        height: 108
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8200eb61d7913c9c0800000000000000
+      internalID: -3908252026584301528
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Asset_SonicImpactBurst_3
+      rect:
+        serializedVersion: 2
+        x: 201
+        y: 33
+        width: 56
+        height: 85
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 902f324dd2bca86a0800000000000000
+      internalID: -6446116518934351351
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Asset_SonicImpactBurst_4
+      rect:
+        serializedVersion: 2
+        x: 265
+        y: 9
+        width: 55
+        height: 112
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 396eae8c264da37d0800000000000000
+      internalID: -2937802286163106157
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Asset_SonicImpactBurst_5
+      rect:
+        serializedVersion: 2
+        x: 334
+        y: 11
+        width: 49
+        height: 112
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 77f558c2b2cb6c8a0800000000000000
+      internalID: -6285129336332394633
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Asset_SonicImpactBurst_6
+      rect:
+        serializedVersion: 2
+        x: 396
+        y: 73
+        width: 52
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f66f2020e264c0090800000000000000
+      internalID: -8066995669111212433
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Asset_SonicImpactBurst_7
+      rect:
+        serializedVersion: 2
+        x: 459
+        y: 72
+        width: 54
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0ddf9fb977d1b9e80800000000000000
+      internalID: -8170904699378467376
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Asset_SonicImpactBurst_8
+      rect:
+        serializedVersion: 2
+        x: 522
+        y: 71
+        width: 55
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 758e0c38209a61dc0800000000000000
+      internalID: -3668559018181203881
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Asset_SonicImpactBurst_9
+      rect:
+        serializedVersion: 2
+        x: 586
+        y: 78
+        width: 10
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 995b83b10e52b3370800000000000000
+      internalID: 8303271982447244697
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Asset_SonicImpactBurst_10
+      rect:
+        serializedVersion: 2
+        x: 587
+        y: 104
+        width: 46
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 10d217fab273565e0800000000000000
+      internalID: -1917065405609726719
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Asset_SonicImpactBurst_11
+      rect:
+        serializedVersion: 2
+        x: 592
+        y: 80
+        width: 41
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8075608e811ae7a90800000000000000
+      internalID: -7314231616459090168
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Asset_SonicImpactBurst_12
+      rect:
+        serializedVersion: 2
+        x: 632
+        y: 104
+        width: 8
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 64c9814aa101249e0800000000000000
+      internalID: -1638729607801168826
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Asset_SonicImpactBurst_13
+      rect:
+        serializedVersion: 2
+        x: 595
+        y: 71
+        width: 28
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ad729b849eb451fc0800000000000000
+      internalID: -3524827668027988006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Asset_SonicImpactBurst_14
+      rect:
+        serializedVersion: 2
+        x: 622
+        y: 72
+        width: 18
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1a14a5d6480984e80800000000000000
+      internalID: -8194140623555903071
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Asset_SonicImpactBurst_15
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 16
+        width: 41
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 936e3bd38eab614f0800000000000000
+      internalID: -858293172337121735
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Asset_SonicImpactBurst_16
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 56
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 114a889e9f2d1f990800000000000000
+      internalID: -7353864745712573423
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Asset_SonicImpactBurst_17
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 43
+        width: 9
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e1363f79864241fe0800000000000000
+      internalID: -1219309567466052834
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Asset_SonicImpactBurst_18
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 6
+        width: 56
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a88378b0621ca9a80800000000000000
+      internalID: -8459236580915726198
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Asset_SonicImpactBurst_19
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 7
+        width: 24
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4a5049992ac3dd150800000000000000
+      internalID: 5898937755984201124
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Asset_SonicImpactBurst_20
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 44
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d96d9289ec0609c20800000000000000
+      internalID: 3211172974747571869
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Asset_SonicImpactBurst_21
+      rect:
+        serializedVersion: 2
+        x: 181
+        y: 32
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a53496e96d7aa4980800000000000000
+      internalID: -8553840002014297254
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Asset_SonicImpactBurst_22
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 6
+        width: 37
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fe1337bef8f04f810800000000000000
+      internalID: 1798079262032605679
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Asset_SonicImpactBurst_23
+      rect:
+        serializedVersion: 2
+        x: 312
+        y: 32
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9a9779451577361c0800000000000000
+      internalID: -4511631210499835479
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Asset_SonicImpactBurst_24
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 6
+        width: 32
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 11c51e7debeecd650800000000000000
+      internalID: 6259140085571214353
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Asset_SonicImpactBurst_25
+      rect:
+        serializedVersion: 2
+        x: 122
+        y: 17
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 232946dd646fc4c90800000000000000
+      internalID: -7184096521340284366
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Asset_SonicImpactBurst_26
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 21
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 69c5d435854d754d0800000000000000
+      internalID: -3145812338875212650
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Asset_SonicImpactBurst_27
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 20
+        width: 13
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 29c7951ca12ef3de0800000000000000
+      internalID: -1351112758646965102
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Asset_SonicImpactBurst_28
+      rect:
+        serializedVersion: 2
+        x: 273
+        y: 19
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5c262b5ffb71b4070800000000000000
+      internalID: 8091587268729529029
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Asset_SonicImpactBurst_29
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 18
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 47425b6aedbf86cf0800000000000000
+      internalID: -258680044875602828
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Asset_SonicImpactBurst_0: 6736597734981105092
+      Asset_SonicImpactBurst_1: -9120834446171312484
+      Asset_SonicImpactBurst_10: -1917065405609726719
+      Asset_SonicImpactBurst_11: -7314231616459090168
+      Asset_SonicImpactBurst_12: -1638729607801168826
+      Asset_SonicImpactBurst_13: -3524827668027988006
+      Asset_SonicImpactBurst_14: -8194140623555903071
+      Asset_SonicImpactBurst_15: -858293172337121735
+      Asset_SonicImpactBurst_16: -7353864745712573423
+      Asset_SonicImpactBurst_17: -1219309567466052834
+      Asset_SonicImpactBurst_18: -8459236580915726198
+      Asset_SonicImpactBurst_19: 5898937755984201124
+      Asset_SonicImpactBurst_2: -3908252026584301528
+      Asset_SonicImpactBurst_20: 3211172974747571869
+      Asset_SonicImpactBurst_21: -8553840002014297254
+      Asset_SonicImpactBurst_22: 1798079262032605679
+      Asset_SonicImpactBurst_23: -4511631210499835479
+      Asset_SonicImpactBurst_24: 6259140085571214353
+      Asset_SonicImpactBurst_25: -7184096521340284366
+      Asset_SonicImpactBurst_26: -3145812338875212650
+      Asset_SonicImpactBurst_27: -1351112758646965102
+      Asset_SonicImpactBurst_28: 8091587268729529029
+      Asset_SonicImpactBurst_29: -258680044875602828
+      Asset_SonicImpactBurst_3: -6446116518934351351
+      Asset_SonicImpactBurst_4: -2937802286163106157
+      Asset_SonicImpactBurst_5: -6285129336332394633
+      Asset_SonicImpactBurst_6: -8066995669111212433
+      Asset_SonicImpactBurst_7: -8170904699378467376
+      Asset_SonicImpactBurst_8: -3668559018181203881
+      Asset_SonicImpactBurst_9: 8303271982447244697
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

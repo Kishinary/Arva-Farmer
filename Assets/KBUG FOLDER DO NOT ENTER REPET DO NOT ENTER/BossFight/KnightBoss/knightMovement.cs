@@ -1,6 +1,7 @@
 ﻿using JetBrains.Annotations;
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using static knightMovement;
 
@@ -94,6 +95,11 @@ public class KnightPhase1State : KnightBaseState
             }
 
             boss.RegisterAttack();
+        }else if(combo.beatCount == 3) { }
+
+
+        if (combo.beatCount >= 4 && hitIndex == 0) {
+            boss.spikeBoomPerform(combo.beatCount);
         }
     }
     protected override void HandleBassCombo(BossCombo combo, int hitIndex)
@@ -111,6 +117,10 @@ public class KnightPhase1State : KnightBaseState
 
             boss.RegisterAttack();
         }
+        if (combo.beatCount >= 4 && hitIndex == 0)
+        {
+            boss.spikeBoomPerform(combo.beatCount);
+        }
     }
     protected override void HandleLowMidCombo(BossCombo combo, int hitIndex)
     {
@@ -118,14 +128,22 @@ public class KnightPhase1State : KnightBaseState
         {
             
         }
-       
+        if (combo.beatCount >= 4 && hitIndex == 0)
+        {
+            boss.spikeBoomPerform(combo.beatCount);
+        }
+
     }
     protected override void HandleHighMidCombo(BossCombo combo, int hitIndex)
     {
         if (combo.beatCount == 1)
         {
         }
-        
+        if (combo.beatCount >= 4 && hitIndex == 0)
+        {
+            boss.spikeBoomPerform(combo.beatCount);
+        }
+
     }
     protected override void HandleTrebleCombo(BossCombo combo, int hitIndex)
     {
@@ -231,6 +249,8 @@ public class knightMovement : MonoBehaviour
     [Header("SkillsPrefab")]
     public GameObject lightningStrike;
     public GameObject fireCirclePrefab;
+    public GameObject spikeBoomController;
+    public Transform[] spikeBoomPosition;
 
     [Header("Close Attack Management")]
     public float minCloseAttackCooldown = 5f;
@@ -411,6 +431,27 @@ public class knightMovement : MonoBehaviour
         Vector2 playerPos = player.transform.position;
         Vector2 spawnPos = MathUtility.GetRandomPositionAround(playerPos, maxLightningRadius, safeLightningRadius);
         GameObject newStrike = Instantiate(lightningStrike, spawnPos, Quaternion.identity);
+    }
+    //spikeBoom
+    //spikeBoomPosition
+    public void spikeBoomPerform(int numberOfSpikes)
+    {
+        if (numberOfSpikes > 3)
+        {
+            int actualSpikesToSpawn = Mathf.Min(numberOfSpikes, spikeBoomPosition.Length);
+            List<Transform> availablePoints = new List<Transform>(spikeBoomPosition);
+            for (int i = 0; i < actualSpikesToSpawn; i++)
+            {
+                int randomIndex = UnityEngine.Random.Range(0, availablePoints.Count);
+                Transform selectedPoint = availablePoints[randomIndex];
+
+                Instantiate(spikeBoomController, selectedPoint.position, Quaternion.identity);
+
+
+                availablePoints.RemoveAt(randomIndex);
+
+            }
+        }
     }
 
 

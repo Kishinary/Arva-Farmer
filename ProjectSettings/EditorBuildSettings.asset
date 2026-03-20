@@ -44,15 +44,43 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Dungeons/Dungeon2/Dungeon2-1.unity
     guid: 5cb7df2b52d266441b30640cf020be12
+<<<<<<< Updated upstream
   - enabled: 0
+=======
+  - enabled: 1
+    path: Assets/Scenes/Dungeons/Dungeon2/Dungeon2-2.unity
+    guid: 49e01859697f855489ccfefde3549456
+  - enabled: 1
+    path: Assets/Scenes/Dungeons/Dungeon2/Dungeon2-3.unity
+    guid: 9952c41e90a9dfd4aab9fa6afec1d7ec
+  - enabled: 1
+    path: Assets/Scenes/Dungeons/Dungeon2/Dungeon2-4.unity
+    guid: 8fa410c9a743f9f40bf99dabf89fd37f
+  - enabled: 1
+    path: Assets/Scenes/Dungeons/Dungeon2/Dungeon2-5.unity
+    guid: c59cf31af5b6b92439a1b8147a4f0a93
+  - enabled: 1
+>>>>>>> Stashed changes
     path: Assets/Scenes/Dungeons/Shop/Shop2.unity
     guid: cfb7213fccfef494392183c1ae72c16c
   - enabled: 1
     path: Assets/Scenes/Dungeons/Bosses/Boss2.unity
     guid: b02da1b4f30d6cc49be84eba8964b554
+<<<<<<< Updated upstream
   - enabled: 0
     path: Assets/Scenes/Dungeons/Dungeon2-4.unity
     guid: 4c156c39aa895584f863500492b01dc5
+=======
+  - enabled: 1
+    path: Assets/Scenes/Dungeons/Dungeon2/Dungeon2-6.unity
+    guid: 845afc179ee395d478c076b50b70d96e
+  - enabled: 1
+    path: Assets/Scenes/Dungeons/Dungeon2/Dungeon2-7.unity
+    guid: 96167613e8b30674eb901530f3cf279c
+  - enabled: 1
+    path: Assets/Scenes/Dungeons/Dungeon2/Dungeon2-8.unity
+    guid: 6094d25d71ebb214882f95f1a697df1a
+>>>>>>> Stashed changes
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

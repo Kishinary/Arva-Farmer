@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-using System.Collections.Generic; // Required for HashSet
+using System.Collections.Generic;
 
 public class Scissors : MonoBehaviour, IWeapon
 {
@@ -23,11 +23,9 @@ public class Scissors : MonoBehaviour, IWeapon
     [Header("Combat")]
     public float damage = 10f;
     public LayerMask enemyLayer;
-    public float hitRadius = 1f; // Updated to 1 as requested
+    public float hitRadius = 1f;
 
     private Vector3 originalLocalPos;
-
-    // This list tracks who we already hit during the current thrust
     private HashSet<GameObject> alreadyHit = new HashSet<GameObject>();
 
     [Header("Effect")]
@@ -52,7 +50,8 @@ public class Scissors : MonoBehaviour, IWeapon
         {
             animator.SetTrigger("Thrust");
             nextAttackTime = Time.time + attackCooldown;
-            StartCoroutine(ThrustRoutine(1f)); // Damage multiplier 1x
+            // 1f damage, 1f distance (Full Lunge)
+            StartCoroutine(ThrustRoutine(1f, 1f));
             return true;
         }
         return false;
@@ -64,40 +63,43 @@ public class Scissors : MonoBehaviour, IWeapon
         {
             animator.SetTrigger("Thrust");
             nextNormalAttackTime = Time.time + NormalattackCooldown;
-            StartCoroutine(ThrustRoutine(2f)); // Damage multiplier 2x
+            // 2f damage, 0.15f distance (Short Poke)
+            StartCoroutine(ThrustRoutine(2f, 0.15f));
             return true;
         }
         return false;
     }
 
-    // Unified Coroutine for both attacks
-    IEnumerator ThrustRoutine(float damageMult)
+    IEnumerator ThrustRoutine(float damageMult, float distMult)
     {
-        alreadyHit.Clear(); // Reset hit list at start of attack
+        alreadyHit.Clear();
         if (line != null) line.enabled = true;
 
+        float targetDist = thrustDistance * distMult;
         float timer = 0f;
+
+        // --- FORWARD PHASE ---
         while (timer < attackDuration)
         {
             timer += Time.deltaTime;
             float percent = timer / attackDuration;
 
-            // Move Scissors forward
-            transform.localPosition = originalLocalPos + Vector3.right * (thrustDistance * percent);
+            // Apply the distance multiplier here
+            transform.localPosition = originalLocalPos + Vector3.right * (targetDist * percent);
 
-            // HITBOX CHECK: Scan for enemies around the scissors every frame
             CheckForHits(damageMult);
-
             yield return null;
         }
 
-        // Return logic
+        // --- RETURN PHASE ---
         timer = 0f;
         while (timer < returnDuration)
         {
             timer += Time.deltaTime;
             float percent = timer / returnDuration;
-            transform.localPosition = Vector3.Lerp(originalLocalPos + Vector3.right * thrustDistance, originalLocalPos, percent);
+
+            // Smoothly return from the actual distance reached
+            transform.localPosition = Vector3.Lerp(originalLocalPos + Vector3.right * targetDist, originalLocalPos, percent);
             yield return null;
         }
 
@@ -107,19 +109,17 @@ public class Scissors : MonoBehaviour, IWeapon
 
     private void CheckForHits(float multiplier)
     {
-        // Snapshot of everything within 1 unit of the scissors
         Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, hitRadius, enemyLayer);
 
         foreach (Collider2D hit in hits)
         {
-            // Only damage if we haven't hit this specific enemy in this thrust yet
             if (!alreadyHit.Contains(hit.gameObject))
             {
                 EnemyStats stats = hit.GetComponent<EnemyStats>();
                 if (stats != null)
                 {
                     stats.TakeDamage(transform.position, GetFinalDamage() * multiplier);
-                    alreadyHit.Add(hit.gameObject); // Mark as hit
+                    alreadyHit.Add(hit.gameObject);
                 }
             }
         }

@@ -104,7 +104,12 @@ public class KnightPhase1State : KnightBaseState
 
 
         if (combo.beatCount >= 4 && hitIndex == 0) {
+            
             boss.spikeBoomPerform(combo.beatCount);
+        }
+        if(combo.beatCount == 5 && hitIndex == 0)
+        {
+            boss.SummonEnemiesPerform(combo.beatCount);
         }
     }
     protected override void HandleBassCombo(BossCombo combo, int hitIndex)
@@ -126,6 +131,10 @@ public class KnightPhase1State : KnightBaseState
         {
             boss.spikeBoomPerform(combo.beatCount);
         }
+        if (combo.beatCount == 5 && hitIndex == 0)
+        {
+            boss.SummonEnemiesPerform(combo.beatCount);
+        }
     }
     protected override void HandleLowMidCombo(BossCombo combo, int hitIndex)
     {
@@ -136,6 +145,10 @@ public class KnightPhase1State : KnightBaseState
         if (combo.beatCount >= 4 && hitIndex == 0)
         {
             boss.spikeBoomPerform(combo.beatCount);
+        }
+        if (combo.beatCount == 5 && hitIndex == 0)
+        {
+            boss.SummonEnemiesPerform(combo.beatCount);
         }
 
     }
@@ -285,6 +298,10 @@ public class knightMovement : MonoBehaviour
     private Vector3 originalScale;
     public SpriteRenderer scaleByBeatBoss;
 
+    [Header("Summon Enemies Settings")]
+    public GameObject[] enemyPrefabs;      
+    public Transform[] summonPositions;
+
     private void Awake()
     {
         if(rb == null) rb = GetComponent<Rigidbody2D>();
@@ -327,7 +344,35 @@ public class knightMovement : MonoBehaviour
         targetTransform.localScale = originalScale * scaleMultiplier;
     }
 
+    public void SummonEnemiesPerform(int numberOfEnemies)
+    {
+        // Kiểm tra an toàn xem có mảng nào bị trống không
+        if (enemyPrefabs == null || enemyPrefabs.Length == 0) return;
+        if (summonPositions == null || summonPositions.Length == 0) return;
 
+        // Giới hạn số lượng quái gọi ra tối đa bằng số lượng vị trí đang có
+        int actualEnemiesToSpawn = Mathf.Min(numberOfEnemies, summonPositions.Length);
+
+        // Tạo một list tạm thời từ mảng vị trí để rút dần
+        List<Transform> availablePoints = new List<Transform>(summonPositions);
+
+        for (int i = 0; i < actualEnemiesToSpawn; i++)
+        {
+            // 1. Chọn ngẫu nhiên 1 vị trí
+            int randomPosIndex = UnityEngine.Random.Range(0, availablePoints.Count);
+            Transform selectedPoint = availablePoints[randomPosIndex];
+
+            // 2. Chọn ngẫu nhiên 1 loại quái trong mảng enemyPrefabs
+            int randomEnemyIndex = UnityEngine.Random.Range(0, enemyPrefabs.Length);
+            GameObject enemyToSpawn = enemyPrefabs[randomEnemyIndex];
+
+            // 3. Summon quái ra vị trí đó
+            Instantiate(enemyToSpawn, selectedPoint.position, Quaternion.identity);
+
+            // 4. Xóa vị trí này khỏi list để quái sau không bị spawn đè lên
+            availablePoints.RemoveAt(randomPosIndex);
+        }
+    }
 
 
 

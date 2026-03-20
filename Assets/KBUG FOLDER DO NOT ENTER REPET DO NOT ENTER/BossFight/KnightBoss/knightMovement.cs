@@ -45,21 +45,21 @@ public class KnightPhase1State : KnightBaseState
     public KnightPhase1State(knightMovement boss) : base(boss) { }
     public override void EnterState()
     {
-        boss.moveSpeed = 0.5f;
+        boss.moveSpeed = 4f;
+        boss.ResetCloseAttackCooldown();
 
     }
     public override void UpdateState()
     {
         if (boss.isActionLocked) return;
-        float distanceToPlayer = Vector2.Distance(boss.transform.position, boss.player.transform.position);
 
-        // Kích hoạt Close Attack nếu đủ gần và chưa bắt đầu chuỗi
-        if (distanceToPlayer <= closeAttackRange && !isExecutingCloseAttack)
+        boss.UpdateCombatCooldowns(); 
+
+        if (boss.CanExecuteCloseAttack())
         {
-            StartCloseAttackSequence();
+            boss.StartCloseAttackSequence(); 
         }
-        // Chỉ đuổi theo Player khi KHÔNG TRONG CHUỖI CẬN CHIẾN
-        else if (!isExecutingCloseAttack)
+        else if (!boss.isExecutingCloseAttack)
         {
             boss.ChasePlayer();
         }
@@ -70,17 +70,17 @@ public class KnightPhase1State : KnightBaseState
     {
         if (combo.beatCount == 1)
         {
-            /*switch (boss.currentLongRangeStance)
+            switch (boss.currentLongRangeStance)
             {
                 case BossStance.LightningFocus:
                     boss.lightningStrikePerform();
                     break;
 
-                
+
             }
 
-            boss.RegisterAttack();*/
-            
+            boss.RegisterAttack();
+
         }
         else if(combo.beatCount == 2)
         {
@@ -118,32 +118,19 @@ public class KnightPhase1State : KnightBaseState
         {
             
         }
+       
     }
     protected override void HandleHighMidCombo(BossCombo combo, int hitIndex)
     {
         if (combo.beatCount == 1)
         {
         }
+        
     }
     protected override void HandleTrebleCombo(BossCombo combo, int hitIndex)
     {
 
-        if (isExecutingCloseAttack)
-        {
-            Debug.Log("take");
-            // Mỗi nhịp Treble đánh xuống, tăng bước và xuất chiêu
-            currentCloseAttackStep++;
-            boss.ExecuteCloseAttackStrike(currentCloseAttackStep);
-
-            // Hoàn thành 5 nhịp -> Kết thúc chuỗi
-            if (currentCloseAttackStep >= maxCloseAttackSteps)
-            {
-                EndCloseAttackSequence();
-            }
-
-            // Lệnh return RẤT QUAN TRỌNG: Ngăn không cho code chạy xuống nhánh B
-            
-        }
+        
 
         if (combo.beatCount == 1)
         {
@@ -163,39 +150,29 @@ public class KnightPhase1State : KnightBaseState
 
 
         }
-        
+        if (boss.isExecutingCloseAttack)
+        {
+            boss.ProgressCloseAttackStep();
+        }
+
 
     }
-    private readonly float closeAttackRange = 3f;
-    private bool isExecutingCloseAttack = false;
-    private int currentCloseAttackStep = 0;
-    private readonly int maxCloseAttackSteps = 5;
-    public void StartCloseAttackSequence()
-    {
-        isExecutingCloseAttack = true;
-        currentCloseAttackStep = 0;
 
-        // Khóa Boss lại để không bị ChasePlayer() làm trượt đi khi đang chém
-        
-        boss.SetMovementDirection(Vector2.zero);
+ 
+    
 
-        Debug.Log(">>> Bắt đầu chuỗi Close Attack 5 nhịp! <<<");
-    }
+    
 
-    private void EndCloseAttackSequence()
-    {
-        isExecutingCloseAttack = false;
-        currentCloseAttackStep = 0;
-        
-        //boss.RegisterAttack();
-
-        Debug.Log(">>> Kết thúc chuỗi Close Attack! <<<");
-    }
+    
 
     public override void ExitState()
     {
+
         boss.SetMovementDirection(Vector2.zero);
-        isExecutingCloseAttack = false;
+        if (boss.isExecutingCloseAttack)
+        {
+            boss.EndCloseAttackSequence(); 
+        }
     }
 
     
@@ -254,6 +231,14 @@ public class knightMovement : MonoBehaviour
     [Header("SkillsPrefab")]
     public GameObject lightningStrike;
     public GameObject fireCirclePrefab;
+
+    [Header("Close Attack Management")]
+    public float minCloseAttackCooldown = 5f;
+    public float maxCloseAttackCooldown = 10f;
+
+    public int maxCloseAttackSteps = 5;
+    public bool isExecutingCloseAttack { get; private set; }
+    public int currentCloseAttackStep { get; private set; }
 
 
     private void Awake()
@@ -359,6 +344,18 @@ public class knightMovement : MonoBehaviour
 
     private int targetAttackCount;
     private int currentAttackCount;
+
+    private float closeAttackTimer = 0f;
+
+    public void UpdateCombatCooldowns()
+    {
+        if (closeAttackTimer > 0)
+        {
+            closeAttackTimer -= Time.deltaTime;
+        }
+    }
+
+
     public enum BossStance
     {
         LightningFocus,
@@ -416,35 +413,87 @@ public class knightMovement : MonoBehaviour
         GameObject newStrike = Instantiate(lightningStrike, spawnPos, Quaternion.identity);
     }
 
+
+    public void ResetCloseAttackCooldown()
+    {
+        
+        closeAttackTimer = UnityEngine.Random.Range(minCloseAttackCooldown, maxCloseAttackCooldown);
+        Debug.Log($"New cooldown {closeAttackTimer:F2} seconds!");
+    }
+    public enum CloseAttackType
+    {
+        SuperBoost,
+        //HeavyCleave
+    }
+    private CloseAttackType currentCloseAttackType = CloseAttackType.SuperBoost;
+    public bool CanExecuteCloseAttack()
+    {
+        return !isExecutingCloseAttack && closeAttackTimer <= 0f;
+    }
+    public void StartCloseAttackSequence()
+    {
+        isExecutingCloseAttack = true;
+        currentCloseAttackStep = 0;
+
+        SetMovementDirection(Vector2.zero); 
+        Debug.Log("Start Close Attack");
+    }
+    public void ProgressCloseAttackStep()
+    {
+        currentCloseAttackStep++;
+
+        ExecuteCloseAttackStrike(currentCloseAttackStep);
+
+        if (currentCloseAttackStep >= maxCloseAttackSteps)
+        {
+            EndCloseAttackSequence();
+        }
+    }
+    public void EndCloseAttackSequence()
+    {
+        isExecutingCloseAttack = false;
+        currentCloseAttackStep = 0;
+        ResetCloseAttackCooldown(); 
+
+        Debug.Log($"Attack end!");
+    }
     public void ExecuteCloseAttackStrike(int step)
     {
         Vector2 directionToPlayer = ((Vector2)player.transform.position - (Vector2)transform.position).normalized;
-        switch (step)
-        {
-            case 1:
-                Debug.Log("Superboost 1");
-                break;
-            case 2:
-                Debug.Log("SuperBoost 2");
-                break;
-            case 3:
-                Debug.Log("SuperBoost 3");
-                break;
-            case 4:
-                Debug.Log("SuperBoost 4");
-                break;
 
-            case 5:
-               
-                Debug.Log("Close Attack: Đòn kết liễu nhịp 5!");
-             
+        switch (currentCloseAttackType)
+        {
+            case CloseAttackType.SuperBoost:
+                PerformSuperBoostCombo(step, directionToPlayer);
                 break;
+            /*case CloseAttackType.HeavyCleave:
+                Debug.Log("HeavyCleave");
+                break;*/
         }
     }
 
+    private void PerformSuperBoostCombo(int step, Vector2 direction)
+    {
+        switch (step)
+        {
+            case 1: Debug.Log("test 1"); break;
+            case 2: Debug.Log("test 2"); break;
+            case 3: Debug.Log("test 3"); break;
+            case 4:
+                Debug.Log("test 4");
+                break;
 
-
-
+            case 5:
+                Debug.Log("test 5");
+                RandomizeNextCloseAttack();
+                break;
+        }
+    }
+    private void RandomizeNextCloseAttack()
+    {
+        Array values = Enum.GetValues(typeof(CloseAttackType));
+        currentCloseAttackType = (CloseAttackType)values.GetValue(UnityEngine.Random.Range(0, values.Length));
+    }
 
 
 }

@@ -9,6 +9,6 @@
                 </ui:VisualElement>
             </ui:VisualElement>
         </ui:VisualElement>
-        <ui:Label name="BossName" text="Knight Monkey" class="boss-name" />
+        <ui:Label name="BossName" text="THE Knight" class="boss-name" />
     </ui:VisualElement>
 </ui:UXML>

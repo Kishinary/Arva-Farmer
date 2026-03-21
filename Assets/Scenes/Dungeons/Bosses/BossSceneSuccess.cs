@@ -25,8 +25,16 @@ public class BossSceneSuccess : MonoBehaviour
             {
                 going = true;
                 goable = false;
-                Instantiate(nahh, YesGameObject.transform.position, Quaternion.identity);
-                Destroy(YesGameObject);
+                if (SceneManager.GetActiveScene().name == "Boss2")
+                {
+                    SceneController.Instance.NextScene("Lobby", true);
+
+                }
+                else
+                {
+                    Instantiate(nahh, YesGameObject.transform.position, Quaternion.identity);
+                    Destroy(YesGameObject);
+                }
             }
         }
     }

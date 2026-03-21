@@ -298,7 +298,7 @@ public class BossPhase2State : BossBaseState
     public BossPhase2State(BossMovement boss) : base(boss) { }
     public override void EnterState()
     {
-        boss.enemyStats.health = boss.enemyStats.maxHealth; // Reset health to threshold for phase 2
+        boss.enemyStats.health = 2000f; // Reset health to threshold for phase 2
         boss.moveSpeed = 2f; // Increase speed for phase 2
         GameObject newAura = GameObject.Instantiate(boss.auraBoss, boss.spriteTransform.position, Quaternion.identity);
         newAura.transform.SetParent(boss.spriteTransform); // Make the aura a child of the boss so it moves with it

@@ -77,17 +77,8 @@ public class PlayerHealth : MonoBehaviour
     // 3. Kiểm tra nếu hết máu thì chạy chuỗi hành động chết
     if (_currentHealth <= 0)
     {
-        string currentSceneName = SceneManager.GetActiveScene().name;
-        if (currentSceneName == "Dungeon2-4"){
             StartCoroutine(DeathSequence());
-            SceneController.Instance.NextScene("Dungeon2-4", true);
-            Time.timeScale = 1f;
-            _currentHealth = maxHealth;
-            OnHealthChanged?.Invoke(_currentHealth, maxHealth);
-        }else{
-        StartCoroutine(DeathSequence());
         }
-    }
     }
 
 // Hàm xử lý riêng cho việc chết và chuyển cảnh
@@ -97,12 +88,12 @@ public class PlayerHealth : MonoBehaviour
     
     // Đóng băng thời gian
     Time.timeScale = 0f;
-    CineZoom.instance.ZoomIn(transform.position, 1f);
+    
     anim.SetTrigger("Die");
     yield return new WaitForSecondsRealtime(1f);
     if (SceneManager.GetActiveScene().name == "Boss" || SceneManager.GetActiveScene().name == "Boss2")
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            SceneController.Instance.NextScene("Boss", true);
         }
     else
         {

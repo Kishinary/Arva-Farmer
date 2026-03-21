@@ -42,7 +42,7 @@ public class BossSceneSuccess : MonoBehaviour
     {
         if (going && collision.gameObject.GetComponent<PlayerMovement>())
         {
-            SceneManager.LoadScene("Dungeon2-1");
+           SceneController.Instance.NextScene("Dungeon2-1", true);
         }
     }
 
